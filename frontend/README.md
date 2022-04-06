@@ -1,40 +1,42 @@
-# create-svelte
+# Frontend Application
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This is the frontend part of the Turning Point learning program.
+It is built using [SvelteKit](https://kit.svelte.dev/).
 
-## Creating a project
+## Installing the Application Locally
 
-If you're seeing this, you've probably already done this step. Congrats!
+To install the application locally, run the following commands:
 
-```bash
-# create a new project in the current directory
-npm init svelte@next
+1. Clone the repo: `git clone https://github.com/TurningPointChatbot/counseling-training-chatbot.git`
+2. Move into the counseling-training-chatbot directory: `cd counseling-training-chatbot`
+3. Move into the frontend directory: `cd frontend`
+4. Install all dependencies: `npm install`
 
-# create a new project in my-app
-npm init svelte@next my-app
-```
+## Running the Application Locally
 
-> Note: the `@next` is temporary
+You can run the application locally by navigating to the frontend directory and using the command `npm run dev`.
+This will serve the application on your computer at [http://localhost:3000/](http://localhost:3000/).
 
-## Developing
+Any changes you make to files while the dev server is running will be automatically applied, so no need to restart the server each time.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Other Useful Scripts
 
-```bash
-npm run dev
+There are several other scripts configured:
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+### Testing
 
-## Building
+- `npm run test` will run the test suite on the application.np
+- `npm run test:watch` will run the test suite in watch mode. Whenever you make changes to the code, the test suite will be rerun automatically.
+- `npm run test:coverage` will run the test suite, and will also perform coverage testing. A coverage report will be displayed in the terminal, and will also be available in the coverage directory.
 
-To create a production version of your app:
+### Building
 
-```bash
-npm run build
-```
+- `npm run build` will create a production build located in the .svelte-kit/output/ directory.
+- `npm run preview` will then serve the above created build locally, again at [http://localhost:3000/](http://localhost:3000/).
 
-You can preview the production build with `npm run preview`.
+### Formatting/Linting
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- `npm run check` checks that the application has no errors related to typescript, and will provide errors, warnings, and hints.
+- `npm run check:watch` checks for typescript errors in watch mode. Whenever you make changes to the code, the command will be run again.
+- `npm run lint` uses eslint to check for any potential static errors in the code (i.e. typos, missing import statements, etc).
+- `npm run format` uses Prettier to format all code in the code base to the configured standard.
