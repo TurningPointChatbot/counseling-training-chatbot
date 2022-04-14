@@ -1,40 +1,38 @@
-# create-svelte
-
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm init svelte@next
-
-# create a new project in my-app
-npm init svelte@next my-app
-```
-
-> Note: the `@next` is temporary
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+# General Readme
+ 
+## **JavaScript Standard Styles:**
+ 
+This is the standard Javascript conventions. It only include highlights that are not covered by [Prettier](https://prettier.io/docs/en/options.html).
+ 
+- For var declarations: write each declaration in its own statement.
+    - correct:
+    > var silent = true
+    - wrong:
+    > var silent = true, verbose = true
+- Use **camelcase** while naming variables and functions:
+    > function thisFunction () { }
+    > <br> var myVar = 'Yes'
+- Constructor names must begin with capital letter
+    > function Person () {}
+    > <br>var human = new Person()
+- Objects must contain getter when setter is defined:
+    >var person = {
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;set name (value) {
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;this._name = value
+  <br>},
+  <br>get name () {        
+    &nbsp;&nbsp;&nbsp;&nbsp;return this._name
+  <br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>}
+- Do not modify variables of class declarations:
+    > class Dog {}
+    <br>Dog = 'Fido'
+- Use single import statement per module:
+    >import { myFunc1, myFunc2 } from 'module'
+- No octal literals:
+    - correct:
+    > const octalString = '042'
+    -   wrong:
+    > const octal = 042
+- Use isNaN() when checking for Nan:
+    > if(isNaN(value)) { }
