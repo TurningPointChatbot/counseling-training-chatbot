@@ -4,7 +4,7 @@
  */
 
 export interface paths {
-  "/": {
+  '/': {
     get: {
       responses: {
         /** OK */
@@ -12,44 +12,44 @@ export interface paths {
       };
     };
   };
-  "/chatbot_assignment": {
+  '/chatbot_assignment': {
     get: {
       parameters: {
         query: {
           /** Chatbot module id number */
-          cm_id?: parameters["rowFilter.chatbot_assignment.cm_id"];
+          cm_id?: parameters['rowFilter.chatbot_assignment.cm_id'];
           /** User's id number */
-          user_id?: parameters["rowFilter.chatbot_assignment.user_id"];
+          user_id?: parameters['rowFilter.chatbot_assignment.user_id'];
           /** Due date of the assignment */
-          duedate?: parameters["rowFilter.chatbot_assignment.duedate"];
+          duedate?: parameters['rowFilter.chatbot_assignment.duedate'];
           /** Date and time the assignment was completed */
-          completed_at?: parameters["rowFilter.chatbot_assignment.completed_at"];
+          completed_at?: parameters['rowFilter.chatbot_assignment.completed_at'];
           /** Whether or not this assignment has been completed */
-          completed?: parameters["rowFilter.chatbot_assignment.completed"];
+          completed?: parameters['rowFilter.chatbot_assignment.completed'];
           /** Creation date and time of this assignment */
-          created_at?: parameters["rowFilter.chatbot_assignment.created_at"];
+          created_at?: parameters['rowFilter.chatbot_assignment.created_at'];
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
           /** Ordering */
-          order?: parameters["order"];
+          order?: parameters['order'];
           /** Limiting and Pagination */
-          offset?: parameters["offset"];
+          offset?: parameters['offset'];
           /** Limiting and Pagination */
-          limit?: parameters["limit"];
+          limit?: parameters['limit'];
         };
         header: {
           /** Limiting and Pagination */
-          Range?: parameters["range"];
+          Range?: parameters['range'];
           /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
+          'Range-Unit'?: parameters['rangeUnit'];
           /** Preference */
-          Prefer?: parameters["preferCount"];
+          Prefer?: parameters['preferCount'];
         };
       };
       responses: {
         /** OK */
         200: {
-          schema: definitions["chatbot_assignment"][];
+          schema: definitions['chatbot_assignment'][];
         };
         /** Partial Content */
         206: unknown;
@@ -59,15 +59,15 @@ export interface paths {
       parameters: {
         body: {
           /** chatbot_assignment */
-          chatbot_assignment?: definitions["chatbot_assignment"];
+          chatbot_assignment?: definitions['chatbot_assignment'];
         };
         query: {
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -79,21 +79,21 @@ export interface paths {
       parameters: {
         query: {
           /** Chatbot module id number */
-          cm_id?: parameters["rowFilter.chatbot_assignment.cm_id"];
+          cm_id?: parameters['rowFilter.chatbot_assignment.cm_id'];
           /** User's id number */
-          user_id?: parameters["rowFilter.chatbot_assignment.user_id"];
+          user_id?: parameters['rowFilter.chatbot_assignment.user_id'];
           /** Due date of the assignment */
-          duedate?: parameters["rowFilter.chatbot_assignment.duedate"];
+          duedate?: parameters['rowFilter.chatbot_assignment.duedate'];
           /** Date and time the assignment was completed */
-          completed_at?: parameters["rowFilter.chatbot_assignment.completed_at"];
+          completed_at?: parameters['rowFilter.chatbot_assignment.completed_at'];
           /** Whether or not this assignment has been completed */
-          completed?: parameters["rowFilter.chatbot_assignment.completed"];
+          completed?: parameters['rowFilter.chatbot_assignment.completed'];
           /** Creation date and time of this assignment */
-          created_at?: parameters["rowFilter.chatbot_assignment.created_at"];
+          created_at?: parameters['rowFilter.chatbot_assignment.created_at'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -105,25 +105,25 @@ export interface paths {
       parameters: {
         query: {
           /** Chatbot module id number */
-          cm_id?: parameters["rowFilter.chatbot_assignment.cm_id"];
+          cm_id?: parameters['rowFilter.chatbot_assignment.cm_id'];
           /** User's id number */
-          user_id?: parameters["rowFilter.chatbot_assignment.user_id"];
+          user_id?: parameters['rowFilter.chatbot_assignment.user_id'];
           /** Due date of the assignment */
-          duedate?: parameters["rowFilter.chatbot_assignment.duedate"];
+          duedate?: parameters['rowFilter.chatbot_assignment.duedate'];
           /** Date and time the assignment was completed */
-          completed_at?: parameters["rowFilter.chatbot_assignment.completed_at"];
+          completed_at?: parameters['rowFilter.chatbot_assignment.completed_at'];
           /** Whether or not this assignment has been completed */
-          completed?: parameters["rowFilter.chatbot_assignment.completed"];
+          completed?: parameters['rowFilter.chatbot_assignment.completed'];
           /** Creation date and time of this assignment */
-          created_at?: parameters["rowFilter.chatbot_assignment.created_at"];
+          created_at?: parameters['rowFilter.chatbot_assignment.created_at'];
         };
         body: {
           /** chatbot_assignment */
-          chatbot_assignment?: definitions["chatbot_assignment"];
+          chatbot_assignment?: definitions['chatbot_assignment'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -132,41 +132,41 @@ export interface paths {
       };
     };
   };
-  "/chatbot_attempt": {
+  '/chatbot_attempt': {
     get: {
       parameters: {
         query: {
           /** User id number */
-          user_id?: parameters["rowFilter.chatbot_attempt.user_id"];
+          user_id?: parameters['rowFilter.chatbot_attempt.user_id'];
           /** Start date and time of a chatbot attempt */
-          started_at?: parameters["rowFilter.chatbot_attempt.started_at"];
+          started_at?: parameters['rowFilter.chatbot_attempt.started_at'];
           /** Chatbot module id number */
-          cm_id?: parameters["rowFilter.chatbot_attempt.cm_id"];
-          completed?: parameters["rowFilter.chatbot_attempt.completed"];
-          completed_at?: parameters["rowFilter.chatbot_attempt.completed_at"];
-          id?: parameters["rowFilter.chatbot_attempt.id"];
+          cm_id?: parameters['rowFilter.chatbot_attempt.cm_id'];
+          completed?: parameters['rowFilter.chatbot_attempt.completed'];
+          completed_at?: parameters['rowFilter.chatbot_attempt.completed_at'];
+          id?: parameters['rowFilter.chatbot_attempt.id'];
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
           /** Ordering */
-          order?: parameters["order"];
+          order?: parameters['order'];
           /** Limiting and Pagination */
-          offset?: parameters["offset"];
+          offset?: parameters['offset'];
           /** Limiting and Pagination */
-          limit?: parameters["limit"];
+          limit?: parameters['limit'];
         };
         header: {
           /** Limiting and Pagination */
-          Range?: parameters["range"];
+          Range?: parameters['range'];
           /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
+          'Range-Unit'?: parameters['rangeUnit'];
           /** Preference */
-          Prefer?: parameters["preferCount"];
+          Prefer?: parameters['preferCount'];
         };
       };
       responses: {
         /** OK */
         200: {
-          schema: definitions["chatbot_attempt"][];
+          schema: definitions['chatbot_attempt'][];
         };
         /** Partial Content */
         206: unknown;
@@ -176,15 +176,15 @@ export interface paths {
       parameters: {
         body: {
           /** chatbot_attempt */
-          chatbot_attempt?: definitions["chatbot_attempt"];
+          chatbot_attempt?: definitions['chatbot_attempt'];
         };
         query: {
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -196,18 +196,18 @@ export interface paths {
       parameters: {
         query: {
           /** User id number */
-          user_id?: parameters["rowFilter.chatbot_attempt.user_id"];
+          user_id?: parameters['rowFilter.chatbot_attempt.user_id'];
           /** Start date and time of a chatbot attempt */
-          started_at?: parameters["rowFilter.chatbot_attempt.started_at"];
+          started_at?: parameters['rowFilter.chatbot_attempt.started_at'];
           /** Chatbot module id number */
-          cm_id?: parameters["rowFilter.chatbot_attempt.cm_id"];
-          completed?: parameters["rowFilter.chatbot_attempt.completed"];
-          completed_at?: parameters["rowFilter.chatbot_attempt.completed_at"];
-          id?: parameters["rowFilter.chatbot_attempt.id"];
+          cm_id?: parameters['rowFilter.chatbot_attempt.cm_id'];
+          completed?: parameters['rowFilter.chatbot_attempt.completed'];
+          completed_at?: parameters['rowFilter.chatbot_attempt.completed_at'];
+          id?: parameters['rowFilter.chatbot_attempt.id'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -219,22 +219,22 @@ export interface paths {
       parameters: {
         query: {
           /** User id number */
-          user_id?: parameters["rowFilter.chatbot_attempt.user_id"];
+          user_id?: parameters['rowFilter.chatbot_attempt.user_id'];
           /** Start date and time of a chatbot attempt */
-          started_at?: parameters["rowFilter.chatbot_attempt.started_at"];
+          started_at?: parameters['rowFilter.chatbot_attempt.started_at'];
           /** Chatbot module id number */
-          cm_id?: parameters["rowFilter.chatbot_attempt.cm_id"];
-          completed?: parameters["rowFilter.chatbot_attempt.completed"];
-          completed_at?: parameters["rowFilter.chatbot_attempt.completed_at"];
-          id?: parameters["rowFilter.chatbot_attempt.id"];
+          cm_id?: parameters['rowFilter.chatbot_attempt.cm_id'];
+          completed?: parameters['rowFilter.chatbot_attempt.completed'];
+          completed_at?: parameters['rowFilter.chatbot_attempt.completed_at'];
+          id?: parameters['rowFilter.chatbot_attempt.id'];
         };
         body: {
           /** chatbot_attempt */
-          chatbot_attempt?: definitions["chatbot_attempt"];
+          chatbot_attempt?: definitions['chatbot_attempt'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -243,38 +243,38 @@ export interface paths {
       };
     };
   };
-  "/chatbot_attempt_message": {
+  '/chatbot_attempt_message': {
     get: {
       parameters: {
         query: {
           /** Chatbot module attempt id number */
-          attempt_id?: parameters["rowFilter.chatbot_attempt_message.attempt_id"];
+          attempt_id?: parameters['rowFilter.chatbot_attempt_message.attempt_id'];
           /** Date and time the message was sent at */
-          created_at?: parameters["rowFilter.chatbot_attempt_message.created_at"];
+          created_at?: parameters['rowFilter.chatbot_attempt_message.created_at'];
           /** Content of the message */
-          text?: parameters["rowFilter.chatbot_attempt_message.text"];
+          text?: parameters['rowFilter.chatbot_attempt_message.text'];
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
           /** Ordering */
-          order?: parameters["order"];
+          order?: parameters['order'];
           /** Limiting and Pagination */
-          offset?: parameters["offset"];
+          offset?: parameters['offset'];
           /** Limiting and Pagination */
-          limit?: parameters["limit"];
+          limit?: parameters['limit'];
         };
         header: {
           /** Limiting and Pagination */
-          Range?: parameters["range"];
+          Range?: parameters['range'];
           /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
+          'Range-Unit'?: parameters['rangeUnit'];
           /** Preference */
-          Prefer?: parameters["preferCount"];
+          Prefer?: parameters['preferCount'];
         };
       };
       responses: {
         /** OK */
         200: {
-          schema: definitions["chatbot_attempt_message"][];
+          schema: definitions['chatbot_attempt_message'][];
         };
         /** Partial Content */
         206: unknown;
@@ -284,15 +284,15 @@ export interface paths {
       parameters: {
         body: {
           /** chatbot_attempt_message */
-          chatbot_attempt_message?: definitions["chatbot_attempt_message"];
+          chatbot_attempt_message?: definitions['chatbot_attempt_message'];
         };
         query: {
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -304,15 +304,15 @@ export interface paths {
       parameters: {
         query: {
           /** Chatbot module attempt id number */
-          attempt_id?: parameters["rowFilter.chatbot_attempt_message.attempt_id"];
+          attempt_id?: parameters['rowFilter.chatbot_attempt_message.attempt_id'];
           /** Date and time the message was sent at */
-          created_at?: parameters["rowFilter.chatbot_attempt_message.created_at"];
+          created_at?: parameters['rowFilter.chatbot_attempt_message.created_at'];
           /** Content of the message */
-          text?: parameters["rowFilter.chatbot_attempt_message.text"];
+          text?: parameters['rowFilter.chatbot_attempt_message.text'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -324,19 +324,19 @@ export interface paths {
       parameters: {
         query: {
           /** Chatbot module attempt id number */
-          attempt_id?: parameters["rowFilter.chatbot_attempt_message.attempt_id"];
+          attempt_id?: parameters['rowFilter.chatbot_attempt_message.attempt_id'];
           /** Date and time the message was sent at */
-          created_at?: parameters["rowFilter.chatbot_attempt_message.created_at"];
+          created_at?: parameters['rowFilter.chatbot_attempt_message.created_at'];
           /** Content of the message */
-          text?: parameters["rowFilter.chatbot_attempt_message.text"];
+          text?: parameters['rowFilter.chatbot_attempt_message.text'];
         };
         body: {
           /** chatbot_attempt_message */
-          chatbot_attempt_message?: definitions["chatbot_attempt_message"];
+          chatbot_attempt_message?: definitions['chatbot_attempt_message'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -345,34 +345,34 @@ export interface paths {
       };
     };
   };
-  "/chatbot_module": {
+  '/chatbot_module': {
     get: {
       parameters: {
         query: {
           /** Chatbot module id number */
-          id?: parameters["rowFilter.chatbot_module.id"];
+          id?: parameters['rowFilter.chatbot_module.id'];
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
           /** Ordering */
-          order?: parameters["order"];
+          order?: parameters['order'];
           /** Limiting and Pagination */
-          offset?: parameters["offset"];
+          offset?: parameters['offset'];
           /** Limiting and Pagination */
-          limit?: parameters["limit"];
+          limit?: parameters['limit'];
         };
         header: {
           /** Limiting and Pagination */
-          Range?: parameters["range"];
+          Range?: parameters['range'];
           /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
+          'Range-Unit'?: parameters['rangeUnit'];
           /** Preference */
-          Prefer?: parameters["preferCount"];
+          Prefer?: parameters['preferCount'];
         };
       };
       responses: {
         /** OK */
         200: {
-          schema: definitions["chatbot_module"][];
+          schema: definitions['chatbot_module'][];
         };
         /** Partial Content */
         206: unknown;
@@ -382,15 +382,15 @@ export interface paths {
       parameters: {
         body: {
           /** chatbot_module */
-          chatbot_module?: definitions["chatbot_module"];
+          chatbot_module?: definitions['chatbot_module'];
         };
         query: {
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -402,11 +402,11 @@ export interface paths {
       parameters: {
         query: {
           /** Chatbot module id number */
-          id?: parameters["rowFilter.chatbot_module.id"];
+          id?: parameters['rowFilter.chatbot_module.id'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -418,15 +418,15 @@ export interface paths {
       parameters: {
         query: {
           /** Chatbot module id number */
-          id?: parameters["rowFilter.chatbot_module.id"];
+          id?: parameters['rowFilter.chatbot_module.id'];
         };
         body: {
           /** chatbot_module */
-          chatbot_module?: definitions["chatbot_module"];
+          chatbot_module?: definitions['chatbot_module'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -435,44 +435,44 @@ export interface paths {
       };
     };
   };
-  "/forum_post": {
+  '/forum_post': {
     get: {
       parameters: {
         query: {
           /** Forum post module id number */
-          id?: parameters["rowFilter.forum_post.id"];
+          id?: parameters['rowFilter.forum_post.id'];
           /** Forum post creation datetime */
-          created_at?: parameters["rowFilter.forum_post.created_at"];
+          created_at?: parameters['rowFilter.forum_post.created_at'];
           /** Forum post content */
-          text?: parameters["rowFilter.forum_post.text"];
+          text?: parameters['rowFilter.forum_post.text'];
           /** Username used in the forum post */
-          username?: parameters["rowFilter.forum_post.username"];
+          username?: parameters['rowFilter.forum_post.username'];
           /** Whether or not the forum post should be approved */
-          valid?: parameters["rowFilter.forum_post.valid"];
+          valid?: parameters['rowFilter.forum_post.valid'];
           /** Comments made by an administrator about this forum post module */
-          comments?: parameters["rowFilter.forum_post.comments"];
+          comments?: parameters['rowFilter.forum_post.comments'];
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
           /** Ordering */
-          order?: parameters["order"];
+          order?: parameters['order'];
           /** Limiting and Pagination */
-          offset?: parameters["offset"];
+          offset?: parameters['offset'];
           /** Limiting and Pagination */
-          limit?: parameters["limit"];
+          limit?: parameters['limit'];
         };
         header: {
           /** Limiting and Pagination */
-          Range?: parameters["range"];
+          Range?: parameters['range'];
           /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
+          'Range-Unit'?: parameters['rangeUnit'];
           /** Preference */
-          Prefer?: parameters["preferCount"];
+          Prefer?: parameters['preferCount'];
         };
       };
       responses: {
         /** OK */
         200: {
-          schema: definitions["forum_post"][];
+          schema: definitions['forum_post'][];
         };
         /** Partial Content */
         206: unknown;
@@ -482,15 +482,15 @@ export interface paths {
       parameters: {
         body: {
           /** forum_post */
-          forum_post?: definitions["forum_post"];
+          forum_post?: definitions['forum_post'];
         };
         query: {
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -502,21 +502,21 @@ export interface paths {
       parameters: {
         query: {
           /** Forum post module id number */
-          id?: parameters["rowFilter.forum_post.id"];
+          id?: parameters['rowFilter.forum_post.id'];
           /** Forum post creation datetime */
-          created_at?: parameters["rowFilter.forum_post.created_at"];
+          created_at?: parameters['rowFilter.forum_post.created_at'];
           /** Forum post content */
-          text?: parameters["rowFilter.forum_post.text"];
+          text?: parameters['rowFilter.forum_post.text'];
           /** Username used in the forum post */
-          username?: parameters["rowFilter.forum_post.username"];
+          username?: parameters['rowFilter.forum_post.username'];
           /** Whether or not the forum post should be approved */
-          valid?: parameters["rowFilter.forum_post.valid"];
+          valid?: parameters['rowFilter.forum_post.valid'];
           /** Comments made by an administrator about this forum post module */
-          comments?: parameters["rowFilter.forum_post.comments"];
+          comments?: parameters['rowFilter.forum_post.comments'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -528,25 +528,25 @@ export interface paths {
       parameters: {
         query: {
           /** Forum post module id number */
-          id?: parameters["rowFilter.forum_post.id"];
+          id?: parameters['rowFilter.forum_post.id'];
           /** Forum post creation datetime */
-          created_at?: parameters["rowFilter.forum_post.created_at"];
+          created_at?: parameters['rowFilter.forum_post.created_at'];
           /** Forum post content */
-          text?: parameters["rowFilter.forum_post.text"];
+          text?: parameters['rowFilter.forum_post.text'];
           /** Username used in the forum post */
-          username?: parameters["rowFilter.forum_post.username"];
+          username?: parameters['rowFilter.forum_post.username'];
           /** Whether or not the forum post should be approved */
-          valid?: parameters["rowFilter.forum_post.valid"];
+          valid?: parameters['rowFilter.forum_post.valid'];
           /** Comments made by an administrator about this forum post module */
-          comments?: parameters["rowFilter.forum_post.comments"];
+          comments?: parameters['rowFilter.forum_post.comments'];
         };
         body: {
           /** forum_post */
-          forum_post?: definitions["forum_post"];
+          forum_post?: definitions['forum_post'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -555,44 +555,44 @@ export interface paths {
       };
     };
   };
-  "/forum_post_assignment": {
+  '/forum_post_assignment': {
     get: {
       parameters: {
         query: {
           /** User id number */
-          user_id?: parameters["rowFilter.forum_post_assignment.user_id"];
+          user_id?: parameters['rowFilter.forum_post_assignment.user_id'];
           /** Forum post id number */
-          fp_id?: parameters["rowFilter.forum_post_assignment.fp_id"];
+          fp_id?: parameters['rowFilter.forum_post_assignment.fp_id'];
           /** Creation date and time of this assignment */
-          created_at?: parameters["rowFilter.forum_post_assignment.created_at"];
+          created_at?: parameters['rowFilter.forum_post_assignment.created_at'];
           /** Due date of this assignment */
-          duedate?: parameters["rowFilter.forum_post_assignment.duedate"];
+          duedate?: parameters['rowFilter.forum_post_assignment.duedate'];
           /** Date and time that the assignment was completed at */
-          completed_at?: parameters["rowFilter.forum_post_assignment.completed_at"];
+          completed_at?: parameters['rowFilter.forum_post_assignment.completed_at'];
           /** Whether or not this assignment has been completed */
-          completed?: parameters["rowFilter.forum_post_assignment.completed"];
+          completed?: parameters['rowFilter.forum_post_assignment.completed'];
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
           /** Ordering */
-          order?: parameters["order"];
+          order?: parameters['order'];
           /** Limiting and Pagination */
-          offset?: parameters["offset"];
+          offset?: parameters['offset'];
           /** Limiting and Pagination */
-          limit?: parameters["limit"];
+          limit?: parameters['limit'];
         };
         header: {
           /** Limiting and Pagination */
-          Range?: parameters["range"];
+          Range?: parameters['range'];
           /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
+          'Range-Unit'?: parameters['rangeUnit'];
           /** Preference */
-          Prefer?: parameters["preferCount"];
+          Prefer?: parameters['preferCount'];
         };
       };
       responses: {
         /** OK */
         200: {
-          schema: definitions["forum_post_assignment"][];
+          schema: definitions['forum_post_assignment'][];
         };
         /** Partial Content */
         206: unknown;
@@ -602,15 +602,15 @@ export interface paths {
       parameters: {
         body: {
           /** forum_post_assignment */
-          forum_post_assignment?: definitions["forum_post_assignment"];
+          forum_post_assignment?: definitions['forum_post_assignment'];
         };
         query: {
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -622,21 +622,21 @@ export interface paths {
       parameters: {
         query: {
           /** User id number */
-          user_id?: parameters["rowFilter.forum_post_assignment.user_id"];
+          user_id?: parameters['rowFilter.forum_post_assignment.user_id'];
           /** Forum post id number */
-          fp_id?: parameters["rowFilter.forum_post_assignment.fp_id"];
+          fp_id?: parameters['rowFilter.forum_post_assignment.fp_id'];
           /** Creation date and time of this assignment */
-          created_at?: parameters["rowFilter.forum_post_assignment.created_at"];
+          created_at?: parameters['rowFilter.forum_post_assignment.created_at'];
           /** Due date of this assignment */
-          duedate?: parameters["rowFilter.forum_post_assignment.duedate"];
+          duedate?: parameters['rowFilter.forum_post_assignment.duedate'];
           /** Date and time that the assignment was completed at */
-          completed_at?: parameters["rowFilter.forum_post_assignment.completed_at"];
+          completed_at?: parameters['rowFilter.forum_post_assignment.completed_at'];
           /** Whether or not this assignment has been completed */
-          completed?: parameters["rowFilter.forum_post_assignment.completed"];
+          completed?: parameters['rowFilter.forum_post_assignment.completed'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -648,25 +648,25 @@ export interface paths {
       parameters: {
         query: {
           /** User id number */
-          user_id?: parameters["rowFilter.forum_post_assignment.user_id"];
+          user_id?: parameters['rowFilter.forum_post_assignment.user_id'];
           /** Forum post id number */
-          fp_id?: parameters["rowFilter.forum_post_assignment.fp_id"];
+          fp_id?: parameters['rowFilter.forum_post_assignment.fp_id'];
           /** Creation date and time of this assignment */
-          created_at?: parameters["rowFilter.forum_post_assignment.created_at"];
+          created_at?: parameters['rowFilter.forum_post_assignment.created_at'];
           /** Due date of this assignment */
-          duedate?: parameters["rowFilter.forum_post_assignment.duedate"];
+          duedate?: parameters['rowFilter.forum_post_assignment.duedate'];
           /** Date and time that the assignment was completed at */
-          completed_at?: parameters["rowFilter.forum_post_assignment.completed_at"];
+          completed_at?: parameters['rowFilter.forum_post_assignment.completed_at'];
           /** Whether or not this assignment has been completed */
-          completed?: parameters["rowFilter.forum_post_assignment.completed"];
+          completed?: parameters['rowFilter.forum_post_assignment.completed'];
         };
         body: {
           /** forum_post_assignment */
-          forum_post_assignment?: definitions["forum_post_assignment"];
+          forum_post_assignment?: definitions['forum_post_assignment'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -675,44 +675,44 @@ export interface paths {
       };
     };
   };
-  "/forum_post_attempt": {
+  '/forum_post_attempt': {
     get: {
       parameters: {
         query: {
           /** User id number */
-          user_id?: parameters["rowFilter.forum_post_attempt.user_id"];
+          user_id?: parameters['rowFilter.forum_post_attempt.user_id'];
           /** Forum post id number */
-          fp_id?: parameters["rowFilter.forum_post_attempt.fp_id"];
+          fp_id?: parameters['rowFilter.forum_post_attempt.fp_id'];
           /** Attempt start time */
-          created_at?: parameters["rowFilter.forum_post_attempt.created_at"];
+          created_at?: parameters['rowFilter.forum_post_attempt.created_at'];
           /** Whether or not the counsellor approved this forum post */
-          approved?: parameters["rowFilter.forum_post_attempt.approved"];
+          approved?: parameters['rowFilter.forum_post_attempt.approved'];
           /** A counsellor's comment on why they did or didn't approve the post */
-          comment?: parameters["rowFilter.forum_post_attempt.comment"];
+          comment?: parameters['rowFilter.forum_post_attempt.comment'];
           /** Forum post attempt completion date and time */
-          finished_at?: parameters["rowFilter.forum_post_attempt.finished_at"];
+          finished_at?: parameters['rowFilter.forum_post_attempt.finished_at'];
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
           /** Ordering */
-          order?: parameters["order"];
+          order?: parameters['order'];
           /** Limiting and Pagination */
-          offset?: parameters["offset"];
+          offset?: parameters['offset'];
           /** Limiting and Pagination */
-          limit?: parameters["limit"];
+          limit?: parameters['limit'];
         };
         header: {
           /** Limiting and Pagination */
-          Range?: parameters["range"];
+          Range?: parameters['range'];
           /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
+          'Range-Unit'?: parameters['rangeUnit'];
           /** Preference */
-          Prefer?: parameters["preferCount"];
+          Prefer?: parameters['preferCount'];
         };
       };
       responses: {
         /** OK */
         200: {
-          schema: definitions["forum_post_attempt"][];
+          schema: definitions['forum_post_attempt'][];
         };
         /** Partial Content */
         206: unknown;
@@ -722,15 +722,15 @@ export interface paths {
       parameters: {
         body: {
           /** forum_post_attempt */
-          forum_post_attempt?: definitions["forum_post_attempt"];
+          forum_post_attempt?: definitions['forum_post_attempt'];
         };
         query: {
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -742,21 +742,21 @@ export interface paths {
       parameters: {
         query: {
           /** User id number */
-          user_id?: parameters["rowFilter.forum_post_attempt.user_id"];
+          user_id?: parameters['rowFilter.forum_post_attempt.user_id'];
           /** Forum post id number */
-          fp_id?: parameters["rowFilter.forum_post_attempt.fp_id"];
+          fp_id?: parameters['rowFilter.forum_post_attempt.fp_id'];
           /** Attempt start time */
-          created_at?: parameters["rowFilter.forum_post_attempt.created_at"];
+          created_at?: parameters['rowFilter.forum_post_attempt.created_at'];
           /** Whether or not the counsellor approved this forum post */
-          approved?: parameters["rowFilter.forum_post_attempt.approved"];
+          approved?: parameters['rowFilter.forum_post_attempt.approved'];
           /** A counsellor's comment on why they did or didn't approve the post */
-          comment?: parameters["rowFilter.forum_post_attempt.comment"];
+          comment?: parameters['rowFilter.forum_post_attempt.comment'];
           /** Forum post attempt completion date and time */
-          finished_at?: parameters["rowFilter.forum_post_attempt.finished_at"];
+          finished_at?: parameters['rowFilter.forum_post_attempt.finished_at'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -768,25 +768,25 @@ export interface paths {
       parameters: {
         query: {
           /** User id number */
-          user_id?: parameters["rowFilter.forum_post_attempt.user_id"];
+          user_id?: parameters['rowFilter.forum_post_attempt.user_id'];
           /** Forum post id number */
-          fp_id?: parameters["rowFilter.forum_post_attempt.fp_id"];
+          fp_id?: parameters['rowFilter.forum_post_attempt.fp_id'];
           /** Attempt start time */
-          created_at?: parameters["rowFilter.forum_post_attempt.created_at"];
+          created_at?: parameters['rowFilter.forum_post_attempt.created_at'];
           /** Whether or not the counsellor approved this forum post */
-          approved?: parameters["rowFilter.forum_post_attempt.approved"];
+          approved?: parameters['rowFilter.forum_post_attempt.approved'];
           /** A counsellor's comment on why they did or didn't approve the post */
-          comment?: parameters["rowFilter.forum_post_attempt.comment"];
+          comment?: parameters['rowFilter.forum_post_attempt.comment'];
           /** Forum post attempt completion date and time */
-          finished_at?: parameters["rowFilter.forum_post_attempt.finished_at"];
+          finished_at?: parameters['rowFilter.forum_post_attempt.finished_at'];
         };
         body: {
           /** forum_post_attempt */
-          forum_post_attempt?: definitions["forum_post_attempt"];
+          forum_post_attempt?: definitions['forum_post_attempt'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -795,45 +795,45 @@ export interface paths {
       };
     };
   };
-  "/user": {
+  '/user': {
     get: {
       parameters: {
         query: {
           /** User id number */
-          id?: parameters["rowFilter.user.id"];
-          created_at?: parameters["rowFilter.user.created_at"];
+          id?: parameters['rowFilter.user.id'];
+          created_at?: parameters['rowFilter.user.created_at'];
           /** User's first name */
-          fname?: parameters["rowFilter.user.fname"];
+          fname?: parameters['rowFilter.user.fname'];
           /** User's last name */
-          lname?: parameters["rowFilter.user.lname"];
+          lname?: parameters['rowFilter.user.lname'];
           /** User's email address */
-          email?: parameters["rowFilter.user.email"];
+          email?: parameters['rowFilter.user.email'];
           /** User type id number */
-          type_id?: parameters["rowFilter.user.type_id"];
+          type_id?: parameters['rowFilter.user.type_id'];
           /** id number of this user's supervisor */
-          supervisor_id?: parameters["rowFilter.user.supervisor_id"];
+          supervisor_id?: parameters['rowFilter.user.supervisor_id'];
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
           /** Ordering */
-          order?: parameters["order"];
+          order?: parameters['order'];
           /** Limiting and Pagination */
-          offset?: parameters["offset"];
+          offset?: parameters['offset'];
           /** Limiting and Pagination */
-          limit?: parameters["limit"];
+          limit?: parameters['limit'];
         };
         header: {
           /** Limiting and Pagination */
-          Range?: parameters["range"];
+          Range?: parameters['range'];
           /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
+          'Range-Unit'?: parameters['rangeUnit'];
           /** Preference */
-          Prefer?: parameters["preferCount"];
+          Prefer?: parameters['preferCount'];
         };
       };
       responses: {
         /** OK */
         200: {
-          schema: definitions["user"][];
+          schema: definitions['user'][];
         };
         /** Partial Content */
         206: unknown;
@@ -843,15 +843,15 @@ export interface paths {
       parameters: {
         body: {
           /** user */
-          user?: definitions["user"];
+          user?: definitions['user'];
         };
         query: {
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -863,22 +863,22 @@ export interface paths {
       parameters: {
         query: {
           /** User id number */
-          id?: parameters["rowFilter.user.id"];
-          created_at?: parameters["rowFilter.user.created_at"];
+          id?: parameters['rowFilter.user.id'];
+          created_at?: parameters['rowFilter.user.created_at'];
           /** User's first name */
-          fname?: parameters["rowFilter.user.fname"];
+          fname?: parameters['rowFilter.user.fname'];
           /** User's last name */
-          lname?: parameters["rowFilter.user.lname"];
+          lname?: parameters['rowFilter.user.lname'];
           /** User's email address */
-          email?: parameters["rowFilter.user.email"];
+          email?: parameters['rowFilter.user.email'];
           /** User type id number */
-          type_id?: parameters["rowFilter.user.type_id"];
+          type_id?: parameters['rowFilter.user.type_id'];
           /** id number of this user's supervisor */
-          supervisor_id?: parameters["rowFilter.user.supervisor_id"];
+          supervisor_id?: parameters['rowFilter.user.supervisor_id'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -890,26 +890,26 @@ export interface paths {
       parameters: {
         query: {
           /** User id number */
-          id?: parameters["rowFilter.user.id"];
-          created_at?: parameters["rowFilter.user.created_at"];
+          id?: parameters['rowFilter.user.id'];
+          created_at?: parameters['rowFilter.user.created_at'];
           /** User's first name */
-          fname?: parameters["rowFilter.user.fname"];
+          fname?: parameters['rowFilter.user.fname'];
           /** User's last name */
-          lname?: parameters["rowFilter.user.lname"];
+          lname?: parameters['rowFilter.user.lname'];
           /** User's email address */
-          email?: parameters["rowFilter.user.email"];
+          email?: parameters['rowFilter.user.email'];
           /** User type id number */
-          type_id?: parameters["rowFilter.user.type_id"];
+          type_id?: parameters['rowFilter.user.type_id'];
           /** id number of this user's supervisor */
-          supervisor_id?: parameters["rowFilter.user.supervisor_id"];
+          supervisor_id?: parameters['rowFilter.user.supervisor_id'];
         };
         body: {
           /** user */
-          user?: definitions["user"];
+          user?: definitions['user'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -918,38 +918,38 @@ export interface paths {
       };
     };
   };
-  "/user_type": {
+  '/user_type': {
     get: {
       parameters: {
         query: {
           /** User type id number */
-          id?: parameters["rowFilter.user_type.id"];
+          id?: parameters['rowFilter.user_type.id'];
           /** Name of a user type (i.e. counsellor, administrator) */
-          name?: parameters["rowFilter.user_type.name"];
+          name?: parameters['rowFilter.user_type.name'];
           /** User type creation datetime */
-          created_at?: parameters["rowFilter.user_type.created_at"];
+          created_at?: parameters['rowFilter.user_type.created_at'];
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
           /** Ordering */
-          order?: parameters["order"];
+          order?: parameters['order'];
           /** Limiting and Pagination */
-          offset?: parameters["offset"];
+          offset?: parameters['offset'];
           /** Limiting and Pagination */
-          limit?: parameters["limit"];
+          limit?: parameters['limit'];
         };
         header: {
           /** Limiting and Pagination */
-          Range?: parameters["range"];
+          Range?: parameters['range'];
           /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
+          'Range-Unit'?: parameters['rangeUnit'];
           /** Preference */
-          Prefer?: parameters["preferCount"];
+          Prefer?: parameters['preferCount'];
         };
       };
       responses: {
         /** OK */
         200: {
-          schema: definitions["user_type"][];
+          schema: definitions['user_type'][];
         };
         /** Partial Content */
         206: unknown;
@@ -959,15 +959,15 @@ export interface paths {
       parameters: {
         body: {
           /** user_type */
-          user_type?: definitions["user_type"];
+          user_type?: definitions['user_type'];
         };
         query: {
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -979,15 +979,15 @@ export interface paths {
       parameters: {
         query: {
           /** User type id number */
-          id?: parameters["rowFilter.user_type.id"];
+          id?: parameters['rowFilter.user_type.id'];
           /** Name of a user type (i.e. counsellor, administrator) */
-          name?: parameters["rowFilter.user_type.name"];
+          name?: parameters['rowFilter.user_type.name'];
           /** User type creation datetime */
-          created_at?: parameters["rowFilter.user_type.created_at"];
+          created_at?: parameters['rowFilter.user_type.created_at'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -999,19 +999,19 @@ export interface paths {
       parameters: {
         query: {
           /** User type id number */
-          id?: parameters["rowFilter.user_type.id"];
+          id?: parameters['rowFilter.user_type.id'];
           /** Name of a user type (i.e. counsellor, administrator) */
-          name?: parameters["rowFilter.user_type.name"];
+          name?: parameters['rowFilter.user_type.name'];
           /** User type creation datetime */
-          created_at?: parameters["rowFilter.user_type.created_at"];
+          created_at?: parameters['rowFilter.user_type.created_at'];
         };
         body: {
           /** user_type */
-          user_type?: definitions["user_type"];
+          user_type?: definitions['user_type'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -1343,17 +1343,17 @@ export interface parameters {
    * @description Preference
    * @enum {string}
    */
-  preferParams: "params=single-object";
+  preferParams: 'params=single-object';
   /**
    * @description Preference
    * @enum {string}
    */
-  preferReturn: "return=representation" | "return=minimal" | "return=none";
+  preferReturn: 'return=representation' | 'return=minimal' | 'return=none';
   /**
    * @description Preference
    * @enum {string}
    */
-  preferCount: "count=none";
+  preferCount: 'count=none';
   /** @description Filtering Columns */
   select: string;
   /** @description On Conflict */
@@ -1372,231 +1372,231 @@ export interface parameters {
   /** @description Limiting and Pagination */
   limit: string;
   /** @description chatbot_assignment */
-  "body.chatbot_assignment": definitions["chatbot_assignment"];
+  'body.chatbot_assignment': definitions['chatbot_assignment'];
   /**
    * Format: bigint
    * @description Chatbot module id number
    */
-  "rowFilter.chatbot_assignment.cm_id": string;
+  'rowFilter.chatbot_assignment.cm_id': string;
   /**
    * Format: bigint
    * @description User's id number
    */
-  "rowFilter.chatbot_assignment.user_id": string;
+  'rowFilter.chatbot_assignment.user_id': string;
   /**
    * Format: date
    * @description Due date of the assignment
    */
-  "rowFilter.chatbot_assignment.duedate": string;
+  'rowFilter.chatbot_assignment.duedate': string;
   /**
    * Format: timestamp with time zone
    * @description Date and time the assignment was completed
    */
-  "rowFilter.chatbot_assignment.completed_at": string;
+  'rowFilter.chatbot_assignment.completed_at': string;
   /**
    * Format: boolean
    * @description Whether or not this assignment has been completed
    */
-  "rowFilter.chatbot_assignment.completed": string;
+  'rowFilter.chatbot_assignment.completed': string;
   /**
    * Format: timestamp with time zone
    * @description Creation date and time of this assignment
    */
-  "rowFilter.chatbot_assignment.created_at": string;
+  'rowFilter.chatbot_assignment.created_at': string;
   /** @description chatbot_attempt */
-  "body.chatbot_attempt": definitions["chatbot_attempt"];
+  'body.chatbot_attempt': definitions['chatbot_attempt'];
   /**
    * Format: bigint
    * @description User id number
    */
-  "rowFilter.chatbot_attempt.user_id": string;
+  'rowFilter.chatbot_attempt.user_id': string;
   /**
    * Format: timestamp with time zone
    * @description Start date and time of a chatbot attempt
    */
-  "rowFilter.chatbot_attempt.started_at": string;
+  'rowFilter.chatbot_attempt.started_at': string;
   /**
    * Format: bigint
    * @description Chatbot module id number
    */
-  "rowFilter.chatbot_attempt.cm_id": string;
+  'rowFilter.chatbot_attempt.cm_id': string;
   /** Format: boolean */
-  "rowFilter.chatbot_attempt.completed": string;
+  'rowFilter.chatbot_attempt.completed': string;
   /** Format: timestamp with time zone */
-  "rowFilter.chatbot_attempt.completed_at": string;
+  'rowFilter.chatbot_attempt.completed_at': string;
   /** Format: bigint */
-  "rowFilter.chatbot_attempt.id": string;
+  'rowFilter.chatbot_attempt.id': string;
   /** @description chatbot_attempt_message */
-  "body.chatbot_attempt_message": definitions["chatbot_attempt_message"];
+  'body.chatbot_attempt_message': definitions['chatbot_attempt_message'];
   /**
    * Format: bigint
    * @description Chatbot module attempt id number
    */
-  "rowFilter.chatbot_attempt_message.attempt_id": string;
+  'rowFilter.chatbot_attempt_message.attempt_id': string;
   /**
    * Format: timestamp with time zone
    * @description Date and time the message was sent at
    */
-  "rowFilter.chatbot_attempt_message.created_at": string;
+  'rowFilter.chatbot_attempt_message.created_at': string;
   /**
    * Format: text
    * @description Content of the message
    */
-  "rowFilter.chatbot_attempt_message.text": string;
+  'rowFilter.chatbot_attempt_message.text': string;
   /** @description chatbot_module */
-  "body.chatbot_module": definitions["chatbot_module"];
+  'body.chatbot_module': definitions['chatbot_module'];
   /**
    * Format: bigint
    * @description Chatbot module id number
    */
-  "rowFilter.chatbot_module.id": string;
+  'rowFilter.chatbot_module.id': string;
   /** @description forum_post */
-  "body.forum_post": definitions["forum_post"];
+  'body.forum_post': definitions['forum_post'];
   /**
    * Format: bigint
    * @description Forum post module id number
    */
-  "rowFilter.forum_post.id": string;
+  'rowFilter.forum_post.id': string;
   /**
    * Format: timestamp with time zone
    * @description Forum post creation datetime
    */
-  "rowFilter.forum_post.created_at": string;
+  'rowFilter.forum_post.created_at': string;
   /**
    * Format: text
    * @description Forum post content
    */
-  "rowFilter.forum_post.text": string;
+  'rowFilter.forum_post.text': string;
   /**
    * Format: character varying
    * @description Username used in the forum post
    */
-  "rowFilter.forum_post.username": string;
+  'rowFilter.forum_post.username': string;
   /**
    * Format: boolean
    * @description Whether or not the forum post should be approved
    */
-  "rowFilter.forum_post.valid": string;
+  'rowFilter.forum_post.valid': string;
   /**
    * Format: text
    * @description Comments made by an administrator about this forum post module
    */
-  "rowFilter.forum_post.comments": string;
+  'rowFilter.forum_post.comments': string;
   /** @description forum_post_assignment */
-  "body.forum_post_assignment": definitions["forum_post_assignment"];
+  'body.forum_post_assignment': definitions['forum_post_assignment'];
   /**
    * Format: bigint
    * @description User id number
    */
-  "rowFilter.forum_post_assignment.user_id": string;
+  'rowFilter.forum_post_assignment.user_id': string;
   /**
    * Format: bigint
    * @description Forum post id number
    */
-  "rowFilter.forum_post_assignment.fp_id": string;
+  'rowFilter.forum_post_assignment.fp_id': string;
   /**
    * Format: timestamp with time zone
    * @description Creation date and time of this assignment
    */
-  "rowFilter.forum_post_assignment.created_at": string;
+  'rowFilter.forum_post_assignment.created_at': string;
   /**
    * Format: date
    * @description Due date of this assignment
    */
-  "rowFilter.forum_post_assignment.duedate": string;
+  'rowFilter.forum_post_assignment.duedate': string;
   /**
    * Format: timestamp with time zone
    * @description Date and time that the assignment was completed at
    */
-  "rowFilter.forum_post_assignment.completed_at": string;
+  'rowFilter.forum_post_assignment.completed_at': string;
   /**
    * Format: boolean
    * @description Whether or not this assignment has been completed
    */
-  "rowFilter.forum_post_assignment.completed": string;
+  'rowFilter.forum_post_assignment.completed': string;
   /** @description forum_post_attempt */
-  "body.forum_post_attempt": definitions["forum_post_attempt"];
+  'body.forum_post_attempt': definitions['forum_post_attempt'];
   /**
    * Format: bigint
    * @description User id number
    */
-  "rowFilter.forum_post_attempt.user_id": string;
+  'rowFilter.forum_post_attempt.user_id': string;
   /**
    * Format: bigint
    * @description Forum post id number
    */
-  "rowFilter.forum_post_attempt.fp_id": string;
+  'rowFilter.forum_post_attempt.fp_id': string;
   /**
    * Format: timestamp with time zone
    * @description Attempt start time
    */
-  "rowFilter.forum_post_attempt.created_at": string;
+  'rowFilter.forum_post_attempt.created_at': string;
   /**
    * Format: boolean
    * @description Whether or not the counsellor approved this forum post
    */
-  "rowFilter.forum_post_attempt.approved": string;
+  'rowFilter.forum_post_attempt.approved': string;
   /**
    * Format: text
    * @description A counsellor's comment on why they did or didn't approve the post
    */
-  "rowFilter.forum_post_attempt.comment": string;
+  'rowFilter.forum_post_attempt.comment': string;
   /**
    * Format: timestamp with time zone
    * @description Forum post attempt completion date and time
    */
-  "rowFilter.forum_post_attempt.finished_at": string;
+  'rowFilter.forum_post_attempt.finished_at': string;
   /** @description user */
-  "body.user": definitions["user"];
+  'body.user': definitions['user'];
   /**
    * Format: bigint
    * @description User id number
    */
-  "rowFilter.user.id": string;
+  'rowFilter.user.id': string;
   /** Format: timestamp with time zone */
-  "rowFilter.user.created_at": string;
+  'rowFilter.user.created_at': string;
   /**
    * Format: character varying
    * @description User's first name
    */
-  "rowFilter.user.fname": string;
+  'rowFilter.user.fname': string;
   /**
    * Format: character varying
    * @description User's last name
    */
-  "rowFilter.user.lname": string;
+  'rowFilter.user.lname': string;
   /**
    * Format: character varying
    * @description User's email address
    */
-  "rowFilter.user.email": string;
+  'rowFilter.user.email': string;
   /**
    * Format: bigint
    * @description User type id number
    */
-  "rowFilter.user.type_id": string;
+  'rowFilter.user.type_id': string;
   /**
    * Format: bigint
    * @description id number of this user's supervisor
    */
-  "rowFilter.user.supervisor_id": string;
+  'rowFilter.user.supervisor_id': string;
   /** @description user_type */
-  "body.user_type": definitions["user_type"];
+  'body.user_type': definitions['user_type'];
   /**
    * Format: bigint
    * @description User type id number
    */
-  "rowFilter.user_type.id": string;
+  'rowFilter.user_type.id': string;
   /**
    * Format: character varying
    * @description Name of a user type (i.e. counsellor, administrator)
    */
-  "rowFilter.user_type.name": string;
+  'rowFilter.user_type.name': string;
   /**
    * Format: timestamp with time zone
    * @description User type creation datetime
    */
-  "rowFilter.user_type.created_at": string;
+  'rowFilter.user_type.created_at': string;
 }
 
 export interface operations {}
