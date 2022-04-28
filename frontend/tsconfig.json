@@ -1,4 +1,8 @@
 {
   "extends": "./.svelte-kit/tsconfig.json",
-  "include": ["./jest-setup.ts"]
+  "include": ["./jest-setup.ts"],
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext"
+  }
 }
