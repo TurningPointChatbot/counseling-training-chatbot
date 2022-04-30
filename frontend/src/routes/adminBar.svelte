@@ -1,8 +1,3 @@
-<svelte:head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-</svelte:head>
-
 <script lang="ts">
     import {Nav, Navbar, NavItem, NavLink,NavbarToggler,Collapse,Icon,Dropdown,DropdownMenu,DropdownToggle,DropdownItem} from 'sveltestrap';
 
@@ -10,7 +5,7 @@
 </script>
 
 <Navbar style="background-color:darkviolet">
-    <NavbarToggler on:click={() => (isOpen = !isOpen)}/>
+    <NavbarToggler on:click={() => (isOpen = !isOpen)} class="me-2"/>
     <Dropdown>
         <DropdownToggle style="border-radius:50%">
         <Icon name="person-circle"/>
