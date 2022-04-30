@@ -42,40 +42,45 @@
     }
   ];
 
-	let filteredCounsellors = counsellors;
-	let counsellorFilterTerm = "";
+  let filteredCounsellors = counsellors;
+  let counsellorFilterTerm = '';
 
-	/**
-	 * Sort counsellor list by counsellor names. Also display
-	 * icon accordingly depending on whether the list is sorted
-	 * alphabetically or reverse alphabetical.
-	 */
+  /**
+   * Sort counsellor list by counsellor names. Also display
+   * icon accordingly depending on whether the list is sorted
+   * alphabetically or reverse alphabetical.
+   */
   function sortCounsellorList() {
-		var azSortIcon = document.getElementById('az-sort-icon');
+    var azSortIcon = document.getElementById('az-sort-icon');
     var zaSortIcon = document.getElementById('za-sort-icon');
     if (azSortIcon.style.display === 'none') {
-			// Sort reverse alphabetical.
-			filteredCounsellors.sort((a, b) => b.name.localeCompare(a.name)); 
+      // Sort reverse alphabetical.
+      filteredCounsellors.sort((a, b) => b.name.localeCompare(a.name));
       azSortIcon.style.display = 'block';
       zaSortIcon.style.display = 'none';
     } else {
-			// Sort alphabetical.
-			filteredCounsellors.sort((a, b) => a.name.localeCompare(b.name)); 
+      // Sort alphabetical.
+      filteredCounsellors.sort((a, b) => a.name.localeCompare(b.name));
       azSortIcon.style.display = 'none';
       zaSortIcon.style.display = 'block';
     }
-		filteredCounsellors = filteredCounsellors; // Required to trigger re-render of list.
+    filteredCounsellors = filteredCounsellors; // Required to trigger re-render of list.
   }
 
   /**
-   * Filter counsellors by the filter term entered by the user, stored in 'counsellorFilterTerm'. 
-   * This is a case-insensitive filter on both the counsellor name and counsellor position. 
+   * Filter counsellors by the filter term entered by the user, stored in 'counsellorFilterTerm'.
+   * This is a case-insensitive filter on both the counsellor name and counsellor position.
    */
   function filterCounsellors() {
-		filteredCounsellors = counsellors.filter(item => 
-			item.name.toLocaleLowerCase().indexOf(counsellorFilterTerm.toLocaleLowerCase()) !== -1 
-				|| item.position.toLocaleLowerCase().indexOf(counsellorFilterTerm.toLocaleLowerCase()) !== -1
-		);
+    filteredCounsellors = counsellors.filter(
+      (item) =>
+        item.name
+          .toLocaleLowerCase()
+          .indexOf(counsellorFilterTerm.toLocaleLowerCase()) !== -1 ||
+        item.position
+          .toLocaleLowerCase()
+          .indexOf(counsellorFilterTerm.toLocaleLowerCase()) !== -1
+    );
   }
 </script>
 
@@ -100,7 +105,7 @@
             type="search"
             class="form-control"
             id="counsellor-filter"
-						bind:value={counsellorFilterTerm}
+            bind:value={counsellorFilterTerm}
             on:keyup={filterCounsellors}
           />
         </div>
@@ -167,7 +172,7 @@
     font-size: 28px;
   }
 
-	.sort-icon:hover {
+  .sort-icon:hover {
     filter: opacity(80%);
   }
 
