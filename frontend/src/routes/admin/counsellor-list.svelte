@@ -42,21 +42,26 @@
     }
   ];
 
+	/**
+	 * Sort counsellor list by counsellor names. Also display
+	 * icon accordingly depending on whether the list is sorted
+	 * alphabetically or reverse alphabetical.
+	 */
   function sortCounsellorList() {
-    // TODO: Sort counsellor list.
-    switchSortIcon();
-  }
-
-  function switchSortIcon() {
-    var azSortIcon = document.getElementById('az-sort-icon');
+		var azSortIcon = document.getElementById('az-sort-icon');
     var zaSortIcon = document.getElementById('za-sort-icon');
     if (azSortIcon.style.display === 'none') {
+			// Sort reverse alphabetical.
+			counsellors.sort((a, b) => b.name.localeCompare(a.name)); 
       azSortIcon.style.display = 'block';
       zaSortIcon.style.display = 'none';
     } else {
+			// Sort alphabetical.
+			counsellors.sort((a, b) => a.name.localeCompare(b.name)); 
       azSortIcon.style.display = 'none';
       zaSortIcon.style.display = 'block';
     }
+		counsellors = counsellors; // Required to trigger re-render of list.
   }
 
   function searchCounsellors() {
@@ -155,6 +160,10 @@
 
   .sort-icon {
     font-size: 28px;
+  }
+
+	.sort-icon:hover {
+    filter: opacity(80%);
   }
 
   #za-sort-icon {
