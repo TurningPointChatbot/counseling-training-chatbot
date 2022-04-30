@@ -42,6 +42,9 @@
     }
   ];
 
+	let filteredCounsellors = counsellors;
+	let counsellorFilterTerm = "";
+
 	/**
 	 * Sort counsellor list by counsellor names. Also display
 	 * icon accordingly depending on whether the list is sorted
@@ -52,26 +55,27 @@
     var zaSortIcon = document.getElementById('za-sort-icon');
     if (azSortIcon.style.display === 'none') {
 			// Sort reverse alphabetical.
-			counsellors.sort((a, b) => b.name.localeCompare(a.name)); 
+			filteredCounsellors.sort((a, b) => b.name.localeCompare(a.name)); 
       azSortIcon.style.display = 'block';
       zaSortIcon.style.display = 'none';
     } else {
 			// Sort alphabetical.
-			counsellors.sort((a, b) => a.name.localeCompare(b.name)); 
+			filteredCounsellors.sort((a, b) => a.name.localeCompare(b.name)); 
       azSortIcon.style.display = 'none';
       zaSortIcon.style.display = 'block';
     }
-		counsellors = counsellors; // Required to trigger re-render of list.
+		filteredCounsellors = filteredCounsellors; // Required to trigger re-render of list.
   }
 
-  function searchCounsellors() {
-    // TODO: Search counsellor list.
-    // Examples using vanilla JS.
-    // https://www.w3schools.com/howto/howto_js_filter_lists.asp
-    // https://codepen.io/cs09g/pen/OGbEMm
-    // Example using SvelteKit VirtualList:
-    // https://svelte.dev/repl/a138b0c8579b4fc8bdde842a9d922b1f?version=3.17.1
-    console.log('Counsellor list searched');
+  /**
+   * Filter counsellors by the filter term entered by the user, stored in 'counsellorFilterTerm'. 
+   * This is a case-insensitive filter on both the counsellor name and counsellor position. 
+   */
+  function filterCounsellors() {
+		filteredCounsellors = counsellors.filter(item => 
+			item.name.toLocaleLowerCase().indexOf(counsellorFilterTerm.toLocaleLowerCase()) !== -1 
+				|| item.position.toLocaleLowerCase().indexOf(counsellorFilterTerm.toLocaleLowerCase()) !== -1
+		);
   }
 </script>
 
@@ -89,20 +93,21 @@
           </div>
         </div>
         <div class="d-flex align-items-center">
-          <label for="counsellor-search" class="form-label me-2 mb-0"
-            >Search:</label
+          <label for="counsellor-filter" class="form-label me-2 mb-0"
+            >Filter:</label
           >
           <input
             type="search"
             class="form-control"
-            id="counsellor-search"
-            on:keyup={searchCounsellors}
+            id="counsellor-filter"
+						bind:value={counsellorFilterTerm}
+            on:keyup={filterCounsellors}
           />
         </div>
       </div>
       <div class="scroll">
         <ListGroup>
-          {#each counsellors as counsellor}
+          {#each filteredCounsellors as counsellor}
             <ListGroupItem>
               <Row class="row-2 py-2">
                 <Col class="col-3">
