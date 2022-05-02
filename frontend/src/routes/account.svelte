@@ -10,6 +10,18 @@
 
 <div class="content">
   <h2>Account Management</h2>
+  <hr/>
+
+
+  <img
+  class="mx-auto d-block rounded-circle border border-4 image-small"
+  alt="profile"
+  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB6jXtxzJS1d5wG2JYXd0iF9KMuOIMV5P2YHmMz7NKBhXr4jGTSfW29Q102OcJsiEHiMo&usqp=CAU"
+  />
+  {#if editOn}
+    <div class="text-center"> Change profile picture:</div>
+    <Input type="file" class="mx-auto my-2 d-block form-control w-25" id="profilePicture" />
+  {/if}  
 
   <hr/>
 
@@ -75,5 +87,10 @@
 <style>
   .content {
     margin: 50px;
+  }
+
+  .image-small {
+    height: 150px;
+    width: 150px;
   }
 </style>
