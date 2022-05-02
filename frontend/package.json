@@ -46,6 +46,10 @@
   },
   "type": "module",
   "dependencies": {
+<<<<<<< HEAD
     "@supabase/supabase-js": "^1.35.2"
+=======
+    "sveltestrap": "^5.9.0"
+>>>>>>> 582fb2c (feat:account, change password page skeleton)
   }
 }
