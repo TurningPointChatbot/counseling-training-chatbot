@@ -16,7 +16,7 @@
 
     <div class="row justify-content-center mx-2 my-5">
         {#if editOn}
-        <p class="col-md-2 col-md-offset-3 fw-bold">Forgot your password?</p>
+        <b class="text-center">Forgot your password?</b>
         {/if}
         {#if !editOn}
           <Input class="col-md-6 col-md-offset-3 w-50" placeholder="Username" /> 
@@ -32,16 +32,25 @@
     
     </div>
 
-    <div class="button" >
+    <div class="Forgot_link" style="position: relative">
+      {#if !editOn}
+      <a href="" style="float: right; margin-right: 5px;position: absolute;top: -30px;right: 25%;" on:click={toggleEdit}>Forgot your password?</a>
+      {/if}
+    </div>
+
+    <div class="button">
      {#if !editOn}
-        <Button class="button" on:click={toggleEdit}>
+        <Button class="button">
         Sign In
         </Button>
-        {/if}
+      {/if}
 
         {#if editOn}
-        <Button class="button">
+        <Button style="margin:5px;" class="button">
         Send email
+        </Button>
+        <Button style="margin:5px;" class="button" on:click={toggleEdit}>
+        Back
         </Button>
         {/if} 
     
@@ -52,10 +61,16 @@
         position: relative;
     }
     .button {
-       top:60%;
-       left:45%;
-       position: fixed;
+
+      margin: 0;
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+       
        }
+  
 
 
   </style>
