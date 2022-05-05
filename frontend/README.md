@@ -40,3 +40,7 @@ There are several other scripts configured:
 - `npm run check:watch` checks for typescript errors in watch mode. Whenever you make changes to the code, the command will be run again.
 - `npm run lint` uses eslint to check for any potential static errors in the code (i.e. typos, missing import statements, etc).
 - `npm run format` uses Prettier to format all code in the code base to the configured standard.
+
+### Updating Typescript Types from Database
+
+- `npm run update-types` automatically generates typescript types from the database schema on supabase. Use this to ensure you are up to date with the latest version of the database schema locally.
