@@ -1,5 +1,5 @@
 <script lang="ts">
-  import AdminBar from "./adminBar.svelte";
+  import AdminBar from "../lib/components/adminBar.svelte";
 </script>
 
 <AdminBar/>
