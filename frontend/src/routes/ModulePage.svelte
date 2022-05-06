@@ -1,6 +1,6 @@
 <html data-theme="cupcake"></html>
 
-<div class="grid grid-rows-2 grid-flow-col gap-8">
+<div class="grid-flow-col gap-8 my-4">
     <div tabindex="0" class="collapse collapse-close border border-base-300 bg-base-100 rounded-box" style="background-color:#852E82; color:white"> 
         <div class="collapse-title text-2xl font-medium">
             <div class="grid grid-cols-3 gaps-4">
@@ -10,6 +10,9 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="grid grid-rows-2 grid-flow-col gap-8">
     <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-300 rounded-box" style="color:black">
         <input type="checkbox"/> 
         <div class="collapse-title text-2xl font-medium">
@@ -27,4 +30,5 @@
             <h2><b> Description: This is the description for completed module 1</b></h2> 
         </div>
     </div>
+    
 </div>
