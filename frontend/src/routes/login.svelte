@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
   import { InputGroup, InputGroupText, Input, Button } from 'sveltestrap/src';
   
   let editOn = false;
@@ -73,4 +73,4 @@
   
 
 
-  </style>
+  </style> -->
