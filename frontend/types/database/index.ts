@@ -17,7 +17,7 @@ export interface paths {
       parameters: {
         query: {
           /** Chatbot module id number */
-          cm_id?: parameters['rowFilter.chatbot_assignment.cm_id'];
+          cbm_id?: parameters['rowFilter.chatbot_assignment.cbm_id'];
           /** User's id number */
           user_id?: parameters['rowFilter.chatbot_assignment.user_id'];
           /** Due date of the assignment */
@@ -79,7 +79,7 @@ export interface paths {
       parameters: {
         query: {
           /** Chatbot module id number */
-          cm_id?: parameters['rowFilter.chatbot_assignment.cm_id'];
+          cbm_id?: parameters['rowFilter.chatbot_assignment.cbm_id'];
           /** User's id number */
           user_id?: parameters['rowFilter.chatbot_assignment.user_id'];
           /** Due date of the assignment */
@@ -105,7 +105,7 @@ export interface paths {
       parameters: {
         query: {
           /** Chatbot module id number */
-          cm_id?: parameters['rowFilter.chatbot_assignment.cm_id'];
+          cbm_id?: parameters['rowFilter.chatbot_assignment.cbm_id'];
           /** User's id number */
           user_id?: parameters['rowFilter.chatbot_assignment.user_id'];
           /** Due date of the assignment */
@@ -138,13 +138,11 @@ export interface paths {
         query: {
           /** User id number */
           user_id?: parameters['rowFilter.chatbot_attempt.user_id'];
-          /** Start date and time of a chatbot attempt */
-          started_at?: parameters['rowFilter.chatbot_attempt.started_at'];
-          /** Chatbot module id number */
-          cm_id?: parameters['rowFilter.chatbot_attempt.cm_id'];
-          completed?: parameters['rowFilter.chatbot_attempt.completed'];
-          completed_at?: parameters['rowFilter.chatbot_attempt.completed_at'];
           id?: parameters['rowFilter.chatbot_attempt.id'];
+          /** The chatbot module ID */
+          cbm_id?: parameters['rowFilter.chatbot_attempt.cbm_id'];
+          started_at?: parameters['rowFilter.chatbot_attempt.started_at'];
+          completed_at?: parameters['rowFilter.chatbot_attempt.completed_at'];
           /** Filtering Columns */
           select?: parameters['select'];
           /** Ordering */
@@ -197,13 +195,11 @@ export interface paths {
         query: {
           /** User id number */
           user_id?: parameters['rowFilter.chatbot_attempt.user_id'];
-          /** Start date and time of a chatbot attempt */
-          started_at?: parameters['rowFilter.chatbot_attempt.started_at'];
-          /** Chatbot module id number */
-          cm_id?: parameters['rowFilter.chatbot_attempt.cm_id'];
-          completed?: parameters['rowFilter.chatbot_attempt.completed'];
-          completed_at?: parameters['rowFilter.chatbot_attempt.completed_at'];
           id?: parameters['rowFilter.chatbot_attempt.id'];
+          /** The chatbot module ID */
+          cbm_id?: parameters['rowFilter.chatbot_attempt.cbm_id'];
+          started_at?: parameters['rowFilter.chatbot_attempt.started_at'];
+          completed_at?: parameters['rowFilter.chatbot_attempt.completed_at'];
         };
         header: {
           /** Preference */
@@ -220,13 +216,11 @@ export interface paths {
         query: {
           /** User id number */
           user_id?: parameters['rowFilter.chatbot_attempt.user_id'];
-          /** Start date and time of a chatbot attempt */
-          started_at?: parameters['rowFilter.chatbot_attempt.started_at'];
-          /** Chatbot module id number */
-          cm_id?: parameters['rowFilter.chatbot_attempt.cm_id'];
-          completed?: parameters['rowFilter.chatbot_attempt.completed'];
-          completed_at?: parameters['rowFilter.chatbot_attempt.completed_at'];
           id?: parameters['rowFilter.chatbot_attempt.id'];
+          /** The chatbot module ID */
+          cbm_id?: parameters['rowFilter.chatbot_attempt.cbm_id'];
+          started_at?: parameters['rowFilter.chatbot_attempt.started_at'];
+          completed_at?: parameters['rowFilter.chatbot_attempt.completed_at'];
         };
         body: {
           /** chatbot_attempt */
@@ -1033,7 +1027,7 @@ export interface definitions {
      * This is a Primary Key.<pk/>
      * This is a Foreign Key to `chatbot_module.id`.<fk table='chatbot_module' column='id'/>
      */
-    cm_id: number;
+    cbm_id: number;
     /**
      * Format: bigint
      * @description User's id number
@@ -1079,29 +1073,26 @@ export interface definitions {
      */
     user_id: number;
     /**
-     * Format: timestamp with time zone
-     * @description Start date and time of a chatbot attempt
-     * @default now()
-     */
-    started_at: string;
-    /**
-     * Format: bigint
-     * @description Chatbot module id number
-     *
-     * Note:
-     * This is a Foreign Key to `chatbot_module.id`.<fk table='chatbot_module' column='id'/>
-     */
-    cm_id: number;
-    /** Format: boolean */
-    completed: boolean;
-    /** Format: timestamp with time zone */
-    completed_at?: string;
-    /**
      * Format: bigint
      * @description Note:
      * This is a Primary Key.<pk/>
      */
     id: number;
+    /**
+     * Format: bigint
+     * @description The chatbot module ID
+     *
+     * Note:
+     * This is a Foreign Key to `chatbot_module.id`.<fk table='chatbot_module' column='id'/>
+     */
+    cbm_id?: number;
+    /**
+     * Format: timestamp with time zone
+     * @default now()
+     */
+    started_at: string;
+    /** Format: timestamp with time zone */
+    completed_at?: string;
   };
   /** @description A message sent for a particular chatbot attempt */
   chatbot_attempt_message: {
@@ -1377,7 +1368,7 @@ export interface parameters {
    * Format: bigint
    * @description Chatbot module id number
    */
-  'rowFilter.chatbot_assignment.cm_id': string;
+  'rowFilter.chatbot_assignment.cbm_id': string;
   /**
    * Format: bigint
    * @description User's id number
@@ -1410,22 +1401,17 @@ export interface parameters {
    * @description User id number
    */
   'rowFilter.chatbot_attempt.user_id': string;
-  /**
-   * Format: timestamp with time zone
-   * @description Start date and time of a chatbot attempt
-   */
-  'rowFilter.chatbot_attempt.started_at': string;
-  /**
-   * Format: bigint
-   * @description Chatbot module id number
-   */
-  'rowFilter.chatbot_attempt.cm_id': string;
-  /** Format: boolean */
-  'rowFilter.chatbot_attempt.completed': string;
-  /** Format: timestamp with time zone */
-  'rowFilter.chatbot_attempt.completed_at': string;
   /** Format: bigint */
   'rowFilter.chatbot_attempt.id': string;
+  /**
+   * Format: bigint
+   * @description The chatbot module ID
+   */
+  'rowFilter.chatbot_attempt.cbm_id': string;
+  /** Format: timestamp with time zone */
+  'rowFilter.chatbot_attempt.started_at': string;
+  /** Format: timestamp with time zone */
+  'rowFilter.chatbot_attempt.completed_at': string;
   /** @description chatbot_attempt_message */
   'body.chatbot_attempt_message': definitions['chatbot_attempt_message'];
   /**
