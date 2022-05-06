@@ -1,6 +1,4 @@
-<!-- <script lang="ts">
-  import { InputGroup, InputGroupText, Input, Button } from 'sveltestrap/src';
-  
+<script lang="ts">  
   let editOn = false;
 
   function toggleEdit() {		
@@ -8,6 +6,8 @@
   }
   
 </script>
+
+
 <div class="content">
     <div style="top:20px;" class="image">
         <center><img src="Turning point training portal.png" alt="Turning point training portal" width="400"  
@@ -18,40 +18,48 @@
         {#if editOn}
         <b class="text-center">Forgot your password?</b>
         {/if}
+      
         {#if !editOn}
-          <Input class="col-md-6 col-md-offset-3 w-50" placeholder="Username" /> 
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+          Username
+        </label>
+        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded max-w-md py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="username" type="text" placeholder="Username">
         {/if} 
     </div>
     <div class="row justify-content-center mx-2 my-5">
       {#if editOn}
-        <Input class="col-md-6 col-md-offset-3 w-50" placeholder="Email" /> 
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+        Email:
+      </label>
+      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded max-w-md py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="Email" type="text" placeholder="Email">
       {/if} 
       {#if !editOn}
-        <Input class="col-md-6 col-md-offset-3 w-50" placeholder="Password" /> 
+      <label class="text-gray-700 text-sm font-bold mb-2" for="password">
+        Password
+      </label>
+      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded max-w-md py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="password" type="password" placeholder="******************">
       {/if}  
     
     </div>
-
-    <div class="Forgot_link" style="position: relative">
-      {#if !editOn}
-      <a href="" style="float: right; margin-right: 5px;position: absolute;top: -30px;right: 25%;" on:click={toggleEdit}>Forgot your password?</a>
-      {/if}
-    </div>
-
     <div class="button">
      {#if !editOn}
-        <Button class="button">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
         Sign In
-        </Button>
+        </button>
+        {#if !editOn}
+        <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#" on:click={toggleEdit}>
+        Forgot Password?
+      </a>
+      {/if}
       {/if}
 
         {#if editOn}
-        <Button style="margin:5px;" class="button">
+        <button style="margin:5px;" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" >
         Send email
-        </Button>
-        <Button style="margin:5px;" class="button" on:click={toggleEdit}>
+        </button>
+        <button style="margin:5px;" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" on:click={toggleEdit}>
         Back
-        </Button>
+        </button>
         {/if} 
     
     </div>
@@ -64,7 +72,7 @@
 
       margin: 0;
       position: absolute;
-      top: 60%;
+      top: 80%;
       left: 50%;
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
@@ -73,4 +81,4 @@
   
 
 
-  </style> -->
+  </style>
