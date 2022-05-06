@@ -1,5 +1,5 @@
 <script lang='ts'>
-  import ModulePage from "./ModulePage.svelte";
+  import ModulePage from './ModulePage.svelte';
 </script>
 
 <ModulePage/>
