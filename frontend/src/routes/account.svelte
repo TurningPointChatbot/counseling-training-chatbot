@@ -8,7 +8,7 @@
 </script>
 
 <div class="m-16">
-  <h2 class="m-2">Account Management</h2>
+  <h1 class="m-2">Account Management</h1>
 
   <hr/>
 

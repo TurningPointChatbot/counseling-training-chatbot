@@ -8,7 +8,7 @@
 
 <div class="m-16">
 
-  <h2>Change Password</h2>
+  <h1>Change Password</h1>
 
   <hr class="my-4"/>
 
