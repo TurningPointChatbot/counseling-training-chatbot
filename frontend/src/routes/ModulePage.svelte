@@ -1,17 +1,28 @@
-<div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box" style="color:#E5E5E5">
-    <input type="checkbox"/> 
-    <div class="collapse-title text-xl font-medium">
-        <div class="grid grid-cols-3 gaps-4">
-            <div>Module 1</div>
-            <div>12/05/2022</div>
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+<div class="grid grid-rows-2 grid-flow-col gap-8">
+    <div tabindex="0" class="collapse collapse-close border border-base-300 bg-base-100 rounded-box" style="color:#852E82"> 
+        <div class="collapse-title text-xl font-medium">
+            <div class="grid grid-cols-3 gaps-4">
+                <div>Module Name</div>
+                <div>Due Date</div>
+                <div>Status</div>
             </div>
         </div>
     </div>
-    <div class="collapse-content"> 
-        <h2><b> Description :</b></h2> 
+    <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box" style="color:#E5E5E5">
+        <input type="checkbox"/> 
+        <div class="collapse-title text-xl font-medium">
+            <div class="grid grid-cols-3 gaps-4">
+                <div>Module 1</div>
+                <div>12/05/2022</div>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="collapse-content"> 
+            <h2><b> Description :</b></h2> 
+        </div>
     </div>
 </div>
