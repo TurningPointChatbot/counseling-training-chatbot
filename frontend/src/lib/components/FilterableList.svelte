@@ -72,7 +72,7 @@
               <div class="basis-1/4">
                 <img
                   alt={listItem.title}
-                  class="rounded-circle"
+                  class="rounded-rectangle"
                   src={listItem.image}
                 />
               </div>
@@ -95,12 +95,12 @@
 </div>
 
 <style>
-  .rounded-circle {
-    /* Crops the image to a circle. */
+  .rounded-rectangle {
+    /* Crops the image to a rectangle with rounded corners. */
     object-fit: cover;
-    border-radius: 50%;
-    height: 100px;
-    width: 100px;
+    border-radius: 25px;
+    height: 150px;
+    width: 200px;
   }
 
   .item-title {
