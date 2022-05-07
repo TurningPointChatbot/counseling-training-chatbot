@@ -35,8 +35,7 @@
                 This is the description for incomplete module 2.
             </b></h2>
             <div class = "text-right">
-                <!--Used btn-primary color as this will be turned into bright green I believe.-->
-                <button class="btn btn-active btn-primary rounded-circle">Run</button>
+                <button class="btn btn-active btn-success rounded-circle">Run</button>
             </div>
         </div>
     </div>
@@ -69,7 +68,7 @@
                 This is the description for completed module 1.
             </b></h2>
             <div class = "text-right">
-                <button class="btn btn-active btn-primary rounded-circle">Run</button>
+                <button class="btn btn-active btn-success rounded-circle">Run</button>
             </div>
         </div>
     </div>
