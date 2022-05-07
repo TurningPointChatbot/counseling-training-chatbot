@@ -23,8 +23,8 @@
                 <div>12/05/2022</div>
                 <div>
                     <!--Progress bar here -->
-                    <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                        <div class="bg-blue-400 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" style="width: 45%"> 45%</div>
+                    <div class="w-full bg-gray-200 rounded dark:bg-gray-700">
+                        <div class="bg-blue-400 text-s font-medium text-blue-100 text-center p-0.5 leading-none rounded" style="width: 45%"> 45%</div>
                     </div>
                 </div>
             </div>
@@ -61,8 +61,8 @@
                 <div>18/05/2022</div>
                 <div>
                     <!-- Progress bar here -->
-                    <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                        <div class="bg-blue-400 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" style="width: 10%"> 10%</div>
+                    <div class="w-full bg-gray-200 rounded dark:bg-gray-700">
+                        <div class="bg-blue-400 text-s font-medium text-blue-100 text-center p-0.5 leading-none rounded" style="width: 10%"> 10%</div>
                     </div>
                 </div>
             </div>
