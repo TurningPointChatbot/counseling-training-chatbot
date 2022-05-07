@@ -1,5 +1,6 @@
 <html data-theme="cupcake"></html>
 
+<!--Header-->
 <div class="grid-flow-col gap-8 my-4">
     <div tabindex="0" class="collapse collapse-close border border-base-300 bg-base-100 rounded-box" style="background-color:#852E82; color:white"> 
         <div class="collapse-title text-2xl font-medium">
@@ -12,6 +13,7 @@
     </div>
 </div>
 
+<!--Incomplete Module-->
 <div class="grid-flow-col gap-8 my-4">
     <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-300 rounded-box" style="color:black">
         <input type="checkbox"/> 
@@ -25,11 +27,22 @@
             </div>
         </div>
         <div class="collapse-content"> 
-            <h2><b> Description: This is the description for incomplete module 2</b></h2> 
+            <h2><b> Description: This is the description for incomplete module 2.
+                This is the description for incomplete module 2.
+                This is the description for incomplete module 2.
+                This is the description for incomplete module 2.
+                This is the description for incomplete module 2.
+                This is the description for incomplete module 2.
+            </b></h2>
+            <div class = "text-right">
+                <!--Used btn-primary color as this will be turned into bright green I believe.-->
+                <button class="btn btn-active btn-primary rounded-circle">Run</button>
+            </div>
         </div>
     </div>
 </div>
 
+<!--Complete Module-->
 <div class="grid-flow-col gap-8 my-4">
     <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-300 rounded-box" style="color:black">
         <input type="checkbox"/> 
@@ -44,8 +57,20 @@
                 </div>
             </div>
         </div>
-        <div class="collapse-content"> 
-            <h2><b> Description: This is the description for completed module 1</b></h2> 
+        <div class="collapse-content">
+            <h2><b> Description: This is the description for completed module 1.
+                This is the description for completed module 1.
+                This is the description for completed module 1.
+                This is the description for completed module 1.
+                This is the description for completed module 1. 
+                This is the description for completed module 1. 
+                This is the description for completed module 1. 
+                This is the description for completed module 1. 
+                This is the description for completed module 1.
+            </b></h2>
+            <div class = "text-right">
+                <button class="btn btn-active btn-primary rounded-circle">Run</button>
+            </div>
         </div>
     </div>
 </div>
