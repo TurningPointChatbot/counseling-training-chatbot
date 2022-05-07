@@ -35,7 +35,7 @@
     "postcss": "^8.4.13",
     "prettier": "^2.5.1",
     "prettier-plugin-svelte": "^2.5.0",
-    "svelte": "^3.47.0",
+    "svelte": "^3.44.0",
     "svelte-check": "^2.2.6",
     "svelte-jester": "^2.3.2",
     "svelte-preprocess": "^4.10.1",
@@ -46,7 +46,6 @@
   },
   "type": "module",
   "dependencies": {
-    "@supabase/supabase-js": "^1.35.2",
-    "sveltestrap": "^5.9.0"
+    "@supabase/supabase-js": "^1.35.2"
   }
 }
