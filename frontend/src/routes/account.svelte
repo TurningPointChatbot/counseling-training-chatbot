@@ -1,4 +1,6 @@
 <script lang="ts">
+  import AvatarCard from '$lib/components/cards/AvatarCard.svelte';
+
   let editOn = false;
 
   function toggleEdit() {
@@ -11,25 +13,9 @@
 
   <hr />
 
-  <div class="pb-2 my-4">
-    <div class="grid place-content-center avatar">
-      <div class="w-36 rounded-full border-gray-300 border-4">
-        <!-- svelte-ignore a11y-img-redundant-alt -->
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB6jXtxzJS1d5wG2JYXd0iF9KMuOIMV5P2YHmMz7NKBhXr4jGTSfW29Q102OcJsiEHiMo&usqp=CAU"
-          alt="profile-picture"
-        />
-      </div>
-    </div>
-    {#if editOn}
-      <div class="text-center">Change profile picture:</div>
-      <input
-        type="file"
-        class="mx-auto my-2 d-block form-control w-25"
-        id="profilePicture"
-      />
-    {/if}
-  </div>
+  <AvatarCard
+    path={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB6jXtxzJS1d5wG2JYXd0iF9KMuOIMV5P2YHmMz7NKBhXr4jGTSfW29Q102OcJsiEHiMo&usqp=CAU'}
+  />
 
   <hr />
 
