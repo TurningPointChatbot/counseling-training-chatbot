@@ -25,8 +25,6 @@
       loading = true;
       const user = supabase.auth.user();
 
-      console.log(user.email);
-
       let { data, error, status } = await supabase
         .from('user')
         .select(
@@ -45,8 +43,6 @@
       if (error && status) throw error;
 
       if (data) {
-        console.log(data);
-
         fullName = data.fname + ' ' + data.lname;
         email = data.email;
         position = data.user_type.name;
