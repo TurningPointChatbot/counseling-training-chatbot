@@ -19,7 +19,7 @@
     editOn = !editOn;
   }
 
-  // retrieve user information from the database
+  // retrieve user information from the database and update UI
   async function getUserInfo() {
     try {
       loading = true;
@@ -59,9 +59,33 @@
     }
   }
 
-  // update the user database with
+  // update the user database with edited information
   async function handleSave() {
-    // TODO: implement
+    try {
+      loading = true;
+      const user = supabase.auth.user();
+
+      // TODO: FIX THIS, maybe split into to input fields?
+      let [fname, lname] = fullName.split(' ');
+
+      const updates = {
+        fname: fname,
+        lname: lname
+      };
+
+      let { error } = await supabase
+        .from('user')
+        .update(updates, {
+          returning: 'minimal'
+        })
+        .eq('email', user.email);
+    } catch (error) {
+      // TODO: improve error handling
+      alert(error.message);
+    } finally {
+      editOn = false;
+      loading = false;
+    }
   }
 
   // -----------------------------------DELETE THIS------------------
@@ -114,6 +138,8 @@
         disabled={!editOn}
       />
     </div>
+
+    <!-- TODO: remove email from being editable as we use as primary key in database -->
     <div class="row justify-content-center mx-2 my-4">
       <p class="col-md-2 col-md-offset-3 fw-bold">Email</p>
       <input
