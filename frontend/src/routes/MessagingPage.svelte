@@ -12,7 +12,7 @@
   <div class="max-w-full border rounded">
     <!--Tabs-->
     <div class="tabs">
-      <a class="tab tab-lg tab-bordered tab-active tab-active-pink-300"><b>Conversation</b></a> 
+      <a class="tab tab-lg tab-bordered tab-active"><b>Conversation</b></a> 
       <a class="tab tab-lg tab-bordered">Chats </a> 
       <a class="tab tab-lg tab-bordered">Details </a>
       <a class="tab tab-lg tab-bordered">Email</a>
@@ -61,17 +61,18 @@
 <div class="flex justify-center my-4">
   <div class="mb-3 w-full mx-10">
     <!-- Buttons for text-->
-    <div class="block p-6 rounded-t shadow-lg bg-gray-300 w-full">
+    <div class="block py-2 px-4 rounded-t justify-items-end shadow-lg bg-gray-300 w-full">
         <button type="button" class="rounded inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">1</button>
         <button type="button" class="rounded inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">2</button>
         <button type="button" class="rounded inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">3</button>
         <button type="button" class="rounded inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">4</button>
         <button type="button" class="rounded inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">5</button>
-        <button type="button" class="rounded inline-block px-6 py-2.5 bg-red-600 justify-end text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">End Chat</button>
-    </div>
+        <button type="button" class="rounded inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">End Chat</button>
+  </div>
+  
     <!-- Text area -->
     <textarea
-      class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border 
+      class="form-control block w-full px-4 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border 
         border-solid border-gray-300 rounded-b transition ease-in-out focus:text-gray-700 focus:bg-white 
         focus:border-blue-600 focus:outline-none "
       id="exampleFormControlTextarea1"
