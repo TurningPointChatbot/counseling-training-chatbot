@@ -8,7 +8,7 @@
 
   export let path: string;
 
-  let src: string;
+  let src: string = path;
   let uploading: boolean;
   let files: FileList;
 
