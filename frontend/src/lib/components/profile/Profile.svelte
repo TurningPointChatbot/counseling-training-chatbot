@@ -34,45 +34,33 @@
 
   <div class="row justify-content-center mx-2 my-4">
     <p class="col-md-2 col-md-offset-3 fw-bold">Full Name</p>
-    {#if !editOn}
-      <p class="col-md-6 col-md-offset-3">{fullName}</p>
-    {/if}
-    {#if editOn}
-      <input
-        class="col-md-6 col-md-offset-3 w-50"
-        placeholder="Full Name"
-        type="text"
-        bind:value={fullName}
-      />
-    {/if}
+    <input
+      class="col-md-6 col-md-offset-3 w-50"
+      placeholder="Full Name"
+      type="text"
+      bind:value={fullName}
+      disabled={!editOn}
+    />
   </div>
   <div class="row justify-content-center mx-2 my-4">
     <p class="col-md-2 col-md-offset-3 fw-bold">Mobile</p>
-    {#if !editOn}
-      <p class="col-md-6 col-md-offset-3">{mobile}</p>
-    {/if}
-    {#if editOn}
-      <input
-        class="col-md-6 col-md-offset-3 w-50"
-        placeholder="mobile"
-        type="text"
-        bind:value={mobile}
-      />
-    {/if}
+    <input
+      class="col-md-6 col-md-offset-3 w-50"
+      placeholder="mobile"
+      type="text"
+      bind:value={mobile}
+      disabled={!editOn}
+    />
   </div>
   <div class="row justify-content-center mx-2 my-4">
     <p class="col-md-2 col-md-offset-3 fw-bold">Email</p>
-    {#if !editOn}
-      <p class="col-md-6 col-md-offset-3">{email}</p>
-    {/if}
-    {#if editOn}
-      <input
-        class="col-md-6 col-md-offset-3 w-50"
-        placeholder="email"
-        type="text"
-        bind:value={email}
-      />
-    {/if}
+    <input
+      class="col-md-6 col-md-offset-3 w-50"
+      placeholder="email"
+      type="text"
+      bind:value={email}
+      disabled={!editOn}
+    />
   </div>
   <div class="row justify-content-center mx-2 my-4">
     <p class="col-md-2 col-md-offset-3 fw-bold">Position</p>
@@ -82,14 +70,10 @@
   <div class="flex flex-row-reverse space-x-4 space-x-reverse">
     {#if !editOn}
       <button class="btn" on:click={toggleEdit}> Edit </button>
-    {/if}
-
-    {#if editOn}
+    {:else}
       <button class="btn" on:click={toggleEdit}> Cancel </button>
 
-      {#if editOn}
-        <button class="btn"> Save </button>
-      {/if}
+      <button class="btn"> Save </button>
     {/if}
   </div>
 
