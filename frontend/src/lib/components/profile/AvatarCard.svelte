@@ -14,6 +14,13 @@
 
   const dispatch = createEventDispatcher();
 
+  // FIXME: super hacky line of code that gets image to download on path change
+  // primarily when path is first fetched from the database.
+  $: {
+    path;
+    downloadImage();
+  }
+
   /**
    * Retrieves a profile picture's URL and sets it to src.
    */
@@ -22,6 +29,7 @@
       const { data, error } = await supabase.storage
         .from('avatars')
         .download(path);
+
       if (error) throw error;
 
       src = URL.createObjectURL(data);
@@ -57,12 +65,40 @@
       if (uploadError) throw uploadError;
 
       path = filePath;
+
+      await updateUserAvatarURL();
+
+      await downloadImage();
+
       dispatch('upload');
     } catch (error) {
       // TODO: handle uploading error
       alert(error.message);
     } finally {
       uploading = false;
+    }
+  }
+
+  async function updateUserAvatarURL() {
+    try {
+      const user = supabase.auth.user();
+
+      let { error } = await supabase
+        .from('user')
+        .update(
+          {
+            avatar_url: path
+          },
+          {
+            returning: 'minimal'
+          }
+        )
+        .eq('email', user.email);
+
+      if (error) throw error;
+    } catch (error) {
+      // TODO: improve error handling
+      alert(error.message);
     }
   }
 </script>

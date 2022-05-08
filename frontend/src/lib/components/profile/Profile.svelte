@@ -12,6 +12,8 @@
   let mobile: string = '0404 333 222';
   let email: string = 'johnsmith@turningpoint.org.au';
   let position: string = 'Junior Counsellor';
+
+  // TODO: replace with empty avatar image lol, could also do something auto-generated like github?
   let avatarUrl: string =
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB6jXtxzJS1d5wG2JYXd0iF9KMuOIMV5P2YHmMz7NKBhXr4jGTSfW29Q102OcJsiEHiMo&usqp=CAU';
 
@@ -32,6 +34,7 @@
           fname,
           lname,
           email,
+          avatar_url,
           user_type:type_id (
             name
           )
@@ -46,6 +49,10 @@
         fullName = data.fname + ' ' + data.lname;
         email = data.email;
         position = data.user_type.name;
+
+        if (data.avatar_url) {
+          avatarUrl = data.avatar_url;
+        }
       }
     } catch (error) {
       // TODO: improve error handling
@@ -108,7 +115,7 @@
 
   <hr />
 
-  <AvatarCard path={avatarUrl} />
+  <AvatarCard bind:path={avatarUrl} />
 
   <hr />
 
