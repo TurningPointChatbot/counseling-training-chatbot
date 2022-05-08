@@ -31,25 +31,20 @@
   <!-- Tailwind CSS -->
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 
+</head>
 
-  <title>Tailwind CSS CDN</title>
+<body>
   <div class="font-bold text-xl mb-2">Counsellors</div>
   <p class="text-gray-700 text-base">
     Recently viewed
 </p>
-</head>
-
-<body>
-  <div class="flex items-center rounded bg-white shadow-md overflow-hidden mt-10 mr-8 hover:shadow-lg transform transition hover:-translate-y-1">
+  <div class="flex items-center rounded bg-white overflow-hidden mt-10 mr-8 hover:shadow-lg transform transition hover:-translate-y-1">
     {#each counsellorPreview as cardItem}
     <!--Card 1-->
-    <div class="rounded overflow-hidden shadow-lg">
-      <img class="w-full" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="Davos Sand">
+    <div class="rounded shadow-lg">
+      <img class="rounded-full" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="Davos Sand">
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2">{cardItem.title}</div>
-        <p class="text-gray-700 text-base">
-            {cardItem.description}
-        </p>
       </div>
     </div>
     {/each}
