@@ -4,4 +4,4 @@
   import MessagingPage from './MessagingPage.svelte';
 </script>
 
-<MessagingPage/>
+<ModulePage/>
