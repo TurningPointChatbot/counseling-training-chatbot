@@ -21,7 +21,7 @@
       <div class="dropdown dropdown-end">
         <label tabindex="0" class="btn btn-ghost btn-circle avatar">
           <div class="w-10 rounded-full">
-            <img src="https://api.lorem.space/image/face?hash=33791" />
+            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" />
           </div>
         </label>
         <ul
@@ -29,10 +29,8 @@
           class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
         >
           <li>
-            <a
-              >Administrator<br />
-              Name</a
-            >
+            <a><div>Administrator<br/>
+              <b>Name</b></div></a>
           </li>
           <li><a>Logout</a></li>
         </ul>
