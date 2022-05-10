@@ -11,8 +11,10 @@
 
   <Route path="/" component="{ModulePage}"/>
   
-  <Route path="learning-outcomes" component="{LearningOutcomePage}"/>
-
+  <Route path="learning-outcomes/:name" let:params>
+    <LearningOutcomePage moduleName="{params.name}"> </LearningOutcomePage>
+  </Route>
+  
   <Route path="chatbot-simuation" component="{MessagingPage}"/>
 
 </Router>

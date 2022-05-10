@@ -7,8 +7,7 @@
     export let description: string;
 
     function runModule(){
-        //router.redirect("/LearningOutcomePage")
-        navigate("/learning-outcomes", {replace: true})
+        navigate("/learning-outcomes/" + moduleName, {replace: true})
     }
 </script>
 

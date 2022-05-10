@@ -1,10 +1,14 @@
+<script lang="ts">
+  export let moduleName: string;
+</script>
+
 <html lang="en" data-theme="cupcake"></html>
 
 <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="py-12 my-12 mx-52 border-solid border border-gray-300">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="lg:text-left">
-        <h2 class="text-base font-semibold uppercase tracking-wide text-purple-700"> Module 1: Module Title</h2>
+        <h2 class="text-base font-semibold uppercase tracking-wide text-purple-700"> {moduleName}: Module Title</h2>
         <p class="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">Learning Outcomes</p>
         <p class="text-l mt-4 max-w-2xl text-gray-500 "><b>Description: </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vehicula eros ac sapien mattis lobortis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi suscipit, libero a varius placerat, dolor dolor placerat enim, ut rhoncus lorem metus ut justo. Fusce sollicitudin tristique urna, quis malesuada leo. </p>      </div>
   
