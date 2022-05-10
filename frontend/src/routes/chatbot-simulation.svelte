@@ -1,5 +1,11 @@
 <script lang="ts">
+  import {navigate} from "svelte-routing"
+
   export let moduleName: string;
+
+  function returnToModules(){
+    navigate("/", {replace: true})
+  }
 </script>
 
 <html data-theme="cupcake"></html>
@@ -71,7 +77,7 @@
         <button type="button" class="rounded inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">3</button>
         <button type="button" class="rounded inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">4</button>
         <button type="button" class="rounded inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">5</button>
-        <button type="button" class="rounded inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">End Chat</button>
+        <button on:click={returnToModules} type="button" class="rounded inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">End Chat</button>
   </div>
   
     <!-- Text area -->
