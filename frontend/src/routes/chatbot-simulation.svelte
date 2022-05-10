@@ -6,6 +6,16 @@
   function returnToModules(){
     navigate("/", {replace: true})
   }
+
+  import ChatMessage from '../lib/components/ChatMessage.svelte'
+
+    // Array containing dictionary of messages. Currently all hardcoded in.
+    // Will require 
+    let messages: Array<any> = [];
+    messages.push({sender: "patient", content: "Hi"})
+    messages.push({sender: "counsellor", content: "Hiii"})
+    messages.push({sender: "patient", content: "I am alcoholic"})
+    messages.push({sender: "counsellor", content: "okay"})
 </script>
 
 <html data-theme="cupcake"></html>
@@ -32,26 +42,10 @@
         <div class="relative w-full p-6 overflow-y-auto h-[24rem]">
         <div class="overflow-auto ...">
           <ul class="space-y-2">
-            <li class="flex justify-start">
-              <div class="relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
-                <span class="block">Hi</span>
-              </div>
-            </li>
-            <li class="flex justify-end">
-              <div class="relative max-w-xl px-4 py-2 text-gray-700 bg-gray-100 rounded shadow">
-                <span class="block">Hiiii</span>
-              </div>
-            </li>
-            <li class="flex justify-end">
-              <div class="relative max-w-xl px-4 py-2 text-gray-700 bg-gray-100 rounded shadow">
-                <span class="block">how are you?</span>
-              </div>
-            </li>
-            <li class="flex justify-start">
-              <div class="relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
-                <span class="block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </span>
-              </div>
-            </li>
+            <!-- Messags are being displayed here -->
+            {#each messages as message}
+	            <ChatMessage {...message}/>
+            {/each}
           </ul>
           </div>
         </div>
