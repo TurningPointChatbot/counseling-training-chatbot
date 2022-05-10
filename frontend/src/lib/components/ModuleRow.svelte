@@ -9,6 +9,7 @@
     function runModule(){
         navigate("/learning-outcomes/" + moduleName, {replace: true})
     }
+
 </script>
 
 <div class="grid-flow-col gap-8 my-4">
@@ -19,10 +20,18 @@
                 <div>{moduleName}</div>
                 <div>{dueDate}</div>
                 <div>
-                    <!--Progress bar here -->
-                    <div class="w-full bg-gray-200 rounded dark:bg-gray-700">
-                        <div class="bg-blue-400 text-s font-medium text-blue-100 text-center p-0.5 leading-none rounded" style="width: {String(progress)}%"> {String(progress)}%</div>
-                    </div>
+                    {#if progress < 100} <!-- Progress Bar -->
+                        <div class="w-full bg-gray-200 rounded dark:bg-gray-700">
+                            <div class="bg-blue-400 text-s font-medium text-blue-100 text-center p-0.5 leading-none rounded" style="width: {String(progress)}%"> {String(progress)}%</div>
+                        </div>
+                    {:else} <!-- Completed Module Icon -->
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    {/if}
+                    
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@
     for(let i:number = 1; i <= 8; i++){
         let moduleName: string = "Module " + String(i)
         let dueDate: string = String(i) + "/06/22"
-        let progress: number = i * 10
+        let progress: number = (i+2) * 10
         let description: string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pellentesque in dui non volutpat. Suspendisse non turpis eget purus viverra sollicitudin. Morbi nulla nisi, consequat non neque vel, scelerisque porta orci. Aenean vitae neque imperdiet tellus cursus ornare. Etiam dignissim pellentesque fermentum. Etiam feugiat nibh vel mattis eleifend. Praesent orci."
         modules.push({moduleName: moduleName, dueDate: dueDate, progress: progress, description: description})
     }
