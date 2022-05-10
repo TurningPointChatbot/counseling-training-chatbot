@@ -1,5 +1,11 @@
 <script lang="ts">
+  import {navigate} from "svelte-routing"
+
   export let moduleName: string;
+
+  function runChatbot(){
+    navigate("/chatbot-simulation/" + moduleName, {replace: true})
+  }
 </script>
 
 <html lang="en" data-theme="cupcake"></html>
@@ -42,5 +48,8 @@
         </dl>
       </div>
     </div>
+    <button on:click={runChatbot} class="btn btn-primary btn-outline ml-10 mt-10">
+      Start Chatbot Simulation
+    </button>
   </div>
   

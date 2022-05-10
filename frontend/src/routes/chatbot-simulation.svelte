@@ -1,9 +1,13 @@
+<script lang="ts">
+  export let moduleName: string;
+</script>
+
 <html data-theme="cupcake"></html>
 
 <!-- Header -->
 <div class="flex justify-center">
     <div class="block p-6 mt-8 mb-8 mx-10 rounded shadow-lg bg-gray-300 w-full">
-      <h5 class="text-gray-900 text-xl leading-tight font-medium">Module Name</h5>
+      <h5 class="text-gray-900 text-xl leading-tight font-medium">{moduleName}</h5>
     </div>
 </div>
 

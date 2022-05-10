@@ -15,6 +15,8 @@
     <LearningOutcomePage moduleName="{params.name}"> </LearningOutcomePage>
   </Route>
   
-  <Route path="chatbot-simuation" component="{MessagingPage}"/>
+  <Route path="chatbot-simulation/:name" let:params>
+    <MessagingPage moduleName="{params.name}"></MessagingPage>
+  </Route>
 
 </Router>
