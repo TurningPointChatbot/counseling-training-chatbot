@@ -29,14 +29,7 @@
     </div>
     <div>
       <div class="w-full">
-        <div class="relative flex items-center p-3 border-b border-gray-300">
-          <img class="object-cover w-10 h-10 rounded-full"
-            src="https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg" alt="username" />
-          <span class="block ml-2 font-bold text-gray-600">Emma</span>
-          <span class="absolute w-3 h-3 bg-green-600 rounded-full left-10 top-3">
-          </span>
-        </div>
-        <div class="relative w-full p-6 overflow-y-auto h-[31rem]">
+        <div class="relative w-full p-6 overflow-y-auto h-[24rem]">
         <div class="overflow-auto ...">
           <ul class="space-y-2">
             <li class="flex justify-start">
@@ -77,7 +70,7 @@
         <button type="button" class="rounded inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">3</button>
         <button type="button" class="rounded inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">4</button>
         <button type="button" class="rounded inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">5</button>
-        <button on:click={returnToModules} type="button" class="rounded inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">End Chat</button>
+        <button on:click={returnToModules} type="button" style="margin-left: 70%;" class="rounded inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">End Chat</button>
   </div>
   
     <!-- Text area -->
