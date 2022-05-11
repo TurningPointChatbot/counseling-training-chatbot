@@ -16,5 +16,6 @@ module.exports = {
     ]
   },
   setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
-  collectCoverageFrom: ['src/**/*.{ts,tsx,svelte,js,jsx}']
+  collectCoverageFrom: ['src/**/*.{ts,tsx,svelte,js,jsx}'],
+  transformIgnorePatterns: ["<rootDir>/node_modules/!(svelte-routing)"]
 };

@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { navigate } from 'svelte-routing';
 
   export let sender: string;
   export let content: string;
