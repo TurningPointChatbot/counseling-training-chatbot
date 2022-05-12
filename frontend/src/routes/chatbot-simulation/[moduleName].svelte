@@ -1,13 +1,17 @@
-<script lang="ts">
-  import { navigate } from 'svelte-routing';
+<script context="module">
+  export async function load({ params }) {
+    return { props: { moduleName: params.moduleName } };
+  }
+</script>
 
+<script lang="ts">
   export let moduleName: string;
 
   function returnToModules() {
-    navigate('/', { replace: true });
+    location.href = "/modules"
   }
 
-  import ChatMessage from '../lib/components/ChatMessage.svelte';
+  import ChatMessage from '../../lib/components/ChatMessage.svelte';
 
   // Array containing dictionary of messages. Currently all hardcoded in.
   // Will require
@@ -35,10 +39,10 @@
     <div class="max-w-full border rounded">
       <!--Tabs-->
       <div class="tabs">
-        <a class="tab tab-lg tab-bordered tab-active"><b>Conversation</b></a>
-        <a class="tab tab-lg tab-bordered">Chats </a>
-        <a class="tab tab-lg tab-bordered">Details </a>
-        <a class="tab tab-lg tab-bordered">Email</a>
+        <p class="tab tab-lg tab-bordered tab-active"><b>Conversation</b></p>
+        <p class="tab tab-lg tab-bordered">Chats </p>
+        <p class="tab tab-lg tab-bordered">Details </p>
+        <p class="tab tab-lg tab-bordered">Email</p>
       </div>
       <div>
         <div class="w-full">

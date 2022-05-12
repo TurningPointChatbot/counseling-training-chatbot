@@ -1,13 +1,11 @@
 <script lang="ts">
-  import { navigate } from 'svelte-routing';
-
   export let moduleName: string;
   export let dueDate: string;
   export let progress: number;
   export let description: string;
 
   function runModule() {
-    navigate('/learning-outcomes/' + moduleName, { replace: true });
+    location.href = "/learning-outcomes/" + moduleName;
   }
 </script>
 

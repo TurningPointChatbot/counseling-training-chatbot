@@ -1,10 +1,14 @@
-<script lang="ts">
-  import { navigate } from 'svelte-routing';
+<script context="module">
+  export async function load({ params }) {
+    return { props: { moduleName: params.moduleName } };
+  }
+</script>
 
+<script lang="ts">
   export let moduleName: string;
 
   function runChatbot() {
-    navigate('/chatbot-simulation/' + moduleName, { replace: true });
+    location.href = "/chatbot-simulation/" + moduleName;
   }
 </script>
 
