@@ -8,7 +8,7 @@
   export let moduleName: string;
 
   function runChatbot() {
-    location.href = "/chatbot-simulation/" + moduleName;
+    location.href = '/chatbot-simulation/' + moduleName;
   }
 </script>
 

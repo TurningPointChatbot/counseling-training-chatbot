@@ -8,7 +8,7 @@
   export let moduleName: string;
 
   function returnToModules() {
-    location.href = "/modules"
+    location.href = '/modules';
   }
 
   import ChatMessage from '../../lib/components/ChatMessage.svelte';
@@ -40,8 +40,8 @@
       <!--Tabs-->
       <div class="tabs">
         <p class="tab tab-lg tab-bordered tab-active"><b>Conversation</b></p>
-        <p class="tab tab-lg tab-bordered">Chats </p>
-        <p class="tab tab-lg tab-bordered">Details </p>
+        <p class="tab tab-lg tab-bordered">Chats</p>
+        <p class="tab tab-lg tab-bordered">Details</p>
         <p class="tab tab-lg tab-bordered">Email</p>
       </div>
       <div>

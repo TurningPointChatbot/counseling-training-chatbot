@@ -5,7 +5,7 @@
   export let description: string;
 
   function runModule() {
-    location.href = "/learning-outcomes/" + moduleName;
+    location.href = '/learning-outcomes/' + moduleName;
   }
 </script>
 

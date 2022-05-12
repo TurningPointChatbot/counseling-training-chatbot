@@ -2,4 +2,4 @@
   import ModulePage from './modules.svelte';
 </script>
 
-<ModulePage/>
+<ModulePage />
