@@ -1,4 +1,4 @@
-<!--This is ariel's and wil's main page code-->
+<!--This is ariel's, wil's and sam's main page code-->
 <script>
   import ModuleBigCard from "../lib/components/moduleBigCard.svelte";
   import ModuleAssignedModuleCard from "../lib/components/moduleAssignedModuleCard.svelte";
