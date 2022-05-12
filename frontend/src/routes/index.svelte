@@ -15,8 +15,8 @@ import ModuleOverallProgress from "../lib/components/moduleOverallProgress.svelt
 
 
 <!--Navaneeth's Widget-->
-
-<div class="grid grid-cols-2 gap-4">
+<h1 class="m-8">Dashboard</h1>
+<div class="grid grid-cols-2 gap-4 m-8">
   <div class="..."><ModuleOverallProgress moduleOverallprogress = {ModuleOverallProgress}/></div>
   <div class="..."><ModuleAssignedModuleCard moduleAssignedModuleCard = {ModuleAssignedModuleCard}/></div>
   <div class="col-span-2 ..."><ModuleBigCard moduleBigCard = {ModuleBigCard}/></div>
