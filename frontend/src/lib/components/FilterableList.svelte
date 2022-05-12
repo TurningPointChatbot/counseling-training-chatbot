@@ -42,7 +42,7 @@
   }
 </script>
 
-<div class="card">
+<div class="card m-3">
   <div class="card-body">
     <div class="flex justify-end mb-3">
       <div class="flex items-center me-3">
