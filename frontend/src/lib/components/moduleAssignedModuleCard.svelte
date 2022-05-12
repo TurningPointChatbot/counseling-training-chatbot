@@ -1,5 +1,5 @@
 <script>
-    import ModuleCard from "../components/moduleCard.svelte";
+    import ModuleCard from "../components/moduleCardIcon.svelte";
 </script>
 
 <div class="card bg-base-100 shadow-xl">
