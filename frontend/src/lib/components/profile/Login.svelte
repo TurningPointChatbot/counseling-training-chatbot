@@ -77,12 +77,15 @@
 
   <!-- Start of Login Form -->
   {#if !editOn}
-    <form on:submit|preventDefault={signInWithEmail} class="my-5">
+    <form
+      on:submit|preventDefault={signInWithEmail}
+      class="grid place-items-center my-10"
+    >
       <!-- Username Section -->
-      <div class="row justify-content-center mx-2 my-4">
-        <label class="col-md-2 col-md-offset-3 fw-bold" for="username">Username</label>
+      <div class="flex justify-content-center mx-2 my-4 space-x-4">
+        <label class="font-bold" for="username">Username</label>
         <input
-          class="col-md-6 col-md-offset-3 w-50 input input-bordered input-sm"
+          class="w-50 input input-bordered input-sm"
           placeholder="Username"
           type="text"
           bind:value={email}
@@ -90,10 +93,10 @@
       </div>
 
       <!-- Password Section -->
-      <div class="row justify-content-center mx-2 my-4">
-        <label class="col-md-2 col-md-offset-3 fw-bold" for="password">Password</label>
+      <div class="flex justify-content-center mx-2 my-4 space-x-4">
+        <label class="font-bold" for="password">Password</label>
         <input
-          class="col-md-6 col-md-offset-3 w-50 input input-bordered input-sm"
+          class="w-50 input input-bordered input-sm"
           placeholder="******************"
           type="password"
           bind:value={password}
@@ -101,23 +104,18 @@
       </div>
 
       <!-- Sign In/Forgot Password Section-->
-      <div class="grid place-items-center">
-        
-        <button
-          type="submit"
-          class="btn btn-primary content-cente"
-        >
+      <div class="grid place-items-center my-5">
+        <button type="submit" class="btn btn-primary content-cente">
           Sign In
         </button>
-        <a 
-          href = "#"
+        <a
+          href="#"
           class="font-medium text-indigo-600 hover:text-indigo-500"
           on:click={toggleEdit}
         >
           Forgot Password?
-      </a>
-        </div>
-        
+        </a>
+      </div>
 
       <!-- End of Form -->
     </form>
@@ -125,19 +123,22 @@
 
   <!-- Start of Forgot Password Form -->
   {#if editOn}
-    <form on:submit|preventDefault={forgotPassword}>
+    <form
+      on:submit|preventDefault={forgotPassword}
+      class="grid place-items-center my-10"
+    >
       <!-- Forgot Password Title -->
-      <div class="row justify-content-center mx-2 my-5">
+      <div class="flex justify-content-center mx-2 my-4 space-x-4">
         <b class="text-center">Forgot your password?</b>
       </div>
 
       <!-- Email Input Section -->
-      <div class="row justify-content-center mx-2 my-4">
-        <label class="col-md-2 col-md-offset-3 fw-bold" for="username">Email</label>
+      <div class="flex justify-content-center mx-2 my-4 space-x-4">
+        <label class="font-bold" for="username">Email</label>
         <input
-          class="col-md-6 col-md-offset-3 w-50 input input-bordered input-sm"
-          id = "Email"
-          placeholder= "Email"
+          class="w-50 input input-bordered input-sm"
+          id="Email"
+          placeholder="Email"
           type="text"
           bind:value={email}
         />
@@ -145,22 +146,18 @@
 
       <!-- Send Email/Back Section -->
       <div class="grid place-items-center">
-      <div class="button">
-        <button
-          type="submit"
-          style="margin:5px;"
-          class="btn btn-primary" 
-        >
-          Send email
-        </button>
-        <button
-          style="margin:5px;"
-          class="btn btn-primary"
-          on:click={toggleEdit}
-        >
-          Back
-        </button>
-      </div>
+        <div class="button">
+          <button type="submit" style="margin:5px;" class="btn btn-primary">
+            Send email
+          </button>
+          <button
+            style="margin:5px;"
+            class="btn btn-primary"
+            on:click={toggleEdit}
+          >
+            Back
+          </button>
+        </div>
       </div>
 
       <!-- End of Form -->
@@ -170,24 +167,3 @@
 
 <!-- Reference-->
 <!--input type="submit" class='button block' value={loading ? "Loading" : "Send Recovery Email"} disabled={loading} /-->
-
-<!-- Common styling for images and buttons TODO refactor these out and make it to tailwind-->
-<!-- <style>
-  .image {
-    position: relative;
-  }
-  .button {
-    margin: 0;
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
-</style> -->
