@@ -6,7 +6,7 @@
 
 <br><br>
 <center>
-  <div class="card w-96 bg-base-100 shadow-xl">
+  <div class="card bg-base-100 shadow-xl">
     <div class="card-title justify-left bg-base-400">
       <h4>Overall Progress</h4>
     </div>

@@ -1,5 +1,5 @@
 <script>
-    import ModuleCard from "../components/moduleCardIcon.svelte";
+    import ModuleCardIcon from "../components/moduleCardIcon.svelte";
 </script>
 
 <div class="card bg-base-100 shadow-xl">
@@ -8,7 +8,7 @@
     </div>
     <hr class="bg-base-400">
     <div class="card-body grid grid-row gap-3 w-full">
-        <div class="row"><ModuleCard moduleCard = {ModuleCard}/></div>
-        <div class="row"><ModuleCard moduleCard = {ModuleCard}/></div>
+        <div class="row"><ModuleCardIcon moduleCardIcon = {ModuleCardIcon}/></div>
+        <div class="row"><ModuleCardIcon moduleCardIcon = {ModuleCardIcon}/></div>
     </div>
 </div>

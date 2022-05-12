@@ -2,23 +2,22 @@
 <script>
   import ModuleBigCard from "../lib/components/moduleBigCard.svelte";
   import ModuleAssignedModuleCard from "../lib/components/moduleAssignedModuleCard.svelte";
-<<<<<<< HEAD
-=======
   import OverallProgress from "../lib/components/overallProgress.svelte";
->>>>>>> Added a component for the Overall Progress card widget
+import ModuleOverallProgress from "../lib/components/moduleOverallProgress.svelte";
 </script>
 
 <svelte:head>
   <title>Trial</title>
 </svelte:head>
 
-<ModuleAssignedModuleCard moduleAssignedModuleCard = {ModuleAssignedModuleCard}/>
-<<<<<<< HEAD
-<ModuleBigCard moduleBigCard = {ModuleBigCard}/> 
-=======
 
-<ModuleBigCard moduleBigCard = {ModuleBigCard}/>
+
+
 
 <!--Navaneeth's Widget-->
-<OverallProgress overallprogress = {OverallProgress}/>
->>>>>>> Added a component for the Overall Progress card widget
+
+<div class="grid grid-cols-2 gap-4">
+  <div class="..."><ModuleOverallProgress moduleOverallprogress = {ModuleOverallProgress}/></div>
+  <div class="..."><ModuleAssignedModuleCard moduleAssignedModuleCard = {ModuleAssignedModuleCard}/></div>
+  <div class="col-span-2 ..."><ModuleBigCard moduleBigCard = {ModuleBigCard}/></div>
+</div>

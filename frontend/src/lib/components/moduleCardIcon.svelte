@@ -1,5 +1,5 @@
 <script>
-    export let ModuleCard;
+    export let ModuleCardIcon;
     import ModuleProgress from "./moduleProgress.svelte";
   </script>
   
