@@ -1,6 +1,6 @@
 <script lang="ts">
 import AdminBar from "$lib/components/admin/AdminBar.svelte";
-import RecentModules from '$lib/components/admin/RecentModules.svelte';
+import RecentModules from '$lib/components/RecentModules.svelte';
 
 let counsellorPreview = [{
     title: 'Davos Sand',

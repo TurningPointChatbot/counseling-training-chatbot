@@ -11,7 +11,7 @@
     location.href = '/modules';
   }
 
-  import ChatMessage from '../../lib/components/admin/ChatMessage.svelte';
+  import ChatMessage from '../../lib/components/ChatMessage.svelte';
 
   // Array containing dictionary of messages. Currently all hardcoded in.
   // Will require
