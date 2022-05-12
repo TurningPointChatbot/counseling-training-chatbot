@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import ModuleCardIcon from "../components/moduleCardIcon.svelte";
 </script>
 

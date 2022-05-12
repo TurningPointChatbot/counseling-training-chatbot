@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     export let ModuleCardIcon;
     import ModuleProgress from "./moduleProgress.svelte";
   </script>
