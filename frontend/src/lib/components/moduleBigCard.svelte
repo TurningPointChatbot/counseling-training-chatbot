@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import ModuleCard from "../components/moduleCard.svelte";
     import  ModuleCircleButton from "./moduleCircleButton.svelte";
 </script>
@@ -9,10 +9,10 @@
     </div>
     <hr class="bg-base-400">
     <div class="card-body grid grid-cols-10 gap-3 w-full">
-        <div class="col-span-3"><ModuleCard moduleCard = {ModuleCard}/></div>
-        <div class="col-span-3"><ModuleCard moduleCard = {ModuleCard}/></div>
-        <div class="col-span-3"><ModuleCard moduleCard = {ModuleCard}/></div>
-        <div class="col-span-1 self-center"><ModuleCircleButton moduleCircleButton = {ModuleCircleButton}/></div>
+        <div class="col-span-3"><ModuleCard/></div>
+        <div class="col-span-3"><ModuleCard/></div>
+        <div class="col-span-3"><ModuleCard/></div>
+        <div class="col-span-1 self-center"><ModuleCircleButton/></div>
 
     </div>
 </div>

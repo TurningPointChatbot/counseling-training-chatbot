@@ -1,5 +1,4 @@
-<script>
-    export let ModuleProgress
+<script lang="ts">
 </script>
 
 

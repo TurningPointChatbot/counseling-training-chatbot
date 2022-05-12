@@ -1,5 +1,4 @@
-<script>
-    export let TimeRemaining;
+<script lang="ts">
     let timePrint = "Time Remaining : 50 Hrs";
 </script>
 

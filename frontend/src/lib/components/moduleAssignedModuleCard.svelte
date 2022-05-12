@@ -8,7 +8,7 @@
     </div>
     <hr class="bg-base-400">
     <div class="card-body grid grid-row gap-3 w-full">
-        <div class="row"><ModuleCardIcon moduleCardIcon = {ModuleCardIcon}/></div>
-        <div class="row"><ModuleCardIcon moduleCardIcon = {ModuleCardIcon}/></div>
+        <div class="row"><ModuleCardIcon/></div>
+        <div class="row"><ModuleCardIcon/></div>
     </div>
 </div>

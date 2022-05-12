@@ -1,7 +1,6 @@
 <script lang="ts">
     let modPrint = "Completed : 10 / 40";
     let timePrint = "Time Remaining : 50 Hrs";
-    export let OverallProgress;
 </script>
 
 <br><br>

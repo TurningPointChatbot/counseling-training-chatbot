@@ -1,5 +1,4 @@
-<script>
-    export let ModProgress;
+<script lang="ts">
     let modPrint = "Completed : 10 / 40";
 </script>
 
