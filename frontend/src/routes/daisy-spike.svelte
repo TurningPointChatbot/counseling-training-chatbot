@@ -1,42 +1,41 @@
-<button
-  class="inline-block cursor-pointer rounded-md bg-gray-800 px-4 py-3 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-gray-900"
-  >Button</button
->
+<h1>heading 1</h1>
+<h2>heading 2</h2>
 
-<div class="dropdown">
-  <label tabindex="0" class="btn m-1">Click</label>
-  <ul
-    tabindex="0"
-    class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
-  >
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
+<h3> Colours:</h3>
+<div class="flex">
+  <div class="bg-primary w-48 text-white">primary</div>
+  <div class="bg-primary-focus w-48 text-white">primary-focus</div>
+</div>
+<div class="flex">
+  <div class="bg-secondary w-48 text-white">secondary</div>
+  <div class="bg-secondary-focus w-48 text-white">secondary-focus</div>
+</div>
+<div class="flex">
+  <div class="bg-accent w-48 text-white">accent</div>
+  <div class="bg-accent-focus w-48 text-white">accent-focus</div>
+</div>
+<div class="flex">
+  <div class="bg-success w-48 text-base-100">success</div>
+  <div class="bg-error w-48 text-white">error</div>
+</div>
+<div class="flex">
+  <div class="bg-base-100 w-48 ">base-100</div>
+  <div class="bg-base-200 w-48 ">base-200</div>
+  <div class="bg-base-300 w-48 ">base-300</div>
+  <div class="bg-base-400 w-48 ">base-400</div>
+</div>
+<div class="flex">
+  <div class="bg-blue-light w-48 text-white">blue-light</div>
+  <div class="bg-blue-dark w-48 text-white">blue-dark</div>
 </div>
 
-<!-- The button to open modal -->
-<label for="my-modal" class="btn modal-button">open modal</label>
+<h3>Buttons:</h3>
+<div class="flex"></div>
+<button class="btn btn-primary">primary color button</button>
+<button class="btn btn-secondary">secondary color button</button>
+<button class="btn btn-accent">accent color button</button>
 
-<!-- Put this part before </body> tag -->
-<input type="checkbox" id="my-modal" class="modal-toggle" />
-<div class="modal">
-  <div class="modal-box">
-    <h3 class="font-bold text-lg">Congratulations random Interner user!</h3>
-    <p class="py-4">
-      You've been selected for a chance to get one year of subscription to use
-      Wikipedia for free!
-    </p>
-    <div class="modal-action">
-      <label for="my-modal" class="btn">Yay!</label>
-    </div>
-  </div>
-</div>
 
-<label class="swap">
-  <input type="checkbox" />
-  <div class="swap-on">ON</div>
-  <div class="swap-off">OFF</div>
-</label>
 
 <div class="alert shadow-lg">
   <div>
