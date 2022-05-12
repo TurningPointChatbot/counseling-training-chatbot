@@ -1,5 +1,5 @@
 <script lang="ts">
-import AdminBar from "$lib/components/AdminBar.svelte";
+import AdminBar from "$lib/components/admin/AdminBar.svelte";
 import RecentModules from '$lib/components/RecentModules.svelte';
 
 let counsellorPreview = [{

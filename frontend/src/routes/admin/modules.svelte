@@ -1,5 +1,5 @@
 <script>
-import AdminBar from "$lib/components/AdminBar.svelte";
+import AdminBar from "$lib/components/admin/AdminBar.svelte";
 import FilterableList from '$lib/components/FilterableList.svelte';
 
 // TODO: Retrieve module details from database.
