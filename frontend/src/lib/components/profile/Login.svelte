@@ -65,7 +65,7 @@
 
 <div class="content">
   <!-- Turning Point Title Image -->
-  <div style="top:20px;" class="image">
+  <div style="top:20px;" class="grid place-content-center avatar">
     <img
       src="Turning point training portal.png"
       alt="Turning point training portal"
@@ -77,53 +77,47 @@
 
   <!-- Start of Login Form -->
   {#if !editOn}
-    <form on:submit|preventDefault={signInWithEmail}>
+    <form on:submit|preventDefault={signInWithEmail} class="my-5">
       <!-- Username Section -->
-      <div class="row justify-content-center mx-2 my-5">
-        <label
-          class="block text-gray-700 text-sm font-bold mb-2"
-          for="username"
-        >
-          Username
-        </label>
+      <div class="row justify-content-center mx-2 my-4">
+        <label class="col-md-2 col-md-offset-3 fw-bold" for="username">Username</label>
         <input
-          class="bg-gray-200 appearance-none border-2 border-gray-200 rounded max-w-md py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-          id="username"
-          type="text"
+          class="col-md-6 col-md-offset-3 w-50 input input-bordered input-sm"
           placeholder="Username"
+          type="text"
           bind:value={email}
         />
       </div>
 
       <!-- Password Section -->
-      <div class="row justify-content-center mx-2 my-5">
-        <label class="text-gray-700 text-sm font-bold mb-2" for="password">
-          Password
-        </label>
+      <div class="row justify-content-center mx-2 my-4">
+        <label class="col-md-2 col-md-offset-3 fw-bold" for="password">Password</label>
         <input
-          class="bg-gray-200 appearance-none border-2 border-gray-200 rounded max-w-md py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-          id="password"
-          type="password"
+          class="col-md-6 col-md-offset-3 w-50 input input-bordered input-sm"
           placeholder="******************"
+          type="password"
           bind:value={password}
         />
       </div>
 
       <!-- Sign In/Forgot Password Section-->
-      <div class="button">
+      <div class="grid place-items-center">
+        
         <button
           type="submit"
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+          class="btn btn-primary content-cente"
         >
           Sign In
         </button>
-        <button
-          class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+        <a 
+          href = "#"
+          class="font-medium text-indigo-600 hover:text-indigo-500"
           on:click={toggleEdit}
         >
           Forgot Password?
-        </button>
-      </div>
+      </a>
+        </div>
+        
 
       <!-- End of Form -->
     </form>
@@ -138,38 +132,35 @@
       </div>
 
       <!-- Email Input Section -->
-      <div class="row justify-content-center mx-2 my-5">
-        <label
-          class="block text-gray-700 text-sm font-bold mb-2"
-          for="username"
-        >
-          Email:
-        </label>
+      <div class="row justify-content-center mx-2 my-4">
+        <label class="col-md-2 col-md-offset-3 fw-bold" for="username">Email</label>
         <input
-          class="bg-gray-200 appearance-none border-2 border-gray-200 rounded max-w-md py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-          id="Email"
+          class="col-md-6 col-md-offset-3 w-50 input input-bordered input-sm"
+          id = "Email"
+          placeholder= "Email"
           type="text"
-          placeholder="Email"
           bind:value={email}
         />
       </div>
 
       <!-- Send Email/Back Section -->
+      <div class="grid place-items-center">
       <div class="button">
         <button
           type="submit"
           style="margin:5px;"
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+          class="btn btn-primary" 
         >
           Send email
         </button>
         <button
           style="margin:5px;"
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+          class="btn btn-primary"
           on:click={toggleEdit}
         >
           Back
         </button>
+      </div>
       </div>
 
       <!-- End of Form -->
@@ -180,8 +171,8 @@
 <!-- Reference-->
 <!--input type="submit" class='button block' value={loading ? "Loading" : "Send Recovery Email"} disabled={loading} /-->
 
-<!-- Common styling for images and buttons-->
-<style>
+<!-- Common styling for images and buttons TODO refactor these out and make it to tailwind-->
+<!-- <style>
   .image {
     position: relative;
   }
@@ -199,4 +190,4 @@
     margin-right: auto;
     width: 50%;
   }
-</style>
+</style> -->
