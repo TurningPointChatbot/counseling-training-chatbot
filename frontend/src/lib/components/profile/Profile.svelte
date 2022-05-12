@@ -111,51 +111,49 @@
 </script>
 
 <div class="m-16">
-  <h1 class="m-2">Account Management</h1>
+  <h1 class="my-2">Account Management</h1>
+  <hr class="my-1" />
 
-  <hr />
+  <div class="flex space-x-1">
+    <h2 class="text-primary">Position:</h2>
+    <h2 class="">{position}</h2>
+  </div>
+  <div class="flex space-x-1">
+    <h3 class="text-primary">Email:</h3>
+    <h3 class="">{email}</h3>
+  </div>
+  <hr class="my-1" />
 
   <AvatarCard bind:path={avatarUrl} />
 
   <hr />
 
   <!-- Could definitely think about refactoring all of these into components as it's just repeated 3 times -->
-  <form use:getUserInfo on:submit|preventDefault={handleSave}>
-    <div class="row justify-content-center mx-2 my-4">
-      <p class="col-md-2 col-md-offset-3 fw-bold">Full Name</p>
+  <form
+    use:getUserInfo
+    on:submit|preventDefault={handleSave}
+    class="grid place-items-center my-10"
+  >
+    <div class="grid grid-cols-2 mx-2 my-4 space-x-4">
+      <p class="font-bold">Full Name</p>
       <input
-        class="col-md-6 col-md-offset-3 w-50 input input-bordered input-sm"
+        class="w-100 input input-bordered input-md
+        "
         placeholder="Full Name"
         type="text"
         bind:value={fullName}
         disabled={!editOn}
       />
     </div>
-    <div class="row justify-content-center mx-2 my-4">
-      <p class="col-md-2 col-md-offset-3 fw-bold">Mobile</p>
+    <div class="grid grid-cols-2 mx-2 my-4 space-x-4">
+      <p class="font-bold">Mobile</p>
       <input
-        class="col-md-6 col-md-offset-3 w-50 input input-bordered input-sm"
+        class="w-100 input input-bordered input-md"
         placeholder="mobile"
         type="text"
         bind:value={mobile}
         disabled={!editOn}
       />
-    </div>
-
-    <!-- TODO: remove email from being editable as we use as primary key in database -->
-    <div class="row justify-content-center mx-2 my-4">
-      <p class="col-md-2 col-md-offset-3 fw-bold">Email</p>
-      <input
-        class="col-md-6 col-md-offset-3 w-50 input input-bordered input-sm"
-        placeholder="email"
-        type="text"
-        bind:value={email}
-        disabled={!editOn}
-      />
-    </div>
-    <div class="row justify-content-center mx-2 my-4">
-      <p class="col-md-2 col-md-offset-3 fw-bold">Position</p>
-      <p class="col-md-6 col-md-offset-3">{position}</p>
     </div>
 
     <div class="flex flex-row-reverse space-x-4 space-x-reverse mx-2 my-4">
