@@ -42,9 +42,9 @@
   <div class="drawer-side">
     <label for="my-drawer-3" class="drawer-overlay" />
     <ul class="menu p-4 overflow-y-auto w-80 bg-base-100">
-      <li><a>Dashboard</a></li>
-      <li><a>Counsellors</a></li>
-      <li><a>Training Modules</a></li>
+      <li><a href="/admin/dashboard" rel="prefetch" class="nav-link">Dashboard</a></li>
+      <li><a href="/admin/counsellors" rel="prefetch" class="nav-link">Counsellors</a></li>
+      <li><a href="/admin/modules" rel="prefetch" class="nav-link">Training Modules</a></li>
     </ul>
   </div>
 </div>
