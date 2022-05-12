@@ -162,7 +162,11 @@
       {#if !editOn}
         <button class="btn btn-primary" on:click={toggleEdit}> Edit </button>
       {:else}
-        <button class="btn btn-primary" on:click={toggleEdit} disabled={loading}>
+        <button
+          class="btn btn-primary"
+          on:click={toggleEdit}
+          disabled={loading}
+        >
           Cancel
         </button>
 

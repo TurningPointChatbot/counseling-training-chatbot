@@ -1,7 +1,7 @@
 <h1>heading 1</h1>
 <h2>heading 2</h2>
 
-<h3> Colours:</h3>
+<h3>Colours:</h3>
 <div class="flex">
   <div class="bg-primary w-48 text-white">primary</div>
   <div class="bg-primary-focus w-48 text-white">primary-focus</div>
@@ -30,12 +30,10 @@
 </div>
 
 <h3>Buttons:</h3>
-<div class="flex"></div>
+<div class="flex" />
 <button class="btn btn-primary">primary color button</button>
 <button class="btn btn-secondary">secondary color button</button>
 <button class="btn btn-accent">accent color button</button>
-
-
 
 <div class="alert shadow-lg">
   <div>
