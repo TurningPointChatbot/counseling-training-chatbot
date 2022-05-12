@@ -8,7 +8,7 @@
     </div>
     <hr class="bg-base-400">
     <div class="card-body grid grid-row gap-3 w-full">
-        <p>2/5/2022</p><div class="col-span-3"><ModuleCard moduleCard = {ModuleCard}/></div>
-        <p>2/5/2022</p><div class="col-span-3"><ModuleCard moduleCard = {ModuleCard}/></div>
+        <div class="row"><ModuleCard moduleCard = {ModuleCard}/></div>
+        <div class="row"><ModuleCard moduleCard = {ModuleCard}/></div>
     </div>
 </div>
