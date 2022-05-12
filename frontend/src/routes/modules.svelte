@@ -1,5 +1,5 @@
 <script lang="ts">
-  import ModuleRow from '../lib/components/ModuleRow.svelte';
+  import ModuleRow from '../lib/components/admin/ModuleRow.svelte';
 
   // Array containing array of module values [[moduleName, dueDate, progress, description], ...]
   // eg. [['Module 1', '17/08/22', 45, 'Lorem ipsum...'], ...]

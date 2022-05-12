@@ -1,5 +1,5 @@
 <script lang="ts">
-    import ModuleCard from "../components/moduleCard.svelte";
+    import ModuleCard from "./moduleCard.svelte";
     import  ModuleCircleButton from "./moduleCircleButton.svelte";
 </script>
 

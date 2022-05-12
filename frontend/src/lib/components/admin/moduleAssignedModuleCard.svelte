@@ -1,5 +1,5 @@
 <script lang="ts">
-    import ModuleCardIcon from "../components/moduleCardIcon.svelte";
+    import ModuleCardIcon from "./moduleCardIcon.svelte";
 </script>
 
 <div class="card bg-base-100 shadow-xl">

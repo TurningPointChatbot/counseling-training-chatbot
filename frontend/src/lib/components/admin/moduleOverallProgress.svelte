@@ -1,6 +1,6 @@
 <script lang="ts">
-    import TimeRemaining from "../components/timeRemaining.svelte";
-    import ModProgress from "../components/modProgress.svelte";
+    import TimeRemaining from "./timeRemaining.svelte";
+    import ModProgress from "./modProgress.svelte";
 </script>
 
 <div class="card bg-base-100 shadow-xl">
