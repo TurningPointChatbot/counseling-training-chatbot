@@ -124,7 +124,7 @@
     <div class="row justify-content-center mx-2 my-4">
       <p class="col-md-2 col-md-offset-3 fw-bold">Full Name</p>
       <input
-        class="col-md-6 col-md-offset-3 w-50"
+        class="col-md-6 col-md-offset-3 w-50 input input-bordered input-sm"
         placeholder="Full Name"
         type="text"
         bind:value={fullName}
@@ -134,7 +134,7 @@
     <div class="row justify-content-center mx-2 my-4">
       <p class="col-md-2 col-md-offset-3 fw-bold">Mobile</p>
       <input
-        class="col-md-6 col-md-offset-3 w-50"
+        class="col-md-6 col-md-offset-3 w-50 input input-bordered input-sm"
         placeholder="mobile"
         type="text"
         bind:value={mobile}
@@ -146,7 +146,7 @@
     <div class="row justify-content-center mx-2 my-4">
       <p class="col-md-2 col-md-offset-3 fw-bold">Email</p>
       <input
-        class="col-md-6 col-md-offset-3 w-50"
+        class="col-md-6 col-md-offset-3 w-50 input input-bordered input-sm"
         placeholder="email"
         type="text"
         bind:value={email}
@@ -158,17 +158,17 @@
       <p class="col-md-6 col-md-offset-3">{position}</p>
     </div>
 
-    <div class="flex flex-row-reverse space-x-4 space-x-reverse">
+    <div class="flex flex-row-reverse space-x-4 space-x-reverse mx-2 my-4">
       {#if !editOn}
-        <button class="btn" on:click={toggleEdit}> Edit </button>
+        <button class="btn btn-primary" on:click={toggleEdit}> Edit </button>
       {:else}
-        <button class="btn" on:click={toggleEdit} disabled={loading}>
+        <button class="btn btn-primary" on:click={toggleEdit} disabled={loading}>
           Cancel
         </button>
 
         <input
           type="submit"
-          class="btn"
+          class="btn btn-primary"
           on:click={handleSave}
           disabled={loading}
           value={loading ? 'Loading...' : 'Save'}
@@ -178,6 +178,3 @@
   </form>
   <hr />
 </div>
-
-<!-- TODO: DELETE -->
-<button on:click={handleLogin}> Login </button>

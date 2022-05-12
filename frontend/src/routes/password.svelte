@@ -27,6 +27,6 @@
       class="form-control col-2 w-25 m-2"
       placeholder="Current Password"
     />
-    <button class="btn m-2" on:click={savePassword}> Save </button>
+    <button class="btn btn-primary m-2" on:click={savePassword}> Save </button>
   </div>
 </div>

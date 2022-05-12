@@ -105,7 +105,7 @@
 
 <div class="pb-2 my-4">
   <div class="grid place-content-center avatar">
-    <div class="w-36 rounded-full border-gray-300 border-4">
+    <div class="w-36 rounded-full border-base-300 border-4">
       <!-- Below line throws a typescript error but still works as expected... -->
       <img use:downloadImage {src} alt="The user's avatar" />
     </div>
