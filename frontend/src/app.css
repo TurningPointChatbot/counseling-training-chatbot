@@ -9,9 +9,6 @@
   h3 {
     @apply text-lg;
   }
-  a {
-    @apply text-primary underline;
-  }
 }
 @tailwind components;
 @tailwind utilities;
