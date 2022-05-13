@@ -1,8 +1,8 @@
 <!--This is ariel's, wil's and sam's main page code-->
 <script>
-  import ModuleBigCard from '$lib/components/moduleBigCard.svelte';
-  import ModuleAssignedModuleCard from '$lib/components/moduleAssignedModuleCard.svelte';
-  import ModuleOverallProgress from '$lib/components/moduleOverallProgress.svelte';
+  import ModuleBigCard from '$lib/components/dashboard/ModuleBigCard.svelte';
+  import ModuleAssignedModuleCard from '$lib/components/dashboard/ModuleAssignedModuleCard.svelte';
+  import ModuleOverallProgress from '$lib/components/dashboard/ModuleOverallProgress.svelte';
 </script>
 
 <svelte:head>
