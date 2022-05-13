@@ -7,10 +7,8 @@
 <div class="card employee-card bg-base-100 shadow-xl">
   <div>
     <!-- Counsellor Information Title Section -->
-    <h2 class="h2-counsellor-dashboard">
-      Counsellor Information
-    </h2>
-    <hr/>
+    <h2 class="h2-counsellor-dashboard">Counsellor Information</h2>
+    <hr />
 
     <!-- Employee Image Section-->
     <div class="employee-description card-body grid grid-cols-2 h-full w-full">
@@ -40,4 +38,3 @@
     </div>
   </div>
 </div>
-
