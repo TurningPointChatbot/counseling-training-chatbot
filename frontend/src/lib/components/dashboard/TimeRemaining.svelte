@@ -1,5 +1,8 @@
 <script lang="ts">
-  let timePrint = 'Time Remaining : 50 Hrs';
+  export let time = 50;
+  export let totalTime = 100;
+
+  let percent = time / totalTime * 100;
 </script>
 
 <div class="row">
@@ -7,10 +10,10 @@
   <div class="w-full bg-gray-200 rounded-full">
     <div
       class="bg-secondary text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded"
-      style="width: 88%"
+      style="width: {percent}%"
     >
-      88%
+    {percent}%
     </div>
   </div>
-  <div class="font-xs text-base-400">{timePrint}</div>
+  <div class="font-xs text-base-400">Time Remaining : {time} hours</div>
 </div>

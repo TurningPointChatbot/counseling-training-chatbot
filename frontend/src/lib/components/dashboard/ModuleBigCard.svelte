@@ -1,6 +1,6 @@
 <script lang="ts">
-  import ModuleCard from './moduleCard.svelte';
-  import ModuleCircleButton from './moduleCircleButton.svelte';
+  import ModuleCard from './ModuleCard.svelte';
+  import ModuleCircleButton from './ModuleCircleButton.svelte';
 </script>
 
 <div class="card bg-base-100 shadow-xl">
