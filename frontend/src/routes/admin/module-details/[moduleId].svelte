@@ -26,22 +26,26 @@ let module = {
 let modules = [{
     title: 'Davos Sand',
     description: 'Junior Counsellor',
-    image: 'https://picsum.photos/id/426/400/600.jpg'
+    image: 'https://picsum.photos/id/426/400/600.jpg',
+    href: '/admin/employee'
   },
   {
     title: 'Abigail Constantine',
     description: 'Junior Counsellor',
-    image: 'https://picsum.photos/id/426/400/600.jpg'
+    image: 'https://picsum.photos/id/426/400/600.jpg',
+    href: '/admin/employee'
   },
   {
     title: 'Patrick Tran',
     description: 'Junior Counsellor',
-    image: 'https://picsum.photos/id/426/400/600.jpg'
+    image: 'https://picsum.photos/id/426/400/600.jpg',
+    href: '/admin/employee'
   },
   {
     title: 'Evelyn Chua',
     description: 'Junior Counsellor',
-    image: 'https://picsum.photos/id/426/400/600.jpg'
+    image: 'https://picsum.photos/id/426/400/600.jpg',
+    href: '/admin/employee'
   }
 ];
 </script>

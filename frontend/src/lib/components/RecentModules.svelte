@@ -26,22 +26,22 @@
   >
     {#each sortedList as cardItem}
       <!--Card 1-->
-      <div
-        class="flex flex-col items-center pr-5 overflow-hidden hover:-translate-y-1"
-      >
-        <div>
-          <img
-            class="rounded-rectangle"
-            src={cardItem.image}
-            alt={cardItem.title}
-          />
-        </div>
-        <div class="flex py-4">
-          <div class="text-xl mb-2">
-            {cardItem.title}
+      <a href={cardItem.href}>
+        <div class="flex flex-col items-center pr-5 overflow-hidden hover:-translate-y-1">
+          <div>
+            <img
+              class="rounded-rectangle"
+              src={cardItem.image}
+              alt={cardItem.title}
+            />
+          </div>
+          <div class="flex py-4">
+            <div class="text-xl mb-2">
+              {cardItem.title}
+            </div>
           </div>
         </div>
-      </div>
+      </a>
     {/each}
     <div id="see_all" class="flex flex-col justify-center">
       <a href="/admin/modules" rel="prefetch" class="nav-link">

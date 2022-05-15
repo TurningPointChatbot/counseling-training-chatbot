@@ -6,27 +6,32 @@
     {
       title: 'Davos Sand',
       description: 'Junior Counsellor',
-      image: 'https://picsum.photos/id/426/400/600.jpg'
+      image: 'https://picsum.photos/id/426/400/600.jpg',
+      href: '/admin/employee'
     },
     {
       title: 'Evelyn Chua',
       description: 'Senior Counsellor',
-      image: 'https://picsum.photos/id/426/400/600.jpg'
+      image: 'https://picsum.photos/id/426/400/600.jpg',
+      href: '/admin/employee'
     },
     {
       title: 'Isabella Howard',
       description: 'Junior Counsellor',
-      image: 'https://picsum.photos/id/426/400/600.jpg'
+      image: 'https://picsum.photos/id/426/400/600.jpg',
+      href: '/admin/employee'
     },
     {
       title: 'Jackson Tyler',
       description: 'Junior Counsellor',
-      image: 'https://picsum.photos/id/426/400/600.jpg'
+      image: 'https://picsum.photos/id/426/400/600.jpg',
+      href: '/admin/employee'
     },
     {
       title: 'Harvey White',
       description: 'Junior Counsellor',
-      image: 'https://picsum.photos/id/426/400/600.jpg'
+      image: 'https://picsum.photos/id/426/400/600.jpg',
+      href: '/admin/employee'
     }
   ];
 
@@ -36,28 +41,32 @@
       description:
         'Short summary lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate ipsum vel nisi aliquam euismod.',
       image: 'https://picsum.photos/id/426/400/600.jpg',
-      dateAccessed: new Date('April 13, 2022 11:15:00')
+      dateAccessed: new Date('April 13, 2022 11:15:00'),
+      href: '/admin/module-details/moduleId'
     },
     {
       title: 'Tutorial 102: Module Title',
       description:
         'Short summary lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate ipsum vel nisi aliquam euismod.',
       image: 'https://picsum.photos/id/426/400/600.jpg',
-      dateAccessed: new Date('April 3, 2022 11:13:00')
+      dateAccessed: new Date('April 3, 2022 11:13:00'),
+      href: '/admin/module-details/moduleId'
     },
     {
       title: 'Class 103: Module Title',
       description:
         'Short summary lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate ipsum vel nisi aliquam euismod.',
       image: 'https://picsum.photos/id/426/400/600.jpg',
-      dateAccessed: new Date('April 13, 2022 11:13:00')
+      dateAccessed: new Date('April 13, 2022 11:13:00'),
+      href: '/admin/module-details/moduleId'
     },
     {
       title: 'Module 104: Module Title',
       description:
         'Short summary lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate ipsum vel nisi aliquam euismod.',
       image: 'https://picsum.photos/id/426/400/600.jpg',
-      dateAccessed: new Date('April 23, 2022 11:13:00')
+      dateAccessed: new Date('April 23, 2022 11:13:00'),
+      href: '/admin/module-details/moduleId'
     }
   ];
 </script>
@@ -74,24 +83,24 @@
     >
       {#each counsellorPreview as cardItem}
         <!--Card 1-->
-        <div
-          class="flex flex-col items-center px-3 pr-5 overflow-hidden hover:-translate-y-1"
-        >
-          <img
-            class="rounded-full h-32 w-32"
-            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
-            alt="Davos Sand"
-          />
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">
-              <button
-                type="button"
-                class="font-small text-gray-900 bg-white rounded-full focus:z-10 dark:bg-gray-800 dark:text-gray-400 dark:hover:text-black center"
-                >{cardItem.title}</button
-              >
+        <a href={cardItem.href}>
+          <div class="flex flex-col items-center px-3 pr-5 overflow-hidden hover:-translate-y-1">
+            <img
+              class="rounded-full h-32 w-32"
+              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+              alt="Davos Sand"
+            />
+            <div class="px-6 py-4">
+              <div class="font-bold text-xl mb-2">
+                <button
+                  type="button"
+                  class="font-small text-gray-900 bg-white rounded-full focus:z-10 dark:bg-gray-800 dark:text-gray-400 dark:hover:text-black center"
+                  >{cardItem.title}</button
+                >
+              </div>
             </div>
           </div>
-        </div>
+        </a>
       {/each}
       <div class="flex flex-col justify-center">
         <a href="/admin/counsellors" rel="prefetch" class="nav-link">

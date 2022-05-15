@@ -67,27 +67,29 @@
     <div class="scroll">
       <div>
         {#each filteredList as listItem}
-          <div class="card-bordered p-3">
-            <div class="flex flew-row">
-              <div class="basis-1/4">
-                <img
-                  alt={listItem.title}
-                  class="rounded-rectangle"
-                  src={listItem.image}
-                />
-              </div>
-              <div class="flex items-center basis-3/4">
-                <div>
-                  <div class="item-title">
-                    {listItem.title}
-                  </div>
-                  <div class="item-description">
-                    {listItem.description}
+          <a href={listItem.href}>
+            <div class="card-bordered p-3">
+              <div class="flex flew-row">
+                <div class="basis-1/4">
+                  <img
+                    alt={listItem.title}
+                    class="rounded-rectangle"
+                    src={listItem.image}
+                  />
+                </div>
+                <div class="flex items-center basis-3/4">
+                  <div>
+                    <div class="item-title">
+                      {listItem.title}
+                    </div>
+                    <div class="item-description">
+                      {listItem.description}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </a>
         {/each}
       </div>
     </div>
