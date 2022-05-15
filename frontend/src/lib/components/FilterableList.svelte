@@ -49,9 +49,19 @@
         <div class="sort-icon p-2 mr-3" on:click={sortList}>
           {#if sortedAz}
             <!-- Initially list will be sorted alphabetically (A-Z) -->
-            <Icon imgPath="/icon-sort-asc.png" altText="Sort A-Z" width="20px" height="20px" />
+            <Icon
+              imgPath="/icon-sort-asc.png"
+              altText="Sort A-Z"
+              width="20px"
+              height="20px"
+            />
           {:else}
-            <Icon imgPath="/icon-sort-desc.png" altText="Sort Z-A" width="20px" height="20px"/>
+            <Icon
+              imgPath="/icon-sort-desc.png"
+              altText="Sort Z-A"
+              width="20px"
+              height="20px"
+            />
           {/if}
         </div>
       </div>
@@ -96,7 +106,4 @@
       </div>
     </div>
   </div>
-<<<<<<< HEAD
-</div>
-=======
 </div>
