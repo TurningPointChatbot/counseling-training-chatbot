@@ -42,8 +42,8 @@
   }
 </script>
 
-<div class="card m-3">
-  <div class="card-body">
+<div class="card-bordered h-full">
+  <div class="card-body h-full">
     <div class="flex justify-end mb-3">
       <div class="flex items-center me-3">
         <div class="me-2">Sort A - Z</div>
@@ -67,7 +67,7 @@
     <div class="scroll">
       <div>
         {#each filteredList as listItem}
-          <div class="card p-3">
+          <div class="card-bordered p-3">
             <div class="flex flew-row">
               <div class="basis-1/4">
                 <img
@@ -113,7 +113,7 @@
   }
 
   .scroll {
-    max-height: 400px;
+    max-height: 100%;
     overflow-y: auto;
   }
 
