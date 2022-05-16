@@ -15,5 +15,5 @@
       {percent}%
     </div>
   </div>
-  <div class="font-xs text-base-400">Time Remaining : {time} hours</div>
+  <div class="font-xs text-base-400">Time Remaining : {totalTime - time} hours</div>
 </div>
