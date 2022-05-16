@@ -4,6 +4,8 @@
 
   export let totalModules = 1;
   export let completedModules = 0;
+  export let completedHours = 0;
+  export let targetHours = 100;
 </script>
 
 <div class="card bg-base-100 shadow-xl">
@@ -18,7 +20,7 @@
       <div class="row"><ModProgress total={totalModules} completed={completedModules}/></div>
     </div>
     <div class="card-body grid grid-cols-20 gap-3 w-full">
-      <div class="row"><TimeRemaining /></div>
+      <div class="row"><TimeRemaining time={completedHours} totalTime={targetHours}/></div>
     </div>
   </div>
 </div>
