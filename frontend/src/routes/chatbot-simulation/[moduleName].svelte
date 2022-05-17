@@ -27,7 +27,7 @@
 <div class="w-5/6 mx-28">
   <!-- Header -->
   <div class="flex justify-center">
-    <div class="block p-6 mt-8 mb-8 mx-10 rounded shadow-lg bg-gray-300 w-full">
+    <div class="block p-6 mt-8 mb-8 mx-10 rounded shadow-lg bg-base-300 w-full">
       <h5 class="text-gray-900 text-xl leading-tight font-medium">
         {moduleName}
       </h5>
@@ -64,31 +64,31 @@
   <div class="flex justify-center my-4">
     <div class="mb-3 w-full mx-10">
       <!-- Buttons for text-->
-      <div class="block py-2 px-4 rounded-t shadow-lg bg-gray-300 w-full">
+      <div class="block py-2 px-4 rounded-t shadow-lg bg-base-300 w-full">
         <!-- <div> -->
         <button
           type="button"
-          class="rounded inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
-          >1</button
+          class="rounded inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
+          ><b>B</b></button
         >
         <button
           type="button"
-          class="rounded inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
-          >2</button
+          class="rounded inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
+          ><i>I</i></button
         >
         <button
           type="button"
-          class="rounded inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
-          >3</button
+          class="rounded inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
+          ><u>U</u></button
         >
         <button
           type="button"
-          class="rounded inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
+          class="rounded inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
           >4</button
         >
         <button
           type="button"
-          class="rounded inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
+          class="rounded inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
           >5</button
         >
         <!-- </div>
@@ -96,7 +96,7 @@
         <button
           on:click={returnToModules}
           type="button"
-          class="rounded inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out float-right"
+          class="rounded inline-block px-6 py-2.5 bg-error text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out float-right"
           >End Chat</button
         >
         <!-- </div> -->
