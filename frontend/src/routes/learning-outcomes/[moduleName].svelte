@@ -6,6 +6,7 @@
 
 <script lang="ts">
   export let moduleName: string;
+  import CounsellorBar from '$lib/components/CounsellorBar.svelte';
 
   function runChatbot() {
     location.href = '/chatbot-simulation/' + moduleName;
@@ -14,6 +15,7 @@
 
 <html lang="en" data-theme="cupcake" />
 
+<CounsellorBar>
 <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="py-12 my-12 mx-52 border-solid border border-gray-300">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -111,3 +113,4 @@
     Start Chatbot Simulation
   </button>
 </div>
+</CounsellorBar>
