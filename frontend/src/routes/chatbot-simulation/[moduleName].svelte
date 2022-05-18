@@ -19,6 +19,7 @@
     messages = [...messages, { sender: 'counsellor', content: message}];
   }
 
+  import CounsellorBar from '$lib/components/CounsellorBar.svelte';
   import ChatMessage from '../../lib/components/ChatMessage.svelte';
 
   // Array containing dictionary of messages. Currently all hardcoded in.
@@ -32,6 +33,7 @@
 
 <html lang="en" data-theme="cupcake" />
 
+<CounsellorBar>
 <div class="w-5/6 mx-28">
   <!-- Header -->
   <div class="flex justify-center">
@@ -125,3 +127,4 @@
     </div>
   </div>
 </div>
+</CounsellorBar>
