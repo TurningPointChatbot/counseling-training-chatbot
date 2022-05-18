@@ -7,7 +7,7 @@
 <script lang="ts">
   export let moduleName: string;
 
-  let message: string = "";
+  let message: string = null;
   let messageArea;
 
   function returnToModules() {
@@ -15,6 +15,7 @@
   }
   
   function sendMessage() {
+    if(message != null)
     messages = [...messages, { sender: 'counsellor', content: message}];
   }
 
