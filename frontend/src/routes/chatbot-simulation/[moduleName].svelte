@@ -7,8 +7,15 @@
 <script lang="ts">
   export let moduleName: string;
 
+  let message: string = "";
+  let messageArea;
+
   function returnToModules() {
     location.href = '/modules';
+  }
+  
+  function sendMessage() {
+    messages = [...messages, { sender: 'counsellor', content: message}];
   }
 
   import ChatMessage from '../../lib/components/ChatMessage.svelte';
@@ -47,7 +54,7 @@
       <div>
         <div class="w-full">
           <div class="relative w-full p-6 overflow-y-auto h-[24rem]">
-            <div class="overflow-auto ...">
+            <div bind:this={messageArea} class="overflow-auto ...">
               <ul class="space-y-2">
                 <!-- Messags are being displayed here -->
                 {#each messages as message}
@@ -91,15 +98,18 @@
           class="rounded inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
           >5</button
         >
-        <!-- </div>
-      <div class="float-right"> -->
         <button
           on:click={returnToModules}
           type="button"
           class="rounded inline-block px-6 py-2.5 bg-error text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out float-right"
           >End Chat</button
         >
-        <!-- </div> -->
+        <button
+          on:click={sendMessage}
+          type="button"
+          class="rounded inline-block px-6 py-2.5 mr-6 bg-red text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out float-right"
+          >Send Message</button
+        >
       </div>
       <!-- Text area -->
       <textarea
@@ -109,6 +119,7 @@
         id="exampleFormControlTextarea1"
         rows="3"
         placeholder="Enter message here..."
+        bind:value = {message}
       />
     </div>
   </div>
