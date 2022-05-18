@@ -1,5 +1,5 @@
 <script lang="ts">
-  import ModulePage from './modules.svelte';
+  import Dashboard from './admin/dashboard.svelte'
 </script>
 
-<ModulePage />
+<Dashboard/>
