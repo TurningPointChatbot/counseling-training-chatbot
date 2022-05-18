@@ -1,4 +1,5 @@
 <script lang="ts">
+  import AdminBar from '$lib/components/admin/AdminBar.svelte';
   import ModuleRow from '../lib/components/ModuleRow.svelte';
 
   // Array containing array of module values [[moduleName, dueDate, progress, description], ...]
@@ -21,7 +22,7 @@
 </script>
 
 <html lang="en" data-theme="cupcake" />
-
+<AdminBar>
 <!--Header-->
 <div class="grid-flow-col gap-8 my-4">
   <div
@@ -42,3 +43,4 @@
 {#each modules as module}
   <ModuleRow {...module} />
 {/each}
+</AdminBar>
