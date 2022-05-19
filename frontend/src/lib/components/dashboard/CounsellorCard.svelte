@@ -30,10 +30,6 @@
                                     Position: {employee.position}
                                 </div>
 
-                                <div class="row employee-tenure">
-                                    Tenure: {employee.tenure}
-                                </div>
-
                                 <div class="row employee-training">
                                     Total training {employee.training} hours
                                 </div>
