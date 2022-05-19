@@ -42,10 +42,10 @@
 </script>
 
 <div class="card-bordered h-full">
-  <div class="card-body h-full">
+  <div class="card-body h-full p-3">
     <div class="flex justify-end mb-3">
-      <div class="flex items-center me-3">
-        <div class="me-2">Sort A - Z</div>
+      <div class="flex items-center mr-3">
+        <div class="mr-2">Sort A - Z</div>
         <div class="sort-icon p-2 mr-3" on:click={sortList}>
           {#if sortedAz}
             <!-- Initially list will be sorted alphabetically (A-Z) -->
@@ -55,11 +55,11 @@
           {/if}
         </div>
       </div>
-      <div class="flex items-center">
-        <label for="filter" class="form-label me-2 mb-0">Filter:</label>
+      <div class="flex justify-center items-center">
+        <label for="filter" class="form-label mr-2">Filter:</label>
         <input
           type="search"
-          class="form-control"
+          class="form-control input input-bordered"
           id="filter"
           bind:value={filterTerm}
           on:keyup={filterList}
@@ -72,7 +72,7 @@
           <a href={listItem.href}>
             <div class="card-bordered p-3">
               <div class="flex flew-row">
-                <div class="basis-1/4">
+                <div class="basis-1/4 mr-5">
                   <img
                     alt={listItem.title}
                     class="rounded-rectangle"

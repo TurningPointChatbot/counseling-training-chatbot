@@ -43,7 +43,10 @@
       </div>
     </div>
 
-    <slot />
+    <div class="px-16 h-full">
+      <slot />
+    </div>
+    
   </div>
   <div class="drawer-side">
     <label for="my-drawer-3" class="drawer-overlay" />
