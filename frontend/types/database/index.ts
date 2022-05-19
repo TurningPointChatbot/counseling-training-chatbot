@@ -806,6 +806,8 @@ export interface paths {
           type_id?: parameters['rowFilter.user.type_id'];
           /** id number of this user's supervisor */
           supervisor_id?: parameters['rowFilter.user.supervisor_id'];
+          /** The URL for an image of this user's avatar */
+          avatar_url?: parameters['rowFilter.user.avatar_url'];
           /** Filtering Columns */
           select?: parameters['select'];
           /** Ordering */
@@ -869,6 +871,8 @@ export interface paths {
           type_id?: parameters['rowFilter.user.type_id'];
           /** id number of this user's supervisor */
           supervisor_id?: parameters['rowFilter.user.supervisor_id'];
+          /** The URL for an image of this user's avatar */
+          avatar_url?: parameters['rowFilter.user.avatar_url'];
         };
         header: {
           /** Preference */
@@ -896,6 +900,8 @@ export interface paths {
           type_id?: parameters['rowFilter.user.type_id'];
           /** id number of this user's supervisor */
           supervisor_id?: parameters['rowFilter.user.supervisor_id'];
+          /** The URL for an image of this user's avatar */
+          avatar_url?: parameters['rowFilter.user.avatar_url'];
         };
         body: {
           /** user */
@@ -1304,6 +1310,11 @@ export interface definitions {
      * This is a Foreign Key to `user.id`.<fk table='user' column='id'/>
      */
     supervisor_id?: number;
+    /**
+     * Format: character varying
+     * @description The URL for an image of this user's avatar
+     */
+    avatar_url?: string;
   };
   /** @description Type of the user (i.e. administrator, counsellor) */
   user_type: {
@@ -1566,6 +1577,11 @@ export interface parameters {
    * @description id number of this user's supervisor
    */
   'rowFilter.user.supervisor_id': string;
+  /**
+   * Format: character varying
+   * @description The URL for an image of this user's avatar
+   */
+  'rowFilter.user.avatar_url': string;
   /** @description user_type */
   'body.user_type': definitions['user_type'];
   /**
