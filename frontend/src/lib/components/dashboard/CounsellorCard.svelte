@@ -28,7 +28,6 @@
             <div class="p-1 row employee-role">
               Position: {employee.position}
             </div>
-
             <div class="p-1 row employee-training">
               Total training {employee.training} hours
             </div>
