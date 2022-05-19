@@ -1,26 +1,25 @@
 <script lang="ts">
+  import Icon from '$lib/components/Icon.svelte';
+
   export let listData: any[];
 
   let filteredList = listData;
   let filterTerm = '';
+  let sortedAz = true;
 
   /**
    * Sort list by list item titles. Also display icon accordingly depending on
    * whether the list is sorted alphabetically or reverse alphabetical.
    */
   function sortList() {
-    var azSortIcon = document.getElementById('az-sort-icon');
-    var zaSortIcon = document.getElementById('za-sort-icon');
-    if (azSortIcon.style.display === 'none') {
+    if (sortedAz) {
       // Sort reverse alphabetical.
       filteredList.sort((a, b) => b.title.localeCompare(a.title));
-      azSortIcon.style.display = 'block';
-      zaSortIcon.style.display = 'none';
+      sortedAz = false;
     } else {
       // Sort alphabetical.
       filteredList.sort((a, b) => a.title.localeCompare(b.title));
-      azSortIcon.style.display = 'none';
-      zaSortIcon.style.display = 'block';
+      sortedAz = true;
     }
     filteredList = filteredList; // Required to trigger re-render of list.
   }
@@ -47,10 +46,13 @@
     <div class="flex justify-end mb-3">
       <div class="flex items-center me-3">
         <div class="me-2">Sort A - Z</div>
-        <div on:click={sortList}>
-          <!-- Initially list will be sorted alphabetically (A-Z) -->
-          <i id="az-sort-icon" class="bi bi-sort-alpha-down sort-icon" />
-          <i id="za-sort-icon" class="bi bi-sort-alpha-down-alt sort-icon" />
+        <div class="sort-icon p-2 mr-3" on:click={sortList}>
+          {#if sortedAz}
+            <!-- Initially list will be sorted alphabetically (A-Z) -->
+            <Icon imgPath="/icon-sort-asc.png" altText="Sort A-Z" width="20px" height="20px" />
+          {:else}
+            <Icon imgPath="/icon-sort-desc.png" altText="Sort Z-A" width="20px" height="20px"/>
+          {/if}
         </div>
       </div>
       <div class="flex items-center">
@@ -119,15 +121,7 @@
     overflow-y: auto;
   }
 
-  .sort-icon {
-    font-size: 28px;
-  }
-
   .sort-icon:hover {
-    filter: opacity(80%);
-  }
-
-  #za-sort-icon {
-    display: none;
+    filter: opacity(50%);
   }
 </style>
