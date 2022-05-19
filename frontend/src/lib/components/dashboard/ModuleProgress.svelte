@@ -2,7 +2,7 @@
   export let completed = 10;
   export let total = 40;
 
-  let percent = completed / total * 100;
+  let percent = (completed / total) * 100;
 </script>
 
 <!-- <progress class="progress  w-56 h-5 align-middle bg-base-400" value="70" max="100"></progress> -->

@@ -2,7 +2,7 @@
   export let time = 50;
   export let totalTime = 100;
 
-  let percent = time / totalTime * 100;
+  let percent = (time / totalTime) * 100;
 </script>
 
 <div class="row">
@@ -12,7 +12,7 @@
       class="bg-secondary text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded"
       style="width: {percent}%"
     >
-    {percent}%
+      {percent}%
     </div>
   </div>
   <div class="font-xs text-base-400">Time Remaining : {totalTime - time} hours</div>
