@@ -15,7 +15,7 @@
   sortMostRecent();
 </script>
 
-<div class="card m-3">
+<div class="card-bordered m-3">
   <div id="title" class="font-bold text-xl mb-2 text-gray-700">
     Training Modules
   </div>
@@ -77,8 +77,8 @@
     /* Crops the image to a rectangle with rounded corners. */
     object-fit: cover;
     border-radius: 25px;
-    height: 180px;
-    width: 250px;
+    height: 160px;
+    width: 230px;
     position: relative;
   }
 
