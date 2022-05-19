@@ -156,6 +156,9 @@
     width: 230px;
     position: relative;
   }
+  .card-bordered {
+    border-radius: 15px;
+  }
 }
 
 @tailwind components;
