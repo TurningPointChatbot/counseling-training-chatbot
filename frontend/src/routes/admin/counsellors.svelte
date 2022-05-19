@@ -44,5 +44,10 @@
 </script>
 
 <AdminBar>
-  <FilterableList listData={counsellors} />
+  <div class="m-3">
+    <h1>Counsellors</h1>
+  </div>
+  <div class="m-3 h-3/4">
+    <FilterableList listData={counsellors} />
+  </div>
 </AdminBar>
