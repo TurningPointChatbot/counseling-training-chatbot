@@ -36,5 +36,10 @@
 </script>
 
 <AdminBar>
-  <FilterableList listData={modules} />
+  <div class="m-3">
+    <h1>Modules</h1>
+  </div>
+  <div class="m-3 h-3/4">
+    <FilterableList listData={modules} />
+  </div>
 </AdminBar>

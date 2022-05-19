@@ -72,8 +72,11 @@
 </script>
 
 <AdminBar>
+  <div class="m-3">
+    <h1>Dashboard</h1>
+  </div>
   <RecentModules listData={trainingModules} />
-  <div class="card m-3">
+  <div class="card-bordered m-3">
     <div id="title" class="font-bold text-xl mb-2 text-gray-700">
       Counsellors
     </div>
