@@ -7,7 +7,7 @@
 <div class="relative">
     <dt>
       <div
-        class="absolute flex h-12 w-12 items-center justify-center rounded-md text-white bg-purple-700"
+        class="absolute flex h-12 w-12 items-center justify-center rounded-md text-white bg-primary"
       >
         <!-- Heroicon name: outline/globe-alt -->
         <!-- need to make icons attached to module, not hard coded -->
@@ -27,11 +27,11 @@
           />
         </svg>
       </div>
-      <p class="ml-16 text-lg font-medium leading-6 text-gray-900">
+      <p class="ml-16 text-lg font-medium leading-6 text-gray">
         {outcomeName}
       </p>
     </dt>
-    <dd class="mt-2 ml-16 max-w-2xl text-base text-gray-500">
+    <dd class="mt-2 ml-16 max-w-2xl text-base text-gray">
       {description}
     </dd>
   </div>
