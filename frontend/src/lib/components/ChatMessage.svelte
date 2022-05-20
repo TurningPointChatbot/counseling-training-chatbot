@@ -6,7 +6,7 @@ import { onMount } from "svelte";
   export let content: string;
 
   let messageElement;
-  onMount(() => messageElement.scrollIntoView());
+  onMount(() => messageElement.scrollIntoView({block: "nearest", inline: "nearest"}));
 </script>
 
 <div bind:this={messageElement}>
