@@ -30,7 +30,7 @@
   import ChatMessage from '../../lib/components/ChatMessage.svelte';
 
   // Array containing dictionary of messages. Currently all hardcoded in.
-  // Will require
+  // Will require supabase integration
   let messages: Array<any> = [];
   messages.push({ sender: 'patient', content: 'Hi' });
   messages.push({ sender: 'counsellor', content: 'Hiii' });
@@ -55,12 +55,12 @@
   <div class="container px-10 w-full">
     <div class="max-w-full border rounded">
       <!--Tabs-->
-      <div class="tabs">
+      <!-- <div class="tabs">
         <p class="tab tab-lg tab-bordered tab-active"><b>Conversation</b></p>
         <p class="tab tab-lg tab-bordered">Chats</p>
         <p class="tab tab-lg tab-bordered">Details</p>
         <p class="tab tab-lg tab-bordered">Email</p>
-      </div>
+      </div> -->
       <div>
         <div class="w-full">
           <div class="relative w-full p-6 overflow-y-auto h-[24rem]">
