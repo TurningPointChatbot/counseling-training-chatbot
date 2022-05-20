@@ -78,7 +78,7 @@
     </div>
   </div>
 
-  <div class="flex justify-center my-4">
+  <div class="flex justify-center my-1">
     <div class="mb-3 w-full mx-10">
       <!-- Buttons for text-->
       <div class="block py-2 px-4 rounded-t shadow-lg bg-base-300 w-full">
