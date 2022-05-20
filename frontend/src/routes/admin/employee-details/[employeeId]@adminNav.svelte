@@ -6,7 +6,6 @@
 
 
 <script lang="ts">
-import AdminBar from '$lib/components/admin/AdminBar.svelte';
 import ModuleBigCard from '$lib/components/dashboard/ModuleBigCard.svelte';
 import CounsellorCard from '$lib/components/dashboard/CounsellorCard.svelte';
 import ModuleOverallProgress from '$lib/components/dashboard/ModuleOverallProgress.svelte';
@@ -79,7 +78,6 @@ getTrainingHours();
 
 </script>
 
-<AdminBar>
   <h1 class="m-8">Dashboard</h1>
   <div class="grid grid-cols-2 gap-4 m-8">
     <div class="..."><CounsellorCard employeeData={employee} /></div>
@@ -87,4 +85,3 @@ getTrainingHours();
       completedHours={totalHoursDone} targetHours={targetTrainingHours}/></div>
     <div class="col-span-2 ..."><ModuleBigCard /></div>
   </div>
-</AdminBar>

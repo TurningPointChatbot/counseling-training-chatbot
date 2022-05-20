@@ -1,5 +1,4 @@
 <script>
-  import AdminBar from '$lib/components/admin/AdminBar.svelte';
   import FilterableList from '$lib/components/FilterableList.svelte';
 
   // TODO: Retrieve counsellor details from database.
@@ -43,11 +42,9 @@
   ];
 </script>
 
-<AdminBar>
   <div class="m-3">
     <h1>Counsellors</h1>
   </div>
   <div class="m-3 h-3/4">
     <FilterableList listData={counsellors} />
   </div>
-</AdminBar>
