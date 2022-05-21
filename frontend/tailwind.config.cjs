@@ -32,7 +32,7 @@ module.exports = {
           success: '#1cc778',
           error: '#dc3545',
           'base-100': '#ffffff',
-          'base-200': '#f8f9fa',
+          'base-200': '#e0e0e0',
           'base-300': '#dfdfdf'
         }
       }

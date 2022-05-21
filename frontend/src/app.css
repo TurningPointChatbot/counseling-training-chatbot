@@ -9,6 +9,9 @@
   h3 {
     @apply text-lg;
   }
+  .card-bordered {
+    border-radius: 15px;
+  }
 }
 @tailwind components;
 @tailwind utilities;
