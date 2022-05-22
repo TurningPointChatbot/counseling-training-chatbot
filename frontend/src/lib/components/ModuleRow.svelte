@@ -23,7 +23,7 @@
         <div>
           {#if progress < 100}
             <!-- Progress Bar -->
-            <div class="w-full bg-gray-200 rounded dark:bg-gray-700">
+            <div class="w-full bg-base-400 rounded dark:bg-white">
               <div
                 class="bg-blue-light text-s font-medium text-blue-100 text-center p-0.5 leading-none rounded"
                 style="width: {String(progress)}%"

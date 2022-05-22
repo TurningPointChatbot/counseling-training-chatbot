@@ -1,5 +1,6 @@
 <script lang="ts">
-  import Login from '$lib/components/profile/Login.svelte';
+  import ModulePage from './modules.svelte';
+  import LoginPage from './login.svelte';
 </script>
 
-<Login />
+<LoginPage />

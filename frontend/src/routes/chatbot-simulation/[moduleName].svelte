@@ -9,21 +9,28 @@
 
   let message: string = null;
   let messageArea;
+  let textArea;
 
   function returnToModules() {
     location.href = '/modules';
   }
   
   function sendMessage() {
-    if(message != null)
-    messages = [...messages, { sender: 'counsellor', content: message}];
+    if(message != null) {
+      messages = [...messages, { sender: 'counsellor', content: message}];
+      message = null;
+    }
+  }
+
+  function makeBold() {
+
   }
 
   import CounsellorBar from '$lib/components/CounsellorBar.svelte';
   import ChatMessage from '../../lib/components/ChatMessage.svelte';
 
   // Array containing dictionary of messages. Currently all hardcoded in.
-  // Will require
+  // Will require supabase integration
   let messages: Array<any> = [];
   messages.push({ sender: 'patient', content: 'Hi' });
   messages.push({ sender: 'counsellor', content: 'Hiii' });
@@ -48,12 +55,12 @@
   <div class="container px-10 w-full">
     <div class="max-w-full border rounded">
       <!--Tabs-->
-      <div class="tabs">
+      <!-- <div class="tabs">
         <p class="tab tab-lg tab-bordered tab-active"><b>Conversation</b></p>
         <p class="tab tab-lg tab-bordered">Chats</p>
         <p class="tab tab-lg tab-bordered">Details</p>
         <p class="tab tab-lg tab-bordered">Email</p>
-      </div>
+      </div> -->
       <div>
         <div class="w-full">
           <div class="relative w-full p-6 overflow-y-auto h-[24rem]">
@@ -71,7 +78,7 @@
     </div>
   </div>
 
-  <div class="flex justify-center my-4">
+  <div class="flex justify-center my-1">
     <div class="mb-3 w-full mx-10">
       <!-- Buttons for text-->
       <div class="block py-2 px-4 rounded-t shadow-lg bg-base-300 w-full">
@@ -79,6 +86,7 @@
         <button
           type="button"
           class="rounded inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
+          on:click = {makeBold}
           ><b>B</b></button
         >
         <button
@@ -110,7 +118,7 @@
         <button
           on:click={sendMessage}
           type="button"
-          class="btn-outline rounded inline-block px-6 py-2.5 mr-6 bg-red text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out float-right"
+          class="btn-outline rounded inline-block px-6 py-2.5 mr-6 bg-success text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out float-right"
           >Send Message</button
         >
       </div>
@@ -123,6 +131,7 @@
         rows="3"
         placeholder="Enter message here..."
         bind:value = {message}
+        bind:this = {textArea}
       />
     </div>
   </div>
