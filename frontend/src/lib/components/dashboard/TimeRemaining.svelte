@@ -6,7 +6,7 @@
 </script>
 
 <div class="row">
-  Target Training Time
+  <h2 class="pb-2"> Target Training Time</h2>
   <div class="w-full bg-gray-200 rounded-full">
     <div
       class="bg-secondary text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded"
@@ -15,5 +15,5 @@
       {percent}%
     </div>
   </div>
-  <div class="font-xs text-base-400">Time Remaining : {totalTime - time} hours</div>
+  <div class="pt-1 font-xs text-base-400">Time Remaining : {totalTime - time} hours</div>
 </div>

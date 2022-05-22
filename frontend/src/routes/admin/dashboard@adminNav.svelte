@@ -2,66 +2,66 @@
   import RecentModules from '$lib/components/RecentModules.svelte';
   let counsellorPreview = [
     {
-      title: 'Davos Sand',
+      title: 'Blake Sand',
       description: 'Junior Counsellor',
-      image: 'https://picsum.photos/id/426/400/600.jpg',
-      href: '/admin/employee'
+      image: 'https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160',
+      href: '/admin/employee-details/id'
     },
     {
-      title: 'Evelyn Chua',
+      title: 'Sam Chua',
       description: 'Senior Counsellor',
-      image: 'https://picsum.photos/id/426/400/600.jpg',
-      href: '/admin/employee'
+      image: 'https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160',
+      href: '/admin/employee-details/id'
     },
     {
-      title: 'Isabella Howard',
+      title: 'Aiden Howard',
       description: 'Junior Counsellor',
-      image: 'https://picsum.photos/id/426/400/600.jpg',
-      href: '/admin/employee'
+      image: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160',
+      href: '/admin/employee-details/id'
     },
     {
-      title: 'Jackson Tyler',
+      title: 'Winter Tyler',
       description: 'Junior Counsellor',
-      image: 'https://picsum.photos/id/426/400/600.jpg',
-      href: '/admin/employee'
+      image: 'https://images.unsplash.com/photo-1584308972272-9e4e7685e80f?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160',
+      href: '/admin/employee-details/id'
     },
     {
-      title: 'Harvey White',
+      title: 'Riley White',
       description: 'Junior Counsellor',
-      image: 'https://picsum.photos/id/426/400/600.jpg',
-      href: '/admin/employee'
+      image: 'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160',
+      href: '/admin/employee-details/id'
     }
   ];
   let trainingModules = [
     {
-      title: 'Lesson 101: Module Title',
+      title: 'Module 101: Empathy',
       description:
-        'Short summary lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate ipsum vel nisi aliquam euismod.',
-      image: 'https://picsum.photos/id/426/400/600.jpg',
+        'Empathy is the ability to emotionally understand what other people feel, see things from their point of view, and imagine yourself in their place. Essentially, it is putting yourself in someone else\'s position and feeling what they must be feeling.',
+      image: 'https://images.unsplash.com/photo-1516967124798-10656f7dca28?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987',
       dateAccessed: new Date('April 13, 2022 11:15:00'),
       href: '/admin/module-details/moduleId'
     },
     {
-      title: 'Tutorial 102: Module Title',
+      title: 'Module 102: Treatment Options',
       description:
-        'Short summary lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate ipsum vel nisi aliquam euismod.',
-      image: 'https://picsum.photos/id/426/400/600.jpg',
+        'There are a range of gambling treatment and support services available in Australia, many of which are free. If you or someone you know is affected by addiction, the first step to getting help is talking to someone.',
+      image: 'https://images.unsplash.com/photo-1584515933487-779824d29309?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170',
       dateAccessed: new Date('April 3, 2022 11:13:00'),
       href: '/admin/module-details/moduleId'
     },
     {
-      title: 'Class 103: Module Title',
+      title: 'Module 103: Alcohol & drugs',
       description:
-        'Short summary lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate ipsum vel nisi aliquam euismod.',
-      image: 'https://picsum.photos/id/426/400/600.jpg',
+        'There are a range of alcohol and other drug related treatment and support services available in Australia, many of which are free. If you or someone you know is affected by addiction, the first step to getting help is talking to someone.',
+      image: 'https://images.unsplash.com/photo-1437418747212-8d9709afab22?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687',
       dateAccessed: new Date('April 13, 2022 11:13:00'),
       href: '/admin/module-details/moduleId'
     },
     {
-      title: 'Module 104: Module Title',
+      title: 'Module 104: Withdrawal',
       description:
-        'Short summary lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate ipsum vel nisi aliquam euismod.',
-      image: 'https://picsum.photos/id/426/400/600.jpg',
+        'There are a range of physical and psychological symptoms people can experience when reducing, or stopping, alcohol and other drugs. Here\'s how it works and how to manage it.',
+      image: 'https://images.unsplash.com/photo-1516027828283-84217f09f3c4?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=728',
       dateAccessed: new Date('April 23, 2022 11:13:00'),
       href: '/admin/module-details/moduleId'
     }
@@ -86,8 +86,8 @@
         <div class="flex flex-col items-center px-3 pr-5 overflow-hidden hover:-translate-y-1">
           <img
             class="rounded-full h-32 w-32"
-            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
-            alt="Davos Sand"
+            src={cardItem.image}
+            alt={cardItem.title}
           />
           <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2">

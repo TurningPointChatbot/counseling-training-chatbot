@@ -56,10 +56,10 @@
               >
                 <li>
                   <!-- svelte-ignore a11y-missing-attribute -->
-                  <a
+                  <a href="account"
                     ><div>
                       Administrator<br />
-                      <b>Name</b>
+                      <b>Martha Administrator</b>
                     </div></a
                   >
                 </li>
