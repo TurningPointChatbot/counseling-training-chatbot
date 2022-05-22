@@ -1,4 +1,5 @@
-<div class="drawer">
+<div class="counsellorNav">
+  <div class="drawer">
     <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
     <div class="drawer-content">
       <div class="navbar bg-primary">
@@ -56,19 +57,17 @@
         </li>
         <li>
           <a href="/modules" rel="prefetch" class="nav-link"
-            >Chatbot Training</a
+            >Training Modules</a
           >
         </li>
         <li>
-            <a href="/modules" rel="prefetch" class="nav-link"
-              >Forum Moderation</a
-            >
-          </li>
-          <li>
-            <a href="/modules" rel="prefetch" class="nav-link"
-              >Email Training</a
-            >
-          </li>
+          <a href="/results" rel="prefetch" class="nav-link"
+            >Results</a
+          >
+        </li>
       </ul>
     </div>
+  </div>  
+  
+  <slot></slot>
   </div>

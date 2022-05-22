@@ -6,7 +6,6 @@ export async function load({ params }) {
 
 
 <script lang="ts">
-import AdminBar from '$lib/components/admin/AdminBar.svelte';
 import FilterableList from '$lib/components/FilterableList.svelte';
 
 export let moduleId: string;
@@ -50,7 +49,6 @@ let modules = [{
 ];
 </script>
 
-<AdminBar>
   <div class="m-5 h-full">
     <div><h1>{module.title}</h1></div>
     <div class="mt-5">{module.description}</div>
@@ -64,4 +62,3 @@ let modules = [{
       <FilterableList listData={modules} />
     </div>
   </div>
-</AdminBar>
