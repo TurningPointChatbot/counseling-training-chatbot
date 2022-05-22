@@ -16,7 +16,7 @@
     style="color:black"
   >
     <input type="checkbox" />
-    <div class="collapse-title text-2xl font-medium">
+    <div class="collapse-title text-lg font-medium">
       <div class="grid grid-cols-3 gaps-4">
         <div>{moduleName}</div>
         <div>{dueDate}</div>
@@ -54,26 +54,33 @@
       </div>
     </div>
     <div class="collapse-content">
-      <h3><b> {description} </b></h3>
-      <div class="text-right">
-        <button on:click={runModule} class="btn-highlight btn-icon">
-          <div class="svgicon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="80"
-              height="60"
-              fill="currentColor"
-              class="bi bi-arrow-right-circle"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
-              />
-            </svg>
-          </div>
-          <b>Run Module</b>
-        </button>
+      <h3>{description}</h3>
+      <div class="flex">
+        <img
+          class="py-2 mr-5"
+          alt={moduleName}
+          src="https://images.unsplash.com/photo-1516967124798-10656f7dca28?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=225"
+        />
+        <div class="w-3/4 text-right">
+          <button on:click={runModule} class="mt-10 btn-highlight btn-icon">
+            <div class="svgicon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="80"
+                height="60"
+                fill="currentColor"
+                class="bi bi-arrow-right-circle"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+                />
+              </svg>
+            </div>
+            <div class="pt-2"><b>Run Module</b></div>
+          </button>
+        </div>
       </div>
     </div>
   </div>

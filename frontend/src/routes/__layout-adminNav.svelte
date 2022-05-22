@@ -21,7 +21,7 @@
 
 <div class="moduleNav">
     <div class="drawer">
-        <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+        <input id="my-drawer-3" type="checkbox" class="drawer-toggle" hidden/>
         <div class="drawer-content">
           <div class="navbar bg-primary">
             <div class="flex-none">

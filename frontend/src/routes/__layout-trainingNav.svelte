@@ -21,7 +21,7 @@
 
 <div class="traingingNav">
   <div class="drawer">
-    <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+    <input id="my-drawer-3" type="checkbox" class="drawer-toggle" hidden/>
     <div class="drawer-content">
       <div class="navbar bg-primary">
         <div class="flex-none">
@@ -56,10 +56,10 @@
           >
             <li>
               <!-- svelte-ignore a11y-missing-attribute -->
-              <a
+              <a href="/counsellor/account"
                 ><div>
                   Counsellor<br />
-                  <b>Name</b>
+                  <b>David Counsellor</b>
                 </div></a
               >
             </li>
@@ -79,17 +79,6 @@
           <a href="/counsellor/dashboard" rel="prefetch" class="nav-link"
             >Dashboard</a
           >
-        </li>
-        <li>
-          <a href="/modules" rel="prefetch" class="nav-link">Chatbot Training</a
-          >
-        </li>
-        <li>
-          <a href="/modules" rel="prefetch" class="nav-link">Forum Moderation</a
-          >
-        </li>
-        <li>
-          <a href="/modules" rel="prefetch" class="nav-link">Email Training</a>
         </li>
       </ul>
     </div>

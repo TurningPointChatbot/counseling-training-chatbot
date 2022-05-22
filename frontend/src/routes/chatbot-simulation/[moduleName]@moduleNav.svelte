@@ -99,16 +99,6 @@
           ><u>U</u></button
         >
         <button
-          type="button"
-          class="rounded inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
-          >4</button
-        >
-        <button
-          type="button"
-          class="rounded inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
-          >5</button
-        >
-        <button
           on:click={returnToModules}
           type="button"
           class="btn-outline rounded inline-block px-6 py-2.5 bg-error text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out float-right"
@@ -125,7 +115,7 @@
       <textarea
         class="form-control block w-full px-4 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border 
         border-solid border-gray-300 rounded-b transition ease-in-out focus:text-gray-700 focus:bg-white 
-        focus:border-blue-600 focus:outline-none "
+        focus:border-blue-600 focus:outline-none mt-4"
         id="exampleFormControlTextarea1"
         rows="3"
         placeholder="Enter message here..."

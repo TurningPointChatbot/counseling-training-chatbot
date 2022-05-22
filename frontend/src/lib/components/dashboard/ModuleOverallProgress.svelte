@@ -2,9 +2,9 @@
   import TimeRemaining from './TimeRemaining.svelte';
   import ModProgress from './ModuleProgress.svelte';
 
-  export let totalModules = 1;
+  export let totalModules = 5;
   export let completedModules = 0;
-  export let completedHours = 0;
+  export let completedHours = 15;
   export let targetHours = 100;
 </script>
 
