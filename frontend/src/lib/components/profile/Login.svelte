@@ -18,32 +18,19 @@
       const { user, error } = await supabase.auth.signIn({ email, password });
 
       if (error) throw error;
-      alert('Successfully Logged In!');
 
-      location.href = '/account';
+      if (email === 'admin1@test.com') {
+        location.href = 'admin/account';
+      } else {
+        location.href = 'counsellor/account';
+      }
+      
     } catch (error) {
       alert(error.error_description || error.message);
     } finally {
       loading = false;
     }
   };
-
-  /**
-   * Sign Out Function
-   */
-  async function signOut() {
-    try {
-      loading = true;
-      const { error } = await supabase.auth.signOut();
-
-      if (error) throw error;
-      alert('Successfully Logged Out!');
-    } catch (error) {
-      alert(error.error_description || error.message);
-    } finally {
-      loading = false;
-    }
-  }
 
   /**
    *  Forgot Password Function

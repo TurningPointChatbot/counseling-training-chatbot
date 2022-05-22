@@ -1,3 +1,24 @@
+<script>
+  import supabase from '$lib/supabase';
+  let loading = false;
+  /**
+   * Sign Out Function
+   */
+   async function signOut() {
+    try {
+      loading = true;
+      const { error } = await supabase.auth.signOut();
+
+      if (error) throw error;
+      location.href = '/';
+    } catch (error) {
+      alert(error.error_description || error.message);
+    } finally {
+      loading = false;
+    }
+  }
+</script>
+
 <div class="moduleNav">
     <div class="drawer">
         <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
@@ -43,12 +64,15 @@
                   >
                 </li>
                 <!-- svelte-ignore a11y-missing-attribute -->
-                <li><a>Logout</a></li>
+                <li><a on:click|once={signOut}>Logout</a></li>
               </ul>
             </div>
           </div>
       
-          <slot />
+          <div class="px-16 h-full">
+            <slot />
+          </div>
+
         </div>
         <div class="drawer-side">
           <label for="my-drawer-3" class="drawer-overlay" />
@@ -69,6 +93,4 @@
           </ul>
         </div>
       </div>
-      
-    <slot></slot>
 </div>

@@ -56,7 +56,7 @@
       }
     } catch (error) {
       // TODO: improve error handling
-      alert(error.message);
+      // alert(error.message);
     } finally {
       loading = false;
     }
@@ -84,7 +84,7 @@
         .eq('email', user.email);
     } catch (error) {
       // TODO: improve error handling
-      alert(error.message);
+      //alert(error.message);
     } finally {
       editOn = false;
       loading = false;

@@ -40,7 +40,6 @@
 
 <html lang="en" data-theme="cupcake" />
 
-<CounsellorBar>
 <div class="w-5/6 mx-28">
   <!-- Header -->
   <div class="flex justify-center">
@@ -136,4 +135,3 @@
     </div>
   </div>
 </div>
-</CounsellorBar>

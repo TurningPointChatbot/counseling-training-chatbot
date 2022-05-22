@@ -2,4 +2,6 @@
   import '../app.css';
 </script>
 
-<slot />
+<div class="px-16 h-full">
+  <slot />
+</div>
