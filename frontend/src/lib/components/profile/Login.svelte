@@ -1,11 +1,12 @@
 <script lang="ts">
+  import supabase from '$lib/supabase';
+
   let editOn = false;
 
   function toggleEdit() {
     editOn = !editOn;
   }
 
-  import supabase from '$lib/supabase';
   let loading = false;
   let email, password;
 
@@ -20,7 +21,7 @@
       if (error) throw error;
       alert('Successfully Logged In!');
 
-      location.href = '/account';
+      location.href = '/';
     } catch (error) {
       alert(error.error_description || error.message);
     } finally {
