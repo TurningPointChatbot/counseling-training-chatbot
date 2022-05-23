@@ -7,9 +7,16 @@
 <script lang='ts'>
   import LearningOutcomeRow from "$lib/components/LearningOutcomeRow.svelte";
   import CounsellorBar from '$lib/components/CounsellorBar.svelte';
+
+  interface LearningOutcome {
+    outcomeName: string;
+    description: string;
+  }
+  
+  export let moduleName: string;
   
   let noOfModules:number = 2; // TODO should not be hardcoded, should pull # of modules from modules
-  let learningOutcomes:Array<any> = [];
+  let learningOutcomes:Array<LearningOutcome> = [];
 
   for (let i:number = 1; i<=noOfModules; i++){
       let outcomeName:string = 'Outcome ' + String(i);
@@ -18,9 +25,6 @@
       // retrieve icon here too
       learningOutcomes.push({outcomeName: outcomeName, description: description})
   }
-
-  export let moduleName: string;
-  //import CounsellorBar from '$lib/components/CounsellorBar.svelte';
 
   function runChatbot() {
     location.href = '/chatbot-simulation/' + moduleName;

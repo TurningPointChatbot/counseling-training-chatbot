@@ -3,12 +3,17 @@
   import ModuleRow from '../lib/components/ModuleRow.svelte';
   import supabase from '$lib/supabase';
   import userStore from '../stores/authStore';
+  import type { Session, User } from '@supabase/supabase-js';
 
-  let session;
-  let user;
-  // Array containing array of module values [[moduleName, dueDate, progress, description], ...]
-  // eg. [['Module 1', '17/08/22', 45, 'Lorem ipsum...'], ...]
-  let userModules: Array<any> = [];
+  interface Module {
+    moduleName: string;
+    dueDate: string;
+    progress: number;
+    description: string;
+  }
+  let session: Session;
+  let user: User;
+  let userModules: Array<Module> = [];
 
   async function getModulesForUser(user) {
     console.log(user);
@@ -39,15 +44,11 @@
         console.log(data);
         let assignments = data.chatbot_assignment;
         for (let i: number = 0; i < assignments.length; i++) {
-          let moduleName: string = 'Module ' + String(i + 1);
-          let dueDate: string = assignments[i].duedate;
-          let progress: number = (i + 1 + 2) * 10;
-          let description: string = data.chatbot_module[i].description;
           userModules.push({
-            moduleName: moduleName,
-            dueDate: dueDate,
-            progress: progress,
-            description: description
+            moduleName: 'Module ' + String(i + 1),
+            dueDate: assignments[i].duedate,
+            progress: (i + 1 + 2) * 10,
+            description: data.chatbot_module[i].description
           });
         }
       }

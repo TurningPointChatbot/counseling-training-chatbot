@@ -5,11 +5,17 @@
 </script>
 
 <script lang="ts">
-  export let moduleName: string;
+  import CounsellorBar from '$lib/components/CounsellorBar.svelte';
+  import ChatMessage from '../../lib/components/ChatMessage.svelte';
 
+  interface Message {
+    sender: string;
+    content: string;
+  }
+
+  export let moduleName: string;
   let message: string = null;
-  let messageArea;
-  let textArea;
+  let messages: Array<Message> = [];
 
   function returnToModules() {
     location.href = '/modules';
@@ -22,12 +28,8 @@
     }
   }
 
-  import CounsellorBar from '$lib/components/CounsellorBar.svelte';
-  import ChatMessage from '../../lib/components/ChatMessage.svelte';
-
   // Array containing dictionary of messages. Currently all hardcoded in.
   // Will require supabase integration
-  let messages: Array<any> = [];
   messages.push({ sender: 'patient', content: 'Hi' });
   messages.push({ sender: 'counsellor', content: 'Hiii' });
   messages.push({ sender: 'patient', content: 'I am alcoholic' });
@@ -60,7 +62,7 @@
       <div>
         <div class="w-full">
           <div class="relative w-full p-6 overflow-y-auto h-[24rem]">
-            <div bind:this={messageArea} class="overflow-auto ...">
+            <div class="overflow-auto ...">
               <ul class="space-y-2">
                 <!-- Messags are being displayed here -->
                 {#each messages as message}
@@ -100,8 +102,6 @@
         id="exampleFormControlTextarea1"
         rows="3"
         placeholder="Enter message here..."
-        bind:value = {message}
-        bind:this = {textArea}
       />
     </div>
   </div>
