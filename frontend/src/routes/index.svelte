@@ -1,22 +1,22 @@
-<script context="module" lang="ts">
-  import { user } from '$lib/userStore';
+<script lang="ts">
+  import supabase from '$lib/supabase';
 
-  /** @type {import('@sveltejs/kit').Load} */ export function load() {
+  import type { User } from '@supabase/supabase-js';
+
+  async function redirectPage() {
     let redirect_url: string = '/login';
 
+    let user: User = supabase.auth.user();
+
+    console.log('after retrieving user in index:');
+    console.log(user);
+
     if (user) {
-      redirect_url = 'modules';
+      redirect_url = '/modules';
     }
 
-    return {
-      status: 302,
-      redirect: redirect_url
-    };
+    location.href = redirect_url;
   }
 </script>
 
-<script lang="ts">
-  import ModulePage from './modules.svelte';
-</script>
-
-<ModulePage />
+<div use:redirectPage />
