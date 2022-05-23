@@ -22,10 +22,6 @@
     }
   }
 
-  function makeBold() {
-
-  }
-
   import CounsellorBar from '$lib/components/CounsellorBar.svelte';
   import ChatMessage from '../../lib/components/ChatMessage.svelte';
 
@@ -83,43 +79,17 @@
       <!-- Buttons for text-->
       <div class="block py-2 px-4 rounded-t shadow-lg bg-base-300 w-full">
         <!-- <div> -->
-        <button
+          <button
+          on:click={sendMessage}
           type="button"
-          class="rounded inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
-          on:click = {makeBold}
-          ><b>B</b></button
-        >
-        <button
-          type="button"
-          class="rounded inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
-          ><i>I</i></button
-        >
-        <button
-          type="button"
-          class="rounded inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
-          ><u>U</u></button
-        >
-        <button
-          type="button"
-          class="rounded inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
-          >4</button
-        >
-        <button
-          type="button"
-          class="rounded inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
-          >5</button
+          class="btn-outline rounded inline-block px-6 py-2.5 mr-6 bg-success text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
+          >Send Message</button
         >
         <button
           on:click={returnToModules}
           type="button"
           class="btn-outline rounded inline-block px-6 py-2.5 bg-error text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out float-right"
           >End Chat</button
-        >
-        <button
-          on:click={sendMessage}
-          type="button"
-          class="btn-outline rounded inline-block px-6 py-2.5 mr-6 bg-success text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out float-right"
-          >Send Message</button
         >
       </div>
       <!-- Text area -->
