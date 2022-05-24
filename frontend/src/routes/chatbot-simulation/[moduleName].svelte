@@ -7,49 +7,30 @@
 <script lang="ts">
   import CounsellorBar from '$lib/components/CounsellorBar.svelte';
   import ChatMessage from '../../lib/components/ChatMessage.svelte';
-  import supabase from '$lib/supabase';
-  import userStore from '../../stores/authStore';
-  import type { Session, User } from '@supabase/supabase-js';
-  import {getMessagesFromSupabase} from '$lib/scripts/chatbot_utils';
+  import {Chatbot} from '$lib/scripts/chatbot';
 
-  interface Message {
+  interface DisplayMessage {
     sender: string;
     content: string;
   }
   export let moduleName: string;
-  let message: string = null;
-  let messages: Array<Message> = [];
-  let session: Session;
-  let user: User;
+  let userMessageText: string = null;
+  let displayMessages: Array<DisplayMessage> = [];
+  let chatbot = new Chatbot(1);
 
-  userStore.subscribe((value) => {
-    session = supabase.auth.session();
-    user = value;
-  });
-
-  function returnToModules() {
-    location.href = '/modules';
-  }
-
-  function sendMessage() {
-    if (message != null) {
-      messages = [...messages, { sender: 'counsellor', content: message }];
-      message = null;
+  function sendCounsellorMessage() {
+    if (userMessageText != null) {
+      displayMessages = [...displayMessages, { sender: 'counsellor', content: userMessageText }];
+      userMessageText = null;
     }
+    sendChatbotMessage();
   }
 
-  (async () => {
-    //await storeMessage(user, { sender: 'patient', content: 'Damn, sorry for the Hi spam lmao' })
-    let messageLst = await getMessagesFromSupabase(1);
-    console.log(messageLst)
-  })();
+  function sendChatbotMessage() {
+    let displayMessage: DisplayMessage = chatbot.sendMessageWebchatExample1();
+    displayMessages = [...displayMessages, displayMessage];
+  }
 
-  // Array containing dictionary of messages. Currently all hardcoded in.
-  // Will require supabase integration
-  messages.push({ sender: 'patient', content: 'Hi' });
-  messages.push({ sender: 'counsellor', content: 'Hiii' });
-  messages.push({ sender: 'patient', content: 'I am alcoholic' });
-  messages.push({ sender: 'counsellor', content: 'okay' });
 </script>
 
 <html lang="en" data-theme="cupcake" />
@@ -70,20 +51,13 @@
     <!--Chatting Area-->
     <div class="container px-10 w-full">
       <div class="max-w-full border rounded">
-        <!--Tabs-->
-        <!-- <div class="tabs">
-        <p class="tab tab-lg tab-bordered tab-active"><b>Conversation</b></p>
-        <p class="tab tab-lg tab-bordered">Chats</p>
-        <p class="tab tab-lg tab-bordered">Details</p>
-        <p class="tab tab-lg tab-bordered">Email</p>
-      </div> -->
         <div>
           <div class="w-full">
             <div class="relative w-full p-6 overflow-y-auto h-[24rem]">
               <div class="overflow-auto ...">
                 <ul class="space-y-2">
                   <!-- Messags are being displayed here -->
-                  {#each messages as message}
+                  {#each displayMessages as message}
                     <ChatMessage {...message} />
                   {/each}
                 </ul>
@@ -100,13 +74,13 @@
         <div class="block py-2 px-4 rounded-t shadow-lg bg-base-300 w-full">
           <!-- <div> -->
           <button
-            on:click={sendMessage}
+            on:click={sendCounsellorMessage}
             type="button"
             class="btn-outline rounded inline-block px-6 py-2.5 mr-6 bg-success text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
             >Send Message</button
           >
           <button
-            on:click={returnToModules}
+            on:click={() => location.href = '/modules'}
             type="button"
             class="btn-outline rounded inline-block px-6 py-2.5 bg-error text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out float-right"
             >End Chat</button
@@ -120,6 +94,7 @@
           id="exampleFormControlTextarea1"
           rows="3"
           placeholder="Enter message here..."
+          bind:value = {userMessageText}
         />
       </div>
     </div>
