@@ -10,7 +10,8 @@
   import supabase from '$lib/supabase';
   import userStore from '../../stores/authStore';
   import type { Session, User } from '@supabase/supabase-js';
-import { now } from 'svelte/internal';
+  import {getMessagesFromSupabase} from '$lib/scripts/chatbot_utils';
+
   interface Message {
     sender: string;
     content: string;
@@ -26,67 +27,21 @@ import { now } from 'svelte/internal';
     user = value;
   });
 
-  async function storeMessage(message: Message){
-    /* if(getMessageForUser(user)){
-      console.log(getMessageForUser(user));
-      return;
-    } */
-    try {
-      const storedMessage = {
-        attempt_id: 1,
-        text: message.content
-      }
-
-      let { error } = await supabase.from('chatbot_attempt_message').upsert(storedMessage, {
-        returning: 'minimal',
-      })
-
-      if (error) throw error
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  async function getMessageForUser(user: User) {
-    try {
-      let { data, error } = await supabase
-        .from('user')
-        .select(
-          ` 
-        id,
-        email,
-        chatbot_attempt_message(
-          attempt_id,
-          created_at,
-          text
-        )
-        `
-        )
-        .eq('email', user.email)
-        .single();
-      if (error) throw error;
-      if (data) {
-        console.log(data);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   function returnToModules() {
     location.href = '/modules';
   }
-  
+
   function sendMessage() {
-    if(message != null) {
-      messages = [...messages, { sender: 'counsellor', content: message}];
+    if (message != null) {
+      messages = [...messages, { sender: 'counsellor', content: message }];
       message = null;
     }
   }
 
   (async () => {
-    //await storeMessage({ sender: 'patient', content: 'Hi' })
-    //await getMessageForUser(user);
+    //await storeMessage(user, { sender: 'patient', content: 'Damn, sorry for the Hi spam lmao' })
+    let messageLst = await getMessagesFromSupabase(1);
+    console.log(messageLst)
   })();
 
   // Array containing dictionary of messages. Currently all hardcoded in.
