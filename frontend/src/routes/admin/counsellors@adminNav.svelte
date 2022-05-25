@@ -1,7 +1,44 @@
-<script>
-  import FilterableList from '$lib/components/FilterableList.svelte';
+<script context="module">
+  export async function load({ params }) {
+    return { props: { employeeId: params.employeeId } };
+  }
+  </script>
 
+
+<script lang="ts">
+  import FilterableList from '$lib/components/FilterableList.svelte';
+  import supabase from '$lib/supabase';
+
+  export let employeeId: string;
   // TODO: Retrieve counsellor details from database.
+
+  async function getCounsellors() {
+  try {
+
+    let {data, error} = await supabase.from('users').select().eq('user_id', employeeId);;
+
+    if (data) {
+      console.log(data)
+
+    }
+  } catch (error) {
+    alert(error.message);
+  }
+}
+
+async function getCounsellorsType() {
+  try {
+
+    let {data, error} = await supabase.from('users_type').select().eq('user_id', employeeId);;
+
+    if (data) {
+      console.log(data)
+      
+    }
+  } catch (error) {
+    alert(error.message);
+  }
+}
   let counsellors = [
     {
       title: 'Blake Sand',
@@ -39,6 +76,7 @@
       href: '/admin/employee-details/id'
     }
   ];
+  getCounsellors();
 </script>
 
 <div class="m-3">
