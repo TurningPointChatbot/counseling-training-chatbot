@@ -7,6 +7,7 @@
 <script lang='ts'>
   import LearningOutcomeRow from "$lib/components/LearningOutcomeRow.svelte";
   import CounsellorBar from '$lib/components/CounsellorBar.svelte';
+  import InstructionsBlock from '$lib/components/InstructionsBlock.svelte';
 
   interface LearningOutcome {
     outcomeName: string;
@@ -25,6 +26,12 @@
       // retrieve icon here too
       learningOutcomes.push({outcomeName: outcomeName, description: description})
   }
+
+  interface Instructions {
+    instructionsDescription: string;
+  }
+
+  export let instructionsDescription = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pellentesque in dui non volutpat. Suspendisse non turpis eget purus viverra sollicitudin. Morbi nulla nisi, consequat non neque vel, scelerisque porta orci. Aenean vitae neque imperdiet tellus cursus ornare. Etiam dignissim pellentesque fermentum. Etiam feugiat nibh vel mattis eleifend. Praesent orci.';
 
   function runChatbot() {
     location.href = '/chatbot-simulation/' + moduleName;
@@ -55,6 +62,8 @@
         {/each}
       </dl>
     </div>
+    <!-- Instruction block here ...  -->
+    <InstructionsBlock {instructionsDescription}/>
   </div>
   <button on:click={runChatbot} class="btn btn-primary btn-outline ml-10 mt-10">
     Start Chatbot Simulation
