@@ -1,7 +1,6 @@
 <script lang="ts">
     export let outcomeName: string;
     export let description: string;
-    //export let icon: ???;
 </script>
 
 <div class="relative">
@@ -9,8 +8,7 @@
       <div
         class="absolute flex h-12 w-12 items-center justify-center rounded-md text-white bg-primary"
       >
-        <!-- Heroicon name: outline/globe-alt -->
-        <!-- need to make icons attached to module, not hard coded -->
+        <!-- Icon - Heroicon name: outline/globe-alt -->
         <svg
           class="h-6 w-6"
           xmlns="http://www.w3.org/2000/svg"
@@ -28,10 +26,12 @@
         </svg>
       </div>
       <p class="ml-16 text-lg font-medium leading-6 text-gray">
+        <!-- Outcome Name -->
         {outcomeName}
       </p>
     </dt>
     <dd class="mt-2 ml-16 max-w-2xl text-base text-gray">
+      <!-- Outcome description -->
       {description}
     </dd>
   </div>
