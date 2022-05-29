@@ -1,30 +1,88 @@
 <script>
-    let counsellorPreview = [
+  import RecentModules from '$lib/components/RecentModules.svelte';
+  import supabase from '$lib/supabase';
+
+  
+  async function getModulesList() {
+    let api_modules = [];
+    try {
+      let {data, error} = await supabase
+        .from('admin_module')
+        .select();
+  
+      if (data) {
+        for (let i = 0; i < data.length; i++) {
+          let module = {title: data[i].title, description: data[i].description, image: 'https://picsum.photos/id/426/400/600.jpg', dateAccessed: data[i].dateAccessed};
+          api_modules.push(module);
+        }
+      }
+      if (error) throw error;
+    } catch (error) {
+      alert(error.message);
+    }
+    return api_modules;
+  }
+  let promise = getModulesList()
+
+  let counsellorPreview = [
+  {
+    title: 'Davos Sand',
+    description: 'Junior Counsellor',
+    image: 'https://picsum.photos/id/426/400/600.jpg'
+  },
+  {
+    title: 'Evelyn Chua',
+    description: 'Senior Counsellor',
+    image: 'https://picsum.photos/id/426/400/600.jpg'
+  },
+  {
+    title: 'Isabella Howard',
+    description: 'Junior Counsellor',
+    image: 'https://picsum.photos/id/426/400/600.jpg'
+  },{
+    title: 'Jackson Tyler',
+    description: 'Junior Counsellor',
+    image: 'https://picsum.photos/id/426/400/600.jpg'
+  }];
+  /*
+  let trainingModules = [
     {
-      title: 'Davos Sand',
-      description: 'Junior Counsellor',
-      image: 'https://picsum.photos/id/426/400/600.jpg'
+      title: 'Lesson 101: Module Title',
+      description:
+        'Short summary lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate ipsum vel nisi aliquam euismod.',
+      image: 'https://picsum.photos/id/426/400/600.jpg',
+      dateAccessed: new Date('April 13, 2022 11:15:00')
     },
     {
-      title: 'Evelyn Chua',
-      description: 'Senior Counsellor',
-      image: 'https://picsum.photos/id/426/400/600.jpg'
+      title: 'Tutorial 102: Module Title',
+      description:
+        'Short summary lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate ipsum vel nisi aliquam euismod.',
+      image: 'https://picsum.photos/id/426/400/600.jpg',
+      dateAccessed: new Date('April 3, 2022 11:13:00')
     },
     {
-      title: 'Isabella Howard',
-      description: 'Junior Counsellor',
-      image: 'https://picsum.photos/id/426/400/600.jpg'
-    },{
-      title: 'Jackson Tyler',
-      description: 'Junior Counsellor',
-      image: 'https://picsum.photos/id/426/400/600.jpg'
-    }]
+      title: 'Class 103: Module Title',
+      description:
+        'Short summary lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate ipsum vel nisi aliquam euismod.',
+      image: 'https://picsum.photos/id/426/400/600.jpg',
+      dateAccessed: new Date('April 13, 2022 11:13:00')
+    },
+    {
+      title: 'Module 104: Module Title',
+      description:
+        'Short summary lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate ipsum vel nisi aliquam euismod.',
+      image: 'https://picsum.photos/id/426/400/600.jpg',
+      dateAccessed: new Date('April 23, 2022 11:13:00')
+    }
+  ];*/
 </script>
 
-<!doctype html>
-<html lang="en">
+{#await promise then modules}
+      <RecentModules listData={modules}/>
+{/await}
 
 <body>
+  
   <div class="font-bold text-xl mb-2 text-gray-700">Counsellors</div>
   <p class="text-gray-400 text-base">
     Recently viewed
@@ -51,4 +109,4 @@
     </p>
 </div>
 </body>
-</html>
+

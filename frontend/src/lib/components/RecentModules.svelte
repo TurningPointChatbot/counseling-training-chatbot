@@ -5,9 +5,13 @@
 
   // sort from most recently accessed to least recently accessed module
   function sortMostRecent() {
+    /*
     sortedList.sort(function (a, b) {
       return b.dateAccessed.getTime() - a.dateAccessed.getTime();
     });
+    */
+    sortedList.sort((d1, d2) => new Date(d1.dateAccessed).getTime() - new Date(d2.dateAccessed).getTime());
+
     if (sortedList.length > 4) {
       sortedList = sortedList.slice(0, 4); // only displaying max 4 modules at once on dash
     }
