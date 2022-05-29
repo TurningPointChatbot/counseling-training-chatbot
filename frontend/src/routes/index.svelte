@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Dashboard from './admin/dashboard.svelte'
+  import Dashboard from './admin/dashboard@adminNav.svelte'
 </script>
 
 <Dashboard/>
