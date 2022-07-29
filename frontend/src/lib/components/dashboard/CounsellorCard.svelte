@@ -2,6 +2,7 @@
 
     
     export let employeeData: any;
+    export let totalHoursDone: Number = 10;
 
     let employee = employeeData;
 
@@ -14,28 +15,26 @@
             </h2>
             <hr class="bg-base-400" />
             
-            <div class=" employee-description card-body grid grid-cols-2 h-full w-full text-primary">
+            <div class="employee-description card-body grid grid-cols-2 h-full w-full text-primary">
                 <div>
                     <img
                     alt={employee.name}
-                    class="rounded-rectangle"
+                    class="rounded-circle"
                     src={employee.profile_image}/>
                 </div>
-                
                 <div class="card p-3">
-                    <h5 class="card-title">{employee.name}</h5>
-                        <div class="  flex items-center">
-                            <div>
-                                <div class="row employee-role">
-                                    Position: {employee.position}
-                                </div>
+                      <div class="flex items-center">
+                          <div>
+                            <br>
+                              <div class="row employee-role">
+                                  Position: {employee.position}
+                              </div>
 
-                                <div class="row employee-training">
-                                    Total training {employee.training} hours
-                                </div>
-                            </div>
-                        </div>
-
+                              <div class="row employee-training">
+                                  Total training {totalHoursDone} hours
+                              </div>
+                          </div>
+                      </div>
                 </div>
             </div>
         </div>
@@ -46,13 +45,13 @@
 
   
   <style>
-      
-      .rounded-rectangle {
-    /* Crops the image to a rectangle with rounded corners. */
+
+  .rounded-circle {
+    /* Crops the image to a circle. */
     object-fit: cover;
-    border-radius: 25px;
-    height: 150px;
-    width: 200px;
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
   }
     .card-title {
       font-size: 24px;
@@ -60,8 +59,15 @@
     }
   
     .employee-role {
-      font-size: 16px;
-      color: gray;
+      font-size: 20px;
+      vertical-align: middle;
+      color: rgb(0, 0, 0);
+    }
+
+    .employee-training {
+      font-size: 20px;
+      vertical-align: middle;
+      color: rgb(0, 0, 0);
     }
 
     .employee-card{
