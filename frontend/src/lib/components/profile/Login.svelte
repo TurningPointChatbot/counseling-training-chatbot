@@ -16,11 +16,11 @@
     try {
       loading = true;
       const { user, error } = await supabase.auth.signIn({ email, password });
-
+      console.log(user);
       if (error) throw error;
       alert('Successfully Logged In!');
 
-      location.href = '/account';
+      location.href = '/modules';
     } catch (error) {
       alert(error.error_description || error.message);
     } finally {

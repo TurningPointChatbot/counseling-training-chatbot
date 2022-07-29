@@ -23,9 +23,9 @@
         <div>
           {#if progress < 100}
             <!-- Progress Bar -->
-            <div class="w-full bg-gray-200 rounded dark:bg-gray-700">
+            <div class="w-full bg-base-400 rounded dark:bg-white">
               <div
-                class="bg-blue-400 text-s font-medium text-blue-100 text-center p-0.5 leading-none rounded"
+                class="bg-blue-light text-s font-medium text-blue-100 text-center p-0.5 leading-none rounded"
                 style="width: {String(progress)}%"
               >
                 {String(progress)}%
@@ -54,7 +54,7 @@
       </div>
     </div>
     <div class="collapse-content">
-      <h2><b> {description} </b></h2>
+      <h3><b> {description} </b></h3>
       <div class="text-right">
         <button on:click={runModule} class="btn-highlight btn-icon">
           <div class="svgicon">

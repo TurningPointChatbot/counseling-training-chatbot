@@ -18,7 +18,7 @@
           >
         </label>
       </div>
-      <div class="dropdown dropdown-end">
+      <div class="dropdown">
         <label tabindex="0" class="btn btn-ghost btn-circle avatar">
           <div class="w-10 rounded-full">
             <img
