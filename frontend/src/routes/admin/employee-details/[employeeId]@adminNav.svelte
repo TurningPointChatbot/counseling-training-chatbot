@@ -25,12 +25,37 @@
   let totalHoursDone = 10;
   let targetTrainingHours = 50;
 
-  async function getModulesData() {
-    try {
-      let { data, error } = await supabase
-        .from('chatbot_assignment')
-        .select()
-        .eq('user_id', employeeId);
+async function loadInEmployee() {
+  try {
+    let {data, error} = await supabase.from('user').select().eq('id', employeeId);
+    if (data) {
+        employee.name = data[0].fname + ' ' + data[0].lname;
+        employee.profile_image = data[0].avatar_url;
+        employee.position = await getUserType(data[0].type_id)
+    }
+  } catch (error) {
+    alert(error.message);
+  }
+}
+
+async function getUserType(typeId) {
+  try {
+    let {data, error} = await supabase.from('user_type').select().eq('id', typeId);
+    if (data) {
+      return data[0].name
+    } else {
+      return '';
+    }
+  } catch(error) {
+    return '';
+  }
+}
+
+async function getModulesData() {
+  try {
+
+    // Select all modules assigned to this employee
+    let {data, error} = await supabase.from('chatbot_assignment').select().eq('user_id', employeeId);
 
       if (data) {
         totalModules = data.length;
@@ -48,6 +73,9 @@
       alert(error.message);
     }
   }
+<<<<<<< HEAD
+=======
+}
 
   async function getTrainingHours() {
     try {
@@ -81,8 +109,10 @@
     return timeDiff / (1000 * 60 * 60);
   }
 
-  getModulesData();
-  getTrainingHours();
+loadInEmployee();
+getModulesData();
+getTrainingHours();
+
 </script>
 
 <div class="grid grid-cols-2 gap-4 m-8">
