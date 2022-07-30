@@ -2,10 +2,12 @@
   import Icon from '$lib/components/Icon.svelte';
 
   export let listData: any[];
+  export let rectangleOrCircle: boolean;
 
   let filteredList = listData;
   let filterTerm = '';
   let sortedAz = true;
+  let shapeClass = rectangleOrCircle ? "rounded-rectangle" : "rounded-circle";
 
   /**
    * Sort list by list item titles. Also display icon accordingly depending on
@@ -75,7 +77,7 @@
                 <div class="basis-1/4 mr-5">
                   <img
                     alt={listItem.title}
-                    class="rounded-rectangle"
+                    class={shapeClass}
                     src={listItem.image}
                   />
                 </div>
@@ -105,6 +107,14 @@
     border-radius: 25px;
     height: 150px;
     width: 200px;
+  }
+
+  .rounded-circle {
+    /* Crops the image to a circle. */
+    object-fit: cover;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
   }
 
   .item-title {
