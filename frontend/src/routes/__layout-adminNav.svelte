@@ -3,7 +3,7 @@
         <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content">
           <div class="navbar bg-primary">
-            <div class="flex-none">
+            <div class="flex-1">
               <label for="my-drawer-3" class="btn btn-square btn-ghost">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -19,36 +19,38 @@
                 >
               </label>
             </div>
-            <div class="dropdown">
-              <!-- svelte-ignore a11y-label-has-associated-control -->
-              <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-                <div class="w-10 rounded-full">
+            <div class="flex-none">
+              <div class="dropdown dropdown-end">
+                <!-- svelte-ignore a11y-label-has-associated-control -->
+                <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                  <div class="w-10 rounded-full">
+                    <!-- svelte-ignore a11y-missing-attribute -->
+                    <img
+                      src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+                    />
+                  </div>
+                </label>
+                <ul
+                  tabindex="0"
+                  class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <!-- svelte-ignore a11y-missing-attribute -->
+                    <a
+                      ><div>
+                        Administrator<br />
+                        <b>Name</b>
+                      </div></a
+                    >
+                  </li>
                   <!-- svelte-ignore a11y-missing-attribute -->
-                  <img
-                    src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
-                  />
-                </div>
-              </label>
-              <ul
-                tabindex="0"
-                class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
-              >
-                <li>
-                  <!-- svelte-ignore a11y-missing-attribute -->
-                  <a
-                    ><div>
-                      Administrator<br />
-                      <b>Name</b>
-                    </div></a
-                  >
-                </li>
-                <!-- svelte-ignore a11y-missing-attribute -->
-                <li><a>Logout</a></li>
-              </ul>
+                  <li><a>Logout</a></li>
+                </ul>
+              </div>
             </div>
           </div>
       
-          <slot />
+          <slot/>
         </div>
         <div class="drawer-side">
           <label for="my-drawer-3" class="drawer-overlay" />
@@ -69,6 +71,4 @@
           </ul>
         </div>
       </div>
-      
-    <slot></slot>
 </div>

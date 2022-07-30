@@ -69,6 +69,6 @@
   </div>
   <div class="m-3 h-3/4">
     {#await promise then modules}
-      <FilterableList listData={modules}/>
+      <FilterableList listData={modules} rectangleOrCircle={true}/>
     {/await}
   </div>
