@@ -2,10 +2,12 @@
   import Icon from '$lib/components/Icon.svelte';
 
   export let listData: any[];
+  export let rectangleOrCircle: boolean;
 
   let filteredList = listData;
   let filterTerm = '';
   let sortedAz = true;
+  let shapeClass = rectangleOrCircle ? "rounded-rectangle" : "rounded-circle";
 
   /**
    * Sort list by list item titles. Also display icon accordingly depending on
@@ -107,3 +109,5 @@
     </div>
   </div>
 </div>
+<<<<<<< HEAD
+=======

@@ -42,5 +42,7 @@
     <h1>Modules</h1>
   </div>
   <div class="m-3 h-3/4">
-    <FilterableList listData={modules} />
+    {#await promise then modules}
+      <FilterableList listData={modules} rectangleOrCircle={true}/>
+    {/await}
   </div>
