@@ -20,7 +20,7 @@
       if (error) throw error;
       alert('Successfully Logged In!');
 
-      location.href = '/account';
+      location.href = '/profile/account';
     } catch (error) {
       alert(error.error_description || error.message);
     } finally {
