@@ -13,26 +13,28 @@
   // TODO: Retrieve counsellor details from database.
 
   async function getCounsellors() {
-  try {
+    let api_counsellors = []
+    try {
 
-    let {data, error} = await supabase.from('users').select();
+      let {data, error} = await supabase.from('user').select();
 
-    if (data) {
-      counsellors = [];
+      if (data) {
 
-      for (let i = 0; i < data.length; i++) {
-          counsellors[counsellors.length] = {
-            title: data[i].fname + ' ' + data[i].lname,
-            description: await getCounsellorsType(data[i].type_id),
-            image: data[i].avatar_url,
-            href: '/admin/employee-details/' + data[i].id
-          };
+        for (let i = 0; i < data.length; i++) {
+            api_counsellors.push({
+              title: data[i].fname + ' ' + data[i].lname,
+              description: await getCounsellorsType(data[i].type_id),
+              image: data[i].avatar_url,
+              href: '/admin/employee-details/' + data[i].id
+            });
+        }
+
       }
-
+    } catch (error) {
+      alert(error.message);
     }
-  } catch (error) {
-    alert(error.message);
-  }
+
+    return api_counsellors;
 }
 
 async function getCounsellorsType(typeId) {
@@ -49,6 +51,7 @@ async function getCounsellorsType(typeId) {
     return '';
   }
 }
+/*
   let counsellors = [
     {
       title: 'Blake Sand',
@@ -85,13 +88,15 @@ async function getCounsellorsType(typeId) {
         'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160',
       href: '/admin/employee-details/id'
     }
-  ];
-  getCounsellors();
+  ];*/
+  let promise = getCounsellors();
 </script>
 
-<div class="m-3">
-  <h1>Counsellors</h1>
-</div>
-<div class="m-3 h-3/4">
-  <FilterableList listData={counsellors} />
-</div>
+  <div class="m-3">
+    <h1>Counsellors</h1>
+  </div>
+  <div class="m-3 h-3/4">
+    {#await promise then counsellors}
+    <FilterableList listData={counsellors} rectangleOrCircle={false}/>
+    {/await}
+  </div>

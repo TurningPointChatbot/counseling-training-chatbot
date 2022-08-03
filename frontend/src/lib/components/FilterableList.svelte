@@ -68,7 +68,7 @@
         </div>
       </div>
       <div class="flex justify-center items-center">
-        <label for="filter" class="form-label mr-2">Filter:</label>
+        <label for="filter" class="form-label mr-2">Search:</label>
         <input
           type="search"
           class="form-control input input-bordered"
