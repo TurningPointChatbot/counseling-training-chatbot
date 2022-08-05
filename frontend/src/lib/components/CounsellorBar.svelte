@@ -25,10 +25,7 @@
               <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" />
             </div>
           </label>
-          <ul
-            tabindex="0"
-            class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
-          >
+          <ul tabindex="0">
             <li>
               <a>
                 <div>
@@ -49,7 +46,7 @@
     </div>
     <div class="drawer-side">
       <label for="my-drawer-3" class="drawer-overlay" />
-      <ul class="menu p-4 overflow-y-auto w-80 bg-base-100">
+      <ul class="ul1">
         <li>
           <a href="/counsellor/dashboard" rel="prefetch" class="nav-link">
             Dashboard

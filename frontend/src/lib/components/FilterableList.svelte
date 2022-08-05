@@ -97,31 +97,3 @@
     </div>
   </div>
 </div>
-
-<style>
-  .rounded-rectangle {
-    /* Crops the image to a rectangle with rounded corners. */
-    object-fit: cover;
-    border-radius: 25px;
-    height: 150px;
-    width: 200px;
-  }
-
-  .item-title {
-    font-size: 24px;
-  }
-
-  .item-description {
-    font-size: 16px;
-    color: gray;
-  }
-
-  .scroll {
-    max-height: 100%;
-    overflow-y: auto;
-  }
-
-  .sort-icon:hover {
-    filter: opacity(50%);
-  }
-</style>

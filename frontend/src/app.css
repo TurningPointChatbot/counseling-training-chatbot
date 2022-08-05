@@ -4,14 +4,96 @@
     @apply text-4xl;
   }
   h2 {
-    @apply text-2xl;
+    @apply card-title p-2 text-3xl self-center bg-base-300;
+    align-content: center;
   }
   h3 {
     @apply text-lg;
   }
+  h4 {
+
+  }
+  h5 {
+    @apply p-1 card-title;
+  }
+  hr {
+    @apply bg-base-400;
+  }
+  p {
+    @apply ml-16 text-lg font-medium leading-6;
+    color: gray;
+  }
+  a {
+    @apply p-6 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center;
+    background: gray;
+    color: darkgray;
+    /*bg-gray-100 text-gray-800*/
+  }
+  dd {
+    @apply mt-2 ml-16 max-w-2xl text-base;
+    color: gray;
+  }
+  input {
+    width: 50%;
+    @apply input input-bordered input-sm;
+  }
+  button {
+    @apply btn btn-primary m-2
+  }
+  ul {
+    @apply mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box;
+    width: 13rem;
+  }
   .card-bordered {
     border-radius: 15px;
   }
+  .rounded-rectangle {
+    /* Crops the image to a rectangle with rounded corners. */
+    object-fit: cover;
+    border-radius: 25px;
+    height: 150px;
+    width: 200px;
+  }
+  .card-title {
+    font-size: 24px;
+    width: 100%;
+  }
+  .employee-role {
+    font-size: 16px;
+    color: gray;
+  }
+  .employee-card {
+    max-height: 100%;
+  }
+  .circle-button {
+    @apply text-black border border-black hover:bg-black
+    hover:text-black focus:ring-4 focus:outline-none focus:ring-black
+    font-medium rounded-full text-sm p-2.5 text-center inline-flex
+    items-center  dark:hover:text-white
+    /* dark:border-blue-500 dark:text-blue-500 dark:focus:ring-blue-800*/
+  }
+  .ul1 {
+    @apply menu p-4 overflow-y-auto w-80 bg-base-100
+  }
+
+  .item-title {
+    font-size: 24px;
+  }
+
+  .item-description {
+    font-size: 16px;
+    color: gray;
+  }
+
+  .scroll {
+    max-height: 100%;
+    overflow-y: auto;
+  }
+
+  .sort-icon:hover {
+    filter: opacity(50%);
+  }
+
 }
 @tailwind components;
 @tailwind utilities;

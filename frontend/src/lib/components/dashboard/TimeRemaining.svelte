@@ -6,7 +6,7 @@
 </script>
 
 <div class="row">
-  <h2 class="pb-2"> Target Training Time</h2>
+  <h2 > Target Training Time</h2>
   <div class="w-full bg-gray-200 rounded-full">
     <div
       class="bg-secondary text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded"

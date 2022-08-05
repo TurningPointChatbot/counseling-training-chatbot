@@ -3,10 +3,7 @@
   export let moduleName = "";
 </script>
 
-<a
-  class="p-6 bg-gray-100 text-gray-800 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center"
-  href="/"
->
+<a href="/">
   <!-- TODO: Correct url -->
   <h2>{moduleName}</h2>
   <div class="card-body grid grid-cols-10 gap-3 w-full">

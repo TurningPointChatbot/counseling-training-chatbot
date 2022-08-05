@@ -10,7 +10,7 @@
 
 <div class="card bg-base-100 shadow-xl">
   <div>
-    <h2 class="card-title p-2 text-3xl self-center align-center bg-base-300">
+    <h2>
       Overall Progress
     </h2>
   </div>
