@@ -1,5 +1,10 @@
 import { storeMessage } from "./chatbot_utils";
 
+/**
+ * Each chatbot instance is unique to each chat attempt.
+ * Chat attempt id is created and then passed to this class's constructor which then
+ * stores user and bot created messages in supabase using that id.
+ */
 class Chatbot {
     id: number;
     demo_messages: Array<string>;
