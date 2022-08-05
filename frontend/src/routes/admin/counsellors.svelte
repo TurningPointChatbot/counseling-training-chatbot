@@ -1,17 +1,8 @@
-<script context="module">
-  export async function load({ params }) {
-    return { props: { employeeId: params.employeeId } };
-  }
-  </script>
-
-
 <script lang="ts">
   import FilterableList from '$lib/components/FilterableList.svelte';
   import supabase from '$lib/supabase';
 
-  export let employeeId: string;
   // TODO: Retrieve counsellor details from database.
-
   async function getCounsellors() {
     let api_counsellors = []
     try {
@@ -51,45 +42,7 @@ async function getCounsellorsType(typeId) {
     return '';
   }
 }
-/*
-  let counsellors = [
-    {
-      title: 'Davos Sand',
-      description: 'Junior Counsellor',
-      image: 'https://picsum.photos/id/426/400/600.jpg',
-      href: '/admin/employee-details/id'
-    },
-    {
-      title: 'Evelyn Chua',
-      description: 'Junior Counsellor',
-      image: 'https://picsum.photos/id/426/400/600.jpg',
-      href: '/admin/employee-details/id'
-    },
-    {
-      title: 'Isabella Howard',
-      description: 'Junior Counsellor',
-      image: 'https://picsum.photos/id/426/400/600.jpg',
-      href: '/admin/employee-details/id'
-    },
-    {
-      title: 'Jackson Tyler',
-      description: 'Junior Counsellor',
-      image: 'https://picsum.photos/id/426/400/600.jpg',
-      href: '/admin/employee-details/id'
-    },
-    {
-      title: 'Carey Smith',
-      description: 'Junior Counsellor',
-      image: 'https://picsum.photos/id/426/400/600.jpg',
-      href: '/admin/employee-details/id'
-    },
-    {
-      title: 'Joanna Tran',
-      description: 'Junior Counsellor',
-      image: 'https://picsum.photos/id/426/400/600.jpg',
-      href: '/admin/employee-details/id'
-    }
-  ];*/
+
   let promise = getCounsellors();
 </script>
 
