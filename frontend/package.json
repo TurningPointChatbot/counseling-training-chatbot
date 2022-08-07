@@ -2,14 +2,14 @@
   "name": "counseling-training-chatbot",
   "version": "0.0.1",
   "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
+    "dev": "vite dev",
+    "build": "vite build",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
-    "package": "svelte-kit package",
-    "preview": "svelte-kit preview",
-    "prepare": "svelte-kit sync",
+    "package": "vite package",
+    "preview": "vite preview",
+    "postinstall": "svelte-kit sync",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
@@ -46,6 +46,9 @@
   },
   "type": "module",
   "dependencies": {
-    "@supabase/supabase-js": "^1.35.2"
+    "@supabase/auth-helpers-svelte": "^0.4.5",
+    "@supabase/auth-helpers-sveltekit": "^0.6.8",
+    "@supabase/supabase-js": "^1.35.2",
+    "vite": "^3.0.4"
   }
 }
