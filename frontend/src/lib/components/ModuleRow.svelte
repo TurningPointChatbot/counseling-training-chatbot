@@ -90,29 +90,19 @@
                   <div>
                     <div class="item-title">
                       {listItem.title}
-          
-                      <div>
                         <!-- status badges -->
                         {#if listItem.completed}
-                        <div class="badge badge-primary badge-outline">completed</div>
+                        <div class="badge badge-md badge-accent badge-outline">completed</div>
                         {:else}
-                        <div class="badge badge-secondary badge-outline">incomplete</div>
+                        <div class="badge badge-lg badge-secondary badge-outline">incomplete</div>
                         {/if}
-      
-                      </div>
-
                     </div>
                     <div class="item-description">
                       {listItem.description}
                     </div>
                   </div>
-  
                 </div>
-                <div>
-                    <div class="item-status">
-                      <!--{listItem.status} -->
-                      <!-- run module button-->
- 
+              <div>
                 </div>
                 </div>
             </div>
