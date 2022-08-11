@@ -4,21 +4,20 @@
   import Icon from '$lib/components/Icon.svelte';
   import Linkable from './Linkable.svelte';
 
-
   export let listData: any[];
   export let rectangleOrCircle: boolean;
-  // export let moduleName: string;
   
   let filteredList = listData;
   let filterTerm = '';
   let sortedAz = true;
+  let sortedCompleted = false;
   let shapeClass = rectangleOrCircle ? "rounded-rectangle" : "rounded-circle";
 
   /**
    * Sort list by list item titles. Also display icon accordingly depending on
    * whether the list is sorted alphabetically or reverse alphabetical.
    */
-  function sortList() {
+  function sortListAz() {
     if (sortedAz) {
       // Sort reverse alphabetical.
       filteredList.sort((a, b) => b.title.localeCompare(a.title));
@@ -27,6 +26,24 @@
       // Sort alphabetical.
       filteredList.sort((a, b) => a.title.localeCompare(b.title));
       sortedAz = true;
+    }
+    filteredList = filteredList; // Required to trigger re-render of list.
+  }
+
+
+  /**
+   * Sort list by completed vs non-completed. Display icon reflections completed / non completed
+   */
+  function sortListCompleted() {
+    if (sortedCompleted) {
+      // Sort by incompleted.
+      // TODO filteredList.sort((a, b) => b.title.localeCompare(a.title));
+      sortedCompleted = false;
+    }
+    else {
+      // Sort by completed.
+      // TODO filteredList.sort((a, b) => a.title.localeCompare(b.title));
+      sortedCompleted = true;
     }
     filteredList = filteredList; // Required to trigger re-render of list.
   }
@@ -52,8 +69,19 @@
   <div class="card-body h-full p-3">
     <div class="flex justify-end mb-3">
       <div class="flex items-center mr-3">
+        
+        <!-- Sort by completed -->
+        <div class="mr-2">Sort Completed</div>
+        <div class="sort-icon p-2 mr-3" on:click={sortListCompleted}>
+          {#if sortedCompleted}
+            <Icon imgPath="/icon-sort-asc.png" altText="Sort Completed" width="20px" height="20px" />
+          {:else}
+            <Icon imgPath="/icon-sort-desc.png" altText="Sort Incompleted" width="20px" height="20px"/>
+          {/if}
+        </div>
+
         <div class="mr-2">Sort A - Z</div>
-        <div class="sort-icon p-2 mr-3" on:click={sortList}>
+        <div class="sort-icon p-2 mr-3" on:click={sortListAz}>
           {#if sortedAz}
             <!-- Initially list will be sorted alphabetically (A-Z) -->
             <Icon imgPath="/icon-sort-asc.png" altText="Sort A-Z" width="20px" height="20px" />
