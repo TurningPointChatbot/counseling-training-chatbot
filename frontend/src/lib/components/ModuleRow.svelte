@@ -7,7 +7,8 @@
 
   export let listData: any[];
   export let rectangleOrCircle: boolean;
-  export let moduleName: string;
+  // export let moduleName: string;
+  
   let filteredList = listData;
   let filterTerm = '';
   let sortedAz = true;
@@ -44,10 +45,6 @@
           .toLocaleLowerCase()
           .indexOf(filterTerm.toLocaleLowerCase()) !== -1
     );
-  }
-
-  function runModule() {
-    location.href = '/learning-outcomes/' + moduleName;
   }
 </script>
 
@@ -115,24 +112,7 @@
                     <div class="item-status">
                       <!--{listItem.status} -->
                       <!-- run module button-->
-                      <button on:click={runModule} class="btn-highlight btn-icon">
-                        <div class="svgicon">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="80"
-                            height="60"
-                            fill="currentColor"
-                            class="bi bi-arrow-right-circle"
-                            viewBox="0 0 16 16"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
-                            />
-                          </svg>
-                        </div>
-                        <b>Run Module</b>
-                      </button> 
+ 
                 </div>
                 </div>
             </div>
