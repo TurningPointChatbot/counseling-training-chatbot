@@ -92,11 +92,11 @@
 
       <!-- Sign In/Forgot Password Section-->
       <div class="grid place-items-center my-2">
-        <button class="m-1"
+        <button class="m-1 purple-button"
           on:click={signInWithEmail}>
           Sign In
         </button>
-        <button class="m-1"
+        <button class="m-1 purple-button"
           on:click={toggleEdit}>
           Forgot Password?
         </button>
@@ -132,10 +132,10 @@
       <!-- Send Email/Back Section -->
       <div class="grid place-items-center">
         <div class="button">
-          <button class="m-1" on:click={forgotPassword}>
+          <button class="m-1 purple-button" on:click={forgotPassword}>
             Send email
           </button>
-          <button class="m-1" on:click={toggleEdit}>
+          <button class="m-1 purple-button" on:click={toggleEdit}>
             Back
           </button>
         </div>

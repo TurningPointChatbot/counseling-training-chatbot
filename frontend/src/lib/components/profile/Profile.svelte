@@ -157,15 +157,15 @@
 
     <div class="flex flex-row-reverse space-x-4 space-x-reverse mx-2 my-4">
       {#if !editOn}
-        <button on:click={toggleEdit}> Edit </button>
+        <button class="purple-button" on:click={toggleEdit}> Edit </button>
       {:else}
-        <button on:click={toggleEdit} disabled={loading}>
+        <button class="purple-button" on:click={toggleEdit} disabled={loading}>
           Cancel
         </button>
 
         <input
           type="submit"
-          class="btn btn-primary"
+          class="purple-button"
           on:click={handleSave}
           disabled={loading}
           value={loading ? 'Loading...' : 'Save'}

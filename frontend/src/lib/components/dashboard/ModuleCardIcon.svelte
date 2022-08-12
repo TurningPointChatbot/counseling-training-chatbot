@@ -5,9 +5,11 @@
 
 <a href="/">
   <!-- TODO: Correct url -->
-  <h2>{moduleName}</h2>
-  <div class="card-body grid grid-cols-10 gap-3 w-full">
-    <div class="col-span-3"><p>04/05/2022</p></div>
+  <h3>{moduleName}</h3>
+  <div class="grid grid-cols-10 gap-3 w-full py-2">
+    <div class="col-span-3">
+      <p>04/05/2022</p>
+    </div>
     <div class="col-span-3">
       <img
         class="rounded-md"

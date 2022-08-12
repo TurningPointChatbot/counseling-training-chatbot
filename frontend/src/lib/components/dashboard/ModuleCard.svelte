@@ -7,7 +7,11 @@
 
 <a href="/">
   <!-- TODO: Correct url -->
-  <div class="mb-2"><b><h3>{moduleName}</h3></b></div>
+  <div class="mb-2">
+    <b>
+      <h4 class="whitespace-nowrap mx-2">{moduleName}</h4>
+    </b>
+  </div>
   <img
     class="rounded-md"
     src={imgUrl}

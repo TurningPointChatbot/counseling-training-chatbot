@@ -15,7 +15,7 @@
     font-family: sans-serif;
   }
   h4 {
-    @apply text-lg;
+    @apply text-lg overflow-hidden;
     font-family: sans-serif;
   }
   h5 {
@@ -23,7 +23,7 @@
     font-family: sans-serif;
   }
   hr {
-    @apply text-lg;
+    @apply bg-base-400;
   }
   dd {
     @apply mt-2 ml-16 max-w-2xl text-base;
@@ -31,10 +31,9 @@
   input {
     @apply input;
   }
-  button {
-    @apply btn btn-primary
-  }
 
+
+  /* Custom Classes */
   .input-login {
     @apply input input-bordered input-sm;
     width: max-content;
@@ -69,9 +68,27 @@
     @apply flex mx-2 my-4 space-x-4;
     justify-content: center;
   }
-
-
-
+  .h2-counsellor-dashboard {
+    @apply card-title p-2 bg-base-300
+  }
+  .progress-bar {
+    @apply bg-secondary text-xs font-medium text-center p-0.5 leading-none rounded;
+  }
+  .p-faded {
+    @apply pt-1;
+    color: darkgray;
+  }
+  .module-card {
+    @apply px-5 py-7;
+  }
+  .circle-button {
+    @apply text-black border border-black hover:bg-black hover:text-black
+    focus:ring-4 focus:outline-none focus:ring-black font-medium rounded-full
+    text-sm p-2.5 text-center inline-flex items-center dark:hover:text-white;
+  }
+  .purple-button {
+    @apply btn btn-primary;
+  }
 
   .item-title {
     font-size: 24px;
@@ -87,9 +104,6 @@
   }
   .sort-icon:hover {
     filter: opacity(50%);
-  }
-  .purple-button {
-    color: #852E82;
   }
 }
 
