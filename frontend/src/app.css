@@ -1,117 +1,154 @@
 @tailwind base;
 @layer base {
+  /* Element Styling */
+  /* Heading 1: largest header element*/
   h1 {
     @apply text-4xl;
     font-family: sans-serif;
   }
+  /* Heading 2: 2nd largest header element, most commonly used*/
   h2 {
     @apply text-2xl self-center;
     font-family: sans-serif;
   }
+  /* Heading 3: subtitle header element*/
   h3 {
     @apply self-center;
     font-size: 1.25rem;
     line-height: 2rem;
     font-family: sans-serif;
   }
+  /* Heading 4: used for small text*/
   h4 {
     @apply text-lg overflow-hidden;
     font-family: sans-serif;
   }
+  /* Heading 5: even smaller text*/
   h5 {
     @apply text-2xs;
     font-family: sans-serif;
   }
+  /* Heading 6: currently unused*/
+  h6{
+    font-family: sans-serif;
+  }
+  /* Thematic break element: shows a horizontal black line*/
   hr {
     @apply bg-base-400;
   }
+  /* Description element: shows definition of preceding term in dt element*/
   dd {
     @apply mt-2 ml-16 max-w-2xl text-base;
   }
+  /* Input element: any text boxes that a user writes in or upload boxes*/
   input {
     @apply input;
   }
 
 
   /* Custom Classes */
+  /* input on login page*/
   .input-login {
     @apply input input-bordered input-sm;
     width: max-content;
   }
+  /* file upload on profile page*/
   .input-file {
     @apply my-3 mx-auto input-bordered form-control p-1.5;
   }
+  /* text input on profile page*/
   .input-text {
     @apply w-min input-bordered input-md;
   }
+  /* text input label to attach to input-text*/
   .label-input-text {
     @apply font-bold;
     margin-top: 0.5rem;
   }
+  /* navbar burger icon*/
   .navbar-button {
     @apply btn btn-square btn-ghost;
   }
+  /* profile dropdown icon*/
   .profile-button {
     @apply btn btn-ghost btn-circle avatar;
   }
+  /* navbar list */
   .ul-navbar {
     @apply menu p-4 overflow-y-auto w-80 bg-base-100;
   }
+  /* profile list */
   .ul-profile {
     @apply mt-3 p-2 overflow-y-auto shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52;
     text-align: left;
   }
+  /* navbar links in profile and navbar menus */
   .a-navbar {
     @apply rounded-lg;
   }
+  /* title formatting on login page*/
   .title-header {
     @apply flex mx-2 my-4 space-x-4;
     justify-content: center;
   }
+  /* adjustments to h2 for counsellor dashboard page*/
   .h2-counsellor-dashboard {
     @apply card-title p-2 bg-base-300
   }
+  /* small progress bar with yellow fill */
   .progress-bar {
     @apply bg-secondary text-xs font-medium text-center p-0.5 leading-none rounded;
   }
+  /* large progress bar with blue fill */
   .progress-bar-large {
     @apply bg-blue-light font-medium text-center p-0.5 leading-none rounded
   }
+  /* faded text for p (paragraph) element, used as subtitle on module cards*/
   .p-faded {
     @apply pt-1;
     color: darkgray;
   }
+  /* module card formatting for multiple dashboard components*/
   .module-card {
     @apply px-5 py-7;
   }
+  /* circle button, used in admin dashboard and counsellor module page*/
   .circle-button {
     @apply text-black border border-black hover:bg-black hover:text-black
     focus:ring-4 focus:outline-none focus:ring-black font-medium rounded-full
     text-sm p-2.5 text-center inline-flex items-center dark:hover:text-white;
   }
+  /* login page and profile page submission buttons */
   .purple-button {
     @apply btn btn-primary;
   }
+  /* formatting for rows of cards in admin dashboard*/
   .module-row {
     @apply collapse collapse-arrow border border-base-300 bg-base-300 rounded-box;
   }
+  /* div font formatting for filterable list, should be replaced with a heading element*/
   .item-title {
     font-size: 24px;
   }
+  /* div font formatting for filterable list, should be replaced with a heading element*/
   .item-description {
     font-size: 16px;
     color: gray;
   }
+  /* scroll formatting for FilterableList component*/
   .scroll {
     max-height: 100%;
     overflow-y: auto;
   }
+  /* hover option on FilterableList component*/
   .sort-icon:hover {
     filter: opacity(50%);
   }
+  /* formatting for module list in RecentModules component*/
   .module-list {
     @apply flex items-center bg-white overflow-hidden mt-4 mr-8 transform transition relative ml-3;
   }
+  /* styling for rounded rectangles for images*/
   .rounded-rectangle {
     object-fit: cover;
     border-radius: 25px;
