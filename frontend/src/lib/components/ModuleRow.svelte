@@ -1,5 +1,3 @@
-
-
 <script lang="ts">
   import Icon from '$lib/components/Icon.svelte';
   import Linkable from './Linkable.svelte';
@@ -192,5 +190,10 @@ function filterByStatus() {
 
   .sort-icon:hover {
     filter: opacity(50%);
+  }
+
+  .item-status {
+    font-size: 16px;
+    color: gray;
   }
 </style>

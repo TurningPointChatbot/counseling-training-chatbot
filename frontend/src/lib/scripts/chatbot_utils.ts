@@ -1,4 +1,6 @@
 import supabase from '../supabase';
+import type { User } from '@supabase/supabase-js';
+import userStore from '../../stores/authStore';
 
 async function storeMessage(attempt_id: number, messageText: string) {
   try {
@@ -40,4 +42,56 @@ async function getMessagesFromSupabase(attempt_id: number) {
   }
 }
 
-export {getMessagesFromSupabase, storeMessage}
+/**
+ * Retrieves cbm_id and user id from supabase
+ * @param moduleName 
+ * @returns An array [cbm_id, user_id]
+ */
+async function retrieveCBMIdAndUserID(moduleName: string) {
+  let user: User;
+  userStore.subscribe((value) => {
+    user = value;
+  });
+  console.log(user);
+  try {
+    let { data, error } = await supabase
+      .from('user')
+      .select(
+        ` 
+        id,
+        email,
+        chatbot_assignment(
+          cbm_id,
+          user_id,
+          duedate,
+          created_at,
+          completed_at,
+          completed
+        ),
+        chatbot_module!chatbot_assignment(
+          title, 
+          description
+        )
+        `
+      )
+      .eq('email', user.email)
+      .single();
+    if (error) throw error;
+    if (data) {
+      let res: Array<any> = [];
+      let assignments = data.chatbot_assignment;
+      for (let i: number = 0; i < assignments.length; i++) {
+        if (moduleName == data.chatbot_module[i].title) {
+          res.push(assignments[i].cbm_id);
+        }
+      }
+      res.push(user.id);
+      console.log(res)
+      return res;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { getMessagesFromSupabase, storeMessage, retrieveCBMIdAndUserID };

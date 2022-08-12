@@ -8,6 +8,7 @@
   import CounsellorBar from '$lib/components/CounsellorBar.svelte';
   import ChatMessage from '../../lib/components/ChatMessage.svelte';
   import {Chatbot} from '$lib/scripts/chatbot';
+  import {retrieveCBMIdAndUserID} from '$lib/scripts/chatbot_utils';
 
   interface DisplayMessage {
     sender: string;
@@ -17,6 +18,8 @@
   let userMessageText: string = null;
   let displayMessages: Array<DisplayMessage> = [];
   let chatbot = new Chatbot(1);
+  let cbm_id: number;
+  let user_id: string;
 
   function sendCounsellorMessage() {
     if (userMessageText != null) {
@@ -29,6 +32,13 @@
   function sendChatbotMessage() {
     let displayMessage: DisplayMessage = chatbot.sendMessageWebchatExample1();
     displayMessages = [...displayMessages, displayMessage];
+  }
+
+  async function getCBMIdAndUserID(){
+    let res: Array<string|number> = await retrieveCBMIdAndUserID(moduleName);
+    console.log(res)
+    cbm_id = res[0] as number;
+    user_id = res[1] as string;
   }
 
 </script>
