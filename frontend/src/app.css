@@ -74,6 +74,9 @@
   .progress-bar {
     @apply bg-secondary text-xs font-medium text-center p-0.5 leading-none rounded;
   }
+  .progress-bar-large {
+    @apply bg-blue-light font-medium text-center p-0.5 leading-none rounded
+  }
   .p-faded {
     @apply pt-1;
     color: darkgray;
@@ -89,6 +92,10 @@
   .purple-button {
     @apply btn btn-primary;
   }
+  .module-row {
+    @apply collapse collapse-arrow border border-base-300 bg-base-300 rounded-box;
+  }
+
 
   .item-title {
     font-size: 24px;

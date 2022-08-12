@@ -12,7 +12,7 @@
 <div class="grid-flow-col gap-8 my-4">
   <div
     tabindex="0"
-    class="collapse collapse-arrow border border-base-300 bg-base-300 rounded-box"
+    class="module-row"
     style="color:black"
   >
     <input type="checkbox" />
@@ -25,7 +25,7 @@
             <!-- Progress Bar -->
             <div class="w-full bg-base-400 rounded dark:bg-white">
               <div
-                class="bg-blue-light text-s font-medium text-blue-100 text-center p-0.5 leading-none rounded"
+                class="progress-bar-large"
                 style="width: {String(progress)}%"
               >
                 {String(progress)}%
@@ -54,7 +54,7 @@
       </div>
     </div>
     <div class="collapse-content">
-      <h3>{description}</h3>
+      <h4>{description}</h4>
       <div class="flex">
         <img
           class="py-2 mr-5"
