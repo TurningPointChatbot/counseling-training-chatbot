@@ -4,11 +4,11 @@
 
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/svelte';
-//import Counsellors from '../src/routes/admin/counsellors.svelte';
+import Counsellors from '../src/routes/admin/counsellors.svelte';
 import FilterableList from '../src/lib/components/FilterableList.svelte';
 
 describe('Test counsellors page renders correctly', () => {
-    /*test('Heading is spelt out correctly for counsellors', () => {
+    test('Heading is spelt out correctly for counsellors', () => {
       render(Counsellors);
       const heading = screen.getByRole('heading');
 
@@ -19,7 +19,7 @@ describe('Test counsellors page renders correctly', () => {
     test('Filterable list appears on counsellors page', () => {
       const {getByAltText} = render(Counsellors);
       expect(getByAltText('Sort A-Z')).toBeInTheDocument();
-    });*/
+    });
 
     test('Filterable list has list of counsellors', () => {
       // This is just a test for list of counsellors to show
