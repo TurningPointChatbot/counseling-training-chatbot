@@ -44,7 +44,7 @@ async function getMessagesFromSupabase(attempt_id: number) {
 
 /**
  * Retrieves cbm_id and user id from supabase
- * @param moduleName 
+ * @param moduleName
  * @returns An array [cbm_id, user_id]
  */
 async function retrieveCBMIdAndUserID(moduleName: string) {
@@ -52,7 +52,6 @@ async function retrieveCBMIdAndUserID(moduleName: string) {
   userStore.subscribe((value) => {
     user = value;
   });
-  console.log(user);
   try {
     let { data, error } = await supabase
       .from('user')
@@ -86,7 +85,6 @@ async function retrieveCBMIdAndUserID(moduleName: string) {
         }
       }
       res.push(user.id);
-      console.log(res)
       return res;
     }
   } catch (error) {

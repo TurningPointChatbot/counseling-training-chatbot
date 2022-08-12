@@ -18,8 +18,8 @@
   let userMessageText: string = null;
   let displayMessages: Array<DisplayMessage> = [];
   let chatbot = new Chatbot(1);
-  let cbm_id: number;
-  let user_id: string;
+  let cbmID: number;
+  let userId: string;
 
   function sendCounsellorMessage() {
     if (userMessageText != null) {
@@ -34,12 +34,16 @@
     displayMessages = [...displayMessages, displayMessage];
   }
 
-  async function getCBMIdAndUserID(){
-    let res: Array<string|number> = await retrieveCBMIdAndUserID(moduleName);
-    console.log(res)
-    cbm_id = res[0] as number;
-    user_id = res[1] as string;
+  function createChatAttempt(cbmID: number, userId){
+    //TODO: creates a unique chat attempt in the database for this simulation/log
   }
+
+  retrieveCBMIdAndUserID(moduleName)
+  .then(result => {
+    cbmID = result[0];
+    userId = result[1];
+    createChatAttempt(cbmID, userId);
+  })
 
 </script>
 
