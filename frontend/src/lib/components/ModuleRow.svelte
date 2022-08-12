@@ -10,10 +10,11 @@
   let filteredList = listData;
   let filterTerm = '';
   let sortedAz = true;
-  // filteredList[1].completed = true;
-  let filterStatusOn = false;
-  let filterCompleted = false;
+  let filterStatusOn = false;   // is the filter in use
+  let filterCompleted = false;  // is the filter filtering by completed?
   let shapeClass = rectangleOrCircle ? "rounded-rectangle" : "rounded-circle";
+
+  // filteredList[1].completed = true; -- dummy data to test filtering 
 
   /**
    * Sort list by list item titles. Also display icon accordingly depending on
@@ -48,9 +49,13 @@
     );
   }
 
+
+/**
+ * Filter list by the status of the module, ie if completed vs not completed
+ */
 function filterByStatus() {
 
-  // turn filter on - filter by incomplete
+  // turn filter on & filter by incomplete
   if (!filterStatusOn && !filterCompleted) {
     filteredList = listData.filter(
     (item) =>
@@ -59,7 +64,7 @@ function filterByStatus() {
     
       filterStatusOn = true
   }
-  // filter on - filter by complete
+  // filter by complete
   else if (filterStatusOn && !filterCompleted) {
 
     filteredList = listData.filter(
@@ -68,33 +73,23 @@ function filterByStatus() {
       );
       filterCompleted = true
   }
-  else {
-
   // turn filter off 
-
+  else {
   filteredList = listData.filter(
     (item) =>
           item.completed || !item.completed == true
-      );
-      
+      ); 
       filterStatusOn = false
       filterCompleted = false
   }
 }
-
-
-
 </script>
-
-
-
 
 <div class="card-bordered h-full">
   <div class="card-body h-full p-3">
     <div class="flex justify-end mb-3">
       <div class="flex items-center mr-3">
-        
-        <!-- Filter by completed -->
+        <!-- Filter by status -->
         <div class="mr-2">Filter Status</div>
         <div class="sort-icon p-2 mr-3" on:click={filterByStatus}>
           {#if filterCompleted}
@@ -103,7 +98,6 @@ function filterByStatus() {
             <Icon imgPath="/icon-sort-desc.png" altText="Filter Status" width="20px" height="20px"/>
           {/if}
         </div>
-
         <div class="mr-2">Sort A - Z</div>
         <div class="sort-icon p-2 mr-3" on:click={sortListAz}>
           {#if sortedAz}
@@ -199,97 +193,4 @@ function filterByStatus() {
   .sort-icon:hover {
     filter: opacity(50%);
   }
-
-  .item-status {
-    font-size: 16px;
-    color: gray;
-  }
 </style>
-
-
-
-
-<!--
-  <script lang="ts">
-  export let moduleName: string;
-  export let dueDate: string;
-  export let progress: number;
-  export let description: string;
-
-  function runModule() {
-    location.href = '/learning-outcomes/' + moduleName;
-  }
-</script>
-
-<div class="grid-flow-col gap-8 my-4">
-  <div
-    tabindex="0"
-    class="collapse collapse-arrow border border-base-300 bg-base-300 rounded-box"
-    style="color:black"
-  >
-    <input type="checkbox" />
-    <div class="collapse-title text-2xl font-medium">
-      <div class="grid grid-cols-3 gaps-4">
-        <div>{moduleName}</div>
-        <div>{dueDate}</div>
-        <div>
-        -->
-        <!--
-          {#if progress < 100}
-            <!-- Progress Bar 
-            <div class="w-full bg-base-400 rounded dark:bg-white">
-              <div
-                class="bg-blue-light text-s font-medium text-blue-100 text-center p-0.5 leading-none rounded"
-                style="width: {String(progress)}%"
-              >
-                {String(progress)}%
-              </div>
-            </div>
-          {:else}
-            <!-- Completed Module Icon 
-            <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-          {/if}
-        </div>
-      </div>
-    </div>
-    <div class="collapse-content">
-      <h3><b> {description} </b></h3>
-      <div class="text-right">
-        <button on:click={runModule} class="btn-highlight btn-icon">
-          <div class="svgicon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="80"
-              height="60"
-              fill="currentColor"
-              class="bi bi-arrow-right-circle"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
-              />
-            </svg>
-          </div>
-          <b>Run Module</b>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
---->
