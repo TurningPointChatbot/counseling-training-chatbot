@@ -10,14 +10,14 @@
   <hr class="my-4" />
 
   <div class="flex space-x-4">
-    <input
-      type="password"
-      placeholder="New Password"
-    />
-    <input
-      type="password"
-      placeholder="Confirm New Password"
-    />
+      <input
+              type="password"
+              placeholder="New Password"
+      />
+      <input
+              type="password"
+              placeholder="Confirm New Password"
+      />
   </div>
 
   <div class="my-4">

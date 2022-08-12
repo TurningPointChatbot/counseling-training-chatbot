@@ -70,9 +70,8 @@
     >
       <!-- Username Section -->
       <div class="flex justify-content-center mx-2 my-4 space-x-4">
-        <label class="font-bold" for="username">Username</label>
-        <input
-          class="w-50 input input-bordered input-sm"
+        <label for="username">Username</label>
+        <input id="username"
           placeholder="Username"
           type="text"
           bind:value={email}
@@ -81,9 +80,8 @@
 
       <!-- Password Section -->
       <div class="flex justify-content-center mx-2 my-4 space-x-4">
-        <label class="font-bold" for="password">Password</label>
-        <input
-          class="w-50 input input-bordered input-sm"
+        <label for="password">Password</label>
+        <input id="password"
           placeholder="******************"
           type="password"
           bind:value={password}
@@ -92,16 +90,14 @@
 
       <!-- Sign In/Forgot Password Section-->
       <div class="grid place-items-center my-5">
-        <button type="submit" class="btn btn-primary content-cente">
+        <button
+          on:click={signInWithEmail}>
           Sign In
         </button>
-        <a
-          href="#"
-          class="font-medium text-indigo-600 hover:text-indigo-500"
-          on:click={toggleEdit}
-        >
+        <button
+          on:click={toggleEdit}>
           Forgot Password?
-        </a>
+        </button>
       </div>
 
       <!-- End of Form -->
@@ -115,12 +111,12 @@
       class="grid place-items-center my-10"
     >
       <!-- Forgot Password Title -->
-      <div class="flex justify-content-center mx-2 my-4 space-x-4">
+      <div class="title-header">
         <b class="text-center">Forgot your password?</b>
       </div>
 
       <!-- Email Input Section -->
-      <div class="flex justify-content-center mx-2 my-4 space-x-4">
+      <div class="title-header">
         <label class="font-bold" for="username">Email</label>
         <input
           class="w-50 input input-bordered input-sm"

@@ -33,12 +33,15 @@
     @apply mt-2 ml-16 max-w-2xl text-base;
     color: gray;
   }
+  label {
+    @apply font-bold;
+  }
   input {
     width: 50%;
     @apply input input-bordered input-sm;
   }
   button {
-    @apply btn btn-primary m-2
+    @apply btn btn-primary m-2 content-center
   }
   ul {
     @apply mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box;
@@ -84,16 +87,28 @@
     font-size: 16px;
     color: gray;
   }
-
   .scroll {
     max-height: 100%;
     overflow-y: auto;
   }
-
   .sort-icon:hover {
     filter: opacity(50%);
   }
-
+  .title-header {
+    @apply flex mx-2 my-4 space-x-4;
+    justify-content: center;
+  }
 }
+
+/*
+  .button-purple {
+    @apply font-medium hover:text-indigo-500;
+    color: rgb(79 70 229);
+  }
+  .button-purple:hover {
+    background-color: rgb(99 102 241);
+  }
+  */
+
 @tailwind components;
 @tailwind utilities;

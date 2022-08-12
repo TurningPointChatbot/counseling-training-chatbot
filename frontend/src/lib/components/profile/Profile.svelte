@@ -8,13 +8,13 @@
   let editOn = false;
   let loading = false;
 
-  let fullName: string = 'John Smith';
-  let mobile: string = '0404 333 222';
-  let email: string = 'johnsmith@turningpoint.org.au';
-  let position: string = 'Junior Counsellor';
+  let fullName = 'John Smith';
+  let mobile = '0404 333 222';
+  let email = 'johnsmith@turningpoint.org.au';
+  let position = 'Junior Counsellor';
 
   // TODO: replace with empty avatar image lol, could also do something auto-generated like github?
-  let avatarUrl: string =
+  let avatarUrl =
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB6jXtxzJS1d5wG2JYXd0iF9KMuOIMV5P2YHmMz7NKBhXr4jGTSfW29Q102OcJsiEHiMo&usqp=CAU';
 
   function toggleEdit() {
