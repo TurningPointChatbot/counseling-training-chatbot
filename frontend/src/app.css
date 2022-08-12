@@ -35,6 +35,10 @@
     @apply btn btn-primary
   }
 
+  .input-login {
+    @apply input input-bordered input-sm;
+    width: max-content;
+  }
   .input-file {
     @apply my-3 mx-auto input-bordered form-control p-1.5;
   }
@@ -61,7 +65,10 @@
   .a-navbar {
     @apply rounded-lg;
   }
-
+  .title-header {
+    @apply flex mx-2 my-4 space-x-4;
+    justify-content: center;
+  }
 
 
 
@@ -80,10 +87,6 @@
   }
   .sort-icon:hover {
     filter: opacity(50%);
-  }
-  .title-header {
-    @apply flex mx-2 my-4 space-x-4;
-    justify-content: center;
   }
   .purple-button {
     color: #852E82;

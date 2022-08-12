@@ -69,9 +69,10 @@
       class="grid place-items-center my-10"
     >
       <!-- Username Section -->
-      <div class="flex justify-content-center mx-2 my-4 space-x-4">
-        <label for="username">Username</label>
-        <input id="username"
+      <div class="flex justify-content-center mx-2 my-2 space-x-4">
+        <label for="username" class="font-bold">Username</label>
+        <input class="input-login"
+          id="username"
           placeholder="Username"
           type="text"
           bind:value={email}
@@ -79,9 +80,10 @@
       </div>
 
       <!-- Password Section -->
-      <div class="flex justify-content-center mx-2 my-4 space-x-4">
-        <label for="password">Password</label>
-        <input id="password"
+      <div class="flex justify-content-center mx-2 my-2 space-x-4">
+        <label for="password" class="font-bold">Password</label>
+        <input class="input-login"
+          id="password"
           placeholder="******************"
           type="password"
           bind:value={password}
@@ -89,12 +91,12 @@
       </div>
 
       <!-- Sign In/Forgot Password Section-->
-      <div class="grid place-items-center my-5">
-        <button
+      <div class="grid place-items-center my-2">
+        <button class="m-1"
           on:click={signInWithEmail}>
           Sign In
         </button>
-        <button
+        <button class="m-1"
           on:click={toggleEdit}>
           Forgot Password?
         </button>
@@ -119,7 +121,7 @@
       <div class="title-header">
         <label class="font-bold" for="username">Email</label>
         <input
-          class="w-50 input input-bordered input-sm"
+          class="input-login"
           id="Email"
           placeholder="Email"
           type="text"
@@ -130,14 +132,10 @@
       <!-- Send Email/Back Section -->
       <div class="grid place-items-center">
         <div class="button">
-          <button type="submit" style="margin:5px;" class="btn btn-primary">
+          <button class="m-1" on:click={forgotPassword}>
             Send email
           </button>
-          <button
-            style="margin:5px;"
-            class="btn btn-primary"
-            on:click={toggleEdit}
-          >
+          <button class="m-1" on:click={toggleEdit}>
             Back
           </button>
         </div>
