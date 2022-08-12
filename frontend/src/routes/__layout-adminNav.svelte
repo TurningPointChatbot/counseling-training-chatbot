@@ -72,7 +72,7 @@
     <!-- Navbar section -->
     <div class="drawer-side">
       <label for="my-drawer-3" class="drawer-overlay"></label>
-      <ul class="ul1">
+      <ul class="ul-navbar">
         <li>
           <a href="/admin/dashboard" rel="prefetch" class="a-navbar"
             >Dashboard</a

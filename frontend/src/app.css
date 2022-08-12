@@ -95,12 +95,9 @@
   .module-row {
     @apply collapse collapse-arrow border border-base-300 bg-base-300 rounded-box;
   }
-
-
   .item-title {
     font-size: 24px;
   }
-
   .item-description {
     font-size: 16px;
     color: gray;
@@ -111,6 +108,16 @@
   }
   .sort-icon:hover {
     filter: opacity(50%);
+  }
+  .module-list {
+    @apply flex items-center bg-white overflow-hidden mt-4 mr-8 transform transition relative ml-3;
+  }
+  .rounded-rectangle {
+    object-fit: cover;
+    border-radius: 25px;
+    height: 160px;
+    width: 230px;
+    position: relative;
   }
 }
 

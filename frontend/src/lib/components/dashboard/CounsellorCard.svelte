@@ -6,22 +6,25 @@
 
 <div class="card employee-card bg-base-100 shadow-xl">
   <div>
-    <h2>
+    <!-- Counsellor Information Title Section -->
+    <h2 class="h2-counsellor-dashboard">
       Counsellor Information
     </h2>
-    <hr />
+    <hr/>
 
-    <div class=" employee-description card-body grid grid-cols-2 h-full w-full">
+    <!-- Employee Image Section-->
+    <div class="employee-description card-body grid grid-cols-2 h-full w-full">
       <div>
         <img
           alt={employee.name}
-          class="rounded-rectangle"
+          class="rounded-box overflow-hidden"
           src={employee.profile_image}
         />
       </div>
 
+      <!-- Employee Info Section -->
       <div class="card p-3">
-        <h5>{employee.name}</h5>
+        <h3 class="font-bold self-start">{employee.name}</h3>
         <div class="flex items-center">
           <div>
             <div class="p-1 row employee-role">

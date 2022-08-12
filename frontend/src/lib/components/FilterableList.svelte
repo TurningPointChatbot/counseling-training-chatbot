@@ -75,7 +75,7 @@
                 <div class="basis-1/4 mr-5">
                   <img
                     alt={listItem.title}
-                    class="rounded-rectangle"
+                    class="rounded-box h-40"
                     src={listItem.image}
                   />
                 </div>

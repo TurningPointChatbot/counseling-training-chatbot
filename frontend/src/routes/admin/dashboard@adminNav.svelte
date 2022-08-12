@@ -71,15 +71,19 @@
 <div class="m-3">
   <h1>Dashboard</h1>
 </div>
+<!-- Recent Modules Section -->
 <RecentModules listData={trainingModules} />
-<div class="card-bordered m-3">
-  <div id="title" class="font-bold text-xl mb-2 text-gray-700">
-    Counsellors
+<!-- Counsellors Section-->
+<div class="card-bordered m-3 relative">
+  <!-- Counsellors Title -->
+  <div class="ml-6 mt-3">
+    <h3 id="title" class="font-bold">
+      Counsellors
+    </h3>
+    <h4 id="subtitle">Recently viewed</h4>
   </div>
-  <div id="subtitle" class="text-gray-400 text-base">Recently viewed</div>
-  <div
-    class="flex items-center rounded bg-white overflow-hidden h-90 w-90 mt-4 mr-8 transform transition"
-  >
+  <!-- Counsellor Cards -->
+  <div class="module-list">
     {#each counsellorPreview as cardItem}
       <!--Card 1-->
       <a href={cardItem.href}>
@@ -90,26 +94,28 @@
             alt={cardItem.title}
           />
           <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">
+            <h4 class="whitespace-nowrap">
               <button
                 type="button"
                 class="font-small text-gray-900 bg-white rounded-full focus:z-10 dark:bg-gray-800 dark:text-gray-400 dark:hover:text-black center"
                 >{cardItem.title}</button
               >
-            </div>
+            </h4>
           </div>
         </div>
       </a>
     {/each}
-    <div class="flex flex-col justify-center">
-      <a href="/admin/counsellors" rel="prefetch" class="nav-link">
+  </div>
+  <!-- See-All Button -->
+  <div class="absolute z-1 right-3 top-1/2">
+      <a href="/admin/counsellors" class="" rel="prefetch">
         <div class="flex-direction: row; rounded-full ">
           <button
             type="button"
-            class="text-grey-700 border border-grey-700 hover:bg-grey-700 hover:text-black focus:ring-1 focus:ring-grey-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-grey-500 dark:text-grey-500 dark:hover:text-black dark:focus:ring-grey-800"
-          >
+            class="circle-button bg-base-100">
+            <h4>See all</h4>
             <svg
-              class="w-5 h-5"
+              class="w-5 h-5 ml-1"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -122,20 +128,5 @@
           </button>
         </div>
       </a>
-      <p class="text-gray-500 text-base text-center">See all</p>
     </div>
-  </div>
 </div>
-
-<style>
-  #title {
-    position: relative;
-    left: 30px;
-    top: 10px;
-  }
-  #subtitle {
-    position: relative;
-    left: 30px;
-    top: 5px;
-  }
-</style>
