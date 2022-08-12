@@ -112,21 +112,21 @@
 
 <div class="m-16">
   <h1 class="my-2">Account Management</h1>
-  <hr class="my-1" />
+  <hr/>
 
   <div class="flex space-x-1">
     <h2 class="text-primary">Position:</h2>
-    <h2 class="">{position}</h2>
+    <h2>{position}</h2>
   </div>
   <div class="flex space-x-1">
     <h3 class="text-primary">Email:</h3>
-    <h3 class="">{email}</h3>
+    <h3>{email}</h3>
   </div>
-  <hr class="my-1" />
+  <hr/>
 
   <AvatarCard bind:path={avatarUrl} />
 
-  <hr />
+  <hr/>
 
   <!-- Could definitely think about refactoring all of these into components as it's just repeated 3 times -->
   <form
@@ -135,10 +135,9 @@
     class="grid place-items-center my-10"
   >
     <div class="grid grid-cols-2 mx-2 my-4 space-x-4">
-      <p class="font-bold">Full Name</p>
+      <label class="label-input-text">Full Name</label>
       <input
-        class="w-100 input input-bordered input-md
-        "
+        class="input-text"
         placeholder="Full Name"
         type="text"
         bind:value={fullName}
@@ -146,9 +145,9 @@
       />
     </div>
     <div class="grid grid-cols-2 mx-2 my-4 space-x-4">
-      <p class="font-bold">Mobile</p>
+      <label class="label-input-text">Mobile</label>
       <input
-        class="w-100 input input-bordered input-md"
+        class="input-text"
         placeholder="mobile"
         type="text"
         bind:value={mobile}

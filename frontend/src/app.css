@@ -2,56 +2,67 @@
 @layer base {
   h1 {
     @apply text-4xl;
+    font-family: sans-serif;
   }
   h2 {
-    @apply card-title p-2 text-3xl self-center bg-base-300;
-    align-content: center;
+    @apply text-2xl self-center;
+    font-family: sans-serif;
   }
   h3 {
-    @apply text-lg;
+    @apply self-center;
+    font-size: 1.25rem;
+    line-height: 2rem;
+    font-family: sans-serif;
   }
   h4 {
-
+    @apply text-lg;
+    font-family: sans-serif;
   }
   h5 {
-    @apply p-1 card-title;
+    @apply text-2xs;
+    font-family: sans-serif;
   }
   hr {
-    @apply bg-base-400;
+    @apply text-lg;
   }
   p {
     @apply ml-16 text-lg font-medium leading-6;
-    color: gray;
   }
   a {
     @apply p-6 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center;
-    background: gray;
-    color: darkgray;
-    /*bg-gray-100 text-gray-800*/
   }
   dd {
     @apply mt-2 ml-16 max-w-2xl text-base;
-    color: gray;
   }
   label {
     @apply font-bold;
   }
   input {
-    width: 50%;
-    @apply input input-bordered input-sm;
+    @apply input;
   }
   button {
     @apply btn btn-primary m-2 content-center
   }
   ul {
-    @apply mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box;
-    width: 13rem;
+    @apply mt-3 p-2 menu menu-compact dropdown-content bg-base-100 rounded-box;
+  }
+  li {
+
+  }
+  .input-file {
+    @apply my-3 mx-auto input-bordered form-control p-1.5;
+  }
+  .input-text {
+    @apply w-min input-bordered input-md;
+  }
+  .label-input-text {
+    @apply font-bold;
+    height: 3rem;
   }
   .card-bordered {
     border-radius: 15px;
   }
   .rounded-rectangle {
-    /* Crops the image to a rectangle with rounded corners. */
     object-fit: cover;
     border-radius: 25px;
     height: 150px;
@@ -73,10 +84,9 @@
     hover:text-black focus:ring-4 focus:outline-none focus:ring-black
     font-medium rounded-full text-sm p-2.5 text-center inline-flex
     items-center  dark:hover:text-white
-    /* dark:border-blue-500 dark:text-blue-500 dark:focus:ring-blue-800*/
   }
   .ul1 {
-    @apply menu p-4 overflow-y-auto w-80 bg-base-100
+    @apply menu p-4 overflow-y-auto w-80
   }
 
   .item-title {
@@ -98,17 +108,16 @@
     @apply flex mx-2 my-4 space-x-4;
     justify-content: center;
   }
+  .purple-button {
+    color: #852E82;
+  }
+  .navbar-turning-point {
+    @apply flex mx-2 my-4 space-x-5;
+  }
+  .sidebar-turning-point {
+    @apply flex mx-2 my-4;
+  }
 }
-
-/*
-  .button-purple {
-    @apply font-medium hover:text-indigo-500;
-    color: rgb(79 70 229);
-  }
-  .button-purple:hover {
-    background-color: rgb(99 102 241);
-  }
-  */
 
 @tailwind components;
 @tailwind utilities;
