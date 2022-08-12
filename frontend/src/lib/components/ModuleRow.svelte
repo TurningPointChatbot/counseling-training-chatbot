@@ -10,7 +10,9 @@
   let filteredList = listData;
   let filterTerm = '';
   let sortedAz = true;
-  let sortedCompleted = false;
+  // filteredList[1].completed = true;
+  let filterStatusOn = false;
+  let filterCompleted = false;
   let shapeClass = rectangleOrCircle ? "rounded-rectangle" : "rounded-circle";
 
   /**
@@ -30,24 +32,6 @@
     filteredList = filteredList; // Required to trigger re-render of list.
   }
 
-
-  /**
-   * Sort list by completed vs non-completed. Display icon reflections completed / non completed
-   */
-  function sortListCompleted() {
-    if (sortedCompleted) {
-      // Sort by incompleted.
-      // TODO filteredList.sort((a, b) => b.title.localeCompare(a.title));
-      sortedCompleted = false;
-    }
-    else {
-      // Sort by completed.
-      // TODO filteredList.sort((a, b) => a.title.localeCompare(b.title));
-      sortedCompleted = true;
-    }
-    filteredList = filteredList; // Required to trigger re-render of list.
-  }
-
   /**
    * Filter list by the filter term entered by the user, stored in 'filterTerm'.
    * This is a case-insensitive filter on both the list item title and description.
@@ -63,20 +47,60 @@
           .indexOf(filterTerm.toLocaleLowerCase()) !== -1
     );
   }
+
+function filterByStatus() {
+
+  // turn filter on - filter by incomplete
+  if (!filterStatusOn && !filterCompleted) {
+    filteredList = listData.filter(
+    (item) =>
+          item.completed != true
+      );
+    
+      filterStatusOn = true
+  }
+  // filter on - filter by complete
+  else if (filterStatusOn && !filterCompleted) {
+
+    filteredList = listData.filter(
+    (item) =>
+          item.completed  == true
+      );
+      filterCompleted = true
+  }
+  else {
+
+  // turn filter off 
+
+  filteredList = listData.filter(
+    (item) =>
+          item.completed || !item.completed == true
+      );
+      
+      filterStatusOn = false
+      filterCompleted = false
+  }
+}
+
+
+
 </script>
+
+
+
 
 <div class="card-bordered h-full">
   <div class="card-body h-full p-3">
     <div class="flex justify-end mb-3">
       <div class="flex items-center mr-3">
         
-        <!-- Sort by completed -->
-        <div class="mr-2">Sort Completed</div>
-        <div class="sort-icon p-2 mr-3" on:click={sortListCompleted}>
-          {#if sortedCompleted}
-            <Icon imgPath="/icon-sort-asc.png" altText="Sort Completed" width="20px" height="20px" />
+        <!-- Filter by completed -->
+        <div class="mr-2">Filter Status</div>
+        <div class="sort-icon p-2 mr-3" on:click={filterByStatus}>
+          {#if filterCompleted}
+            <Icon imgPath="/icon-sort-asc.png" altText="Filter Status" width="20px" height="20px" />
           {:else}
-            <Icon imgPath="/icon-sort-desc.png" altText="Sort Incompleted" width="20px" height="20px"/>
+            <Icon imgPath="/icon-sort-desc.png" altText="Filter Status" width="20px" height="20px"/>
           {/if}
         </div>
 
