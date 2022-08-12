@@ -23,27 +23,27 @@
 <div class="counsellorNav">
   <div class="drawer">
     <input id="my-drawer-3" type="checkbox" class="drawer-toggle" hidden />
+    <!-- Profile Section -->
     <div class="drawer-content">
       <div class="navbar bg-primary">
         <div class="flex-1">
-          <label for="my-drawer-3" class="btn btn-square btn-ghost">
+          <label for="my-drawer-3" class="navbar-button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              class="inline-block w-6 h-6 stroke-current"
-              ><path
+              class="inline-block w-6 h-6 stroke-current">
+              <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              /></svg
-            >
+                d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
           </label>
         </div>
         <div class="flex-none gap-2">
           <div class="dropdown dropdown-end">
-            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+            <label tabindex="0" class="profile-button">
               <div class="w-10 rounded-full">
                 <img
                   alt="profile"
@@ -51,15 +51,13 @@
                 />
               </div>
             </label>
-            <ul tabindex="0">
+            <ul tabindex="0" class="ul-profile">
               <li>
                 <!-- svelte-ignore a11y-missing-attribute -->
-                <a href="/counsellor/account"
-                  ><div>
-                    Counsellor<br />
-                    <b>David Counsellor</b>
-                  </div></a
-                >
+                <a href="/counsellor/account" class="inline-block">
+                  <p>Counsellor</p>
+                  <b>David Counsellor</b>
+                </a>
               </li>
               <!-- svelte-ignore a11y-missing-attribute -->
               <li><a on:click|once={signOut}>Logout</a></li>
@@ -71,17 +69,19 @@
         <slot />
       </div>
     </div>
+    <!-- Navbar Section -->
     <div class="drawer-side">
       <label for="my-drawer-3" class="drawer-overlay"></label>
-      <ul class="ul1">
+      <ul class="ul-navbar">
         <li>
-          <a href="/counsellor/dashboard" rel="prefetch" class="nav-link"
-            >Dashboard</a
-          >
+          <a href="/counsellor/dashboard" rel="prefetch" class="a-navbar">
+            Dashboard
+          </a>
         </li>
         <li>
-          <a href="/modules" rel="prefetch" class="nav-link">Training Modules</a
-          >
+          <a href="/modules" rel="prefetch" class="a-navbar">
+            Training Modules
+          </a>
         </li>
       </ul>
     </div>

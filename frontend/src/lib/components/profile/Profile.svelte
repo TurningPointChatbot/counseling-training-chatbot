@@ -116,7 +116,7 @@
 
   <div class="flex space-x-1">
     <h2 class="text-primary">Position:</h2>
-    <h2>{position}</h2>
+    <h2 class="capitalize">{position}</h2>
   </div>
   <div class="flex space-x-1">
     <h3 class="text-primary">Email:</h3>
@@ -157,13 +157,9 @@
 
     <div class="flex flex-row-reverse space-x-4 space-x-reverse mx-2 my-4">
       {#if !editOn}
-        <button class="btn btn-primary" on:click={toggleEdit}> Edit </button>
+        <button on:click={toggleEdit}> Edit </button>
       {:else}
-        <button
-          class="btn btn-primary"
-          on:click={toggleEdit}
-          disabled={loading}
-        >
+        <button on:click={toggleEdit} disabled={loading}>
           Cancel
         </button>
 

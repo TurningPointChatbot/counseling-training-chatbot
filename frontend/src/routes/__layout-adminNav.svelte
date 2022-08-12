@@ -23,10 +23,11 @@
 <div class="moduleNav">
   <div class="drawer">
     <input id="my-drawer-3" type="checkbox" class="drawer-toggle" hidden />
+    <!-- Profile Section -->
     <div class="drawer-content">
       <div class="navbar bg-primary">
         <div class="flex-1">
-          <label for="my-drawer-3" class="btn btn-square btn-ghost">
+          <label for="my-drawer-3" class="navbar-button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -43,22 +44,20 @@
         </div>
         <div class="flex-none gap-2">
           <div class="dropdown dropdown-end">
-            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+            <label tabindex="0" class="profile-button">
               <div class="w-10 rounded-full">
                 <img alt="profile"
                   src="/admin-dp.png"
                 />
               </div>
             </label>
-            <ul tabindex="0">
+            <ul tabindex="0" class="ul-profile">
               <li>
                 <!-- svelte-ignore a11y-missing-attribute -->
-                <a href="/admin/account"
-                  ><div>
-                    Administrator<br />
-                    <b>Martha Administrator</b>
-                  </div></a
-                >
+                <a href="/admin/account" class="inline-block">
+                  <p>Administrator</p>
+                  <b>Martha Administrator</b>
+                </a>
               </li>
               <!-- svelte-ignore a11y-missing-attribute -->
               <li><a on:click|once={signOut}>Logout</a></li>
@@ -70,21 +69,22 @@
         <slot />
       </div>
     </div>
+    <!-- Navbar section -->
     <div class="drawer-side">
       <label for="my-drawer-3" class="drawer-overlay"></label>
       <ul class="ul1">
         <li>
-          <a href="/admin/dashboard" rel="prefetch" class="nav-link"
+          <a href="/admin/dashboard" rel="prefetch" class="a-navbar"
             >Dashboard</a
           >
         </li>
         <li>
-          <a href="/admin/counsellors" rel="prefetch" class="nav-link"
+          <a href="/admin/counsellors" rel="prefetch" class="a-navbar"
             >Counsellors</a
           >
         </li>
         <li>
-          <a href="/admin/modules" rel="prefetch" class="nav-link"
+          <a href="/admin/modules" rel="prefetch" class="a-navbar"
             >Training Modules</a
           >
         </li>

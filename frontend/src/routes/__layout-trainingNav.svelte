@@ -1,4 +1,5 @@
 <script>
+  import '../app.css';
   import supabase from '$lib/supabase';
   let loading = false;
   /**
@@ -19,9 +20,10 @@
   }
 </script>
 
-<div class="traingingNav">
+<div class="trainingNav">
   <div class="drawer">
     <input id="my-drawer-3" type="checkbox" class="drawer-toggle" hidden/>
+    <!-- Profile Section-->
     <div class="drawer-content">
       <div class="navbar bg-primary">
         <div class="flex-1">
@@ -42,7 +44,7 @@
         </div>
         <div class="flex-none gap-2">
           <div class="dropdown dropdown-end">
-            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+            <label tabindex="0" class="profile-button">
               <div class="w-10 rounded-full">
                 <img
                   alt="profile"
@@ -50,18 +52,13 @@
                 />
               </div>
             </label>
-            <ul
-              tabindex="0"
-              class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
-            >
+            <ul tabindex="0" class="ul-profile">
               <li>
                 <!-- svelte-ignore a11y-missing-attribute -->
-                <a href="/counsellor/account"
-                  ><div>
-                    Counsellor<br />
-                    <b>David Counsellor</b>
-                  </div></a
-                >
+                <a href="/counsellor/account" class="inline-block">
+                  <p>Counsellor</p>
+                  <b>David Counsellor</b>
+                </a>
               </li>
               <!-- svelte-ignore a11y-missing-attribute -->
               <li><a on:click|once={signOut}>Logout</a></li>
@@ -73,11 +70,12 @@
         <slot />
       </div>
     </div>
+    <!-- Navbar Section-->
     <div class="drawer-side">
-      <label for="my-drawer-3" class="drawer-overlay" />
-      <ul class="menu p-4 overflow-y-auto w-80 bg-base-100">
+      <label for="my-drawer-3" class="drawer-overlay"></label>
+      <ul class="ul-navbar">
         <li>
-          <a href="/counsellor/dashboard" rel="prefetch" class="nav-link"
+          <a href="/counsellor/dashboard" rel="prefetch" class="a-navbar"
             >Dashboard</a
           >
         </li>

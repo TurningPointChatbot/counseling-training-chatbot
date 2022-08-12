@@ -25,30 +25,16 @@
   hr {
     @apply text-lg;
   }
-  p {
-    @apply ml-16 text-lg font-medium leading-6;
-  }
-  a {
-    @apply p-6 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center;
-  }
   dd {
     @apply mt-2 ml-16 max-w-2xl text-base;
-  }
-  label {
-    @apply font-bold;
   }
   input {
     @apply input;
   }
   button {
-    @apply btn btn-primary m-2 content-center
+    @apply btn btn-primary
   }
-  ul {
-    @apply mt-3 p-2 menu menu-compact dropdown-content bg-base-100 rounded-box;
-  }
-  li {
 
-  }
   .input-file {
     @apply my-3 mx-auto input-bordered form-control p-1.5;
   }
@@ -57,37 +43,28 @@
   }
   .label-input-text {
     @apply font-bold;
-    height: 3rem;
+    margin-top: 0.5rem;
   }
-  .card-bordered {
-    border-radius: 15px;
+  .navbar-button {
+    @apply btn btn-square btn-ghost;
   }
-  .rounded-rectangle {
-    object-fit: cover;
-    border-radius: 25px;
-    height: 150px;
-    width: 200px;
+  .profile-button {
+    @apply btn btn-ghost btn-circle avatar;
   }
-  .card-title {
-    font-size: 24px;
-    width: 100%;
+  .ul-navbar {
+    @apply menu p-4 overflow-y-auto w-80 bg-base-100;
   }
-  .employee-role {
-    font-size: 16px;
-    color: gray;
+  .ul-profile {
+    @apply mt-3 p-2 overflow-y-auto shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52;
+    text-align: left;
   }
-  .employee-card {
-    max-height: 100%;
+  .a-navbar {
+    @apply rounded-lg;
   }
-  .circle-button {
-    @apply text-black border border-black hover:bg-black
-    hover:text-black focus:ring-4 focus:outline-none focus:ring-black
-    font-medium rounded-full text-sm p-2.5 text-center inline-flex
-    items-center  dark:hover:text-white
-  }
-  .ul1 {
-    @apply menu p-4 overflow-y-auto w-80
-  }
+
+
+
+
 
   .item-title {
     font-size: 24px;
@@ -110,12 +87,6 @@
   }
   .purple-button {
     color: #852E82;
-  }
-  .navbar-turning-point {
-    @apply flex mx-2 my-4 space-x-5;
-  }
-  .sidebar-turning-point {
-    @apply flex mx-2 my-4;
   }
 }
 
