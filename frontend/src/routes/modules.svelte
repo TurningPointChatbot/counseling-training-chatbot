@@ -4,13 +4,14 @@
   // Array containing array of module values [[moduleName, dueDate, progress, description], ...]
   // eg. [['Module 1', '17/08/22', 45, 'Lorem ipsum...'], ...]
   let modules: Array<any> = [];
-
-  for (let i: number = 1; i <= 8; i++) {
-    let moduleName: string = 'Module ' + String(i);
+  let moduleNames = ["Module 101: Empathy", "Module 102: Treatment Options", "Module 103: Alcohol & drugs", "Module 104: Withdrawal", "Module 105: Counselling Techniques"]
+  
+  for (let i: number = 1; i <= 5; i++) {
+    let moduleName: string = moduleNames[i-1];
     let dueDate: string = String(i) + '/06/22';
-    let progress: number = (i + 2) * 10;
+    let progress: number = 25;
     let description: string =
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pellentesque in dui non volutpat. Suspendisse non turpis eget purus viverra sollicitudin. Morbi nulla nisi, consequat non neque vel, scelerisque porta orci. Aenean vitae neque imperdiet tellus cursus ornare. Etiam dignissim pellentesque fermentum. Etiam feugiat nibh vel mattis eleifend. Praesent orci.';
+      'Empathy is the ability to emotionally understand what other people feel, see things from their point of view, and imagine yourself in their place. Essentially, it is putting yourself in someone else\'s position and feeling what they must be feeling.';
     modules.push({
       moduleName: moduleName,
       dueDate: dueDate,
@@ -21,8 +22,8 @@
 </script>
 
 <html lang="en" data-theme="cupcake" />
-
 <!--Header-->
+<h1 class="py-4">Modules</h1>
 <div class="grid-flow-col gap-8 my-4">
   <div
     tabindex="0"

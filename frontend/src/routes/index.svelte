@@ -1,5 +1,5 @@
-<script>
-  // TODO: Determine if the user is logged in, and if so show relevant dashboard. Otherwise, show login page.
+<script lang="ts">
+  import LoginPage from './login.svelte';
 </script>
 
-<h1>Turning Point</h1>
+<LoginPage />

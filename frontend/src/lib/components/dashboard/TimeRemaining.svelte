@@ -5,15 +5,13 @@
   let percent = (time / totalTime) * 100;
 </script>
 
-<div class="row">
-  Target Training Time
-  <div class="w-full bg-gray-200 rounded-full">
-    <div
-      class="bg-secondary text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded"
-      style="width: {percent}%"
-    >
+<div class="row module-card">
+  <h3>Target Training Time</h3>
+  <div class="w-full">
+    <!-- Progress Bar -->
+    <div class="progress-bar" style="width: {percent}%">
       {percent}%
     </div>
   </div>
-  <div class="font-xs text-base-400">Time Remaining : {totalTime - time} hours</div>
+  <div class="p-faded">Time Remaining : {totalTime - time} hours</div>
 </div>

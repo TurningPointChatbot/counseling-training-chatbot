@@ -51,9 +51,19 @@
         <div class="sort-icon p-2 mr-3" on:click={sortList}>
           {#if sortedAz}
             <!-- Initially list will be sorted alphabetically (A-Z) -->
-            <Icon imgPath="/icon-sort-asc.png" altText="Sort A-Z" width="20px" height="20px" />
+            <Icon
+              imgPath="/icon-sort-asc.png"
+              altText="Sort A-Z"
+              width="20px"
+              height="20px"
+            />
           {:else}
-            <Icon imgPath="/icon-sort-desc.png" altText="Sort Z-A" width="20px" height="20px"/>
+            <Icon
+              imgPath="/icon-sort-desc.png"
+              altText="Sort Z-A"
+              width="20px"
+              height="20px"
+            />
           {/if}
         </div>
       </div>
@@ -77,7 +87,7 @@
                 <div class="basis-1/4 mr-5">
                   <img
                     alt={listItem.title}
-                    class={shapeClass}
+                    class="rounded-box h-40"
                     src={listItem.image}
                   />
                 </div>
@@ -99,39 +109,4 @@
     </div>
   </div>
 </div>
-
-<style>
-  .rounded-rectangle {
-    /* Crops the image to a rectangle with rounded corners. */
-    object-fit: cover;
-    border-radius: 25px;
-    height: 150px;
-    width: 200px;
-  }
-
-  .rounded-circle {
-    /* Crops the image to a circle. */
-    object-fit: cover;
-    border-radius: 50%;
-    height: 150px;
-    width: 150px;
-  }
-
-  .item-title {
-    font-size: 24px;
-  }
-
-  .item-description {
-    font-size: 16px;
-    color: gray;
-  }
-
-  .scroll {
-    max-height: 100%;
-    overflow-y: auto;
-  }
-
-  .sort-icon:hover {
-    filter: opacity(50%);
-  }
-</style>
+<<<<<<< HEAD
