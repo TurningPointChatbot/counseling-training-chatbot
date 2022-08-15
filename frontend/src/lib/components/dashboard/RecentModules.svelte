@@ -23,21 +23,23 @@
   sortMostRecent();
 </script>
 
-<div class="card-bordered m-3">
-  <div id="title" class="font-bold text-xl mb-2 text-gray-700">
-    Training Modules
+<div class="card-bordered m-3 relative">
+  <!-- Training Modules Title -->
+  <div class="ml-6 mt-3">
+    <h3 class="font-bold">
+      Training Modules
+    </h3>
+    <h4>
+      Recently viewed
+    </h4>
   </div>
-  <div id="subtitle" class="text-gray-400 text-base">Recently viewed</div>
-  <div
-    id="modules"
-    class="flex items-center bg-white overflow-hidden mt-4 mr-8 transform transition"
-  >
+  <!-- Training Module Cards-->
+  <div class="module-list">
     {#each sortedList as cardItem}
       <!--Card 1-->
       <a href={cardItem.href}>
-        <div
-          class="flex flex-col items-center pr-5 overflow-hidden hover:-translate-y-1"
-        >
+        <!-- Module Card -->
+        <div class="flex flex-col items-center pr-5 overflow-hidden hover:-translate-y-1">
           <div>
             <img
               class="rounded-rectangle"
@@ -46,47 +48,15 @@
             />
           </div>
           <div class="flex py-4">
-            <div class="text-xl mb-2">
+            <h4 class="whitespace-nowrap w-max">
               {cardItem.title}
-            </div>
+            </h4>
           </div>
         </div>
       </a>
     {/each}
-    <!--button went here-->
+  </div>
+    <!-- See-All Button -->
     <ModuleCircleButton path="admin/counsellors" />
   </div>
 </div>
-
-<style>
-  #modules {
-    position: relative;
-    left: 20px;
-  }
-
-  .rounded-rectangle {
-    /* Crops the image to a rectangle with rounded corners. */
-    object-fit: cover;
-    border-radius: 25px;
-    height: 160px;
-    width: 230px;
-    position: relative;
-  }
-
-  #subtitle {
-    position: relative;
-    left: 30px;
-    top: 5px;
-  }
-
-  #title {
-    position: relative;
-    left: 30px;
-    top: 10px;
-  }
-
-  #see_all {
-    position: relative;
-    left: 25px;
-  }
-</style>

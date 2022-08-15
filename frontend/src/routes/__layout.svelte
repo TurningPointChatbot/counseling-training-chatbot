@@ -3,7 +3,6 @@
   import supabaseClient from '$lib/supabase';
   import { SupaAuthHelper } from '@supabase/auth-helpers-svelte';
   import '../app.css';
-  import supabase from '$lib/supabase';
   import AdminSidenav from '$lib/components/sidenav/AdminSidenav.svelte';
   import CounsellorSidenav from '$lib/components/sidenav/CounsellorSidenav.svelte';
 
@@ -22,7 +21,7 @@
     }
 
     try {
-      const { error } = await supabase.auth.signOut();
+      const { error } = await supabaseClient.auth.signOut();
       if (error) throw error;
     } catch (error) {
       alert(error.error_description || error.message);
@@ -34,7 +33,7 @@
    */
   async function downloadImage(path) {
     try {
-      const { data, error } = await supabase.storage
+      const { data, error } = await supabaseClient.storage
         .from('avatars')
         .download(path);
 
@@ -56,9 +55,9 @@
     }
 
     try {
-      const user = supabase.auth.user();
+      const user = supabaseClient.auth.user();
 
-      let { data, error, status } = await supabase
+      let { data, error, status } = await supabaseClient
         .from('user')
         .select(
           `
