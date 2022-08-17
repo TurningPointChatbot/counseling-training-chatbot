@@ -1,4 +1,4 @@
-import prisma from '$lib/prisma';
+import prisma from '../../lib/prisma';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function GET() {
