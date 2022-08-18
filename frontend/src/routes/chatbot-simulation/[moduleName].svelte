@@ -7,8 +7,11 @@
 <script lang="ts">
   import CounsellorBar from '$lib/components/CounsellorBar.svelte';
   import ChatMessage from '../../lib/components/ChatMessage.svelte';
-  import {Chatbot} from '$lib/scripts/chatbot';
-  import {retrieveCBMIdAndUserID} from '$lib/scripts/chatbot_utils';
+  import { Chatbot } from '$lib/scripts/chatbot';
+  import {
+    retrieveCBMIdAndUserID,
+    storeChatAttempt
+  } from '$lib/scripts/chatbot_utils';
 
   interface DisplayMessage {
     sender: string;
@@ -23,7 +26,10 @@
 
   function sendCounsellorMessage() {
     if (userMessageText != null) {
-      displayMessages = [...displayMessages, { sender: 'counsellor', content: userMessageText }];
+      displayMessages = [
+        ...displayMessages,
+        { sender: 'counsellor', content: userMessageText }
+      ];
       userMessageText = null;
     }
     sendChatbotMessage();
@@ -34,17 +40,17 @@
     displayMessages = [...displayMessages, displayMessage];
   }
 
-  function createChatAttempt(cbmID: number, userId){
+  function createChatAttempt(cbmID: number, userId) {
     //TODO: creates a unique chat attempt in the database for this simulation/log
+    storeChatAttempt(userId, cbmID);
+    console.log(cbmID, userId);
   }
 
-  retrieveCBMIdAndUserID(moduleName)
-  .then(result => {
+  retrieveCBMIdAndUserID(moduleName).then((result) => {
     cbmID = result[0];
     userId = result[1];
     createChatAttempt(cbmID, userId);
-  })
-
+  });
 </script>
 
 <html lang="en" data-theme="cupcake" />
@@ -94,7 +100,7 @@
             >Send Message</button
           >
           <button
-            on:click={() => location.href = '/modules'}
+            on:click={() => (location.href = '/modules')}
             type="button"
             class="btn-outline rounded inline-block px-6 py-2.5 bg-error text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out float-right"
             >End Chat</button
@@ -108,7 +114,7 @@
           id="exampleFormControlTextarea1"
           rows="3"
           placeholder="Enter message here..."
-          bind:value = {userMessageText}
+          bind:value={userMessageText}
         />
       </div>
     </div>

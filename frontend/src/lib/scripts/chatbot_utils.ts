@@ -21,6 +21,26 @@ async function storeMessage(attempt_id: number, messageText: string) {
   }
 }
 
+async function storeChatAttempt(userId: string, cbmId: number) {
+  //TODO: Make sure this function works
+  try {
+    const storedAttempt = {
+      user_id: userId,
+      cbm_id: cbmId
+    };
+
+    let { error } = await supabase
+      .from('chatbot_attempt')
+      .insert(storedAttempt, {
+        returning: 'minimal'
+      });
+
+    if (error) throw error;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 async function getMessagesFromSupabase(attempt_id: number) {
   try {
     let { data, error } = await supabase
@@ -79,6 +99,7 @@ async function retrieveCBMIdAndUserID(moduleName: string) {
     if (data) {
       let res: Array<any> = [];
       let assignments = data.chatbot_assignment;
+      // Checks all the modules to get a cbm_id that matches moduleName
       for (let i: number = 0; i < assignments.length; i++) {
         if (moduleName == data.chatbot_module[i].title) {
           res.push(assignments[i].cbm_id);
@@ -92,4 +113,9 @@ async function retrieveCBMIdAndUserID(moduleName: string) {
   }
 }
 
-export { getMessagesFromSupabase, storeMessage, retrieveCBMIdAndUserID };
+export {
+  getMessagesFromSupabase,
+  storeMessage,
+  retrieveCBMIdAndUserID,
+  storeChatAttempt
+};
