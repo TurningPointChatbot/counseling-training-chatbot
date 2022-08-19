@@ -51,6 +51,6 @@ async function getCounsellorsType(typeId) {
   </div>
   <div class="m-3 h-3/4">
     {#await promise then counsellors}
-    <FilterableList listData={counsellors} rectangleOrCircle={false}/>
+    <FilterableList listData={counsellors}/>
     {/await}
   </div>
