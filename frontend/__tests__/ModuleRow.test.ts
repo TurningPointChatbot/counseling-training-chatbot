@@ -19,4 +19,41 @@ describe('Test ModuleRow renders correctly', () => {
 
     expect(getByText('Module 1')).toBeInTheDocument();
   });
+
+  test('Module date renders correctly', () => {
+    const { getByText } = render(ModuleRow, {
+      props: {
+        moduleName: 'Module 1',
+        dueDate: '12/05/22',
+        progress: 70,
+        description: 'An example module'
+      }
+    });
+
+    expect(getByText('12/05/22')).toBeInTheDocument();
+  });
+  test('Module progress renders correctly', () => {
+    const { getByText } = render(ModuleRow, {
+      props: {
+        moduleName: 'Module 1',
+        dueDate: '12/05/22',
+        progress: 70,
+        description: 'An example module'
+      }
+    });
+
+    expect(getByText('70%')).toBeInTheDocument();
+  });
+  test('Module progress renders correctly', () => {
+    const { getByText } = render(ModuleRow, {
+      props: {
+        moduleName: 'Module 1',
+        dueDate: '12/05/22',
+        progress: 70,
+        description: 'An example module'
+      }
+    });
+
+    expect(getByText('An example module')).toBeInTheDocument();
+  });
 });
