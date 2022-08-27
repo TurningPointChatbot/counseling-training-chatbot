@@ -18,32 +18,19 @@
       const { user, error } = await supabase.auth.signIn({ email, password });
       console.log(user);
       if (error) throw error;
-      alert('Successfully Logged In!');
 
-      location.href = '/modules';
+      if (email === 'admin1@test.com') {
+        location.href = 'admin/account';
+      } else {
+        location.href = 'counsellor/account';
+      }
+      
     } catch (error) {
       alert(error.error_description || error.message);
     } finally {
       loading = false;
     }
   };
-
-  /**
-   * Sign Out Function
-   */
-  async function signOut() {
-    try {
-      loading = true;
-      const { error } = await supabase.auth.signOut();
-
-      if (error) throw error;
-      alert('Successfully Logged Out!');
-    } catch (error) {
-      alert(error.error_description || error.message);
-    } finally {
-      loading = false;
-    }
-  }
 
   /**
    *  Forgot Password Function
@@ -82,10 +69,10 @@
       class="grid place-items-center my-10"
     >
       <!-- Username Section -->
-      <div class="flex justify-content-center mx-2 my-4 space-x-4">
-        <label class="font-bold" for="username">Username</label>
-        <input
-          class="w-50 input input-bordered input-sm"
+      <div class="flex justify-content-center mx-2 my-2 space-x-4">
+        <label for="username" class="font-bold">Username</label>
+        <input class="input-login"
+          id="username"
           placeholder="Username"
           type="text"
           bind:value={email}
@@ -93,10 +80,10 @@
       </div>
 
       <!-- Password Section -->
-      <div class="flex justify-content-center mx-2 my-4 space-x-4">
-        <label class="font-bold" for="password">Password</label>
-        <input
-          class="w-50 input input-bordered input-sm"
+      <div class="flex justify-content-center mx-2 my-2 space-x-4">
+        <label for="password" class="font-bold">Password</label>
+        <input class="input-login"
+          id="password"
           placeholder="******************"
           type="password"
           bind:value={password}
@@ -104,17 +91,15 @@
       </div>
 
       <!-- Sign In/Forgot Password Section-->
-      <div class="grid place-items-center my-5">
-        <button type="submit" class="btn btn-primary content-cente">
+      <div class="grid place-items-center my-2">
+        <button class="m-1 purple-button"
+          on:click={signInWithEmail}>
           Sign In
         </button>
-        <a
-          href="#"
-          class="font-medium text-indigo-600 hover:text-indigo-500"
-          on:click={toggleEdit}
-        >
+        <button class="m-1 purple-button"
+          on:click={toggleEdit}>
           Forgot Password?
-        </a>
+        </button>
       </div>
 
       <!-- End of Form -->
@@ -128,15 +113,15 @@
       class="grid place-items-center my-10"
     >
       <!-- Forgot Password Title -->
-      <div class="flex justify-content-center mx-2 my-4 space-x-4">
+      <div class="title-header">
         <b class="text-center">Forgot your password?</b>
       </div>
 
       <!-- Email Input Section -->
-      <div class="flex justify-content-center mx-2 my-4 space-x-4">
+      <div class="title-header">
         <label class="font-bold" for="username">Email</label>
         <input
-          class="w-50 input input-bordered input-sm"
+          class="input-login"
           id="Email"
           placeholder="Email"
           type="text"
@@ -147,14 +132,10 @@
       <!-- Send Email/Back Section -->
       <div class="grid place-items-center">
         <div class="button">
-          <button type="submit" style="margin:5px;" class="btn btn-primary">
+          <button class="m-1 purple-button" on:click={forgotPassword}>
             Send email
           </button>
-          <button
-            style="margin:5px;"
-            class="btn btn-primary"
-            on:click={toggleEdit}
-          >
+          <button class="m-1 purple-button" on:click={toggleEdit}>
             Back
           </button>
         </div>

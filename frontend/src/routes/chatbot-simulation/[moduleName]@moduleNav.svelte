@@ -34,6 +34,13 @@
     }
     sendChatbotMessage();
   }
+  
+  function sendMessage() {
+    if(message != null) {
+      messages = [...messages, { sender: 'counsellor', content: message}];
+      message = null;
+    }
+  }
 
   function sendChatbotMessage() {
     let displayMessage: DisplayMessage = chatbot.sendMessageWebchatExample1();

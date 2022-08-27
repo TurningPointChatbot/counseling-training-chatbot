@@ -103,7 +103,7 @@
   }
 </script>
 
-<div class="pb-2 my-4">
+<div class="pb-2 mb-0 mt-4">
   <div class="grid place-content-center avatar">
     <div class="w-36 rounded-full border-base-300 border-4">
       <!-- Below line throws a typescript error but still works as expected... -->
@@ -111,13 +111,15 @@
     </div>
   </div>
   <div class="text-center">Change profile picture:</div>
-  <input
-    type="file"
-    class="mx-auto my-2 d-block form-control w-25"
-    id="profilePicture"
-    accept="image/*"
-    bind:files
-    on:change={uploadAvatar}
-    disabled={uploading}
-  />
+  <div class="align-middle">
+    <input
+      type="file"
+      class="input-file"
+      id="profilePicture"
+      accept="image/*"
+      bind:files
+      on:change={uploadAvatar}
+      disabled={uploading}
+    />
+  </div>
 </div>
