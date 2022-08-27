@@ -42,26 +42,27 @@
   // !! list of modules needs to be sorted need to implement somehow sort function
 </script>
 
-<!-- add div for padding -->
-<BigCard title={'Counsellors'} subTitle={'Recently viewed'}>
-  {#each counsellorData as counsellorName}
-    <SmallCard titleButton={counsellorName} />
-  {/each}
-  <ModuleCircleButton path="admin/counsellors" />
-</BigCard>
-
-{#await promise then modules}
-  <BigCard title={'Training Modules'} subTitle={'Recently Viewed'}>
-    {#each modules as cardItem}
-      <SmallCard
-        image={cardItem.image}
-        alt={'Model of care'}
-        imageClass="object-cover rounded-3xl h-40 w-60 relative"
-        titleButton={cardItem.title}
-      />
+<div class="module-card">
+  <BigCard title={'Counsellors'} subTitle={'Recently viewed'}>
+    {#each counsellorData as counsellorName}
+      <SmallCard titleButton={counsellorName} />
     {/each}
     <ModuleCircleButton path="admin/counsellors" />
   </BigCard>
 
-  <!--<RecentModules listData={modules} /> -->
-{/await}
+  {#await promise then modules}
+    <BigCard title={'Training Modules'} subTitle={'Recently Viewed'}>
+      {#each modules as cardItem}
+        <SmallCard
+          image={cardItem.image}
+          alt={'Model of care'}
+          imageClass="object-cover rounded-3xl h-40 w-60 relative"
+          titleButton={cardItem.title}
+        />
+      {/each}
+      <ModuleCircleButton path="admin/counsellors" />
+    </BigCard>
+
+    <!--<RecentModules listData={modules} /> -->
+  {/await}
+</div>
