@@ -42,7 +42,9 @@
     <h1>Modules</h1>
   </div>
   <div class="m-3 h-3/4">
-    {#await promise then modules}
+   <!-- {#await promise then modules}
       <FilterableList listData={modules}/>
-    {/await}
+    {/await}-->
+
+    <FilterableList listData={modules}/>
   </div>

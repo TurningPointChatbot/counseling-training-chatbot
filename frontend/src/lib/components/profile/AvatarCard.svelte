@@ -110,7 +110,7 @@
       <img use:downloadImage {src} alt="The user's avatar" />
     </div>
   </div>
-  <div class="text-center">Change profile picture:</div>
+  <h3 class="text-center">Change profile picture:</h3>
   <div class="align-middle">
     <input
       type="file"

@@ -45,7 +45,7 @@
   <div class="card-body h-full p-3">
     <div class="flex justify-end mb-3">
       <div class="flex items-center mr-3">
-        <div class="mr-2">Sort A - Z</div>
+        <p>Sort A - Z</p>
         <div class="sort-icon p-2 mr-3" on:click={sortList}>
           {#if sortedAz}
             <!-- Initially list will be sorted alphabetically (A-Z) -->
