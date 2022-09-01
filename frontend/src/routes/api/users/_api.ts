@@ -2,7 +2,7 @@ import { user } from '@prisma/client';
 import { prisma, toObject } from '../../../lib/prisma';
 
 type UserAPIGetParams = {
-  id: bigint;
+  id: number;
 };
 
 export async function userGET(
