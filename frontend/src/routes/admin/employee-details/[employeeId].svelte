@@ -113,14 +113,12 @@ getTrainingHours();
 </script>
 
 <div class="grid grid-cols-2 gap-4 m-8">
-  <div class="..."><CounsellorCard employeeData={employee} /></div>
-  <div class="...">
+  <CounsellorCard employeeData={employee} />
     <ModuleOverallProgress
       {totalModules}
       completedModules={2}
       completedHours={totalHoursDone}
       targetHours={targetTrainingHours}
     />
-  </div>
-  <div class="col-span-2 ..."><ModuleBigCard /></div>
+  <div class="col-span-2"><ModuleBigCard /></div>
 </div>

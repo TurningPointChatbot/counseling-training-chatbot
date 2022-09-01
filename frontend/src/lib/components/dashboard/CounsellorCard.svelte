@@ -4,14 +4,14 @@
   let employee = employeeData;
 </script>
 
-<div class="card employee-card bg-base-100 shadow-xl">
+<div class="card bg-base-100 shadow-xl">
   <div>
     <!-- Counsellor Information Title Section -->
     <h2 class="h2-counsellor-dashboard">Counsellor Information</h2>
     <hr />
 
     <!-- Employee Image Section-->
-    <div class="employee-description card-body grid grid-cols-2 h-full w-full">
+    <div class="card-body grid grid-cols-2 h-full w-full">
       <div>
         <img
           alt={employee.name}
@@ -25,12 +25,12 @@
         <h3 class="font-bold self-start">{employee.name}</h3>
         <div class="flex items-center">
           <div>
-            <div class="p-1 row employee-role">
+            <p class="p-1">
               Position: {employee.position}
-            </div>
-            <div class="p-1 row employee-training">
+            </p>
+            <p class="p-1">
               Total training {employee.training} hours
-            </div>
+            </p>
           </div>
         </div>
       </div>

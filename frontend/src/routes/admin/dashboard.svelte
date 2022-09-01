@@ -47,7 +47,7 @@
     {#each counsellorData as counsellorName}
       <SmallCard titleButton={counsellorName} />
     {/each}
-    <ModuleCircleButton path="admin/counsellors" />
+    <ModuleCircleButton path="/admin/counsellors" />
   </BigCard>
 
   {#await promise then modules}
@@ -60,7 +60,7 @@
           titleButton={cardItem.title}
         />
       {/each}
-      <ModuleCircleButton path="admin/counsellors" />
+      <ModuleCircleButton path="/admin/modules" />
     </BigCard>
 
     <!--<RecentModules listData={modules} /> -->
