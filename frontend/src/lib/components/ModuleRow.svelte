@@ -90,10 +90,12 @@ function filterByStatus() {
         <!-- Filter by status -->
         <div class="mr-2">Filter Status</div>
         <div class="sort-icon p-2 mr-3" on:click={filterByStatus}>
-          {#if filterCompleted}
-            <Icon imgPath="/icon-sort-asc.png" altText="Filter Status" width="20px" height="20px" />
+          {#if !filterStatusOn && !filterCompleted}
+            <Icon imgPath="/icon-filter-full.png" altText="Filter Status" width="20px" height="20px" />
+          {:else if filterStatusOn && !filterCompleted}
+          <Icon imgPath="/icon-filter-bot.png" altText="Filter Status" width="20px" height="20px" />
           {:else}
-            <Icon imgPath="/icon-sort-desc.png" altText="Filter Status" width="20px" height="20px"/>
+            <Icon imgPath="/icon-filter-top.png" altText="Filter Status" width="20px" height="20px"/>
           {/if}
         </div>
         <div class="mr-2">Sort A - Z</div>
