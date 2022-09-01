@@ -39,7 +39,7 @@
 </script>
 
   <div class="m-3">
-    <h1>Modules</h1>
+    <h1>Training Modules</h1>
   </div>
   <div class="m-3 h-3/4">
    <!-- {#await promise then modules}
