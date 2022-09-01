@@ -110,11 +110,10 @@
   //----------------------------------------------------------------------
 </script>
 
-<div class="m-16">
-  <h1 class="my-2">Account Management</h1>
-  <hr/>
+<h1 class="left-16 top-8 relative">Account Management</h1>
+<div class="card card-bordered m-16">
 
-  <div class="flex space-x-1">
+  <!--<div class="flex space-x-1">
     <h2 class="text-primary">Position:</h2>
     <h2 class="capitalize">{position}</h2>
   </div>
@@ -122,11 +121,9 @@
     <h3 class="text-primary">Email:</h3>
     <h3>{email}</h3>
   </div>
-  <hr/>
+  <hr/>-->
 
   <AvatarCard bind:path={avatarUrl} />
-
-  <hr/>
 
   <!-- Could definitely think about refactoring all of these into components as it's just repeated 3 times -->
   <form
@@ -154,6 +151,28 @@
         disabled={!editOn}
       />
     </div>
+    <div class="grid grid-cols-2 mx-2 my-4 space-x-4">
+      <label class="label-input-text" hidden={editOn}>Email</label>
+      <input
+        class="input-text"
+        placeholder="Email"
+        type="text"
+        bind:value={email}
+        disabled={true}
+        hidden={editOn}
+      />
+    </div>
+    <div class="grid grid-cols-2 mx-2 my-4 space-x-4">
+      <label class="label-input-text" hidden={editOn}>Position</label>
+      <input
+        class="input-text"
+        placeholder="Position"
+        type="text"
+        bind:value={position}
+        disabled={true}
+        hidden={editOn}
+      />
+    </div>
 
     <div class="flex flex-row-reverse space-x-4 space-x-reverse mx-2 my-4">
       {#if !editOn}
@@ -173,5 +192,4 @@
       {/if}
     </div>
   </form>
-  <hr />
 </div>
