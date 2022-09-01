@@ -3,6 +3,7 @@ import { prisma, toObject } from '../../../lib/prisma';
 
 type UserAPIGetParams = {
   id: number;
+  attempts?: boolean;
 };
 
 export async function userGET(
@@ -16,6 +17,9 @@ export async function userGET(
     const foundUser = await prisma.user.findUnique({
       where: {
         id: params.id
+      },
+      include: {
+        chatbot_attempt: params.attempts
       }
     });
 
