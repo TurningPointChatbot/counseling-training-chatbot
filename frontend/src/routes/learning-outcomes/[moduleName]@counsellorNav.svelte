@@ -27,15 +27,25 @@
   export let moduleName: string;
   //import CounsellorBar from '$lib/components/CounsellorBar.svelte';
 
+  /**
+   * sets URL of page to chatbot
+   */
   function runChatbot() {
     location.href = '/chatbot-simulation/' + moduleName;
+  }
+
+  /**
+   * sets URL of page to modules
+  */
+  function returnToModules() {
+    location.href = '/modules';
   }
 </script>
 
 <html lang="en" data-theme="cupcake" />
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="py-12 my-12 mx-52 border-solid border border-gray-300">
+<div class="py-12 my-12 mx-52">
   <div class="flex">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="lg:text-left">
@@ -55,14 +65,16 @@
           </dl>
         </div>
       </div>
-      <button
-        on:click={runChatbot}
-        class="btn btn-primary btn-outline ml-10 mt-10"
-      >
-        Start Chatbot Simulation
-      </button>
+      <div class="flex">
+        <button on:click={returnToModules} class="btn btn-secondary btn-outline ml-10 mt-10">
+          Return to Modules
+        </button>
+        <button on:click={runChatbot} class="btn btn-primary btn-outline ml-10 mt-10">
+          Start Chatbot Simulation
+        </button>
+      </div>
     </div>
-    <div>
+    <div class="flex">
       <img
         class="py-2 mr-20"
         alt={moduleName}
