@@ -66,10 +66,11 @@
         </div>
       </div>
       <div class="flex">
-        <button on:click={returnToModules} class="btn btn-secondary btn-outline ml-10 mt-10">
+        <!-- <button on:click={returnToModules} class="btn btn-secondary btn-outline ml-10 mt-10 "> -->
+        <button on:click={returnToModules} class="btn btn-secondary m-1 purple-button">
           Return to Modules
         </button>
-        <button on:click={runChatbot} class="btn btn-primary btn-outline ml-10 mt-10">
+        <button on:click={runChatbot} class="btn btn-secondary m-1 purple-button">
           Start Chatbot Simulation
         </button>
       </div>
