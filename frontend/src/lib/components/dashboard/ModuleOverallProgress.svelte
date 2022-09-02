@@ -10,10 +10,9 @@
 
 <div class="card bg-base-100 shadow-xl">
   <!-- Overall Progress Title-->
-  <div>
-    <h2 class="h2-counsellor-dashboard">Overall Progress</h2>
+  <div class="h2-counsellor-dashboard">
+    <h3 class="left-3 relative">Overall Progress</h3>
   </div>
-  <hr />
   <div class="grid grid-row gap-3 w-full">
     <!-- Module Completion Section -->
     <div class="grid grid-cols-20 gap-3 w-full">

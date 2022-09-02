@@ -110,19 +110,8 @@
   //----------------------------------------------------------------------
 </script>
 
-<h1 class="left-16 top-8 relative">Account Management</h1>
-<div class="card card-bordered m-16">
-
-  <!--<div class="flex space-x-1">
-    <h2 class="text-primary">Position:</h2>
-    <h2 class="capitalize">{position}</h2>
-  </div>
-  <div class="flex space-x-1">
-    <h3 class="text-primary">Email:</h3>
-    <h3>{email}</h3>
-  </div>
-  <hr/>-->
-
+<h1 class="left-8 top-4 relative">Account Management</h1>
+<div class="card card-bordered m-8">
   <AvatarCard bind:path={avatarUrl} />
 
   <!-- Could definitely think about refactoring all of these into components as it's just repeated 3 times -->
@@ -152,14 +141,13 @@
       />
     </div>
     <div class="grid grid-cols-2 mx-2 my-4 space-x-4">
-      <label class="label-input-text" hidden={editOn}>Email</label>
+      <label class="label-input-text">Email</label>
       <input
         class="input-text"
         placeholder="Email"
         type="text"
         bind:value={email}
-        disabled={true}
-        hidden={editOn}
+        disabled={!editOn}
       />
     </div>
     <div class="grid grid-cols-2 mx-2 my-4 space-x-4">

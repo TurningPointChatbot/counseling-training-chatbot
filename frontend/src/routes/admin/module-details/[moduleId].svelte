@@ -59,7 +59,7 @@
 </script>
 
 <div class="m-5 h-full">
-  <div><h1>{module.title}</h1></div>
+  <h1>{module.title}</h1>
   <div class="mt-5">{module.description}</div>
   <div class="flex items-center justify-center mt-5">
     <a href="/learning-outcomes/{module.title}" rel="prefetch">

@@ -57,6 +57,5 @@
     {/each}
   </div>
     <!-- See-All Button -->
-    <ModuleCircleButton path="admin/counsellors" />
-  </div>
+    <ModuleCircleButton path="/admin/counsellors" />
 </div>

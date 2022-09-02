@@ -159,9 +159,6 @@
   .card-bordered {
     border-radius: 15px;
   }
-  .card-bordered {
-    border-radius: 15px;
-  }
 }
 
 @tailwind components;

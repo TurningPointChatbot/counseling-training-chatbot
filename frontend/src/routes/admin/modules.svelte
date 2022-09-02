@@ -38,10 +38,10 @@
   ];
 </script>
 
-  <div class="m-3">
+  <div class="m-8">
     <h1>Training Modules</h1>
   </div>
-  <div class="m-3 h-3/4">
+  <div class="m-8 h-3/4">
    <!-- {#await promise then modules}
       <FilterableList listData={modules}/>
     {/await}-->

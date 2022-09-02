@@ -6,9 +6,8 @@
 
 <div class="card card-bordered m-3">
   <div>
-    <h2 class="h2-counsellor-dashboard">{title}</h2>
-    <hr/>
-    <p class="p-faded left-4 top-2 relative">{subTitle}</p>
+    <div class="h2-counsellor-dashboard"><h3 class="left-3 relative">{title}</h3></div>
+    <p class="p-faded left-5 top-2 relative">{subTitle}</p>
     <div class="card-body grid grid-cols-7 gap-4 gap-2 py-2 grid-flow-col">
       <slot />
     </div>
