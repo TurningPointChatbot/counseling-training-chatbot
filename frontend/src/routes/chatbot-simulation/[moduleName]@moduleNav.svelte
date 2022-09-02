@@ -34,13 +34,6 @@
     }
     sendChatbotMessage();
   }
-  
-  function sendMessage() {
-    if(message != null) {
-      messages = [...messages, { sender: 'counsellor', content: message}];
-      message = null;
-    }
-  }
 
   function sendChatbotMessage() {
     let displayMessage: DisplayMessage = chatbot.sendMessageWebchatExample1();
@@ -53,11 +46,12 @@
     console.log(cbmID, userId);
   }
 
-  retrieveCBMIdAndUserID(moduleName).then((result) => {
+  // TODO: Fix the issues caused by the breaking sveltekit update in the backend
+  /* retrieveCBMIdAndUserID(moduleName).then((result) => {
     cbmID = result[0];
     userId = result[1];
     createChatAttempt(cbmID, userId);
-  });
+  }); */
 </script>
 
 <html lang="en" data-theme="cupcake" />
