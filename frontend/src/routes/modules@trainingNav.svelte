@@ -73,7 +73,6 @@
 </script>
 
 <html lang="en" data-theme="cupcake" />
-<CounsellorBar>
   <div class="m-3">
     <h1>Modules</h1>
   </div>
@@ -83,4 +82,4 @@
       <ModuleRow listData={modules} rectangleOrCircle={true} />
     {/await}
   </div>
-</CounsellorBar>
+
