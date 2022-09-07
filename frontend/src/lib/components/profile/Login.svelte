@@ -22,7 +22,7 @@
       if (email === 'admin1@test.com') {
         location.href = 'admin/account';
       } else {
-        location.href = 'counsellor/account';
+        location.href = 'counsellor/dashboard';
       }
       
     } catch (error) {
