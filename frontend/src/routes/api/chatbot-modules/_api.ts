@@ -14,7 +14,7 @@ export async function chatbotModuleGET(
   if (!params) {
     modules = await prisma.chatbot_module.findMany();
   } else {
-    const foundModule = await prisma.user.findUnique({
+    const foundModule = await prisma.chatbot_module.findUnique({
       where: {
         id: params.id
       }
