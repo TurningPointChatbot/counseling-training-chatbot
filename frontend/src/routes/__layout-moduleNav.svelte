@@ -81,23 +81,9 @@
         </li>
         <li>
           <a
-            href="/learning-outcomes/[moduleName]"
+            href="/modules"
             rel="prefetch"
-            class="a-navbar">Learning Outcomes</a
-          >
-        </li>
-        <li>
-          <a
-            href="/chatbot-simulation/[moduleName]"
-            rel="prefetch"
-            class="a-navbar indent-3">Chat 1</a
-          >
-        </li>
-        <li>
-          <a
-            href="/chatbot-simulation/[moduleName]"
-            rel="prefetch"
-            class="a-navbar indent-3">Chat 2</a
+            class="a-navbar">Training Modules</a
           >
         </li>
       </ul>
