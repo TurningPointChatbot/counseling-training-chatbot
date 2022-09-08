@@ -65,7 +65,7 @@
           </div>
         </div>
       </div>
-      <div class="px-16 h-full">
+      <div class="px-8 sm:px-16 h-full">
         <slot />
       </div>
     </div>
