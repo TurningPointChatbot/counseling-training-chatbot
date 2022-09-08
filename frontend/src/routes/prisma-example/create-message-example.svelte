@@ -8,7 +8,8 @@
     const message: chatbot_attempt_message = {
       attempt_id: BigInt(2),
       created_at: creation_time,
-      text: `New message at time ${creation_time.toLocaleTimeString()}`
+      text: `New message at time ${creation_time.toLocaleTimeString()}`,
+      message_type: BigInt(1)
     };
 
     const result = await fetch('/api/chatbot_messages', {
