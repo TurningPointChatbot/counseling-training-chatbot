@@ -43,10 +43,12 @@ model chatbot_attempt {
 }
 
 model chatbot_attempt_message {
-  attempt_id      BigInt
-  created_at      DateTime        @default(now()) @db.Timestamptz(6)
-  text            String
-  chatbot_attempt chatbot_attempt @relation(fields: [attempt_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  attempt_id                                         BigInt
+  created_at                                         DateTime        @default(now()) @db.Timestamptz(6)
+  text                                               String
+  message_type                                       BigInt          @default(1)
+  chatbot_attempt                                    chatbot_attempt @relation(fields: [attempt_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  message_type_chatbot_attempt_messageTomessage_type message_type    @relation(fields: [message_type], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@id([attempt_id, created_at])
 }
@@ -119,4 +121,10 @@ model user_type {
   name       String   @db.VarChar
   created_at DateTime @default(now()) @db.Timestamptz(6)
   user       user[]
+}
+
+model message_type {
+  id                      BigInt                    @id @default(autoincrement())
+  name                    String                    @unique @db.VarChar
+  chatbot_attempt_message chatbot_attempt_message[]
 }
