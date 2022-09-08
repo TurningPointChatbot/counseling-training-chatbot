@@ -1,5 +1,6 @@
 import { user } from '@prisma/client';
-import { prisma, toObject } from '../../../lib/prisma';
+import { prisma } from '../../../lib/prisma';
+import { removeBigInt } from '../../../lib/helpers';
 
 type UserAPIGetParams = {
   id: number;
@@ -24,12 +25,12 @@ export async function userGET(
     });
 
     if (foundUser) {
-      users = toObject(foundUser);
+      users = removeBigInt(foundUser);
     }
   }
 
   if (users) {
-    return toObject(users);
+    return removeBigInt(users);
   }
 
   return;

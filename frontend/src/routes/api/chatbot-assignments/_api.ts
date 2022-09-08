@@ -1,5 +1,6 @@
 import { chatbot_assignment } from '@prisma/client';
-import { prisma, toObject } from '../../../lib/prisma';
+import { prisma } from '../../../lib/prisma';
+import { removeBigInt } from '../../../lib/helpers';
 
 type ChatbotAssignmentsAPIGetParams = {
   user_id: number;
@@ -20,12 +21,12 @@ export async function chatbotAssignmentsGET(
     });
 
     if (foundAssignments) {
-      assignments = toObject(foundAssignments);
+      assignments = removeBigInt(foundAssignments);
     }
   }
 
   if (assignments) {
-    return toObject(assignments);
+    return removeBigInt(assignments);
   }
 
   return;

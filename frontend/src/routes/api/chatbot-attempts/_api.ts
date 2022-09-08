@@ -1,5 +1,6 @@
 import { chatbot_attempt } from '@prisma/client';
-import { prisma, toObject } from '../../../lib/prisma';
+import { prisma } from '../../../lib/prisma';
+import { removeBigInt } from '../../../lib/helpers';
 
 type ChatbotAttemptsAPIGetParams = {
   attempt_id: number;
@@ -24,12 +25,12 @@ export async function chatbotAttemptsGET(
     });
 
     if (foundAttempts) {
-      attempts = toObject(foundAttempts);
+      attempts = removeBigInt(foundAttempts);
     }
   }
 
   if (attempts) {
-    return toObject(attempts);
+    return removeBigInt(attempts);
   }
 
   return;

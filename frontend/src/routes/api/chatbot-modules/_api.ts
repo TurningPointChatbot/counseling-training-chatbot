@@ -1,5 +1,6 @@
 import { chatbot_module } from '@prisma/client';
-import { prisma, toObject } from '../../../lib/prisma';
+import { prisma } from '../../../lib/prisma';
+import { removeBigInt } from '../../../lib/helpers';
 
 type ChatbotModuleAPIGetParams = {
   id?: number;
@@ -21,12 +22,12 @@ export async function chatbotModuleGET(
     });
 
     if (foundModule) {
-      modules = toObject(foundModule);
+      modules = removeBigInt(foundModule);
     }
   }
 
   if (modules) {
-    return toObject(modules);
+    return removeBigInt(modules);
   }
 
   return;
