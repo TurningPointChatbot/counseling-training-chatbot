@@ -110,19 +110,17 @@
   //----------------------------------------------------------------------
 </script>
 
-<div class="m-16">
-  <h1 class="my-2">Account Management</h1>
-  <hr/>
+<div class="my-16">
+  <h1 class="my-6">Account Management</h1>
 
-  <div class="flex space-x-1">
-    <h2 class="text-primary">Position:</h2>
+  <div class="flex flex-wrap">
+    <h2 class="text-primary">Position:&nbsp;</h2>
     <h2 class="capitalize">{position}</h2>
   </div>
-  <div class="flex space-x-1">
-    <h3 class="text-primary">Email:</h3>
+  <div class="flex flex-wrap">
+    <h3 class="text-primary">Email:&nbsp;</h3>
     <h3>{email}</h3>
   </div>
-  <hr/>
 
   <AvatarCard bind:path={avatarUrl} />
 
