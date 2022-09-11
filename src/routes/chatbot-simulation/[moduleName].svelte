@@ -28,11 +28,16 @@
   }
   let userMessageText: string = null;
   let displayMessages: Array<DisplayMessage> = [];
-  let cbmID: number;
-  //let userId: string;
   let attempt_id: number;
   let chatbot: Chatbot;
 
+  /* I've hardcoded userId and cbmId for now but eventually we need to implement some kind 
+   * of paramater passing or maybe use Svelte's Store feature to pass these values down
+   * from the login component and modules.svelte to this page.
+   */
+  let userId = 1;
+  let cbmId = 4;
+  //storeChatAttempt(userId, cbmId); TODO: Resolve /api/chatbot_attempts/ endpoint issue
   attempt_id = 9;
   chatbot = new Chatbot(attempt_id);
 
