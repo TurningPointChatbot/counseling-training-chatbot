@@ -10,7 +10,7 @@ async function storeChatAttempt(userId: number, cbmId: number) {
     cbm_id: cbmId
   };
 
-  const result = await (fetch('/api/chatbot_attempts/'),
+  const result = await (fetch('/api/chatbot-attempts/'),
   {
     method: 'POST',
     body: JSON.stringify(attempt)

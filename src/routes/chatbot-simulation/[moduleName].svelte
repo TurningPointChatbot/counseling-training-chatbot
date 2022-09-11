@@ -37,7 +37,7 @@
    */
   let userId = 1;
   let cbmId = 4;
-  //storeChatAttempt(userId, cbmId); TODO: Resolve /api/chatbot_attempts/ endpoint issue
+  //storeChatAttempt(userId, cbmId); //TODO: Resolve an endpoint issue caused by this function call
   attempt_id = 9;
   chatbot = new Chatbot(attempt_id);
 
