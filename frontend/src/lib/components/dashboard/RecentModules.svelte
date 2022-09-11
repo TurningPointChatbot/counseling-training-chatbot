@@ -1,13 +1,21 @@
 <script lang="ts">
   export let listData: any[];
-
+  import ModuleCircleButton from './ModuleCircleButton.svelte';
   let sortedList = listData;
 
   // sort from most recently accessed to least recently accessed module
   function sortMostRecent() {
+    /*
     sortedList.sort(function (a, b) {
       return b.dateAccessed.getTime() - a.dateAccessed.getTime();
     });
+    */
+    sortedList.sort(
+      (d1, d2) =>
+        new Date(d1.dateAccessed).getTime() -
+        new Date(d2.dateAccessed).getTime()
+    );
+
     if (sortedList.length > 4) {
       sortedList = sortedList.slice(0, 4); // only displaying max 4 modules at once on dash
     }
@@ -48,23 +56,6 @@
       </a>
     {/each}
   </div>
-  <!-- See-All Button -->
-  <div class="absolute z-1 right-3 top-1/2">
-    <a href="/admin/modules" rel="prefetch">
-      <button type="button"
-              class="circle-button bg-base-100">
-        <h4>See all</h4>
-        <svg
-                class="w-5 h-5 ml-1"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
-          <path
-                fill-rule="evenodd"
-                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                clip-rule="evenodd"/>
-        </svg>
-      </button>
-    </a>
-  </div>
+    <!-- See-All Button -->
+    <ModuleCircleButton path="/admin/counsellors" />
 </div>

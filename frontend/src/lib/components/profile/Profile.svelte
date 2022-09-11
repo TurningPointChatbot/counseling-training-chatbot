@@ -129,8 +129,6 @@
 
   <AvatarCard bind:path={avatarUrl} />
 
-  <hr/>
-
   <!-- Could definitely think about refactoring all of these into components as it's just repeated 3 times -->
   <form
     use:getUserInfo
@@ -157,6 +155,27 @@
         disabled={!editOn}
       />
     </div>
+    <div class="grid grid-cols-2 mx-2 my-4 space-x-4">
+      <label class="label-input-text">Email</label>
+      <input
+        class="input-text"
+        placeholder="Email"
+        type="text"
+        bind:value={email}
+        disabled={!editOn}
+      />
+    </div>
+    <div class="grid grid-cols-2 mx-2 my-4 space-x-4">
+      <label class="label-input-text" hidden={editOn}>Position</label>
+      <input
+        class="input-text"
+        placeholder="Position"
+        type="text"
+        bind:value={position}
+        disabled={true}
+        hidden={editOn}
+      />
+    </div>
 
     <div class="flex flex-row-reverse space-x-4 space-x-reverse mx-2 my-4">
       {#if !editOn}
@@ -176,5 +195,4 @@
       {/if}
     </div>
   </form>
-  <hr />
 </div>

@@ -16,15 +16,27 @@
     try {
       loading = true;
       const { user, error } = await supabase.auth.signIn({ email, password });
-      console.log(user);
+
       if (error) throw error;
 
-      if (email === 'admin1@test.com') {
-        location.href = 'admin/account';
-      } else {
-        location.href = 'counsellor/dashboard';
-      }
-      
+      location.href = '/profile/account';
+    } catch (error) {
+      alert(error.error_description || error.message);
+    } finally {
+      loading = false;
+    }
+  };
+
+  /**
+   * Sign Out Function
+   */
+  async function signOut() {
+    try {
+      loading = true;
+      const { error } = await supabase.auth.signOut();
+
+      if (error) throw error;
+      alert('Successfully Logged Out!');
     } catch (error) {
       alert(error.error_description || error.message);
     } finally {
