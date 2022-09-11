@@ -27,11 +27,13 @@
           />
         </svg>
       </div>
-      <p>
+      <p class="ml-16 text-lg font-medium leading-6 text-gray">
+        <!-- Outcome Name -->
         {outcomeName}
       </p>
     </dt>
-    <dd>
+    <dd class="mt-2 ml-16 max-w-2xl text-base text-gray">
+      <!-- Outcome description -->
       {description}
     </dd>
   </div>

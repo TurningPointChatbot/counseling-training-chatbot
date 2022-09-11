@@ -8,10 +8,15 @@
   let editOn = false;
   let loading = false;
 
-  let fullName = 'John Smith';
-  let mobile = '0404 333 222';
-  let email = 'johnsmith@turningpoint.org.au';
-  let position = 'Junior Counsellor';
+  //let fullName: string = 'John Smith';
+  //let mobile: string = '0404 333 222';
+  //let email: string = 'johnsmith@turningpoint.org.au';
+  //let position: string = 'Junior Counsellor';
+
+  export let fullName: string;
+  export let mobile: string;
+  export let email: string;
+  export let position: string;
 
   // TODO: replace with empty avatar image lol, could also do something auto-generated like github?
   let avatarUrl =
@@ -110,8 +115,18 @@
   //----------------------------------------------------------------------
 </script>
 
-<h1 class="left-8 top-4 relative">Account Management</h1>
-<div class="card card-bordered m-8">
+<div class="my-16">
+  <h1 class="my-6">Account Management</h1>
+
+  <div class="flex flex-wrap">
+    <h2 class="text-primary">Position:&nbsp;</h2>
+    <h2 class="capitalize">{position}</h2>
+  </div>
+  <div class="flex flex-wrap">
+    <h3 class="text-primary">Email:&nbsp;</h3>
+    <h3>{email}</h3>
+  </div>
+
   <AvatarCard bind:path={avatarUrl} />
 
   <!-- Could definitely think about refactoring all of these into components as it's just repeated 3 times -->

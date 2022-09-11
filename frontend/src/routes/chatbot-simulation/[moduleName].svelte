@@ -1,41 +1,57 @@
 <script context="module">
-  export async function load({ params }) {
-    return { props: { moduleName: params.moduleName } };
+  export async function load({ params, fetch }) {
+    let attempt_id = 9;
+    const url = `/api/chatbot-attempts/attempt_id=${attempt_id}&messages=true`;
+    const response = await fetch(url, {method: 'GET'});
+
+    return {
+      status: response.status,
+      props: {
+        moduleName: params.moduleName,
+        messages: response.ok && (await response.json())
+      }
+    };
   }
 </script>
 
 <script lang="ts">
+  import ChatMessage from '$lib/components/ChatMessage.svelte';
+  import { Chatbot } from '$lib/scripts/chatbot';
+  import { storeChatAttempt, storeMessage } from '$lib/scripts/chatbot_utils';
+
+  export let messages; console.log(messages);
   export let moduleName: string;
 
-  let message: string = null;
-  let messageArea;
-  let textArea;
-
-  function returnToModules() {
-    location.href = '/modules';
+  interface DisplayMessage {
+    sender: string;
+    content: string;
   }
-  
-  function sendMessage() {
-    if(message != null) {
-      messages = [...messages, { sender: 'counsellor', content: message}];
-      message = null;
+  let userMessageText: string = null;
+  let displayMessages: Array<DisplayMessage> = [];
+  let cbmID: number;
+  //let userId: string;
+  let attempt_id: number;
+  let chatbot: Chatbot;
+
+  attempt_id = 9;
+  chatbot = new Chatbot(attempt_id);
+
+  function sendCounsellorMessage() {
+    if (userMessageText != null) {
+      displayMessages = [
+        ...displayMessages,
+        { sender: 'counsellor', content: userMessageText }
+      ];
+      storeMessage(attempt_id, userMessageText, 1);
+      userMessageText = null;
+      sendChatbotMessage();
     }
   }
 
-  function makeBold() {
-
+  function sendChatbotMessage() {
+    let displayMessage: DisplayMessage = chatbot.sendMessageWebchatExample1();
+    displayMessages = [...displayMessages, displayMessage];
   }
-
-  import CounsellorBar from '$lib/components/CounsellorBar.svelte';
-  import ChatMessage from '../../lib/components/ChatMessage.svelte';
-
-  // Array containing dictionary of messages. Currently all hardcoded in.
-  // Will require supabase integration
-  let messages: Array<any> = [];
-  messages.push({ sender: 'patient', content: 'Hi' });
-  messages.push({ sender: 'counsellor', content: 'Hiii' });
-  messages.push({ sender: 'patient', content: 'I am alcoholic' });
-  messages.push({ sender: 'counsellor', content: 'okay' });
 </script>
 
 <html lang="en" data-theme="cupcake" />
@@ -53,20 +69,13 @@
   <!--Chatting Area-->
   <div class="container px-10 w-full">
     <div class="max-w-full border rounded">
-      <!--Tabs-->
-      <!-- <div class="tabs">
-        <p class="tab tab-lg tab-bordered tab-active"><b>Conversation</b></p>
-        <p class="tab tab-lg tab-bordered">Chats</p>
-        <p class="tab tab-lg tab-bordered">Details</p>
-        <p class="tab tab-lg tab-bordered">Email</p>
-      </div> -->
       <div>
         <div class="w-full">
           <div class="relative w-full p-6 overflow-y-auto h-[24rem]">
-            <div bind:this={messageArea} class="overflow-auto ...">
+            <div class="overflow-auto ...">
               <ul class="space-y-2">
                 <!-- Messags are being displayed here -->
-                {#each messages as message}
+                {#each displayMessages as message}
                   <ChatMessage {...message} />
                 {/each}
               </ul>
@@ -83,44 +92,27 @@
       <div class="block py-2 px-4 rounded-t shadow-lg bg-base-300 w-full">
         <!-- <div> -->
         <button
+          on:click={sendCounsellorMessage}
           type="button"
-          class="rounded inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
-          on:click = {makeBold}
-          ><b>B</b></button
+          class="btn-outline rounded inline-block px-6 py-2.5 mr-6 bg-success text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
+          >Send Message</button
         >
         <button
-          type="button"
-          class="rounded inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
-          ><i>I</i></button
-        >
-        <button
-          type="button"
-          class="rounded inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
-          ><u>U</u></button
-        >
-        <button
-          on:click={returnToModules}
+          on:click={() => (location.href = '/modules')}
           type="button"
           class="btn-outline rounded inline-block px-6 py-2.5 bg-error text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out float-right"
           >End Chat</button
-        >
-        <button
-          on:click={sendMessage}
-          type="button"
-          class="btn-outline rounded inline-block px-6 py-2.5 mr-6 bg-success text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out float-right"
-          >Send Message</button
         >
       </div>
       <!-- Text area -->
       <textarea
         class="form-control block w-full px-4 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border 
         border-solid border-gray-300 rounded-b transition ease-in-out focus:text-gray-700 focus:bg-white 
-        focus:border-blue-600 focus:outline-none mt-4"
+        focus:border-blue-600 focus:outline-none "
         id="exampleFormControlTextarea1"
         rows="3"
         placeholder="Enter message here..."
-        bind:value = {message}
-        bind:this = {textArea}
+        bind:value={userMessageText}
       />
     </div>
   </div>
