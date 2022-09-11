@@ -10,7 +10,7 @@ export async function chatbotMessagesPOST(
       attempt_id: BigInt(new_message.attempt_id),
       created_at: new_message.created_at,
       text: new_message.text,
-      message_type: new_message.message_type
+      message_type: BigInt(new_message.message_type)
     }
   });
 
