@@ -6,15 +6,13 @@
 </script>
 
 <!-- <progress class="progress  w-56 h-5 align-middle bg-base-400" value="70" max="100"></progress> -->
-<div class="row">
-  Module Completion
-  <div class="w-full bg-gray-200 rounded-full">
-    <div
-      class="bg-secondary text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded"
-      style="width: {percent}%"
-    >
+<div class="row module-card">
+  <h3>Module Completion</h3>
+  <div class="w-full">
+   <!-- Progress Bar -->
+    <div class="progress-bar" style="width: {percent}%">
       {percent}%
     </div>
   </div>
-  <div class="font-xs text-base-400">Completed: {completed}/{total}</div>
+  <p class="p-faded">Completed: {completed}/{total}</p>
 </div>

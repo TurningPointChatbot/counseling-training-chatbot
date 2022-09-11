@@ -19,7 +19,7 @@
   export let position: string;
 
   // TODO: replace with empty avatar image lol, could also do something auto-generated like github?
-  let avatarUrl: string =
+  let avatarUrl =
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB6jXtxzJS1d5wG2JYXd0iF9KMuOIMV5P2YHmMz7NKBhXr4jGTSfW29Q102OcJsiEHiMo&usqp=CAU';
 
   function toggleEdit() {
@@ -61,7 +61,7 @@
       }
     } catch (error) {
       // TODO: improve error handling
-      alert(error.message);
+      // alert(error.message);
     } finally {
       loading = false;
     }
@@ -89,7 +89,7 @@
         .eq('email', user.email);
     } catch (error) {
       // TODO: improve error handling
-      alert(error.message);
+      // alert(error.message);
     } finally {
       editOn = false;
       loading = false;
@@ -115,23 +115,21 @@
   //----------------------------------------------------------------------
 </script>
 
-<div class="m-16">
-  <h1 class="my-2">Account Management</h1>
-  <hr class="my-1" />
+<div class="my-16">
+  <h1 class="my-6">Account Management</h1>
 
-  <div class="flex space-x-1">
-    <h2 class="text-primary">Position:</h2>
-    <h2 class="">{position}</h2>
+  <div class="flex flex-wrap">
+    <h2 class="text-primary">Position:&nbsp;</h2>
+    <h2 class="capitalize">{position}</h2>
   </div>
-  <div class="flex space-x-1">
-    <h3 class="text-primary">Email:</h3>
-    <h3 class="">{email}</h3>
+  <div class="flex flex-wrap">
+    <h3 class="text-primary">Email:&nbsp;</h3>
+    <h3>{email}</h3>
   </div>
-  <hr class="my-1" />
 
   <AvatarCard bind:path={avatarUrl} />
 
-  <hr />
+  <hr/>
 
   <!-- Could definitely think about refactoring all of these into components as it's just repeated 3 times -->
   <form
@@ -140,10 +138,9 @@
     class="grid place-items-center my-10"
   >
     <div class="grid grid-cols-2 mx-2 my-4 space-x-4">
-      <p class="font-bold">Full Name</p>
+      <label class="label-input-text">Full Name</label>
       <input
-        class="w-100 input input-bordered input-md
-        "
+        class="input-text"
         placeholder="Full Name"
         type="text"
         bind:value={fullName}
@@ -151,9 +148,9 @@
       />
     </div>
     <div class="grid grid-cols-2 mx-2 my-4 space-x-4">
-      <p class="font-bold">Mobile</p>
+      <label class="label-input-text">Mobile</label>
       <input
-        class="w-100 input input-bordered input-md"
+        class="input-text"
         placeholder="mobile"
         type="text"
         bind:value={mobile}
@@ -163,19 +160,15 @@
 
     <div class="flex flex-row-reverse space-x-4 space-x-reverse mx-2 my-4">
       {#if !editOn}
-        <button class="btn btn-primary" on:click={toggleEdit}> Edit </button>
+        <button class="purple-button" on:click={toggleEdit}> Edit </button>
       {:else}
-        <button
-          class="btn btn-primary"
-          on:click={toggleEdit}
-          disabled={loading}
-        >
+        <button class="purple-button" on:click={toggleEdit} disabled={loading}>
           Cancel
         </button>
 
         <input
           type="submit"
-          class="btn btn-primary"
+          class="purple-button"
           on:click={handleSave}
           disabled={loading}
           value={loading ? 'Loading...' : 'Save'}
