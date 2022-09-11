@@ -10,12 +10,13 @@ async function storeChatAttempt(userId: number, cbmId: number) {
     cbm_id: cbmId
   };
 
-  const result = await (fetch('/api/chatbot-attempts/'),
-  {
+  console.log('is running');
+  const result = await fetch('api/chatbot-attempts', {
     method: 'POST',
     body: JSON.stringify(attempt)
   });
 
+  console.log('display results please');
   console.log(result);
 }
 
