@@ -32,8 +32,8 @@
     for (let i: number = 0; i < assignments.length; i++) {
       console.log(assignments.length);
       modules.push({
-            title: "Module title of " + assignments[i].cbm_id, // should come from different table
-            description: "Module desc of " + assignments[i].cbm_id, // should come from different table
+            title: "Module " + assignments[i].cbm_id, // should come from different table
+            description: "Description for module " + assignments[i].cbm_id, // should come from different table
             cbm_id: assignments[i].cbm_id, 
             completed: assignments[i].completed,
             image: 'https://picsum.photos/id/426/400/600.jpg', // should come from different table
