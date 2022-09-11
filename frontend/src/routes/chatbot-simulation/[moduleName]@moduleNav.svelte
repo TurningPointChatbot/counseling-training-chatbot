@@ -1,6 +1,6 @@
 <script context="module">
   export async function load({ params, fetch }) {
-    let attempt_id = 8;
+    let attempt_id = 9;
     const url = `/api/chatbot-attempts/attempt_id=${attempt_id}&messages=true`;
     const response = await fetch(url, {method: 'GET'});
 
@@ -18,7 +18,6 @@
   import ChatMessage from '$lib/components/ChatMessage.svelte';
   import { Chatbot } from '$lib/scripts/chatbot';
   import { storeChatAttempt, storeMessage } from '$lib/scripts/chatbot_utils';
-  import type {chatbot_attempt_message } from '@prisma/client';
 
   export let messages; console.log(messages);
   export let moduleName: string;
@@ -34,7 +33,7 @@
   let attempt_id: number;
   let chatbot: Chatbot;
 
-  attempt_id = 8;
+  attempt_id = 9;
   chatbot = new Chatbot(attempt_id);
 
   function sendCounsellorMessage() {
@@ -43,7 +42,7 @@
         ...displayMessages,
         { sender: 'counsellor', content: userMessageText }
       ];
-      storeMessage(attempt_id, userMessageText);
+      storeMessage(attempt_id, userMessageText, 1);
       userMessageText = null;
       sendChatbotMessage();
     }

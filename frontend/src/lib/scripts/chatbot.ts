@@ -8,11 +8,11 @@ import { storeMessage } from "./chatbot_utils";
 class Chatbot {
     id: number;
     demo_messages: Array<string>;
-    message_count: number;
+    messageCount: number;
 
-    constructor(attempt_id: number){
-        this.id = attempt_id;
-        this.message_count = 0;
+    constructor(attemptId: number){
+        this.id = attemptId;
+        this.messageCount = 0;
         this.demo_messages = [
             "So I tried really hard today to go without alcohol....here I Amin drink 16....I only started at 4pm....I’m a failure and a piece of shit",
             "One day!!! How hard is it really?  It shouldn’t be this hard",
@@ -27,13 +27,13 @@ class Chatbot {
     }
 
     sendMessage(text: string) {
-        storeMessage(this.id, text);
+        storeMessage(this.id, text, 2);
     }
 
     sendMessageWebchatExample1() {
-        let text: string = this.demo_messages[this.message_count]
-        storeMessage(this.id, text);
-        this.message_count += 1;
+        let text: string = this.demo_messages[this.messageCount]
+        this.sendMessage(text);
+        this.messageCount += 1;
         return {sender: 'patient', content: text}
     }
 }
