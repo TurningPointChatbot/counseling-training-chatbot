@@ -8,10 +8,15 @@
   let editOn = false;
   let loading = false;
 
-  let fullName = 'John Smith';
-  let mobile = '0404 333 222';
-  let email = 'johnsmith@turningpoint.org.au';
-  let position = 'Junior Counsellor';
+  //let fullName: string = 'John Smith';
+  //let mobile: string = '0404 333 222';
+  //let email: string = 'johnsmith@turningpoint.org.au';
+  //let position: string = 'Junior Counsellor';
+
+  export let fullName: string;
+  export let mobile: string;
+  export let email: string;
+  export let position: string;
 
   // TODO: replace with empty avatar image lol, could also do something auto-generated like github?
   let avatarUrl =
