@@ -1,15 +1,14 @@
 <script lang="ts">
-  import type { chatbot_attempt_message } from '@prisma/client';
   import { removeBigInt } from '$lib/helpers';
+  import type { chatbot_attempt_message_POST } from '$lib/post_types';
 
   async function handleClick() {
     const creation_time = new Date();
 
-    const message: chatbot_attempt_message = {
-      attempt_id: BigInt(2),
-      created_at: creation_time,
+    const message: chatbot_attempt_message_POST = {
+      attempt_id: 2,
       text: `New message at time ${creation_time.toLocaleTimeString()}`,
-      message_type: BigInt(1)
+      message_type: 'user'
     };
 
     const result = await fetch('/api/chatbot_messages', {
