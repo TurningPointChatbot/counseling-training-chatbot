@@ -1,6 +1,6 @@
 <script context="module">
   export async function load({ params, fetch }) {
-    let attempt_id = 1;
+    let attempt_id = 8;
     const url = `/api/chatbot-attempts/attempt_id=${attempt_id}&messages=true`;
     const response = await fetch(url, {method: 'GET'});
 
@@ -29,9 +29,13 @@
   }
   let userMessageText: string = null;
   let displayMessages: Array<DisplayMessage> = [];
-  let chatbot = new Chatbot(1);
   let cbmID: number;
   let userId: string;
+  let attempt_id: number;
+  let chatbot: Chatbot;
+
+  attempt_id = 8;
+  chatbot = new Chatbot(attempt_id);
 
   function sendCounsellorMessage() {
     if (userMessageText != null) {
@@ -39,9 +43,10 @@
         ...displayMessages,
         { sender: 'counsellor', content: userMessageText }
       ];
+      storeMessage(attempt_id, userMessageText);
       userMessageText = null;
+      sendChatbotMessage();
     }
-    sendChatbotMessage();
   }
 
   function sendChatbotMessage() {
