@@ -1,11 +1,10 @@
 <script lang="ts">
-import { onMount } from "svelte";
-
+  import { onMount } from "svelte";
 
   export let sender: string;
   export let content: string;
 
-  let messageElement;
+  let messageElement: HTMLElement;
   onMount(() => messageElement.scrollIntoView({block: "nearest", inline: "nearest"}));
 </script>
 

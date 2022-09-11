@@ -2,10 +2,12 @@
   import Icon from '$lib/components/Icon.svelte';
 
   export let listData: any[];
+  export let rectangleOrCircle: boolean;
 
   let filteredList = listData;
   let filterTerm = '';
   let sortedAz = true;
+  let shapeClass = rectangleOrCircle ? "rounded-rectangle" : "rounded-circle";
 
   /**
    * Sort list by list item titles. Also display icon accordingly depending on
@@ -56,7 +58,7 @@
         </div>
       </div>
       <div class="flex justify-center items-center">
-        <label for="filter" class="form-label mr-2">Filter:</label>
+        <label for="filter" class="form-label mr-2">Search:</label>
         <input
           type="search"
           class="form-control input input-bordered"
@@ -75,7 +77,7 @@
                 <div class="basis-1/4 mr-5">
                   <img
                     alt={listItem.title}
-                    class="rounded-box h-40"
+                    class={shapeClass}
                     src={listItem.image}
                   />
                 </div>
@@ -97,3 +99,39 @@
     </div>
   </div>
 </div>
+
+<style>
+  .rounded-rectangle {
+    /* Crops the image to a rectangle with rounded corners. */
+    object-fit: cover;
+    border-radius: 25px;
+    height: 150px;
+    width: 200px;
+  }
+
+  .rounded-circle {
+    /* Crops the image to a circle. */
+    object-fit: cover;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+  }
+
+  .item-title {
+    font-size: 24px;
+  }
+
+  .item-description {
+    font-size: 16px;
+    color: gray;
+  }
+
+  .scroll {
+    max-height: 100%;
+    overflow-y: auto;
+  }
+
+  .sort-icon:hover {
+    filter: opacity(50%);
+  }
+</style>

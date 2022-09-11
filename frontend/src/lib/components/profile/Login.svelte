@@ -16,13 +16,13 @@
     try {
       loading = true;
       const { user, error } = await supabase.auth.signIn({ email, password });
-
+      console.log(user);
       if (error) throw error;
 
       if (email === 'admin1@test.com') {
         location.href = 'admin/account';
       } else {
-        location.href = 'counsellor/account';
+        location.href = 'counsellor/dashboard';
       }
       
     } catch (error) {
