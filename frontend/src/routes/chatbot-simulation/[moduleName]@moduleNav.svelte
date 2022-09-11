@@ -1,19 +1,32 @@
 <script context="module">
-  export async function load({ params }) {
-    return { props: { moduleName: params.moduleName } };
+  export async function load({ params, fetch }) {
+    let attempt_id = 1;
+    const url = `/api/chatbot-attempts/attempt_id=${attempt_id}&messages=true`;
+    const response = await fetch(url, {method: 'GET'});
+
+    return {
+      status: response.status,
+      props: {
+        moduleName: params.moduleName,
+        messages: response.ok && (await response.json())
+      }
+    };
   }
 </script>
 
 <script lang="ts">
   import ChatMessage from '$lib/components/ChatMessage.svelte';
   import { Chatbot } from '$lib/scripts/chatbot';
-  import { storeChatAttempt, storeMessage, getMessagesFromDatabase } from '$lib/scripts/chatbot_utils'
+  import { storeChatAttempt, storeMessage } from '$lib/scripts/chatbot_utils';
+  import type {chatbot_attempt_message } from '@prisma/client';
+
+  export let messages; console.log(messages);
+  export let moduleName: string;
 
   interface DisplayMessage {
     sender: string;
     content: string;
   }
-  export let moduleName: string;
   let userMessageText: string = null;
   let displayMessages: Array<DisplayMessage> = [];
   let chatbot = new Chatbot(1);
@@ -35,7 +48,6 @@
     let displayMessage: DisplayMessage = chatbot.sendMessageWebchatExample1();
     displayMessages = [...displayMessages, displayMessage];
   }
-
 </script>
 
 <html lang="en" data-theme="cupcake" />
