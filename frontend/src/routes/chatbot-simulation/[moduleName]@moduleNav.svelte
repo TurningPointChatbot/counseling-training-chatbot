@@ -29,7 +29,7 @@
   let userMessageText: string = null;
   let displayMessages: Array<DisplayMessage> = [];
   let cbmID: number;
-  let userId: string;
+  //let userId: string;
   let attempt_id: number;
   let chatbot: Chatbot;
 
