@@ -35,3 +35,22 @@ export async function userGET(
 
   return;
 }
+
+export async function typedUserGET(
+  user_type_name: 'counsellor' | 'admin'
+): Promise<user[] | undefined> {
+  const counsellors = await prisma.user_type.findMany({
+    where: {
+      name: user_type_name
+    },
+    select: {
+      user: true
+    }
+  });
+
+  if (counsellors) {
+    return removeBigInt(counsellors[0]['user']);
+  }
+
+  return;
+}

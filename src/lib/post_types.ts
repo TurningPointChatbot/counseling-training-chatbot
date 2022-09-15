@@ -14,3 +14,8 @@ export type chatbot_assignment_POST = {
   user_id: number;
   due_date: Date;
 };
+
+export type chatbot_module_POST = {
+  title: string;
+  description: string;
+};
