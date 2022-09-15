@@ -1,6 +1,6 @@
 import { chatbot_module } from '@prisma/client';
-import { prisma } from '../../../lib/prisma';
-import { removeBigInt } from '../../../lib/helpers';
+import { prisma } from '../../../../lib/prisma';
+import { removeBigInt } from '../../../../lib/helpers';
 
 type ChatbotModuleAPIGetParams = {
   id?: number;
