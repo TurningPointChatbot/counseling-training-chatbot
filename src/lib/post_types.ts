@@ -8,3 +8,8 @@ export type chatbot_attempt_message_POST = {
   text: string;
   message_type: 'user' | 'chatbot';
 };
+
+export type chatbot_module_POST = {
+  title: string;
+  description: string;
+};
