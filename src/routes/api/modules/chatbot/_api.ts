@@ -38,11 +38,14 @@ export async function chatbotModulePOST(
   new_module: chatbot_module_POST
 ): Promise<chatbot_module | undefined> {
   const created_module = await prisma.chatbot_module.create({
-    data: new_module
+    data: {
+      title: new_module.title,
+      description: new_module.description
+    }
   });
 
   if (created_module) {
-    return created_module;
+    return removeBigInt(created_module);
   }
 
   return;
