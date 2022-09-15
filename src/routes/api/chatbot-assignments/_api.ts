@@ -1,6 +1,7 @@
 import { chatbot_assignment } from '@prisma/client';
 import { prisma } from '../../../lib/prisma';
 import { removeBigInt } from '../../../lib/helpers';
+import { chatbot_assignment_POST } from '../../../lib/post_types';
 
 type ChatbotAssignmentsAPIGetParams = {
   user_id: number;
@@ -27,6 +28,24 @@ export async function chatbotAssignmentsGET(
 
   if (assignments) {
     return removeBigInt(assignments);
+  }
+
+  return;
+}
+
+export async function chatbotAssignmentsPOST(
+  new_assignment: chatbot_assignment_POST
+): Promise<chatbot_assignment | undefined> {
+  const created_assignment = await prisma.chatbot_assignment.create({
+    data: {
+      cbm_id: BigInt(new_assignment.module_id),
+      user_id: BigInt(new_assignment.user_id),
+      duedate: new_assignment.due_date
+    }
+  });
+
+  if (created_assignment) {
+    return removeBigInt(created_assignment);
   }
 
   return;
