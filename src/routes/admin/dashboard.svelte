@@ -1,6 +1,6 @@
 <script>
   import BigCard from '$lib/components/dashboard/BigCard.svelte';
-  import SmallCard from '$lib/components/dashboard/smallCard.svelte';
+  import SmallCard from '$lib/components/dashboard/SmallCard.svelte';
   import ModuleCircleButton from '$lib/components/dashboard/ModuleCircleButton.svelte';
   import supabase from '$lib/supabase';
 
