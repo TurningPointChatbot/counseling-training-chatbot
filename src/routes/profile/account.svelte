@@ -2,4 +2,9 @@
   import Profile from '$lib/components/profile/Profile.svelte';
 </script>
 
-<Profile />
+<Profile
+  fullName={'Place Holder'}
+  mobile={'99999999'}
+  email={'placeholder@test.com'}
+  position={'Placeholder Specialist'}
+/>
