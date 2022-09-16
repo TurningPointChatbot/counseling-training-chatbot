@@ -7,7 +7,10 @@
   import CounsellorSidenav from '$lib/components/sidenav/CounsellorSidenav.svelte';
 
   let avatarUrl = 'https://placeimg.com/80/80/people';
-  let userType = '';
+  let userType = 'counsellor' // Hardcoded placeholder
+
+  // Supabase Client has to be replaced with API calls. This was messing up Navigation
+  // TODO: Migrate to API calls - Linton
 
   // TODO: All the below JavaScript code is copied from Profile.svelte and Login.svelte - these common functions
   // should ideally be refactored out into a single place.
@@ -46,10 +49,10 @@
     }
   }
 
-  /**
+  /** 
    * Retrieve user information from the database and update UI
    */
-  async function getUserInfo() {
+  /* async function getUserInfo() {
     if ($page.url.pathname === '/login') {
       return;
     }
@@ -83,7 +86,7 @@
     }
   }
 
-  getUserInfo();
+  getUserInfo(); */
 </script>
 
 {#if $page.url.pathname === '/login'}
@@ -114,6 +117,7 @@
             >
           </label>
         </div>
+        
         <div class="flex-1 pb-1">
           <img
             class="max-h-12"
