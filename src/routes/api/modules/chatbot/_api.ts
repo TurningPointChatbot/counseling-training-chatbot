@@ -1,6 +1,7 @@
 import { chatbot_module } from '@prisma/client';
-import { prisma } from '../../../lib/prisma';
-import { removeBigInt } from '../../../lib/helpers';
+import { prisma } from '../../../../lib/prisma';
+import { removeBigInt } from '../../../../lib/helpers';
+import { chatbot_module_POST } from '../../../../lib/post_types';
 
 type ChatbotModuleAPIGetParams = {
   id?: number;
@@ -28,6 +29,23 @@ export async function chatbotModuleGET(
 
   if (modules) {
     return removeBigInt(modules);
+  }
+
+  return;
+}
+
+export async function chatbotModulePOST(
+  new_module: chatbot_module_POST
+): Promise<chatbot_module | undefined> {
+  const created_module = await prisma.chatbot_module.create({
+    data: {
+      title: new_module.title,
+      description: new_module.description
+    }
+  });
+
+  if (created_module) {
+    return removeBigInt(created_module);
   }
 
   return;

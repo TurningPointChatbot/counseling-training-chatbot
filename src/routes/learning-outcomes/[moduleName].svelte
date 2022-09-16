@@ -38,7 +38,7 @@
    * sets URL of page to modules
   */
   function returnToModules() {
-    location.href = '/modules';
+    location.href = '/counsellor/modules';
   }
 </script>
 
