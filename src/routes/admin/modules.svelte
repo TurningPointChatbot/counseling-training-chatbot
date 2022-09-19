@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
   export async function load({ fetch }) {
-    const url = '/api/modules';
+    const url = '/api/modules/chatbot';
     const response = await fetch(url);
 
     return {
