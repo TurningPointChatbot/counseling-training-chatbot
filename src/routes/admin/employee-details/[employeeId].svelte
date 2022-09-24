@@ -1,38 +1,46 @@
 <script context="module" lang="ts">
   export async function load({ fetch, params }) {
-    const url = `/api/users/${params.employeeId}`;
-    const response = await fetch(url);
-    console.log(params.employeeId);
-    getModulesData({ fetch, params });
+    const user_url = `/api/users/${params.employeeId}`;
+    const user_response = await fetch(user_url);
+
+    // const module_url = '/api/modules/chatbot';
+    // const module_response = await fetch(module_url);
+
+    //console.log(await module_response.json());
+
     return {
-      status: response.status,
+      status: user_response.status,
       props: {
-        foundUser: response.ok && (await response.json()),
-        id: params.id
+        foundUser: user_response.ok && (await user_response.json()),
+        id: params.id,
+        //modules: module_response.ok && (await module_response.json())
       }
     };
   }
 
 
-  async function getModulesData({ fetch, params }) {
-  try {
+  // async function getModulesData({ fetch, params }) {
+  // try {
 
-    // Select all modules assigned to this employee
-    let {data, error} = await supabase.from('chatbot_assignment').select().eq('user_id', employeeId);
-    const url = `/api/users/${params.employeeId}`;
-    const response = await fetch(url);
-    } catch (error) {
-      alert(error.message);
-    }
-  }
+  //   // Select all modules assigned to this employee
+  //   let {data, error} = await supabase.from('chatbot_assignment').select().eq('user_id', employeeId);
+  //   const url = `/api/users/${params.employeeId}`;
+  //   const response = await fetch(url);
+  //   } catch (error) {
+  //     alert(error.message);
+  //   }
+  // }
 </script>
 
 <script lang="ts">
   import type { user } from '@prisma/client';
+  //import type { chatbot_module } from '@prisma/client';
+
 
   export let foundUser: user;
   export let id: bigint;
-  export let modules: module;
+  //export let modules: chatbot_module[];
+
   import ModuleBigCard from '$lib/components/dashboard/ModuleBigCard.svelte';
   import CounsellorCard from '$lib/components/dashboard/CounsellorCard.svelte';
   import ModuleOverallProgress from '$lib/components/dashboard/ModuleOverallProgress.svelte';
@@ -52,19 +60,17 @@ let employee = {
     training: 10
   };
 
-  console.log(foundUser);
-  console.log(foundUser.chatbot_attempt);
-
-  let totalCompleted = 2;
+  let totalCompleted = 0;
   let totalModules = foundUser.chatbot_attempt.length;
   let totalHoursDone = 10;
   let targetTrainingHours = 50;
 
-//   for (let i = 0; i < users.length; i++) {
-//     employee.name = users[0].fname + ' ' + users[0].lname;
-//         employee.profile_image = users[0].avatar_url;
-//         employee.position = users[0].type_id;
-//   }
+  for (let i = 0; i < foundUser.chatbot_attempt.length; i++) {
+    console.log(foundUser.chatbot_attempt[i]);
+    if (foundUser.chatbot_attempt[i].completed_at != null){
+      totalCompleted += 1;
+    };
+  };
 
 
 
@@ -155,10 +161,10 @@ let employee = {
 // </script>
 
 <div class="grid grid-cols-2 gap-4 m-8">
-  <CounsellorCard employeeData={foundUser} />
+  <CounsellorCard employeeData={employee} />
     <ModuleOverallProgress
       {totalModules}
-      completedModules={2}
+      completedModules={totalCompleted}
       completedHours={totalHoursDone}
       targetHours={targetTrainingHours}
     />
