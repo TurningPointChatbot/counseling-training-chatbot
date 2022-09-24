@@ -21,19 +21,6 @@
     let {data, error} = await supabase.from('chatbot_assignment').select().eq('user_id', employeeId);
     const url = `/api/users/${params.employeeId}`;
     const response = await fetch(url);
-    
-      if (data) {
-        totalModules = data.length;
-
-        let modulesDone = 0;
-        for (let i = 0; i < data.length; i++) {
-          if (data[i].completed) {
-            modulesDone += 1;
-          }
-        }
-
-        totalCompleted = modulesDone;
-      }
     } catch (error) {
       alert(error.message);
     }
