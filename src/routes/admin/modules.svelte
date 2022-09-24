@@ -1,4 +1,6 @@
 <script context="module" lang="ts">
+  import ModuleList from "$lib/components/ModuleList.svelte";
+  
   export async function load({ fetch }) {
     const url = '/api/modules/chatbot';
     const response = await fetch(url);
@@ -13,13 +15,10 @@
 </script>
 
 <script lang="ts">
-  import FilterableList from '$lib/components/FilterableList.svelte';
-  import Icon from '$lib/components/Icon.svelte';
+  import Modal from 'svelte-simple-modal';
   import type { chatbot_module } from '@prisma/client';
-
   export let modules: chatbot_module[];
   let chatbotModules = [];
-  
 
   for (let i = 0; i < modules.length; i++) {
     chatbotModules[chatbotModules.length] = {
@@ -31,20 +30,12 @@
   }
 </script>
 
-  <div class="flex justify-between m-3">
-    <h1>Modules</h1>
-    <div>
-      <button class="btn bg-base-400">
-        <span class="text-black mr-3">New module</span>
-        <Icon
-          imgPath="/plus.png"
-          altText="New module"
-          width="20px"
-          height="20px"/>
-      </button>
-    </div>
-  </div>
-  <div class="m-3 h-3/4">
-      <FilterableList listData={chatbotModules}/>
-  </div>
+<Modal>
+  <!-- Module list needs to be a component to provide a context to open modal. 
+    See https://github.com/flekschas/svelte-simple-modal/issues/16 -->
+  <ModuleList chatbotModules={chatbotModules}/>
+</Modal>
+
+
+  
   
