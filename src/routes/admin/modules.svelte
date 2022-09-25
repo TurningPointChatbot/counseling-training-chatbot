@@ -1,23 +1,29 @@
 <script context="module" lang="ts">
-  import ModuleList from "$lib/components/ModuleList.svelte";
-  
   export async function load({ fetch }) {
-    const url = '/api/modules/chatbot';
-    const response = await fetch(url);
+    const modulesUrl = '/api/modules/chatbot';
+    const modulesResponse = await fetch(modulesUrl);
+
+    const counsellorsUrl = '/api/users/counsellors';
+    const counsellorsResponse = await fetch(counsellorsUrl);
 
     return {
-      status: response.status,
+      moduleStatus: modulesResponse.status,
+      counsellorStatus: counsellorsResponse.status,
       props: {
-        modules: response.ok && (await response.json())
-      }
+        modules: modulesResponse.ok && (await modulesResponse.json()),
+        counsellors: counsellorsResponse.ok && (await counsellorsResponse.json())
+      },
     };
   }
 </script>
 
 <script lang="ts">
   import Modal from 'svelte-simple-modal';
-  import type { chatbot_module } from '@prisma/client';
+  import ModuleList from "$lib/components/ModuleList.svelte";
+  import type { chatbot_module, user } from '@prisma/client';
   export let modules: chatbot_module[];
+  export let counsellors: user[];
+
   let chatbotModules = [];
 
   for (let i = 0; i < modules.length; i++) {
@@ -33,7 +39,7 @@
 <Modal>
   <!-- Module list needs to be a component to provide a context to open modal. 
     See https://github.com/flekschas/svelte-simple-modal/issues/16 -->
-  <ModuleList chatbotModules={chatbotModules}/>
+  <ModuleList chatbotModules={chatbotModules} counsellors={counsellors}/>
 </Modal>
 
 

@@ -3,10 +3,12 @@
   import Icon from '$lib/components/Icon.svelte';
   import { getContext } from 'svelte';
   import ModuleForm from './create-module/ModuleForm.svelte';
-  const { open } = getContext('simple-modal');
-  const showSurprise = () => open(ModuleForm, { message: "It's a modal!" });
+
+  const { open } = getContext('simple-modal'); // Ignore any red underline under 'open'
+  const showSurprise = () => open(ModuleForm, { counsellors: counsellors });
 
   export let chatbotModules = [];
+  export let counsellors = [];
 </script>
 
 <div class="flex justify-between m-3">
