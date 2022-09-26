@@ -8,7 +8,8 @@
       status: response.status,
       props: {
         moduleName: params.moduleName,
-        messages: response.ok && (await response.json())
+        messages: response.ok && (await response.json()),
+        attempt_id: attempt_id
       }
     };
   }
@@ -19,8 +20,10 @@
   import { Chatbot } from '$lib/scripts/chatbot';
   import { storeChatAttempt, storeMessage } from '$lib/scripts/chatbot_utils';
 
-  export let messages; console.log(messages);
+  export let messages; 
+  console.log(messages);
   export let moduleName: string;
+  export let attempt_id: number;
 
   interface DisplayMessage {
     sender: string;
@@ -28,7 +31,6 @@
   }
   let userMessageText: string = null;
   let displayMessages: Array<DisplayMessage> = [];
-  let attempt_id: number;
   let chatbot: Chatbot;
 
   /* I've hardcoded userId and cbmId for now but eventually we need to implement some kind 
@@ -38,7 +40,6 @@
   let userId = 1;
   let cbmId = 4;
   //storeChatAttempt(userId, cbmId); //TODO: Resolve an endpoint issue caused by this function call
-  attempt_id = 10;
   chatbot = new Chatbot(attempt_id);
 
   function sendCounsellorMessage() {

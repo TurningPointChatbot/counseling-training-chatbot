@@ -31,7 +31,8 @@ async function storeMessage(
     message_type: messageType
   };
 
-  const result = await fetch('/api/chatbot_messages/', {
+  console.log(message);
+  const result = await fetch('/api/chatbot-messages', {
     method: 'POST',
     body: JSON.stringify(message)
   });
