@@ -11,7 +11,7 @@
   export let cbmId: number;
   console.log(cbmId);
 
-  let moduleName: string = "Module " + cbmId; // I think it's fine to create the module name from cbmId like this - Linton
+  let moduleName: string = 'Module ' + cbmId; // I think it's fine to create the module name from cbmId like this - Linton
   let noOfOutcomes: number = 2; // TODO should not be hardcoded, should pull # of outcomes from database
   let learningOutcomes: Array<any> = [];
   let moduleDescriptions = [
@@ -32,15 +32,16 @@
   /**
    * Stores chat attempt and redirects to simulation page with attempt_id and cbm_id params.
    */
-  function runChatbot() {
-    //storeChatAttempt(1, 1);
-    let attemptId: number = 4;
+  async function runChatbot() {
+    // TODO: Replace hardcoded user id with one retrieved at login
+    let attemptId: number = await storeChatAttempt(1, cbmId);
+    console.log(attemptId);
     location.href = `/chatbot-simulation/${cbmId}/${attemptId}`;
   }
 
   /**
    * Redirects back to the modules page.
-  */
+   */
   function returnToModules() {
     location.href = '/counsellor/modules';
   }
@@ -71,10 +72,16 @@
       </div>
       <div class="flex">
         <!-- <button on:click={returnToModules} class="btn btn-secondary btn-outline ml-10 mt-10 "> -->
-        <button on:click={returnToModules} class="btn btn-secondary m-1 purple-button">
+        <button
+          on:click={returnToModules}
+          class="btn btn-secondary m-1 purple-button"
+        >
           Return to Modules
         </button>
-        <button on:click={runChatbot} class="btn btn-secondary m-1 purple-button">
+        <button
+          on:click={runChatbot}
+          class="btn btn-secondary m-1 purple-button"
+        >
           Start Chatbot Simulation
         </button>
       </div>
