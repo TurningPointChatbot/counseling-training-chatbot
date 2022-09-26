@@ -1,6 +1,6 @@
 <script context="module">
   export async function load({ params, fetch }) {
-    let attempt_id = 9;
+    let attempt_id = 10;
     const url = `/api/chatbot-attempts/attempt_id=${attempt_id}&messages=true`;
     const response = await fetch(url, {method: 'GET'});
 
@@ -38,7 +38,7 @@
   let userId = 1;
   let cbmId = 4;
   //storeChatAttempt(userId, cbmId); //TODO: Resolve an endpoint issue caused by this function call
-  attempt_id = 9;
+  attempt_id = 10;
   chatbot = new Chatbot(attempt_id);
 
   function sendCounsellorMessage() {
@@ -47,7 +47,7 @@
         ...displayMessages,
         { sender: 'counsellor', content: userMessageText }
       ];
-      storeMessage(attempt_id, userMessageText, 1);
+      storeMessage(attempt_id, userMessageText, 'user');
       userMessageText = null;
       sendChatbotMessage();
     }
