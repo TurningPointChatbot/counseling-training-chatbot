@@ -1,15 +1,14 @@
 <script context="module">
   export async function load({ params, fetch }) {
-    let attempt_id = 10;
-    const url = `/api/chatbot-attempts/attempt_id=${attempt_id}&messages=true`;
+    const url = `/api/chatbot-attempts/attempt_id=${params.attemptId}&messages=true`;
     const response = await fetch(url, {method: 'GET'});
 
     return {
       status: response.status,
       props: {
-        moduleName: params.moduleName,
-        messages: response.ok && (await response.json()),
-        attempt_id: attempt_id
+        cbmId: params.cbmId,
+        attemptId: params.attemptId,
+        messages: response.ok && (await response.json())
       }
     };
   }
@@ -20,10 +19,10 @@
   import { Chatbot } from '$lib/scripts/chatbot';
   import { storeMessage } from '$lib/scripts/chatbot_utils';
 
+  export let cbmId: number;
+  export let attemptId: number;
   export let messages; 
   console.log(messages);
-  export let moduleName: string;
-  export let attempt_id: number;
 
   interface DisplayMessage {
     sender: string;
@@ -32,9 +31,10 @@
   let userMessageText: string = null;
   let displayMessages: Array<DisplayMessage> = [];
   let chatbot: Chatbot;
+  let moduleName: string = "Module " + cbmId;
 
   // Creates a new chatbot instance
-  chatbot = new Chatbot(attempt_id);
+  chatbot = new Chatbot(attemptId);
 
   function sendCounsellorMessage() {
     if (userMessageText != null) {
@@ -42,7 +42,7 @@
         ...displayMessages,
         { sender: 'counsellor', content: userMessageText }
       ];
-      storeMessage(attempt_id, userMessageText, 'user');
+      storeMessage(attemptId, userMessageText, 'user');
       userMessageText = null;
       sendChatbotMessage();
     }

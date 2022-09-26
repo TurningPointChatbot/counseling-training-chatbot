@@ -33,8 +33,9 @@
    * Stores chat attempt and redirects to simulation page with attempt_id and cbm_id params.
    */
   function runChatbot() {
-    storeChatAttempt(1, 1);
-    //location.href = '/chatbot-simulation/' + moduleName;
+    //storeChatAttempt(1, 1);
+    let attemptId: number = 4;
+    location.href = `/chatbot-simulation/${cbmId}/${attemptId}`;
   }
 
   /**
