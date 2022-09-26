@@ -18,7 +18,7 @@
 <script lang="ts">
   import ChatMessage from '$lib/components/ChatMessage.svelte';
   import { Chatbot } from '$lib/scripts/chatbot';
-  import { storeChatAttempt, storeMessage } from '$lib/scripts/chatbot_utils';
+  import { storeMessage } from '$lib/scripts/chatbot_utils';
 
   export let messages; 
   console.log(messages);
@@ -33,13 +33,7 @@
   let displayMessages: Array<DisplayMessage> = [];
   let chatbot: Chatbot;
 
-  /* I've hardcoded userId and cbmId for now but eventually we need to implement some kind 
-   * of paramater passing or maybe use Svelte's Store feature to pass these values down
-   * from the login component and modules.svelte to this page.
-   */
-  let userId = 1;
-  let cbmId = 4;
-  //storeChatAttempt(userId, cbmId); //TODO: Resolve an endpoint issue caused by this function call
+  // Creates a new chatbot instance
   chatbot = new Chatbot(attempt_id);
 
   function sendCounsellorMessage() {

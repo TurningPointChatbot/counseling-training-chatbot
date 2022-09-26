@@ -6,6 +6,7 @@
 
 <script lang="ts">
   import LearningOutcomeRow from '$lib/components/LearningOutcomeRow.svelte';
+  import { storeChatAttempt } from '$lib/scripts/chatbot_utils';
 
   let noOfModules: number = 2; // TODO should not be hardcoded, should pull # of modules from modules
   let learningOutcomes: Array<any> = [];
@@ -31,7 +32,8 @@
    * sets URL of page to chatbot
    */
   function runChatbot() {
-    location.href = '/chatbot-simulation/' + moduleName;
+    storeChatAttempt(1, 1);
+    //location.href = '/chatbot-simulation/' + moduleName;
   }
 
   /**
