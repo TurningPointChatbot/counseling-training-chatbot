@@ -1,6 +1,6 @@
 <script context="module">
   export async function load({ params }) {
-    return { props: { moduleName: params.moduleName } };
+    return { props: { cbmId: params.cbmId } };
   }
 </script>
 
@@ -8,8 +8,10 @@
   import LearningOutcomeRow from '$lib/components/LearningOutcomeRow.svelte';
   import { storeChatAttempt } from '$lib/scripts/chatbot_utils';
 
-  export let moduleName: string;
+  export let cbmId: number;
+  console.log(cbmId);
 
+  let moduleName: string = "Module " + cbmId; // I think it's fine to create the module name from cbmId like this - Linton
   let noOfOutcomes: number = 2; // TODO should not be hardcoded, should pull # of outcomes from database
   let learningOutcomes: Array<any> = [];
   let moduleDescriptions = [
