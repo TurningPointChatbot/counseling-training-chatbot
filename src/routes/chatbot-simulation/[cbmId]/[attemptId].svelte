@@ -36,13 +36,16 @@
   // Creates a new chatbot instance
   chatbot = new Chatbot(attemptId);
 
-  function sendCounsellorMessage() {
+  /** Stores counsellor message and displays it in UI. I made it async so that message order is preserved 
+   * i.e. User message is created and stored before chatbot message is created.
+  */
+  async function sendCounsellorMessage() {
     if (userMessageText != null) {
       displayMessages = [
         ...displayMessages,
         { sender: 'counsellor', content: userMessageText }
       ];
-      storeMessage(attemptId, userMessageText, 'user');
+      await storeMessage(attemptId, userMessageText, 'user');
       userMessageText = null;
       sendChatbotMessage();
     }
