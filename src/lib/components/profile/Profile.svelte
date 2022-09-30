@@ -53,7 +53,8 @@
       if (data) {
         fullName = data.fname + ' ' + data.lname;
         email = data.email;
-        position = data.user_type.name;
+        // position = data.user_type.name;
+        position = user.email;
 
         if (data.avatar_url) {
           avatarUrl = data.avatar_url;
