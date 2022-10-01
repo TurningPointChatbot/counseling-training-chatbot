@@ -11,8 +11,8 @@ module.exports = {
       'blue-dark': '#014486',
       white: '#ffffff',
       black: '#000000',
-      red: '#1cc778',
-      green: '#dc3545'
+      green: '#1cc778',
+      red: '#dc3545'
     }
   },
   plugins: [require('daisyui')],
