@@ -11,7 +11,7 @@
 
 <a class={cardClass} href="/">
   <div class="rounded">
-    
+   
     <a href={path}
       >
       <img class={imageClass} src={image} {alt} />

@@ -122,7 +122,7 @@ function filterByStatus() {
     <div class="scroll">
       <div>
         {#each filteredList as listItem}
-        <Linkable link={'/learning-outcomes/' + listItem.title}>
+        <Linkable link={'/learning-outcomes/' + listItem.cbm_id}>
             <div class="card-bordered p-3">
               <div class="flex flew-row">
                 <div class="basis-1/4 mr-5">

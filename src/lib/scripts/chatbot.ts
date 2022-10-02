@@ -27,7 +27,7 @@ class Chatbot {
     }
 
     sendMessage(text: string) {
-        storeMessage(this.id, text, 2);
+        storeMessage(this.id, text, 'chatbot');
     }
 
     sendMessageWebchatExample1() {

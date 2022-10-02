@@ -7,7 +7,7 @@
   import CounsellorSidenav from '$lib/components/sidenav/CounsellorSidenav.svelte';
 
   let avatarUrl = 'https://placeimg.com/80/80/people';
-  let userType = 'counsellor' // Hardcoded placeholder
+  let userType = 'admin' // Hardcoded placeholder
 
   // Supabase Client has to be replaced with API calls. This was messing up Navigation
   // TODO: Migrate to API calls - Linton
