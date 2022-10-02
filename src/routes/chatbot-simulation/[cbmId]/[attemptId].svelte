@@ -1,13 +1,13 @@
 <script context="module">
   export async function load({ params, fetch }) {
-    let attempt_id = 9;
-    const url = `/api/chatbot-attempts/attempt_id=${attempt_id}&messages=true`;
+    const url = `/api/chatbot-attempts/attempt_id=${params.attemptId}&messages=true`;
     const response = await fetch(url, {method: 'GET'});
 
     return {
       status: response.status,
       props: {
-        moduleName: params.moduleName,
+        cbmId: params.cbmId,
+        attemptId: params.attemptId,
         messages: response.ok && (await response.json())
       }
     };
@@ -17,10 +17,12 @@
 <script lang="ts">
   import ChatMessage from '$lib/components/ChatMessage.svelte';
   import { Chatbot } from '$lib/scripts/chatbot';
-  import { storeChatAttempt, storeMessage } from '$lib/scripts/chatbot_utils';
+  import { storeMessage } from '$lib/scripts/chatbot_utils';
 
-  export let messages; console.log(messages);
-  export let moduleName: string;
+  export let cbmId: number;
+  export let attemptId: number;
+  export let messages; 
+  console.log(messages);
 
   interface DisplayMessage {
     sender: string;
@@ -28,21 +30,22 @@
   }
   let userMessageText: string = null;
   let displayMessages: Array<DisplayMessage> = [];
-  let cbmID: number;
-  //let userId: string;
-  let attempt_id: number;
   let chatbot: Chatbot;
+  let moduleName: string = "Module " + cbmId;
 
-  attempt_id = 9;
-  chatbot = new Chatbot(attempt_id);
+  // Creates a new chatbot instance
+  chatbot = new Chatbot(attemptId);
 
-  function sendCounsellorMessage() {
+  /** Stores counsellor message and displays it in UI. I made it async so that message order is preserved 
+   * i.e. User message is created and stored before chatbot message is created.
+  */
+  async function sendCounsellorMessage() {
     if (userMessageText != null) {
       displayMessages = [
         ...displayMessages,
         { sender: 'counsellor', content: userMessageText }
       ];
-      storeMessage(attempt_id, userMessageText, 1);
+      await storeMessage(attemptId, userMessageText, 'user');
       userMessageText = null;
       sendChatbotMessage();
     }
