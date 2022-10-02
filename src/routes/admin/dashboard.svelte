@@ -1,67 +1,60 @@
-<script>
-  import ModuleBigCard from '$lib/components/dashboard/ModuleBigCard.svelte';
-  import ModuleCard from '$lib/components/dashboard/ModuleCard.svelte';
+<script context="module" lang="ts">
+  //Need to check if these are the correct API calls to make
+  export async function load({ fetch }) {
+    const modulesUrl = '/api/modules/chatbot';
+    const modulesResponse = await fetch(modulesUrl);
+
+    const counsellorsUrl = '/api/users/counsellors';
+    const counsellorsResponse = await fetch(counsellorsUrl);
+
+    return {
+      moduleStatus: modulesResponse.status,
+      counsellorStatus: counsellorsResponse.status,
+      props: {
+        modules: modulesResponse.ok && (await modulesResponse.json()),
+        counsellors: counsellorsResponse.ok && (await counsellorsResponse.json())
+      },
+    };
+  }
+</script>
+
+<script lang="ts">
   import BigCard from '$lib/components/dashboard/BigCard.svelte';
   import SmallCard from '$lib/components/dashboard/SmallCard.svelte';
   import ModuleCircleButton from '$lib/components/dashboard/ModuleCircleButton.svelte';
-  import supabase from '$lib/supabase';
+  import type { chatbot_module, user } from '@prisma/client';
+  export let modules: chatbot_module[];
+  export let counsellors: user[];
+  let chatbot_modules = [];
 
-  export async function load({ fetch}) {
-    const url = `/api/users/counsellors`;
-    const response = await fetch(url);
-    console.log("hi");
-    return {
-      status: response.status,
-      props: {
-        assignments: response.ok && (await response.json())
-      }
+  for (let i = 0; i < 3; i++) {
+    chatbot_modules[chatbot_modules.length] = {
+      title: modules[i].title,
+      description: modules[i].description,
+      image: 'https://picsum.photos/id/426/400/600.jpg',
+      href: '/admin/module-details/' + modules[i].id
     };
   }
 
-  let counsellorData = [
-    'Davos Sand',
-    'Evelyn Chua',
-    'Isabella Howard',
-    'Jackson Tyler',
-    'Katherine Moffat',
-    'Anna Giang'
-  ];
-
-  let modulesData = [
-    'Duty of care',
-    'Crisis management',
-    'Lesson 3'
-  ];
-
-  // !! list of modules needs to be sorted need to implement somehow sort function
-
-
 </script>
-<!-- put URL for each module that is gotten from db in the path -->
 <div class="module-card">
   <BigCard title={'Counsellors'} subTitle={'Recently viewed'}>
-    {#each counsellorData as counsellorName}
-      <SmallCard titleButton={counsellorName} />
+    {#each counsellors as counsellor}
+      <SmallCard titleButton={counsellor['fname'] + " " + counsellor['lname']}, path = "/admin/employee-details/{counsellor['id']}" />
     {/each}
-    <ModuleCircleButton path="/admin/counsellors" />
+    <ModuleCircleButton path="/admin/counsellors"/>
   </BigCard>
 
-
-      <BigCard title={'Training Modules'} subTitle={'Recently Viewed'}>
-        {#each modulesData as cardItem}
-        <SmallCard
-            cardClass = "col-span-2 text-center px-3 py-3"
-            path="/admin/modules"
-            alt={'Model of care'}
-            imageClass=".object-cover h-48 w-96 rounded-3xl relative"
-            titleButton={cardItem}
-            image="https://images.unsplash.com/photo-1584515933487-779824d29309?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=225"
-          />
-        {/each}
-        <ModuleCircleButton path="/admin/modules" />
-      </BigCard>
-
-
-    <!--<RecentModules listData={modules} /> -->
-
-  </div>
+  <BigCard title={'Training Modules'} subTitle={'Recently Viewed'}>
+    {#each chatbot_modules as module}
+      <SmallCard
+        cardClass="col-span-2 text-center px-3 py-3"
+        path={module['href']}
+        alt={module['title']}
+        imageClass=".object-cover h-48 w-96 rounded-3xl relative"
+        titleButton={module['title']}
+        image={module['image']}></SmallCard>
+    {/each}
+    <ModuleCircleButton path="/admin/modules" />
+  </BigCard>
+</div>
