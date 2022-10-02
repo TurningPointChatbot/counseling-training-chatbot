@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let cards;
+  //export let cards;
   export let title = 'Title';
   export let subTitle = 'subtitle';
 </script>
