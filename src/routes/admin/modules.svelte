@@ -1,74 +1,47 @@
-<script lang="ts">
-  import FilterableList from '$lib/components/FilterableList.svelte';
-  import supabase from '$lib/supabase';
-  
-  
-  async function getModulesList() {
-    let api_modules = [];
-    try {
-      let {data, error} = await supabase
-        .from('admin_module')
-        .select();
-  
-      if (data) {
-        //console.log(data);
-        for (let i = 0; i < data.length; i++) {
-          let module = {title: data[i].title, description: data[i].description, image: 'https://picsum.photos/id/426/400/600.jpg', dateAccessed: data[i].dateAccessed};
-          //console.log(module);
-          api_modules.push(module);
-          //console.log(api_modules);
-        }
-      }
-      if (error) throw error;
-    } catch (error) {
-      alert(error.message);
-    }
-    return api_modules;
+<script context="module" lang="ts">
+  export async function load({ fetch }) {
+    const modulesUrl = '/api/modules/chatbot';
+    const modulesResponse = await fetch(modulesUrl);
+
+    const counsellorsUrl = '/api/users/counsellors';
+    const counsellorsResponse = await fetch(counsellorsUrl);
+
+    return {
+      moduleStatus: modulesResponse.status,
+      counsellorStatus: counsellorsResponse.status,
+      props: {
+        modules: modulesResponse.ok && (await modulesResponse.json()),
+        counsellors: counsellorsResponse.ok && (await counsellorsResponse.json())
+      },
+    };
   }
-  let promise = getModulesList()
-
-
-
-  
-
-  // TODO: Retrieve module details from database.
-  /*let modules = [
-    {
-      title: 'Lesson 101: Module Title',
-      description:
-        'Short summary lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate ipsum vel nisi aliquam euismod.',
-      image: 'https://picsum.photos/id/426/400/600.jpg',
-      href: '/admin/module-details/moduleId'
-    },
-    {
-      title: 'Tutorial 102: Module Title',
-      description:
-        'Short summary lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate ipsum vel nisi aliquam euismod.',
-      image: 'https://picsum.photos/id/426/400/600.jpg',
-      href: '/admin/module-details/moduleId'
-    },
-    {
-      title: 'Class 103: Module Title',
-      description:
-        'Short summary lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate ipsum vel nisi aliquam euismod.',
-      image: 'https://picsum.photos/id/426/400/600.jpg',
-      href: '/admin/module-details/moduleId'
-    },
-    {
-      title: 'Module 104: Module Title',
-      description:
-        'Short summary lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate ipsum vel nisi aliquam euismod.',
-      image: 'https://picsum.photos/id/426/400/600.jpg',
-      href: '/admin/module-details/moduleId'
-    }
-  ];*/
 </script>
 
-  <div class="m-3">
-    <h1>Modules</h1>
-  </div>
-  <div class="m-3 h-3/4">
-    {#await promise then modules}
-      <FilterableList listData={modules} rectangleOrCircle={true}/>
-    {/await}
-  </div>
+<script lang="ts">
+  import Modal from 'svelte-simple-modal';
+  import ModuleList from "$lib/components/ModuleList.svelte";
+  import type { chatbot_module, user } from '@prisma/client';
+  export let modules: chatbot_module[];
+  export let counsellors: user[];
+
+  let chatbotModules = [];
+
+  for (let i = 0; i < modules.length; i++) {
+    chatbotModules[chatbotModules.length] = {
+      title: modules[i].title,
+      description: modules[i].description,
+      image: 'https://picsum.photos/id/426/400/600.jpg',
+      href: '/admin/module-details/' + modules[i].id
+    };
+  }
+</script>
+
+<Modal>
+  <!-- Module list needs to be a component to provide a context to open modal. 
+    See https://github.com/flekschas/svelte-simple-modal/issues/16 -->
+  <ModuleList chatbotModules={chatbotModules} counsellors={counsellors}/>
+</Modal>
+
+
+  
+  

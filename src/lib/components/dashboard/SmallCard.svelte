@@ -1,5 +1,6 @@
 <script lang="ts">
   export let titleButton = 'Name';
+  export let path = '';
   export let image =
     'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png';
   export let alt = 'image';
@@ -10,7 +11,11 @@
 
 <a class={cardClass} href="/">
   <div class="rounded">
-    <img class={imageClass} src={image} {alt} />
-    <button type="button" class="text-small mb-2">{titleButton}</button>
+   
+    <a href={path}
+      >
+      <img class={imageClass} src={image} {alt} />
+      <button type="button" class="text-small mb-2">{titleButton}</button></a
+    >
   </div></a
 >
