@@ -19,3 +19,9 @@ export type chatbot_module_POST = {
   title: string;
   description: string;
 };
+
+export type forum_post_module_POST = {
+  text: string;
+  username: string;
+  valid: boolean;
+};
