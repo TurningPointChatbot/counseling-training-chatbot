@@ -3,7 +3,9 @@ import { chatbotModuleGET } from './_api';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function GET({ params }) {
-  const modules = await chatbotModuleGET({ id: parseInt(params.module_id) });
+  const modules: chatbot_module[] | undefined = await chatbotModuleGET({
+    id: parseInt(params.module_id)
+  });
 
   if (modules) {
     return {
