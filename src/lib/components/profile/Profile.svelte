@@ -8,15 +8,10 @@
   let editOn = false;
   let loading = false;
 
-  //let fullName: string = 'John Smith';
-  //let mobile: string = '0404 333 222';
-  //let email: string = 'johnsmith@turningpoint.org.au';
-  //let position: string = 'Junior Counsellor';
 
-  export let fullName: string;
-  export let mobile: string;
-  export let email: string;
-  export let position: string;
+  import type { user } from '@prisma/client';
+
+  export let foundUser: user;
 
   // TODO: replace with empty avatar image lol, could also do something auto-generated like github?
   let avatarUrl =
@@ -26,113 +21,98 @@
     editOn = !editOn;
   }
 
+
+  // because we dont have a patch endpoint so far, we will comment out this functionality
   // retrieve user information from the database and update UI
-  async function getUserInfo() {
-    try {
-      loading = true;
-      const user = supabase.auth.user();
+  // async function getUserInfo() {
+  //   try {
+  //     loading = true;
+  //     const user = supabase.auth.user();
 
-      let { data, error, status } = await supabase
-        .from('user')
-        .select(
-          `
-          fname,
-          lname,
-          email,
-          avatar_url,
-          user_type:type_id (
-            name
-          )
-        `
-        )
-        .eq('email', user.email)
-        .single();
+  //     let { data, error, status } = await supabase
+  //       .from('user')
+  //       .select(
+  //         `
+  //         fname,
+  //         lname,
+  //         email,
+  //         avatar_url,
+  //         user_type:type_id (
+  //           name
+  //         )
+  //       `
+  //       )
+  //       .eq('email', user.email)
+  //       .single();
 
-      if (error && status) throw error;
+  //     if (error && status) throw error;
 
-      if (data) {
-        fullName = data.fname + ' ' + data.lname;
-        email = data.email;
-        // position = data.user_type.name;
-        position = user.email;
+  //     if (data) {
+  //       fullName = data.fname + ' ' + data.lname;
+  //       email = data.email;
+  //       // position = data.user_type.name;
+  //       position = user.email;
 
-        if (data.avatar_url) {
-          avatarUrl = data.avatar_url;
-        }
-      }
-    } catch (error) {
-      // TODO: improve error handling
-      // alert(error.message);
-    } finally {
-      loading = false;
-    }
-  }
+  //       if (data.avatar_url) {
+  //         avatarUrl = data.avatar_url;
+  //       }
+  //     }
+  //   } catch (error) {
+  //     // TODO: improve error handling
+  //     // alert(error.message);
+  //   } finally {
+  //     loading = false;
+  //   }
+  // }
 
-  // update the user database with edited information
-  async function handleSave() {
-    try {
-      loading = true;
-      const user = supabase.auth.user();
+  // // update the user database with edited information
+  // async function handleSave() {
+  //   try {
+  //     loading = true;
+  //     const user = supabase.auth.user();
 
-      // TODO: FIX THIS, maybe split into to input fields?
-      let [fname, lname] = fullName.split(' ');
+  //     // TODO: FIX THIS, maybe split into to input fields?
+  //     let [fname, lname] = fullName.split(' ');
 
-      const updates = {
-        fname: fname,
-        lname: lname
-      };
+  //     const updates = {
+  //       fname: fname,
+  //       lname: lname
+  //     };
 
-      let { error } = await supabase
-        .from('user')
-        .update(updates, {
-          returning: 'minimal'
-        })
-        .eq('email', user.email);
-    } catch (error) {
-      // TODO: improve error handling
-      // alert(error.message);
-    } finally {
-      editOn = false;
-      loading = false;
-    }
-  }
+  //     let { error } = await supabase
+  //       .from('user')
+  //       .update(updates, {
+  //         returning: 'minimal'
+  //       })
+  //       .eq('email', user.email);
+  //   } catch (error) {
+  //     // TODO: improve error handling
+  //     // alert(error.message);
+  //   } finally {
+  //     editOn = false;
+  //     loading = false;
+  //   }
+  // }
 
-  // -----------------------------------DELETE THIS------------------
-  async function handleLogin() {
-    try {
-      let testEmail = 'ENTER HERE';
-      let testPassword = 'ENTER HERE';
-
-      const { error } = await supabase.auth.signIn({
-        email: testEmail,
-        password: testPassword
-      });
-      if (error) throw error;
-      alert('Signed in successfully!');
-    } catch (error: any) {
-      alert(error.error_description || error.message);
-    }
-  }
-  //----------------------------------------------------------------------
 </script>
 
 <div class="my-16">
   <h1 class="my-6">Account Management</h1>
 
+
   <div class="flex flex-wrap">
     <h2 class="text-primary">Position:&nbsp;</h2>
-    <h2 class="capitalize">{position}</h2>
+    <h2 class="capitalize">{foundUser.type_id}</h2>
   </div>
   <div class="flex flex-wrap">
     <h3 class="text-primary">Email:&nbsp;</h3>
-    <h3>{email}</h3>
+    <h3>{foundUser.email}</h3>
   </div>
 
   <AvatarCard bind:path={avatarUrl} />
 
   <!-- Could definitely think about refactoring all of these into components as it's just repeated 3 times -->
-  <form
-    use:getUserInfo
+  <!-- <form
     on:submit|preventDefault={handleSave}
     class="grid place-items-center my-10"
   >
@@ -142,17 +122,7 @@
         class="input-text"
         placeholder="Full Name"
         type="text"
-        bind:value={fullName}
-        disabled={!editOn}
-      />
-    </div>
-    <div class="grid grid-cols-2 mx-2 my-4 space-x-4">
-      <label class="label-input-text">Mobile</label>
-      <input
-        class="input-text"
-        placeholder="mobile"
-        type="text"
-        bind:value={mobile}
+        bind:value={foundUser.fname}
         disabled={!editOn}
       />
     </div>
@@ -162,19 +132,8 @@
         class="input-text"
         placeholder="Email"
         type="text"
-        bind:value={email}
+        bind:value={foundUser.email}
         disabled={!editOn}
-      />
-    </div>
-    <div class="grid grid-cols-2 mx-2 my-4 space-x-4">
-      <label class="label-input-text" hidden={editOn}>Position</label>
-      <input
-        class="input-text"
-        placeholder="Position"
-        type="text"
-        bind:value={position}
-        disabled={true}
-        hidden={editOn}
       />
     </div>
 
@@ -195,5 +154,5 @@
         />
       {/if}
     </div>
-  </form>
+  </form> -->
 </div>
