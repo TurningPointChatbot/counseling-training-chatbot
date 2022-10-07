@@ -20,7 +20,7 @@ export type chatbot_module_POST = {
   description: string;
 };
 
-export type forum_post_module_POST = {
+export type forum_post_POST = {
   text: string;
   username: string;
   valid: boolean;
