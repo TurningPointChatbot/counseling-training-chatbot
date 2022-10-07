@@ -96,20 +96,25 @@
 
 </script>
 
-<div class="my-16">
-  <h1 class="my-6">Account Management</h1>
-
-
-  <div class="flex flex-wrap">
-    <h2 class="text-primary">Position:&nbsp;</h2>
-    <h2 class="capitalize">{foundUser.type_id}</h2>
-  </div>
-  <div class="flex flex-wrap">
-    <h3 class="text-primary">Email:&nbsp;</h3>
-    <h3>{foundUser.email}</h3>
-  </div>
+<div class="my-16 ">
+  <h1 class="flex flex-wrap justify-center my-6">Account Management</h1>
 
   <AvatarCard bind:path={avatarUrl} />
+
+  <div class="flex flex-wrap justify-center">
+    <h2 class="text-primary">Position:&nbsp;</h2>
+    {#if foundUser.type_id == 1}
+      <h2 class="capitalize">{"Admin"}</h2>
+    {:else if foundUser.type_id == 2}
+      <h2 class="capitalize">{"Supervisor"}</h2>
+    {:else} 
+      <h2 class="capitalize">{"Counsellor"}</h2>
+    {/if}
+  </div>
+  <div class="flex flex-wrap justify-center">
+    <h2 class="text-primary">Email:&nbsp;</h2>
+    <h2>{foundUser.email}</h2>
+  </div>
 
   <!-- Could definitely think about refactoring all of these into components as it's just repeated 3 times -->
   <!-- <form
