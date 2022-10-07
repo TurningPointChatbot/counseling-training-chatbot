@@ -50,3 +50,22 @@ export async function chatbotAssignmentsPOST(
 
   return;
 }
+
+export async function moduleSpecificAssignmentGET(
+  module_id: number
+): Promise<chatbot_assignment[] | undefined> {
+  const assignments = await prisma.chatbot_assignment.findMany({
+    where: {
+      cbm_id: module_id
+    },
+    include: {
+      user: true
+    }
+  });
+
+  if (assignments) {
+    return removeBigInt(assignments);
+  }
+
+  return;
+}
