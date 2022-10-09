@@ -1,7 +1,5 @@
 <script lang="ts">
-    import LandingPageTile from "$lib/components/landingPageTile.svelte";
-import landingPageTile from "$lib/components/landingPageTile.svelte";
-
+    import LandingPageTile from "$lib/components/LandingPageTile.svelte";
 </script>
 
 <h1 class="m-8">Training Modules</h1>
