@@ -53,6 +53,7 @@
     "@supabase/auth-helpers-sveltekit": "^0.6.8",
     "@supabase/supabase-js": "^1.35.2",
     "openai": "^3.0.0",
+    "pdfkit": "^0.13.0",
     "svelte-simple-modal": "^1.4.1",
     "vite": "^3.0.4"
   }
