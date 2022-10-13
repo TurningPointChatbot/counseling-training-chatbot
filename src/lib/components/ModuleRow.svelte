@@ -87,14 +87,6 @@
   function generatePDF() {
     location.href = '/counsellor/pdf'
   }
-
-  /**
-   * do nothing function - want no functionality when pressing disabled pdf button, atm it enters learning outcome page
-  */
-  function doNothing() {
-    //nothing
-  }
-
 </script>
 
 <div class="card-bordered h-full">
@@ -179,7 +171,6 @@
                    {:else}
                     <!-- Disabled button - cant generate PDF -->
                     <button 
-                      on:click={doNothing}
                       class="btn btn-disabled" tabindex="-1" aria-disabled="true">PDF</button>
                    {/if}
                 </div>
