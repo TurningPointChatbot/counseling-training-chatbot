@@ -7,7 +7,7 @@
   
   let filteredList = listData;
   let filterTerm = '';
-  let sortedAz = true;
+  let sortedAz = true;          // is list sorted A->Z
   let filterStatusOn = false;   // is the filter in use
   let filterCompleted = false;  // is the filter filtering by completed?
   let shapeClass = rectangleOrCircle ? "rounded-rectangle" : "rounded-circle";
@@ -47,40 +47,54 @@
     );
   }
 
+  /**
+   * Filter list by the status of the module, ie if completed vs not completed
+   */
+  function filterByStatus() {
 
-/**
- * Filter list by the status of the module, ie if completed vs not completed
- */
-function filterByStatus() {
+    // turn filter on & filter by incomplete
+    if (!filterStatusOn && !filterCompleted) {
+      filteredList = listData.filter(
+      (item) =>
+            item.completed != true
+        );
+      
+        filterStatusOn = true
+    }
+    // filter by complete
+    else if (filterStatusOn && !filterCompleted) {
 
-  // turn filter on & filter by incomplete
-  if (!filterStatusOn && !filterCompleted) {
+      filteredList = listData.filter(
+      (item) =>
+            item.completed  == true
+        );
+        filterCompleted = true
+    }
+    // turn filter off 
+    else {
     filteredList = listData.filter(
-    (item) =>
-          item.completed != true
-      );
-    
-      filterStatusOn = true
+      (item) =>
+            item.completed || !item.completed == true
+        ); 
+        filterStatusOn = false
+        filterCompleted = false
+    }
   }
-  // filter by complete
-  else if (filterStatusOn && !filterCompleted) {
 
-    filteredList = listData.filter(
-    (item) =>
-          item.completed  == true
-      );
-      filterCompleted = true
+  /**
+   * Generate pdf functionality
+  */
+  function generatePDF() {
+    //link to PDF functionality here
   }
-  // turn filter off 
-  else {
-  filteredList = listData.filter(
-    (item) =>
-          item.completed || !item.completed == true
-      ); 
-      filterStatusOn = false
-      filterCompleted = false
+
+  /**
+   * do nothing function - want no functionality when pressing disabled pdf button, atm it enters learning outcome page
+  */
+  function doNothing() {
+    //nothing
   }
-}
+
 </script>
 
 <div class="card-bordered h-full">
@@ -89,6 +103,7 @@ function filterByStatus() {
       <div class="flex items-center mr-3">
         <!-- Filter by status -->
         <div class="mr-2">Filter Status</div>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div class="sort-icon p-2 mr-3" on:click={filterByStatus}>
           {#if !filterStatusOn && !filterCompleted}
             <Icon imgPath="/icon-filter-full.png" altText="Filter Status" width="20px" height="20px" />
@@ -99,6 +114,7 @@ function filterByStatus() {
           {/if}
         </div>
         <div class="mr-2">Sort A - Z</div>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div class="sort-icon p-2 mr-3" on:click={sortListAz}>
           {#if sortedAz}
             <!-- Initially list will be sorted alphabetically (A-Z) -->
@@ -147,6 +163,19 @@ function filterByStatus() {
                       {listItem.description}
                     </div>
                   </div>
+                </div>
+                <div>
+                   <!-- Able button - generate PDF -->
+                   {#if listItem.completed}
+                    <button 
+                     on:click={generatePDF} 
+                     class="btn" tabindex="-1"aria-disabled="false">PDF</button>
+                   {:else}
+                    <!-- Disabled button - cant generate PDF -->
+                    <button 
+                      on:click={doNothing}
+                      class="btn btn-disabled" tabindex="-1" aria-disabled="true">PDF</button>
+                   {/if}
                 </div>
               <div>
                 </div>
