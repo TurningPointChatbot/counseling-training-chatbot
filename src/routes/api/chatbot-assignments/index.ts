@@ -30,8 +30,6 @@ export async function PATCH({ request }) {
   const confirmed_assignment: chatbot_assignment | undefined =
     await chatbotAssignmentsPATCH(modified_assignment);
 
-  console.log(confirmed_assignment);
-
   if (confirmed_assignment) {
     return {
       status: 200,
