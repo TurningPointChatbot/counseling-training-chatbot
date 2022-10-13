@@ -85,7 +85,7 @@
    * Generate pdf functionality
   */
   function generatePDF() {
-    //link to PDF functionality here
+    location.href = '/counsellor/pdf'
   }
 
   /**
@@ -138,18 +138,23 @@
     <div class="scroll">
       <div>
         {#each filteredList as listItem}
-        <Linkable link={'/learning-outcomes/' + listItem.cbm_id}>
             <div class="card-bordered p-3">
               <div class="flex flew-row">
                 <div class="basis-1/4 mr-5">
+                  
+                <Linkable link={'/learning-outcomes/' + listItem.cbm_id}>
                   <img
                     alt={listItem.title}
                     class={shapeClass}
                     src={listItem.image}
                   />
+                  
+                </Linkable>
                 </div>
                 <div class="flex items-center basis-3/4">
                   <div>
+                    
+                  <Linkable link={'/learning-outcomes/' + listItem.cbm_id}>
                     <div class="item-title">
                       {listItem.title}
                         <!-- status badges -->
@@ -162,6 +167,7 @@
                     <div class="item-description">
                       {listItem.description}
                     </div>
+                  </Linkable>
                   </div>
                 </div>
                 <div>
@@ -181,7 +187,6 @@
                 </div>
                 </div>
             </div>
-          </Linkable>
         {/each}
       </div>
     </div>
