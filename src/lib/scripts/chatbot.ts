@@ -32,9 +32,17 @@ class Chatbot {
 
     sendMessageWebchatExample1() {
         let text: string = this.demo_messages[this.messageCount]
+
         this.sendMessage(text);
         this.messageCount += 1;
         return {sender: 'patient', content: text}
+    }
+
+    async sendAiMessage() {
+        //TODO: AI here
+        const result = await fetch(`/api/chatbot-ai/${this.id}`, {method: 'GET'});
+        let msg = await result.json();
+        return {sender: 'patient', content: msg.msg }
     }
 }
 
