@@ -1,12 +1,24 @@
 <script lang="ts">
   import { logDOM } from '@testing-library/svelte';
-  import { load } from 'src/routes/modules.svelte';
   import ModuleCardIcon from './ModuleCardIcon.svelte';
 </script>
 
+<script context="module" lang="ts">
+
+  export async function load({ fetch}) {
+    const url = `/api/chatbot-assignments/user_id=1`;
+    const response = await fetch(url);
+    console.log("hi");
+    return {
+      status: response.status,
+      props: {
+        assignments: response.ok && (await response.json())
+      }
+    };
+  }
+</script>
 
 <script lang="ts">
-  load
   import ModuleRow from '$lib/components/ModuleRow.svelte';
   import type { chatbot_assignment } from '@prisma/client';
 
