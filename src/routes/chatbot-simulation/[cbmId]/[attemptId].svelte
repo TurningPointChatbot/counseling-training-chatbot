@@ -96,8 +96,8 @@
     console.log(modified_assignment);
   }
 
-  function modulesRoute() {
-    handlePATCHClick(); // Calling function to mark module as completed
+  async function modulesRoute() {
+    await handlePATCHClick(); // Calling function to mark module as completed
     location.href = '/counsellor/modules';
   }
 </script>
