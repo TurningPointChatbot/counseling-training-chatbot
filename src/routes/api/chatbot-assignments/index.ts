@@ -1,6 +1,7 @@
 import { chatbot_assignment } from '@prisma/client';
+import { chatbot_assignment_PATCH } from '../../../lib/patch_types';
 import { chatbot_assignment_POST } from '../../../lib/post_types';
-import { chatbotAssignmentsPOST } from './_api';
+import { chatbotAssignmentsPOST, chatbotAssignmentsPATCH } from './_api';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function POST({ request }) {
@@ -14,6 +15,26 @@ export async function POST({ request }) {
       status: 200,
       headers: {},
       body: created_assignment
+    };
+  }
+
+  return {
+    status: 400
+  };
+}
+
+/** @type {import('@sveltejs/kit').RequestHandler} */
+export async function PATCH({ request }) {
+  const modified_assignment: chatbot_assignment_PATCH = await request.json();
+
+  const confirmed_assignment: chatbot_assignment | undefined =
+    await chatbotAssignmentsPATCH(modified_assignment);
+
+  if (confirmed_assignment) {
+    return {
+      status: 200,
+      headers: {},
+      body: confirmed_assignment
     };
   }
 
