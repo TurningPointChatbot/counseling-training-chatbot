@@ -4,12 +4,9 @@
   import ModuleCardIcon from './ModuleCardIcon.svelte';
 </script>
 
-<!--
-<script lang="ts">
-  load
-</script>
 
 <script lang="ts">
+  load
   import ModuleRow from '$lib/components/ModuleRow.svelte';
   import type { chatbot_assignment } from '@prisma/client';
 
@@ -18,7 +15,8 @@
 
   function createModuleList() {
     modules = [];
-    for (let i: number = 0; i < assignments.length; i++) {
+    // Grab three assigned modules or all if less then 3
+    for (let i: number = 0; i < 3; i++) {
       console.log(assignments.length);
       modules.push({
             title: "Module " + assignments[i].cbm_id, // should come from different table
@@ -33,7 +31,7 @@
 
   modules = createModuleList();
 
-</script> -->
+</script>
 
 <div class="card bg-base-100 shadow-xl">
   <!-- Assigned Modules Title -->
@@ -45,6 +43,6 @@
   </div>
   <div class="card-body grid grid-row gap-3 w-full">
       <!-- Generating the list of modules using the ModuleRow.svelte  --> 
-      <!--<ModuleRow listData={modules} rectangleOrCircle={true} /> -->
+      <ModuleRow listData={modules} rectangleOrCircle={true} /> 
   </div>
 </div>
