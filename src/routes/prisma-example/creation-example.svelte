@@ -10,6 +10,7 @@
 
   import type { chatbot_assignment } from '@prisma/client';
 
+
   async function handleClick() {
     const creation_time = new Date();
 
@@ -60,8 +61,6 @@
     console.log(await attempt_result.json());
 
     console.log(await module_result.json());
-
-    console.log(await forum_post_result.json());
   }
 
   async function handlePATCHClick() {
@@ -98,8 +97,4 @@
 
 <button on:click={handleClick}>
   Click to send a new message (and a new attempt!)
-</button>
-
-<button on:click={handlePATCHClick}>
-  Click to update an assignment record!
 </button>
