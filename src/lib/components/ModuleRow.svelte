@@ -3,15 +3,24 @@
   import Linkable from './Linkable.svelte';
   import { generatePDF } from '$lib/scripts/pdf_utils';
 
-  export let listData: any[];
+  interface Module {
+    title: string;
+    description: string;
+    cbm_id: number;
+    completed: boolean;
+    image: string;
+    dateAccessed: string;
+  }
+
+  export let listData: Array<Module>;
   export let rectangleOrCircle: boolean;
 
-  let filteredList = listData;
-  let filterTerm = '';
-  let sortedAz = true; // is list sorted A->Z
-  let filterStatusOn = false; // is the filter in use
-  let filterCompleted = false; // is the filter filtering by completed?
-  let shapeClass = rectangleOrCircle ? 'rounded-rectangle' : 'rounded-circle';
+  let filteredList: Array<Module> = listData;
+  let filterTerm: string = '';
+  let sortedAz: boolean = true; // is list sorted A->Z
+  let filterStatusOn: boolean = false; // is the filter in use
+  let filterCompleted: boolean = false; // is the filter filtering by completed?
+  let shapeClass: string = rectangleOrCircle ? 'rounded-rectangle' : 'rounded-circle';
 
   // filteredList[1].completed = true; -- dummy data to test filtering
 
@@ -76,8 +85,12 @@
   /**
    * Generate pdf functionality
    */
-  function startPDFGeneration() {
-    generatePDF();
+  function startPDFGeneration(listItem: Module) {
+    // TODO: Replace placeholder module values
+    let attemptId: number = 1;
+    let dateCompleted: string = 'Placeholder Date'
+    let counsellorName: string = 'Placeholder Name'
+    generatePDF(attemptId, listItem.title, counsellorName, dateCompleted);
   }
 </script>
 
