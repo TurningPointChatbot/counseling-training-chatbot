@@ -86,6 +86,7 @@
    * Generate pdf functionality
    */
   function startPDFGeneration(listItem: Module) {
+    console.log('pdf clicked!')
     // TODO: Replace placeholder module values
     let attemptId: number = 1;
     let dateCompleted: string = 'Placeholder Date'
@@ -199,7 +200,7 @@
                 <!-- Able button - generate PDF -->
                 {#if listItem.completed}
                   <button
-                    on:click={startPDFGeneration}
+                    on:click={() => startPDFGeneration(listItem)}
                     class="btn"
                     tabindex="-1"
                     aria-disabled="false">PDF</button
