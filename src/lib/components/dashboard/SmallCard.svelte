@@ -11,8 +11,8 @@
 
 <a class={cardClass} href="/">
   <div class="rounded">
-    
-    <a href="/admin/counsellors"
+   
+    <a href={path}
       >
       <img class={imageClass} src={image} {alt} />
       <button type="button" class="text-small mb-2">{titleButton}</button></a

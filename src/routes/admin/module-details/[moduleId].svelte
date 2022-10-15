@@ -62,7 +62,7 @@
   <h1>{module.title}</h1>
   <div class="mt-5">{module.description}</div>
   <div class="flex items-center justify-center mt-5">
-    <a href="/learning-outcomes/{module.title}" rel="prefetch">
+    <a href="/learning-outcomes/{moduleId}" rel="prefetch">
       <button class="btn btn-wide btn-success text-white text-lg"
         >Preview</button
       >
