@@ -28,6 +28,9 @@
   let chatbot_modules = [];
 
   for (let i = 0; i < 3; i++) {
+    if (i >= modules.length) {
+      break;
+    }
     chatbot_modules[chatbot_modules.length] = {
       title: modules[i].title,
       description: modules[i].description,
