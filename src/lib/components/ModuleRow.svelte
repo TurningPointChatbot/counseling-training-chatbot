@@ -1,18 +1,19 @@
 <script lang="ts">
   import Icon from '$lib/components/Icon.svelte';
   import Linkable from './Linkable.svelte';
+  import { generatePDF } from '$lib/scripts/pdf_utils';
 
   export let listData: any[];
   export let rectangleOrCircle: boolean;
-  
+
   let filteredList = listData;
   let filterTerm = '';
-  let sortedAz = true;          // is list sorted A->Z
-  let filterStatusOn = false;   // is the filter in use
-  let filterCompleted = false;  // is the filter filtering by completed?
-  let shapeClass = rectangleOrCircle ? "rounded-rectangle" : "rounded-circle";
+  let sortedAz = true; // is list sorted A->Z
+  let filterStatusOn = false; // is the filter in use
+  let filterCompleted = false; // is the filter filtering by completed?
+  let shapeClass = rectangleOrCircle ? 'rounded-rectangle' : 'rounded-circle';
 
-  // filteredList[1].completed = true; -- dummy data to test filtering 
+  // filteredList[1].completed = true; -- dummy data to test filtering
 
   /**
    * Sort list by list item titles. Also display icon accordingly depending on
@@ -51,41 +52,32 @@
    * Filter list by the status of the module, ie if completed vs not completed
    */
   function filterByStatus() {
-
     // turn filter on & filter by incomplete
     if (!filterStatusOn && !filterCompleted) {
-      filteredList = listData.filter(
-      (item) =>
-            item.completed != true
-        );
-      
-        filterStatusOn = true
+      filteredList = listData.filter((item) => item.completed != true);
+
+      filterStatusOn = true;
     }
     // filter by complete
     else if (filterStatusOn && !filterCompleted) {
-
-      filteredList = listData.filter(
-      (item) =>
-            item.completed  == true
-        );
-        filterCompleted = true
+      filteredList = listData.filter((item) => item.completed == true);
+      filterCompleted = true;
     }
-    // turn filter off 
+    // turn filter off
     else {
-    filteredList = listData.filter(
-      (item) =>
-            item.completed || !item.completed == true
-        ); 
-        filterStatusOn = false
-        filterCompleted = false
+      filteredList = listData.filter(
+        (item) => item.completed || !item.completed == true
+      );
+      filterStatusOn = false;
+      filterCompleted = false;
     }
   }
 
   /**
    * Generate pdf functionality
-  */
-  function generatePDF() {
-    location.href = '/counsellor/pdf'
+   */
+  function startPDFGeneration() {
+    generatePDF();
   }
 </script>
 
@@ -98,11 +90,26 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div class="sort-icon p-2 mr-3" on:click={filterByStatus}>
           {#if !filterStatusOn && !filterCompleted}
-            <Icon imgPath="/icon-filter-full.png" altText="Filter Status" width="20px" height="20px" />
+            <Icon
+              imgPath="/icon-filter-full.png"
+              altText="Filter Status"
+              width="20px"
+              height="20px"
+            />
           {:else if filterStatusOn && !filterCompleted}
-          <Icon imgPath="/icon-filter-bot.png" altText="Filter Status" width="20px" height="20px" />
+            <Icon
+              imgPath="/icon-filter-bot.png"
+              altText="Filter Status"
+              width="20px"
+              height="20px"
+            />
           {:else}
-            <Icon imgPath="/icon-filter-top.png" altText="Filter Status" width="20px" height="20px"/>
+            <Icon
+              imgPath="/icon-filter-top.png"
+              altText="Filter Status"
+              width="20px"
+              height="20px"
+            />
           {/if}
         </div>
         <div class="mr-2">Sort A - Z</div>
@@ -110,9 +117,19 @@
         <div class="sort-icon p-2 mr-3" on:click={sortListAz}>
           {#if sortedAz}
             <!-- Initially list will be sorted alphabetically (A-Z) -->
-            <Icon imgPath="/icon-sort-asc.png" altText="Sort A-Z" width="20px" height="20px" />
+            <Icon
+              imgPath="/icon-sort-asc.png"
+              altText="Sort A-Z"
+              width="20px"
+              height="20px"
+            />
           {:else}
-            <Icon imgPath="/icon-sort-desc.png" altText="Sort Z-A" width="20px" height="20px"/>
+            <Icon
+              imgPath="/icon-sort-desc.png"
+              altText="Sort Z-A"
+              width="20px"
+              height="20px"
+            />
           {/if}
         </div>
       </div>
@@ -130,54 +147,62 @@
     <div class="scroll">
       <div>
         {#each filteredList as listItem}
-            <div class="card-bordered p-3">
-              <div class="flex flew-row">
-                <div class="basis-1/4 mr-5">
-                  
+          <div class="card-bordered p-3">
+            <div class="flex flew-row">
+              <div class="basis-1/4 mr-5">
                 <Linkable link={'/learning-outcomes/' + listItem.cbm_id}>
                   <img
                     alt={listItem.title}
                     class={shapeClass}
                     src={listItem.image}
                   />
-                  
                 </Linkable>
-                </div>
-                <div class="flex items-center basis-3/4">
-                  <div>
-                    
+              </div>
+              <div class="flex items-center basis-3/4">
+                <div>
                   <Linkable link={'/learning-outcomes/' + listItem.cbm_id}>
                     <div class="item-title">
                       {listItem.title}
-                        <!-- status badges -->
-                        {#if listItem.completed}
-                        <div class="badge badge-md badge-accent badge-outline">completed</div>
-                        {:else}
-                        <div class="badge badge-lg badge-secondary badge-outline">incomplete</div>
-                        {/if}
+                      <!-- status badges -->
+                      {#if listItem.completed}
+                        <div class="badge badge-md badge-accent badge-outline">
+                          completed
+                        </div>
+                      {:else}
+                        <div
+                          class="badge badge-lg badge-secondary badge-outline"
+                        >
+                          incomplete
+                        </div>
+                      {/if}
                     </div>
                     <div class="item-description">
                       {listItem.description}
                     </div>
                   </Linkable>
-                  </div>
                 </div>
-                <div>
-                   <!-- Able button - generate PDF -->
-                   {#if listItem.completed}
-                    <button 
-                     on:click={generatePDF} 
-                     class="btn" tabindex="-1"aria-disabled="false">PDF</button>
-                   {:else}
-                    <!-- Disabled button - cant generate PDF -->
-                    <button 
-                      class="btn btn-disabled" tabindex="-1" aria-disabled="true">PDF</button>
-                   {/if}
-                </div>
+              </div>
               <div>
-                </div>
-                </div>
+                <!-- Able button - generate PDF -->
+                {#if listItem.completed}
+                  <button
+                    on:click={startPDFGeneration}
+                    class="btn"
+                    tabindex="-1"
+                    aria-disabled="false">PDF</button
+                  >
+                {:else}
+                  <!-- Disabled button - cant generate PDF -->
+                  <button
+                    class="btn btn-disabled"
+                    tabindex="-1"
+                    aria-disabled="true">PDF</button
+                  >
+                {/if}
+              </div>
+              <div />
             </div>
+          </div>
         {/each}
       </div>
     </div>
