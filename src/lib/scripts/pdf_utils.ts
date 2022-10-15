@@ -16,12 +16,13 @@ interface ModuleDetails {
 
 // Styling Constants
 const LINE_OFFSET: number = 8;
-const PARAGRAPH_OFFSET: number = 16;
+const PARAGRAPH_OFFSET: number = 24;
+const PAGE_LIMIT: number = 250;
 const FONT_NAME: string = 'calibri';
 
 export function generatePDF(attempt_id: number, moduleName: string, counsellorName: string, dateCompleted: string): void {
   
-    let moduleDetails = { attempt_id, moduleName, counsellorName, dateCompleted };
+  let moduleDetails = { attempt_id, moduleName, counsellorName, dateCompleted };
   let pdf: chatLogPDF = new chatLogPDF(moduleDetails);
 
   pdf.generate();
@@ -46,6 +47,10 @@ class chatLogPDF {
 
 		for(let message of this.messages){
 			this.insertMessage(message);
+      if(this.y_offset > PAGE_LIMIT){
+        this.doc.addPage();
+        this.y_offset = 0;
+      }
 		}
     this.doc.output('dataurlnewwindow');
   }
@@ -54,7 +59,7 @@ class chatLogPDF {
   retrieveMessages() {
     //TODO: Replace placeholder values with API GET Request
     let message: Message;
-    for (let i = 0; i < 10; i++) {
+    for (let i = 1; i <= 30; i++) {
 			message = {
       	sender: this.moduleDetails.counsellorName,
       	text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis odio id est vestibulum blandit. Duis ultricies urna fermentum ornare rhoncus.',
@@ -89,12 +94,16 @@ class chatLogPDF {
   }
 
   insertMessage(message: Message) {
+    let textArray: string[];
 		this.doc.setFontSize(12);
 
+    // Sender and Timestamp
 		this.doc.setFont(FONT_NAME, 'normal', 'bold');
 		this.doc.text(`${message.sender} [${message.timestamp}]`, 10, this.y_offset += PARAGRAPH_OFFSET);
 
+    //Splitting message text into multiple lines with 1 sentence per line
+    textArray = message.text.split('. ');
 		this.doc.setFont(FONT_NAME, 'normal', 'normal');
-		this.doc.text(message.text, 10, this.y_offset += LINE_OFFSET);
+		this.doc.text(textArray, 10, this.y_offset += LINE_OFFSET);
 	}
 }
