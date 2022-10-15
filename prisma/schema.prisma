@@ -57,11 +57,12 @@ model chatbot_attempt_message {
 }
 
 model chatbot_module {
-  id                 BigInt               @id @default(autoincrement())
-  title              String               @db.VarChar
-  description        String
-  chatbot_assignment chatbot_assignment[]
-  chatbot_attempt    chatbot_attempt[]
+  id                              BigInt                            @id @default(autoincrement())
+  title                           String                            @db.VarChar
+  description                     String
+  chatbot_assignment              chatbot_assignment[]
+  chatbot_attempt                 chatbot_attempt[]
+  chatbot_module_learning_outcome chatbot_module_learning_outcome[]
 }
 
 model forum_post {
@@ -130,4 +131,21 @@ model message_type {
   id                      BigInt                    @id @default(autoincrement())
   name                    String                    @unique @db.VarChar
   chatbot_attempt_message chatbot_attempt_message[]
+}
+
+model chatbot_module_learning_outcome {
+  cbm_id              BigInt
+  learning_outcome_id BigInt
+  created_at          DateTime?        @default(now()) @db.Timestamptz(6)
+  chatbot_module      chatbot_module   @relation(fields: [cbm_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  learning_outcome    learning_outcome @relation(fields: [learning_outcome_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([cbm_id, learning_outcome_id])
+}
+
+model learning_outcome {
+  id                              BigInt                            @id @default(autoincrement())
+  created_at                      DateTime?                         @default(now()) @db.Timestamptz(6)
+  description                     String                            @unique @db.VarChar
+  chatbot_module_learning_outcome chatbot_module_learning_outcome[]
 }
