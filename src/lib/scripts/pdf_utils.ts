@@ -2,38 +2,49 @@
 import { jsPDF } from 'jspdf';
 
 interface Message {
-    sender: string,
-    text: string,
-    timestamp: string
+  sender: string;
+  text: string;
+  timestamp: string;
 }
 
-export function generatePDF() {
-  let doc: jsPDF = new jsPDF();
+export function generatePDF(
+  attempt_id: number,
+  moduleName: string,
+  counsellorName: string,
+  dateCompleted: string
+): void {
+  let pdf: chatLogPDF = new chatLogPDF(
+    attempt_id,
+    moduleName,
+    counsellorName,
+    dateCompleted
+  );
 
-  for(let i = 0; i < 10; i++){
-    doc.setFontSize(8 + i);
-    doc.text(`Text no. ${i}`, 10, 10*i);
+  pdf.generate();
+}
+
+class chatLogPDF {
+  doc: jsPDF;
+  messages: Array<Message>;
+  y_offset: number;
+
+  constructor(
+    attempt_id: number,
+    moduleName: string,
+    counsellorName: string,
+    dateCompleted: string
+  ) {
+    this.doc = new jsPDF();
   }
-  doc.output('dataurlnewwindow');
-}
 
-function getMessages(): Array<Message> {
-    let messages: Array<Message>
+  generate() {
+    this.doc.output('dataurlnewwindow');
+  }
 
-    return messages;
-}
+  /** Retrieve messages from API */
+  retrieveMessages() {}
 
-/** Inserts Header to pdf and returns y co-ordinate offset */
-function insertHeader(moduleName: string, counsellorName: string, dateCompleted: string): number {
-    let y_ptr: number;
+  insertHeader() {}
 
-    return y_ptr;
-}
-
-
-/** Inserts a Message to pdf and returns y co-ordinate offset */
-function insertMessage(message: Message): number {
-    let y_ptr: number;
-
-    return y_ptr;
+  insertMessage(message: Message) {}
 }
