@@ -1,8 +1,3 @@
-<script lang="ts">
-  import { logDOM } from '@testing-library/svelte';
-  import ModuleCardIcon from './ModuleCardIcon.svelte';
-</script>
-
 <script context="module" lang="ts">
 
   export async function load({ fetch}) {
@@ -18,7 +13,7 @@
   }
 </script>
 
-<script lang="ts">
+ <script lang="ts">
   import ModuleRow from '$lib/components/ModuleRow.svelte';
   import type { chatbot_assignment } from '@prisma/client';
 
@@ -45,6 +40,7 @@
 
 </script>
 
+
 <div class="card bg-base-100 shadow-xl">
   <!-- Assigned Modules Title -->
   <div class="h2-counsellor-dashboard">
@@ -55,6 +51,7 @@
   </div>
   <div class="card-body grid grid-row gap-3 w-full">
       <!-- Generating the list of modules using the ModuleRow.svelte  --> 
-      <ModuleRow listData={modules} rectangleOrCircle={true} /> 
+      <ModuleRow listData={modules} rectangleOrCircle={true} />  
   </div>
 </div>
+
