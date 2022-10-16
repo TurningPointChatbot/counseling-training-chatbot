@@ -1,3 +1,9 @@
+<!--
+  Sections of code to make the assigned modules appear commented out as there is a bug stopping 
+  the rest of the page loading
+-->
+
+<!--
 <script context="module" lang="ts">
 
   export async function load({ fetch}) {
@@ -39,7 +45,7 @@
   modules = createModuleList();
 
 </script>
-
+-->
 
 <div class="card bg-base-100 shadow-xl">
   <!-- Assigned Modules Title -->
@@ -51,7 +57,7 @@
   </div>
   <div class="card-body grid grid-row gap-3 w-full">
       <!-- Generating the list of modules using the ModuleRow.svelte  --> 
-      <ModuleRow listData={modules} rectangleOrCircle={true} />  
+      <!--<ModuleRow listData={modules} rectangleOrCircle={true} />  -->
   </div>
 </div>
 
