@@ -14,11 +14,36 @@ export async function chatbotModuleGET(
   let modules: chatbot_module[] = [];
 
   if (!params) {
-    modules = await prisma.chatbot_module.findMany();
+    modules = await prisma.chatbot_module.findMany({
+      include: {
+        chatbot_module_learning_outcome: {
+          include: {
+            learning_outcome: {
+              select: {
+                id: true,
+                description: true
+              }
+            }
+          }
+        }
+      }
+    });
   } else {
     const foundModule = await prisma.chatbot_module.findUnique({
       where: {
         id: params.id
+      },
+      include: {
+        chatbot_module_learning_outcome: {
+          include: {
+            learning_outcome: {
+              select: {
+                id: true,
+                description: true
+              }
+            }
+          }
+        }
       }
     });
 
