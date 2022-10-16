@@ -8,15 +8,19 @@
 
   import supabase from '$lib/supabase';
   let loading = false;
-  let email, password;
+  let email = 'testbaseuser1@test.com';
+  let password = 'testbaseuser1';
 
   /**
    * Sign In Function
    */
+  import { user } from "../../../stores/authStore";
   const signInWithEmail = async () => {
     try {
       loading = true;
-      const { user, error } = await supabase.auth.signIn({ email, password });
+      const { loginUser, error } = await supabase.auth.signIn({ email, password });
+
+      user.set(email);
 
       if (error) throw error;
 

@@ -14,31 +14,6 @@
 
   const dispatch = createEventDispatcher();
 
-  // FIXME: super hacky line of code that gets image to download on path change
-  // primarily when path is first fetched from the database.
-  $: {
-    path;
-    downloadImage();
-  }
-
-  /**
-   * Retrieves a profile picture's URL and sets it to src.
-   */
-  async function downloadImage() {
-    try {
-      const { data, error } = await supabase.storage
-        .from('avatars')
-        .download(path);
-
-      if (error) throw error;
-
-      src = URL.createObjectURL(data);
-    } catch (error) {
-      // TODO: handle downloading error
-      console.log('Error downloading image: ', error.message);
-    }
-  }
-
   /**
    * Uploads an image specified by the file input to supabase storage bucket.
    */
@@ -67,8 +42,6 @@
       path = filePath;
 
       await updateUserAvatarURL();
-
-      await downloadImage();
 
       dispatch('upload');
     } catch (error) {
@@ -107,7 +80,7 @@
   <div class="grid place-content-center avatar">
     <div class="w-36 rounded-full border-base-300 border-4">
       <!-- Below line throws a typescript error but still works as expected... -->
-      <img use:downloadImage {src} alt="The user's avatar" />
+      <img {src} alt="The user's avatar" />
     </div>
   </div>
   <h3 class="text-center">Change profile picture:</h3>
