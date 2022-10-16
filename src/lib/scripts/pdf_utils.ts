@@ -1,12 +1,14 @@
 //TODO: Implement functions that generate chat log PDF
 import { jsPDF } from 'jspdf';
 
+// message interface
 interface Message {
   sender: string;
   text: string;
   timestamp: string;
 }
 
+// pdf title interface
 interface ModuleDetails {
   attempt_id: number;
   moduleName: string;
@@ -20,6 +22,13 @@ const PARAGRAPH_OFFSET: number = 24;
 const PAGE_LIMIT: number = 250;
 const FONT_NAME: string = 'calibri';
 
+/**
+ * Function generates a PDF document containing a counsellor's chatlog
+ * @param attempt_id attempt identifier
+ * @param moduleName title of module
+ * @param counsellorName counsellor's name
+ * @param dateCompleted date module completed
+ */
 export function generatePDF(attempt_id: number, moduleName: string, counsellorName: string, dateCompleted: string): void {
   
   let moduleDetails = { attempt_id, moduleName, counsellorName, dateCompleted };
@@ -41,6 +50,9 @@ class chatLogPDF {
 		this.messages = [];
   }
 
+  /**
+   * generates PDF
+   */
   generate() {
     this.insertHeader();
 		this.retrieveMessages();
@@ -70,6 +82,9 @@ class chatLogPDF {
     }
   }
 
+  /**
+   * Inserts header into PDF
+   */
   insertHeader() {
 		let x_offset = 60;
     this.doc.setFontSize(14);
@@ -93,6 +108,10 @@ class chatLogPDF {
     this.doc.text(`${this.moduleDetails.dateCompleted}`, x_offset, this.y_offset);
   }
 
+  /**
+   * Inserts message into PDF
+   * @param message messafe from chat log
+   */
   insertMessage(message: Message) {
     let textArray: string[];
 		this.doc.setFontSize(12);
