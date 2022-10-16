@@ -2,7 +2,8 @@
   import type {
     chatbot_attempt_message_POST,
     chatbot_attempt_POST,
-    chatbot_module_POST
+    chatbot_module_POST,
+    forum_post_POST
   } from '$lib/post_types';
 
   import type { chatbot_assignment_PATCH } from '$lib/patch_types';
@@ -28,6 +29,12 @@
       description: `Sample description created at ${creation_time.toLocaleTimeString()}`
     };
 
+    const forum_post: forum_post_POST = {
+      text: `example forum post created at ${creation_time.toLocaleTimeString()}`,
+      username: 'example@test.com',
+      valid: false
+    };
+
     const message_result = await fetch('/api/chatbot-messages', {
       method: 'POST',
       body: JSON.stringify(message)
@@ -43,11 +50,18 @@
       body: JSON.stringify(module)
     });
 
+    const forum_post_result = await fetch('/api/modules/forum-post', {
+      method: 'POST',
+      body: JSON.stringify(forum_post)
+    });
+
     console.log(await message_result.json());
 
     console.log(await attempt_result.json());
 
     console.log(await module_result.json());
+
+    console.log(await forum_post_result.json());
   }
 
   async function handlePATCHClick() {
