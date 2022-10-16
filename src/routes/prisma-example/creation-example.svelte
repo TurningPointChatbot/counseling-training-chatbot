@@ -98,3 +98,7 @@
 <button on:click={handleClick}>
   Click to send a new message (and a new attempt!)
 </button>
+
+<button on:click={handlePATCHClick}>
+  Click to update an assignment record!
+</button>
