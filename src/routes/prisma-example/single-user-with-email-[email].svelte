@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
   export async function load({ fetch, params }) {
-    const url = `/api/users/${params.email}`;
+    const url = `/api/users/email=${params.email}`;
     const response = await fetch(url);
 
     return {
