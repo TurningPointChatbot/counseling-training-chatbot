@@ -1,18 +1,63 @@
-<script lang="ts">
-  import ModuleCardIcon from './ModuleCardIcon.svelte';
+<!--
+  Sections of code to make the assigned modules appear commented out as there is a bug stopping 
+  the rest of the page loading
+-->
+
+<!--
+<script context="module" lang="ts">
+
+  export async function load({ fetch}) {
+    const url = `/api/chatbot-assignments/user_id=1`;
+    const response = await fetch(url);
+    console.log("hi");
+    return {
+      status: response.status,
+      props: {
+        assignments: response.ok && (await response.json())
+      }
+    };
+  }
 </script>
+
+ <script lang="ts">
+  import ModuleRow from '$lib/components/ModuleRow.svelte';
+  import type { chatbot_assignment } from '@prisma/client';
+
+  export let assignments: Array<chatbot_assignment>;
+  let modules: Array<any>;
+
+  function createModuleList() {
+    modules = [];
+    // Grab three assigned modules or all if less then 3
+    for (let i: number = 0; i < 3; i++) {
+      console.log(assignments.length);
+      modules.push({
+            title: "Module " + assignments[i].cbm_id, // should come from different table
+            description: "Description for module " + assignments[i].cbm_id, // should come from different table
+            cbm_id: assignments[i].cbm_id, 
+            completed: assignments[i].completed,
+            image: 'https://picsum.photos/id/426/400/600.jpg', // should come from different table
+            dateAccessed: '2022-05-25'});
+      }
+    return modules;
+  }
+
+  modules = createModuleList();
+
+</script>
+-->
 
 <div class="card bg-base-100 shadow-xl">
   <!-- Assigned Modules Title -->
   <div class="h2-counsellor-dashboard">
     <h3 class="left-3 relative">
       Assigned Modules
+
     </h3>
   </div>
   <div class="card-body grid grid-row gap-3 w-full">
-    <!-- Module Example 1: Withdrawal -->
-    <div class="row"><ModuleCardIcon moduleName="Module 104: Withdrawal" imgUrl="https://images.unsplash.com/photo-1516027828283-84217f09f3c4?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=225"/></div>
-    <!-- Module Example 2: Counselling Techniques -->
-    <div class="row"><ModuleCardIcon moduleName="Module 105: Counselling techniques" imgUrl="https://images.unsplash.com/photo-1604882356818-9100fce260a7?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=225"/></div>
+      <!-- Generating the list of modules using the ModuleRow.svelte  --> 
+      <!--<ModuleRow listData={modules} rectangleOrCircle={true} />  -->
   </div>
 </div>
+
