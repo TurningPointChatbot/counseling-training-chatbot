@@ -3,18 +3,21 @@
 
     import type { user } from '@prisma/client';
     export let foundUser: user;
-
-    import { user } from "../../stores/authStore";
-    console.log(user);
-
 </script>
 
 <script context="module" lang="ts">
-    import { get } from 'svelte/store';
+    /*
+    Should be able to use this code to get values from stores,
+    but stores do not seem to be able to store data between pages
+    Check login.svelte for code to set the store.
 
+    import {get} from "svelte/store";
+    import {user} from "../../stores/authStore";
+
+    email = get(user);
+     */
     export async function load({ fetch }) {
         let email = 'testbaseuser1@test.com';
-
 
         const url = `/api/users/email=${email}`;
         const response = await fetch(url);
