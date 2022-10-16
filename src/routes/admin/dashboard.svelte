@@ -38,14 +38,14 @@
 
 </script>
 <div class="module-card">
-  <BigCard title={'Counsellors'} subTitle={'Recently viewed'}>
+  <BigCard title={'Counsellors'} subTitle={''}>
     {#each counsellors as counsellor}
-      <SmallCard titleButton={counsellor['fname'] + " " + counsellor['lname']}, path = "/admin/employee-details/{counsellor['id']}" />
+      <SmallCard titleButton={counsellor['fname'] + " " + counsellor['lname']} path = "/admin/employee-details/{counsellor['id']}" />
     {/each}
     <ModuleCircleButton path="/admin/counsellors"/>
   </BigCard>
 
-  <BigCard title={'Training Modules'} subTitle={'Recently Viewed'}>
+  <BigCard title={'Training Modules'} subTitle={''}>
     {#each chatbot_modules as module}
       <SmallCard
         cardClass="col-span-2 text-center px-3 py-3"
