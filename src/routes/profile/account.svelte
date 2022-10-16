@@ -16,8 +16,8 @@
 
     email = get(user);
      */
-    export async function load({ fetch }) {
-        let email = 'testbaseuser1@test.com';
+    export async function load({ fetch, session }) {
+        let email = session.user.email;
 
         const url = `/api/users/email=${email}`;
         const response = await fetch(url);

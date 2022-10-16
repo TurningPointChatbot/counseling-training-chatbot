@@ -14,16 +14,11 @@
   /**
    * Sign In Function
    */
-  import { user } from "../../../stores/authStore";
 
   const signInWithEmail = async () => {
     try {
       loading = true;
-      const { loginUser, error } = await supabase.auth.signIn({ email, password });
-
-      // Code to set store, seems to work on this page using console.log
-      // Cannot get data from store on other pages
-      user.set(email);
+      const { user, error } = await supabase.auth.signIn({ email, password });
 
       if (error) throw error;
 
