@@ -3,6 +3,16 @@
   import ModuleCircleButton from './ModuleCircleButton.svelte';
 
   export let chatbotModules = [];
+  let div_module ;
+  console.log(chatbotModules);
+  for (let i = 0; i < chatbotModules.length && i < 3; i++) {
+    div_module.appendChild('<div class="col-span-3"><ModuleCard imgUrl={generateRandomPicture(imageArray)} moduleName={chatbotModules[0].title}/> '
+     + '<button class="export_btn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">'
+      + '  <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>'
+       +' <span>Download</span>' +
+      '</button></a></div>');
+  };
+
 
   const imageArray = [
 	"https://images.unsplash.com/photo-1508185159346-bb1c5e93ebb4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=55cf14db6ed80a0410e229368963e9d8&auto=format&fit=crop&w=400&h=225",
@@ -28,6 +38,7 @@ function generateRandomPicture(array){
 	let randomNum = Math.floor(Math.random() * array.length); 
 	return array[randomNum];
 }
+
 </script>
 
 <div class="card bg-base-100 shadow-xl">
@@ -38,8 +49,9 @@ function generateRandomPicture(array){
     </h3>
   </div>
   <div class="card-body grid grid-cols-10 gap-3 w-full">
+  <div bind:this={div_module}></div>
     <!-- Module Card Examples -->
-    <div class="col-span-3"><ModuleCard imgUrl={generateRandomPicture(imageArray)} moduleName={chatbotModules[0].title}/>
+    <!-- <div class="col-span-3"><ModuleCard imgUrl={generateRandomPicture(imageArray)} moduleName={chatbotModules[0].title}/>
       <a href={chatbotModules[0].href} target="_blank">
       <button class="export_btn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
         <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
@@ -60,7 +72,7 @@ function generateRandomPicture(array){
         <span>Download</span>
       </button>
       </a>
-    </div>
+    </div> -->
     <!-- Module Circle Button Section -->
     <div class="col-span-1 self-center"><ModuleCircleButton /></div>
   </div>

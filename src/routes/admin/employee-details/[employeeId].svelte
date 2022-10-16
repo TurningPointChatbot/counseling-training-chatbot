@@ -32,7 +32,7 @@
 
   let top_modules = [];
   let chatbotModules = [];
-
+  
 let employee = {
     name: foundUser.fname + ' ' + foundUser.lname,
     progress: 50,
@@ -40,7 +40,7 @@ let employee = {
     position: foundUser.type_id,
     training: 10
   };
-
+  console.log(foundUser)
   let totalCompleted = 0;
   let totalModules = foundUser.chatbot_attempt.length;
   let totalHoursDone = 10;
@@ -64,7 +64,6 @@ let employee = {
     for (let i = 0; i < modules.length; i++) {
       for (let x = 0; x < top_modules.length && x < 3; x++){
         if(modules[i].id == top_modules[x].cbm_id){
-          console.log('fsdfsfs');
           chatbotModules[chatbotModules.length] = {
           title: modules[i].title,
           description: modules[i].description,
