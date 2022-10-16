@@ -8,7 +8,6 @@
 
   let avatarUrl = 'https://placeimg.com/80/80/people';
   let userType = 'admin' // Hardcoded placeholder
-  const user = $session.user
 
   /**
    * Sign Out Function
@@ -44,50 +43,29 @@
     }
   }
 
-  /** 
+  /**
    * Retrieve user information from the database and update UI
    */
 
-  /*
-  async function getUserFromEmail() {
-    if ($page.url.pathname === '/login') {
-      return;
-    }
-
-
-    try {
-
-      const url = `/api/users/?email=${user.email}`;
-      const response = await fetch(url);
-      let foundUser = response.ok && (await response.json();
-
-      console.log(foundUser);
-
-      if (response.status) {
-        let x = 9;
-      }
-
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
-
   import type { user } from '@prisma/client';
-
   export let foundUser: user;
-  export let id: bigint;
 
-   */
 </script>
 
 <script context="module" lang="ts">
-  /*export async function load({ fetch }) {
-    const url = '/api/users/email=';
+
+  export async function load({ fetch }) {
+    let email = 'testbaseuser1@test.com';
+    const url = `/api/users/email=${email}`;
     const response = await fetch(url);
 
-    console.log(response);
+    return {
+      status: response.status,
+      props: {
+        foundUser: response.ok && (await response.json()),
+      }
+    };
   }
-  */
 </script>
 
 {#if $page.url.pathname === '/login'}
@@ -130,7 +108,7 @@
           <div class="dropdown dropdown-end">
             <button tabindex="0" class="btn btn-ghost btn-circle avatar">
               <div class="w-10 rounded-full">
-                <img alt="profile" src={avatarUrl} />
+                <img alt="profile" src={foundUser['avatar_url']} />
               </div>
             </button>
             <ul
