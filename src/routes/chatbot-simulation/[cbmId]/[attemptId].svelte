@@ -18,6 +18,8 @@
   import ChatMessage from '$lib/components/ChatMessage.svelte';
   import { Chatbot } from '$lib/scripts/chatbot';
   import { storeMessage } from '$lib/scripts/chatbot_utils';
+  import type { chatbot_assignment_PATCH } from '$lib/patch_types';
+  import type { chatbot_assignment } from '@prisma/client';
 
   export let cbmId: number;
   export let attemptId: number;
@@ -54,6 +56,49 @@
   async function sendChatbotMessage() {
     let displayMessage: DisplayMessage = await chatbot.sendAiMessage();
     displayMessages = [...displayMessages, displayMessage];
+  }
+
+  async function handlePATCHClick() {
+    // grab an existing assignment
+    let json_data = await (
+      await (await fetch('/api/chatbot-assignments/user_id=1')).json()
+    );
+    
+    var old_assignment;
+    for (let i =0; i < Object.keys( json_data ).length; i++) {
+      if (json_data[i].cbm_id == cbmId) {
+        old_assignment = await ( await (await fetch('/api/chatbot-assignments/user_id=1')).json())[i];
+      }
+    }
+
+    console.log('old assignment');
+    console.log(old_assignment);
+
+    // modify it a bit
+    const changed_assignment: chatbot_assignment_PATCH = {
+      cbm_id: old_assignment.cbm_id,
+      user_id: old_assignment.user_id,
+      created_at: old_assignment.created_at,
+      completed_at: new Date(),
+      completed: true,
+      attempt_id: old_assignment.attempt_id
+    };
+
+    // throw it to the patch endpoint
+    const modified_assignment: chatbot_assignment = await (
+      await fetch('/api/chatbot-assignments', {
+        method: 'PATCH',
+        body: JSON.stringify(changed_assignment)
+      })
+    ).json();
+
+    console.log('modified assignment');
+    console.log(modified_assignment);
+  }
+
+  async function modulesRoute() {
+    await handlePATCHClick(); // Calling function to mark module as completed
+    location.href = '/counsellor/modules';
   }
 </script>
 
@@ -101,7 +146,7 @@
           >Send Message</button
         >
         <button
-          on:click={() => (location.href = '/counsellor/modules')}
+          on:click={modulesRoute}
           type="button"
           class="btn-outline rounded inline-block px-6 py-2.5 bg-error text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out float-right"
           >End Chat</button

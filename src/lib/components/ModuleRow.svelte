@@ -1,18 +1,28 @@
 <script lang="ts">
   import Icon from '$lib/components/Icon.svelte';
   import Linkable from './Linkable.svelte';
+  import { generatePDF } from '$lib/scripts/pdf_utils';
 
-  export let listData: any[];
+  interface Module {
+    title: string;
+    description: string;
+    cbm_id: number;
+    completed: boolean;
+    image: string;
+    dateAccessed: string;
+  }
+
+  export let listData: Array<Module>;
   export let rectangleOrCircle: boolean;
-  
-  let filteredList = listData;
-  let filterTerm = '';
-  let sortedAz = true;
-  let filterStatusOn = false;   // is the filter in use
-  let filterCompleted = false;  // is the filter filtering by completed?
-  let shapeClass = rectangleOrCircle ? "rounded-rectangle" : "rounded-circle";
 
-  // filteredList[1].completed = true; -- dummy data to test filtering 
+  let filteredList: Array<Module> = listData;
+  let filterTerm: string = '';
+  let sortedAz: boolean = true; // is list sorted A->Z
+  let filterStatusOn: boolean = false; // is the filter in use
+  let filterCompleted: boolean = false; // is the filter filtering by completed?
+  let shapeClass: string = rectangleOrCircle ? 'rounded-rectangle' : 'rounded-circle';
+
+  // filteredList[1].completed = true; -- dummy data to test filtering
 
   /**
    * Sort list by list item titles. Also display icon accordingly depending on
@@ -47,40 +57,42 @@
     );
   }
 
+  /**
+   * Filter list by the status of the module, ie if completed vs not completed
+   */
+  function filterByStatus() {
+    // turn filter on & filter by incomplete
+    if (!filterStatusOn && !filterCompleted) {
+      filteredList = listData.filter((item) => item.completed != true);
 
-/**
- * Filter list by the status of the module, ie if completed vs not completed
- */
-function filterByStatus() {
-
-  // turn filter on & filter by incomplete
-  if (!filterStatusOn && !filterCompleted) {
-    filteredList = listData.filter(
-    (item) =>
-          item.completed != true
+      filterStatusOn = true;
+    }
+    // filter by complete
+    else if (filterStatusOn && !filterCompleted) {
+      filteredList = listData.filter((item) => item.completed == true);
+      filterCompleted = true;
+    }
+    // turn filter off
+    else {
+      filteredList = listData.filter(
+        (item) => item.completed || !item.completed == true
       );
-    
-      filterStatusOn = true
+      filterStatusOn = false;
+      filterCompleted = false;
+    }
   }
-  // filter by complete
-  else if (filterStatusOn && !filterCompleted) {
 
-    filteredList = listData.filter(
-    (item) =>
-          item.completed  == true
-      );
-      filterCompleted = true
+  /**
+   * Generate pdf functionality
+   */
+  function startPDFGeneration(listItem: Module) {
+    console.log('pdf clicked!')
+    // TODO: Replace placeholder module values
+    let attemptId: number = 1;
+    let dateCompleted: string = 'Placeholder Date'
+    let counsellorName: string = 'Placeholder Name'
+    generatePDF(attemptId, listItem.title, counsellorName, dateCompleted);
   }
-  // turn filter off 
-  else {
-  filteredList = listData.filter(
-    (item) =>
-          item.completed || !item.completed == true
-      ); 
-      filterStatusOn = false
-      filterCompleted = false
-  }
-}
 </script>
 
 <div class="card-bordered h-full">
@@ -89,22 +101,49 @@ function filterByStatus() {
       <div class="flex items-center mr-3">
         <!-- Filter by status -->
         <div class="mr-2">Filter Status</div>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div class="sort-icon p-2 mr-3" on:click={filterByStatus}>
           {#if !filterStatusOn && !filterCompleted}
-            <Icon imgPath="/icon-filter-full.png" altText="Filter Status" width="20px" height="20px" />
+            <Icon
+              imgPath="/icon-filter-full.png"
+              altText="Filter Status"
+              width="20px"
+              height="20px"
+            />
           {:else if filterStatusOn && !filterCompleted}
-          <Icon imgPath="/icon-filter-bot.png" altText="Filter Status" width="20px" height="20px" />
+            <Icon
+              imgPath="/icon-filter-bot.png"
+              altText="Filter Status"
+              width="20px"
+              height="20px"
+            />
           {:else}
-            <Icon imgPath="/icon-filter-top.png" altText="Filter Status" width="20px" height="20px"/>
+            <Icon
+              imgPath="/icon-filter-top.png"
+              altText="Filter Status"
+              width="20px"
+              height="20px"
+            />
           {/if}
         </div>
         <div class="mr-2">Sort A - Z</div>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div class="sort-icon p-2 mr-3" on:click={sortListAz}>
           {#if sortedAz}
             <!-- Initially list will be sorted alphabetically (A-Z) -->
-            <Icon imgPath="/icon-sort-asc.png" altText="Sort A-Z" width="20px" height="20px" />
+            <Icon
+              imgPath="/icon-sort-asc.png"
+              altText="Sort A-Z"
+              width="20px"
+              height="20px"
+            />
           {:else}
-            <Icon imgPath="/icon-sort-desc.png" altText="Sort Z-A" width="20px" height="20px"/>
+            <Icon
+              imgPath="/icon-sort-desc.png"
+              altText="Sort Z-A"
+              width="20px"
+              height="20px"
+            />
           {/if}
         </div>
       </div>
@@ -122,37 +161,62 @@ function filterByStatus() {
     <div class="scroll">
       <div>
         {#each filteredList as listItem}
-        <Linkable link={'/learning-outcomes/' + listItem.cbm_id}>
-            <div class="card-bordered p-3">
-              <div class="flex flew-row">
-                <div class="basis-1/4 mr-5">
+          <div class="card-bordered p-3">
+            <div class="flex flew-row">
+              <div class="basis-1/4 mr-5">
+                <Linkable link={'/learning-outcomes/' + listItem.cbm_id}>
                   <img
                     alt={listItem.title}
                     class={shapeClass}
                     src={listItem.image}
                   />
-                </div>
-                <div class="flex items-center basis-3/4">
-                  <div>
+                </Linkable>
+              </div>
+              <div class="flex items-center basis-3/4">
+                <div>
+                  <Linkable link={'/learning-outcomes/' + listItem.cbm_id}>
                     <div class="item-title">
                       {listItem.title}
-                        <!-- status badges -->
-                        {#if listItem.completed}
-                        <div class="badge badge-md badge-accent badge-outline">completed</div>
-                        {:else}
-                        <div class="badge badge-lg badge-secondary badge-outline">incomplete</div>
-                        {/if}
+                      <!-- status badges -->
+                      {#if listItem.completed}
+                        <div class="badge badge-md badge-accent badge-outline">
+                          completed
+                        </div>
+                      {:else}
+                        <div
+                          class="badge badge-lg badge-secondary badge-outline"
+                        >
+                          incomplete
+                        </div>
+                      {/if}
                     </div>
                     <div class="item-description">
                       {listItem.description}
                     </div>
-                  </div>
+                  </Linkable>
                 </div>
+              </div>
               <div>
-                </div>
-                </div>
+                <!-- Able button - generate PDF -->
+                {#if listItem.completed}
+                  <button
+                    on:click={() => startPDFGeneration(listItem)}
+                    class="btn"
+                    tabindex="-1"
+                    aria-disabled="false">PDF</button
+                  >
+                {:else}
+                  <!-- Disabled button - cant generate PDF -->
+                  <button
+                    class="btn btn-disabled"
+                    tabindex="-1"
+                    aria-disabled="true">PDF</button
+                  >
+                {/if}
+              </div>
+              <div />
             </div>
-          </Linkable>
+          </div>
         {/each}
       </div>
     </div>
