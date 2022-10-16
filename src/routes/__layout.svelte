@@ -26,24 +26,6 @@
   }
 
   /**
-   * Retrieves a profile picture's URL and sets it to src.
-   */
-  async function downloadImage(path) {
-    try {
-      const { data, error } = await supabaseClient.storage
-        .from('avatars')
-        .download(path);
-
-      if (error) throw error;
-
-      return URL.createObjectURL(data).toString();
-    } catch (error) {
-      // TODO: handle downloading error
-      console.log('Error downloading image: ', error.message);
-    }
-  }
-
-  /**
    * Retrieve user information from the database and update UI
    */
 
@@ -108,7 +90,7 @@
           <div class="dropdown dropdown-end">
             <button tabindex="0" class="btn btn-ghost btn-circle avatar">
               <div class="w-10 rounded-full">
-                <img alt="profile" src={foundUser['avatar_url']} />
+                <img alt="profile" src={ foundUser['avatar_url'] != null ? foundUser['avatar_url'] : avatarUrl } />
               </div>
             </button>
             <ul

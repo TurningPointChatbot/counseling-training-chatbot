@@ -12,7 +12,12 @@
   export let position;
   export let foundUser;
 
+  let avatarUrl = 'https://placeimg.com/80/80/people';
+
   fullName = foundUser['fname'] + ' ' + foundUser['lname'];
+  if (foundUser['avatar_url'] == null) {
+    foundUser['avatar_url'] = avatarUrl;
+  }
 
   const positions = {
     1 : 'admin',
