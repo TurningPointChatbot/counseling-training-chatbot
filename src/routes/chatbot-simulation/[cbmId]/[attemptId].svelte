@@ -47,12 +47,12 @@
       ];
       await storeMessage(attemptId, userMessageText, 'user');
       userMessageText = null;
-      sendChatbotMessage();
+      await sendChatbotMessage();
     }
   }
 
-  function sendChatbotMessage() {
-    let displayMessage: DisplayMessage = chatbot.sendMessageWebchatExample1();
+  async function sendChatbotMessage() {
+    let displayMessage: DisplayMessage = await chatbot.sendAiMessage();
     displayMessages = [...displayMessages, displayMessage];
   }
 </script>
