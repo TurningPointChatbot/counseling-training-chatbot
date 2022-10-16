@@ -8,12 +8,7 @@
 
   let avatarUrl = 'https://placeimg.com/80/80/people';
   let userType = 'admin' // Hardcoded placeholder
-
-  // Supabase Client has to be replaced with API calls. This was messing up Navigation
-  // TODO: Migrate to API calls - Linton
-
-  // TODO: All the below JavaScript code is copied from Profile.svelte and Login.svelte - these common functions
-  // should ideally be refactored out into a single place.
+  const user = $session.user
 
   /**
    * Sign Out Function
@@ -52,41 +47,47 @@
   /** 
    * Retrieve user information from the database and update UI
    */
-  /* async function getUserInfo() {
+
+  /*
+  async function getUserFromEmail() {
     if ($page.url.pathname === '/login') {
       return;
     }
 
+
     try {
-      const user = supabaseClient.auth.user();
 
-      let { data, error, status } = await supabaseClient
-        .from('user')
-        .select(
-          `
-          avatar_url,
-          user_type:type_id (
-            name
-          )
-        `
-        )
-        .eq('email', user.email)
-        .single();
+      const url = `/api/users/?email=${user.email}`;
+      const response = await fetch(url);
+      let foundUser = response.ok && (await response.json();
 
-      if (error && status) throw error;
+      console.log(foundUser);
 
-      if (data) {
-        userType = data.user_type.name;
-        if (data.avatar_url) {
-          avatarUrl = await downloadImage(data.avatar_url);
-        }
+      if (response.status) {
+        let x = 9;
       }
+
     } catch (error) {
-      console.log(error.error_description || error.message);
+      console.log(error.message);
     }
   }
 
-  getUserInfo(); */
+  import type { user } from '@prisma/client';
+
+  export let foundUser: user;
+  export let id: bigint;
+
+   */
+</script>
+
+<script context="module" lang="ts">
+  /*export async function load({ fetch }) {
+    const url = '/api/users/email=';
+    const response = await fetch(url);
+
+    console.log(response);
+  }
+  */
 </script>
 
 {#if $page.url.pathname === '/login'}

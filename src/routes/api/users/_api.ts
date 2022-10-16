@@ -7,6 +7,10 @@ type UserAPIGetParams = {
   attempts?: boolean;
 };
 
+type UserFromEmailAPIGetParams = {
+  email: string;
+}
+
 export async function userGET(
   params?: UserAPIGetParams
 ): Promise<user[] | undefined> {
@@ -21,6 +25,32 @@ export async function userGET(
       },
       include: {
         chatbot_attempt: params.attempts
+      }
+    });
+
+    if (foundUser) {
+      users = removeBigInt(foundUser);
+    }
+  }
+
+  if (users) {
+    return removeBigInt(users);
+  }
+
+  return;
+}
+
+export async function userFromEmailGET(
+    params?: UserFromEmailAPIGetParams
+): Promise<user[] | undefined> {
+  let users: user[] = [];
+
+  if (!params) {
+    users = await prisma.user.findMany();
+  } else {
+    const foundUser = await prisma.user.findUnique({
+      where: {
+        email: params.email
       }
     });
 
