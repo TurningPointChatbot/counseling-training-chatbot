@@ -39,18 +39,26 @@
 </script>
 
 <script context="module" lang="ts">
-
   export async function load({ fetch, session }) {
-    let email = session.user.email;
-    const url = `/api/users/email=${email}`;
-    const response = await fetch(url);
+    try {
+      let email = session.user.email;
+      const url = `/api/users/email=${email}`;
+      const response = await fetch(url);
 
-    return {
-      status: response.status,
-      props: {
-        foundUser: response.ok && (await response.json()),
+      return {
+        status: response.status,
+        props: {
+          foundUser: response.ok && (await response.json()),
+        }
+      };
+    }
+    catch (e) {
+      return {
+        props: {
+          foundUser: null
+        }
       }
-    };
+    }
   }
 </script>
 
@@ -90,11 +98,12 @@
             src="/turning-point-logo.svg"
           />
         </div>
+        {#if foundUser != null}
         <div class="flex-none">
           <div class="dropdown dropdown-end">
             <button tabindex="0" class="btn btn-ghost btn-circle avatar">
               <div class="w-10 rounded-full">
-                <img alt="profile" src={ foundUser['avatar_url'] != null ? foundUser['avatar_url'] : avatarUrl } />
+                <img alt="profile" src={ foundUser != null ? foundUser['avatar_url'] : avatarUrl } />
               </div>
             </button>
             <ul
@@ -106,6 +115,7 @@
             </ul>
           </div>
         </div>
+        {/if}
       </div>
       <div class="m-3">
         <SupaAuthHelper {supabaseClient} {session}>
@@ -113,6 +123,7 @@
         </SupaAuthHelper>
       </div>
     </div>
+    {#if foundUser != null}
     <div class="drawer-side">
       <label for="my-drawer" class="drawer-overlay" />
       <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
@@ -125,5 +136,6 @@
         {/if}
       </ul>
     </div>
+    {/if}
   </div>
 {/if}
