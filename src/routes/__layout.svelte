@@ -6,8 +6,8 @@
   import AdminSidenav from '$lib/components/sidenav/AdminSidenav.svelte';
   import CounsellorSidenav from '$lib/components/sidenav/CounsellorSidenav.svelte';
 
-  let avatarUrl = 'https://placeimg.com/80/80/people';
-  let userType = 'admin' // Hardcoded placeholder
+  let avatarUrl = 'https://picsum.photos/id/231/300';// 'https://placeimg.com/80/80/people';
+  let userType = 'counsellor' // Hardcoded placeholder
 
   // Supabase Client has to be replaced with API calls. This was messing up Navigation
   // TODO: Migrate to API calls - Linton
@@ -89,7 +89,7 @@
   getUserInfo(); */
 </script>
 
-{#if $page.url.pathname === '/login'}
+{#if $page.url.pathname === '/login' || $page.url.pathname === '/'}
   <!-- Disable navbar for login page. -->
   <div class="m-3">
     <SupaAuthHelper {supabaseClient} {session}>
@@ -137,7 +137,7 @@
               class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
             >
               <li><a href={'/profile/account'}>Profile</a></li>
-              <li on:click={signOut}><a href="../login">Logout</a></li>
+              <li on:click={signOut}><a href="/login">Logout</a></li>
             </ul>
           </div>
         </div>

@@ -11,12 +11,12 @@
   export let cbmId: number;
   console.log(cbmId);
 
-  let moduleName: string = 'Module ' + cbmId; // I think it's fine to create the module name from cbmId like this - Linton
+  let moduleName: string = 'Addiction and mental health'; // I think it's fine to create the module name from cbmId like this - Linton
   let noOfOutcomes: number = 2; // TODO should not be hardcoded, should pull # of outcomes from database
   let learningOutcomes: Array<any> = [];
   let moduleDescriptions = [
-    'We all have innate biases, most commonly centred around our race, gender, age or other visible features. These biases curb our ability to empathize with others as they cause false perceptions (e.g. everyone of the opposite gender are not fit to be leaders), which in turn influences our actions. Such biases also make us less willing to try to empathize with people from different backgrounds or experiences. Many of our biases are unconscious, but one way to learn what biases you hold is to take an unconscious bias quiz.',
-    'To make an empathetic connection with someone, it must go both ways – simply listening to them does not forge this connection. Instead, when people open up to you about their feelings, view it as an opportunity for you to identify with them and be vulnerable to them. Take the time to listen to them actively to understand where they are coming from without trying to problem solve right away. You might not have been in their exact position, but you can imagine or think back to a time where you had similar feelings and emotions.'
+    'Overcoming an addiction can be a long and bumpy road. At times, it may even feel impossible. Learn how to support someone on their journey',
+    'Practice speaking with a client who are concerned about their mental health and addiction.'
   ];
 
   for (let i: number = 1; i <= noOfOutcomes; i++) {
@@ -50,7 +50,7 @@
 <html lang="en" data-theme="cupcake" />
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="py-12 my-12 mx-52">
+<div class="mt-8 mx-52">
   <div class="flex">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="lg:text-left">
@@ -70,7 +70,7 @@
           </dl>
         </div>
       </div>
-      <div class="flex">
+      <div class="flex mt-10">
         <!-- <button on:click={returnToModules} class="btn btn-secondary btn-outline ml-10 mt-10 "> -->
         <button
           on:click={returnToModules}

@@ -27,23 +27,28 @@
   export let counsellors: user[];
   let chatbot_modules = [];
 
+  let imageUrl = 'https://picsum.photos/id/{imageId}/400/600.jpg';
   for (let i = 0; i < 3; i++) {
     if (i >= modules.length) {
       break;
     }
+    let imageId = 200 + i*2;
     chatbot_modules[chatbot_modules.length] = {
       title: modules[i].title,
       description: modules[i].description,
-      image: 'https://picsum.photos/id/426/400/600.jpg',
+      image: imageUrl.replace('{imageId}', imageId.toString()),
       href: '/admin/module-details/' + modules[i].id
     };
   }
 
 </script>
-<div class="module-card">
+<div class="ml-8 mt-8">
+  <h1>Dashboard</h1>
+</div>
+<div class="module-card pt-2">
   <BigCard title={'Counsellors'} subTitle={''}>
     {#each counsellors as counsellor}
-      <SmallCard titleButton={counsellor['fname'] + " " + counsellor['lname']} path = "/admin/employee-details/{counsellor['id']}" />
+      <SmallCard image={counsellor.avatar_url} titleButton={counsellor['fname'] + " " + counsellor['lname']} path = "/admin/employee-details/{counsellor['id']}" />
     {/each}
     <ModuleCircleButton path="/admin/counsellors"/>
   </BigCard>

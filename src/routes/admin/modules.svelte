@@ -26,11 +26,13 @@
 
   let chatbotModules = [];
 
+  let imageUrl = 'https://picsum.photos/id/{imageId}/400.jpg';
   for (let i = 0; i < modules.length; i++) {
+    let imageId = 200 + i*2;
     chatbotModules[chatbotModules.length] = {
       title: modules[i].title,
       description: modules[i].description,
-      image: 'https://picsum.photos/id/426/400/600.jpg',
+      image: imageUrl.replace('{imageId}', imageId.toString()),
       href: '/admin/module-details/' + modules[i].id
     };
   }

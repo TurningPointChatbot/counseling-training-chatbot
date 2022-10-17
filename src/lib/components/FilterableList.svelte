@@ -107,3 +107,9 @@
     </div>
   </div>
 </div>
+
+<style>
+  .scroll {
+    max-height: 360px;
+  }
+</style>

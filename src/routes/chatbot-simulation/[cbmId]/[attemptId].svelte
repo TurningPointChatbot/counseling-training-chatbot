@@ -103,13 +103,12 @@
 </script>
 
 <html lang="en" data-theme="cupcake" />
-
 <div class="w-5/6 mx-28">
   <!-- Header -->
   <div class="flex justify-center">
-    <div class="block p-6 mt-8 mb-8 mx-10 rounded shadow-lg bg-base-300 w-full">
+    <div class="block p-6 mb-6 mx-10 rounded shadow-lg bg-base-300 w-full">
       <h5 class="text-gray-900 text-xl leading-tight font-medium">
-        {moduleName}
+        Addiction and mental health
       </h5>
     </div>
   </div>
@@ -119,7 +118,7 @@
     <div class="max-w-full border rounded">
       <div>
         <div class="w-full">
-          <div class="relative w-full p-6 overflow-y-auto h-[24rem]">
+          <div class="relative w-full p-6 overflow-y-auto h-[15rem]">
             <div class="overflow-auto ...">
               <ul class="space-y-2">
                 <!-- Messags are being displayed here -->
@@ -134,7 +133,7 @@
     </div>
   </div>
 
-  <div class="flex justify-center my-1">
+  <div class="flex justify-center mt-6">
     <div class="mb-3 w-full mx-10">
       <!-- Buttons for text-->
       <div class="block py-2 px-4 rounded-t shadow-lg bg-base-300 w-full">

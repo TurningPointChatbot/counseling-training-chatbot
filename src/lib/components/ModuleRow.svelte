@@ -17,7 +17,7 @@
 
   let filteredList: Array<Module> = listData;
   let filterTerm: string = '';
-  let sortedAz: boolean = true; // is list sorted A->Z
+  let sortedAz: boolean = false; // is list sorted A->Z
   let filterStatusOn: boolean = false; // is the filter in use
   let filterCompleted: boolean = false; // is the filter filtering by completed?
   let shapeClass: string = rectangleOrCircle ? 'rounded-rectangle' : 'rounded-circle';
@@ -89,10 +89,12 @@
     console.log('pdf clicked!')
     // TODO: Replace placeholder module values
     let attemptId: number = 1;
-    let dateCompleted: string = 'Placeholder Date'
-    let counsellorName: string = 'Placeholder Name'
+    let dateCompleted: string = '2022-10-17 15:23'
+    let counsellorName: string = 'John Smith'
     generatePDF(attemptId, listItem.title, counsellorName, dateCompleted);
   }
+
+  sortListAz();
 </script>
 
 <div class="card-bordered h-full">
@@ -250,7 +252,7 @@
   }
 
   .scroll {
-    max-height: 100%;
+    max-height: 360px;
     overflow-y: auto;
   }
 

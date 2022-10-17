@@ -19,7 +19,7 @@
 
       if (error) throw error;
 
-      location.href = '/profile/account';
+      location.href = '/counsellor/modules';
     } catch (error) {
       alert(error.error_description || error.message);
     } finally {

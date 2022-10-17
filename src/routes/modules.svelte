@@ -26,20 +26,22 @@
 
   function createModuleList() {
     modules = [];
+    let imageUrl = 'https://picsum.photos/id/{imageId}/400.jpg';
     for (let i: number = 0; i < assignments.length; i++) {
-      console.log(assignments.length);
+      let imageId = 200 + i*2;
       modules.push({
         title: 'Module ' + assignments[i].cbm_id, // should come from different table
         description: 'Description for module ' + assignments[i].cbm_id, // should come from different table
         cbm_id: assignments[i].cbm_id,
         completed: assignments[i].completed,
-        image: 'https://picsum.photos/id/426/400/600.jpg', // should come from different table
+        image: imageUrl.replace('{imageId}', imageId.toString()), // should come from different table
         dateAccessed: '2022-05-25'
       });
     }
     return modules;
   }
 
+  console.log(modules);
   modules = createModuleList();
 
 </script>

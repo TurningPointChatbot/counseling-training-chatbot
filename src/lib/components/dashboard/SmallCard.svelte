@@ -6,7 +6,7 @@
   export let alt = 'image';
   export let imageClass = 'rounded-full h-32 w-32';
   export let cardClass =
-    'module-card p-5 text-center rounded-md hover:-translate-y-1 flex flex-col items-center';
+    'module-card p-5 text-center rounded-md flex flex-col items-center';
 </script>
 
 <a class={cardClass} href="/">
