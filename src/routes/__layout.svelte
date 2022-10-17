@@ -7,7 +7,11 @@
   import CounsellorSidenav from '$lib/components/sidenav/CounsellorSidenav.svelte';
 
   let avatarUrl = 'https://placeimg.com/80/80/people';
-  let userType = 'admin' // Hardcoded placeholder
+  const positions = {
+    1 : 'admin',
+    2 : 'counsellor',
+    3: 'base'
+  }
 
   /**
    * Sign Out Function
@@ -112,11 +116,11 @@
     <div class="drawer-side">
       <label for="my-drawer" class="drawer-overlay" />
       <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
-        {#if userType === 'admin' || userType === 'supervisor'}
+        {#if positions[foundUser['type_id']] === 'admin' || positions[foundUser['type_id']] === 'supervisor'}
           <AdminSidenav />
         {/if}
 
-        {#if userType === 'counsellor'}
+        {#if positions[foundUser['type_id']] === 'counsellor'}
           <CounsellorSidenav />
         {/if}
       </ul>
