@@ -3,7 +3,7 @@
   // https://supabase.com/docs/guides/with-svelte
   // last accessed: 08/05/2022
   import AvatarCard from '$lib/components/profile/AvatarCard.svelte';
-  import supabase from '$lib/supabase';
+  import type {user_POST} from "../../post_types";
 
   let editOn = false;
   let loading = false;
@@ -31,38 +31,43 @@
     editOn = !editOn;
   }
 
-  // update the user database with edited information
-  async function handleSave() {
+  /**
+   * Retrieve user information from the database and update UI
+   */
+  async function handleSave () {
+
+    let [fname, lname] = fullName.split(' ');
+
     try {
       loading = true;
-      const user = supabase.auth.user();
 
-      // TODO: FIX THIS, maybe split into to input fields?
-      let [fname, lname] = fullName.split(' ');
-
-      const updates = {
-        fname: fname,
-        lname: lname
+      const bodyContent : user_POST = {
+        'id' : foundUser['id'],
+        'fname' : fname,
+        'lname' : lname,
+        'email' : foundUser['email'],
+        'avatar_url' : foundUser['avatar_url']
       };
 
-      let { error } = await supabase
-        .from('user')
-        .update(updates, {
-          returning: 'minimal'
-        })
-        .eq('email', user.email);
+      console.log(JSON.stringify(bodyContent));
+
+      const user_result = await fetch('/api/users/modify', {
+        method: 'POST',
+        body: JSON.stringify(bodyContent)
+        });
+
+      console.log(user_result)
+
+      //return await user_result.json();
+
     } catch (error) {
       // TODO: improve error handling
-      // alert(error.message);
+      alert(error.message);
     } finally {
       editOn = false;
       loading = false;
     }
   }
-
-  /**
-   * Retrieve user information from the database and update UI
-   */
 
 </script>
 
