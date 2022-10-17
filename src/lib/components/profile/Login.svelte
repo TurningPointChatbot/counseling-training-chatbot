@@ -6,6 +6,7 @@
     editOn = !editOn;
   }
 
+  import { session, page } from '$app/stores';
   import supabase from '$lib/supabase';
   let loading = false;
   let email;
@@ -21,6 +22,10 @@
       const { user, error } = await supabase.auth.signIn({ email, password });
 
       if (error) throw error;
+
+      while ($session.user == null){
+        await delay(300);
+      }
 
       location.href = '/profile/account';
     } catch (error) {
@@ -62,6 +67,10 @@
     } finally {
       loading = false;
     }
+  }
+
+  function delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
   }
 </script>
 
