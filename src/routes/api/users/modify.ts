@@ -1,8 +1,10 @@
-import { userGET } from './_api';
+import { userModifyPOST } from './_api';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function GET({ params }) {
-  const user = await userGET({ id: parseInt(params.id)});
+export async function POST({ request }) {
+  const new_user = await request.json();
+
+  const user = await userModifyPOST(new_user);
 
   if (user) {
     return {

@@ -7,13 +7,11 @@
   import CounsellorSidenav from '$lib/components/sidenav/CounsellorSidenav.svelte';
 
   let avatarUrl = 'https://placeimg.com/80/80/people';
-  let userType = 'admin' // Hardcoded placeholder
-
-  // Supabase Client has to be replaced with API calls. This was messing up Navigation
-  // TODO: Migrate to API calls - Linton
-
-  // TODO: All the below JavaScript code is copied from Profile.svelte and Login.svelte - these common functions
-  // should ideally be refactored out into a single place.
+  const positions = {
+    1 : 'admin',
+    2 : 'counsellor',
+    3: 'base'
+  }
 
   /**
    * Sign Out Function
@@ -32,61 +30,36 @@
   }
 
   /**
-   * Retrieves a profile picture's URL and sets it to src.
-   */
-  async function downloadImage(path) {
-    try {
-      const { data, error } = await supabaseClient.storage
-        .from('avatars')
-        .download(path);
-
-      if (error) throw error;
-
-      return URL.createObjectURL(data).toString();
-    } catch (error) {
-      // TODO: handle downloading error
-      console.log('Error downloading image: ', error.message);
-    }
-  }
-
-  /** 
    * Retrieve user information from the database and update UI
    */
-  /* async function getUserInfo() {
-    if ($page.url.pathname === '/login') {
-      return;
-    }
 
+  import type { user } from '@prisma/client';
+  export let foundUser: user;
+
+</script>
+
+<script context="module" lang="ts">
+  export async function load({ fetch, session }) {
     try {
-      const user = supabaseClient.auth.user();
+      let email = session.user.email;
+      const url = `/api/users/email=${email}`;
+      const response = await fetch(url);
 
-      let { data, error, status } = await supabaseClient
-        .from('user')
-        .select(
-          `
-          avatar_url,
-          user_type:type_id (
-            name
-          )
-        `
-        )
-        .eq('email', user.email)
-        .single();
-
-      if (error && status) throw error;
-
-      if (data) {
-        userType = data.user_type.name;
-        if (data.avatar_url) {
-          avatarUrl = await downloadImage(data.avatar_url);
+      return {
+        status: response.status,
+        props: {
+          foundUser: response.ok && (await response.json()),
+        }
+      };
+    }
+    catch (e) {
+      return {
+        props: {
+          foundUser: null
         }
       }
-    } catch (error) {
-      console.log(error.error_description || error.message);
     }
   }
-
-  getUserInfo(); */
 </script>
 
 {#if $page.url.pathname === '/login'}
@@ -125,11 +98,12 @@
             src="/turning-point-logo.svg"
           />
         </div>
+        {#if foundUser != null}
         <div class="flex-none">
           <div class="dropdown dropdown-end">
             <button tabindex="0" class="btn btn-ghost btn-circle avatar">
               <div class="w-10 rounded-full">
-                <img alt="profile" src={avatarUrl} />
+                <img alt="profile" src={ foundUser != null ? foundUser['avatar_url'] : avatarUrl } />
               </div>
             </button>
             <ul
@@ -141,6 +115,7 @@
             </ul>
           </div>
         </div>
+        {/if}
       </div>
       <div class="m-3">
         <SupaAuthHelper {supabaseClient} {session}>
@@ -148,17 +123,19 @@
         </SupaAuthHelper>
       </div>
     </div>
+    {#if foundUser != null}
     <div class="drawer-side">
       <label for="my-drawer" class="drawer-overlay" />
       <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
-        {#if userType === 'admin' || userType === 'supervisor'}
+        {#if positions[foundUser['type_id']] === 'admin' || positions[foundUser['type_id']] === 'supervisor'}
           <AdminSidenav />
         {/if}
 
-        {#if userType === 'counsellor'}
+        {#if positions[foundUser['type_id']] === 'counsellor'}
           <CounsellorSidenav />
         {/if}
       </ul>
     </div>
+    {/if}
   </div>
 {/if}

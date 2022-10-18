@@ -5,39 +5,16 @@
 
   import { createEventDispatcher } from 'svelte';
   import supabase from '$lib/supabase';
+  import type {user_POST} from "../../post_types";
 
   export let path: string;
+  export let foundUser;
 
   let src: string = path;
   let uploading: boolean;
   let files: FileList;
 
   const dispatch = createEventDispatcher();
-
-  // FIXME: super hacky line of code that gets image to download on path change
-  // primarily when path is first fetched from the database.
-  $: {
-    path;
-    downloadImage();
-  }
-
-  /**
-   * Retrieves a profile picture's URL and sets it to src.
-   */
-  async function downloadImage() {
-    try {
-      const { data, error } = await supabase.storage
-        .from('avatars')
-        .download(path);
-
-      if (error) throw error;
-
-      src = URL.createObjectURL(data);
-    } catch (error) {
-      // TODO: handle downloading error
-      console.log('Error downloading image: ', error.message);
-    }
-  }
 
   /**
    * Uploads an image specified by the file input to supabase storage bucket.
@@ -68,8 +45,6 @@
 
       await updateUserAvatarURL();
 
-      await downloadImage();
-
       dispatch('upload');
     } catch (error) {
       // TODO: handle uploading error
@@ -81,21 +56,21 @@
 
   async function updateUserAvatarURL() {
     try {
-      const user = supabase.auth.user();
+      const bodyContent: user_POST = {
+        'id': foundUser['id'],
+        'fname': foundUser['fname'],
+        'lname': foundUser['lname'],
+        'email': foundUser['email'],
+        'avatar_url': path
+      };
 
-      let { error } = await supabase
-        .from('user')
-        .update(
-          {
-            avatar_url: path
-          },
-          {
-            returning: 'minimal'
-          }
-        )
-        .eq('email', user.email);
+      const user_result = await fetch('/api/users/modify', {
+        method: 'POST',
+        body: JSON.stringify(bodyContent)
+      });
 
-      if (error) throw error;
+      return await user_result.json();
+
     } catch (error) {
       // TODO: improve error handling
       alert(error.message);
@@ -107,7 +82,7 @@
   <div class="grid place-content-center avatar">
     <div class="w-36 rounded-full border-base-300 border-4">
       <!-- Below line throws a typescript error but still works as expected... -->
-      <img use:downloadImage {src} alt="The user's avatar" />
+      <img {src} alt="The user's avatar" />
     </div>
   </div>
   <h3 class="text-center">Change profile picture:</h3>

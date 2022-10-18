@@ -1,23 +1,31 @@
 <script lang="ts">
+
   let editOn = false;
 
   function toggleEdit() {
     editOn = !editOn;
   }
 
+  import { session, page } from '$app/stores';
   import supabase from '$lib/supabase';
   let loading = false;
-  let email, password;
+  let email;
+  let password;
 
   /**
    * Sign In Function
    */
+
   const signInWithEmail = async () => {
     try {
       loading = true;
       const { user, error } = await supabase.auth.signIn({ email, password });
 
       if (error) throw error;
+
+      while ($session.user == null){
+        await delay(300);
+      }
 
       location.href = '/profile/account';
     } catch (error) {
@@ -59,6 +67,10 @@
     } finally {
       loading = false;
     }
+  }
+
+  function delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
   }
 </script>
 
