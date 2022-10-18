@@ -5,8 +5,10 @@
 
   import { createEventDispatcher } from 'svelte';
   import supabase from '$lib/supabase';
+  import type {user_POST} from "../../post_types";
 
   export let path: string;
+  export let foundUser;
 
   let src: string = path;
   let uploading: boolean;
@@ -54,21 +56,21 @@
 
   async function updateUserAvatarURL() {
     try {
-      const user = supabase.auth.user();
+      const bodyContent: user_POST = {
+        'id': foundUser['id'],
+        'fname': foundUser['fname'],
+        'lname': foundUser['lname'],
+        'email': foundUser['email'],
+        'avatar_url': path
+      };
 
-      let { error } = await supabase
-        .from('user')
-        .update(
-          {
-            avatar_url: path
-          },
-          {
-            returning: 'minimal'
-          }
-        )
-        .eq('email', user.email);
+      const user_result = await fetch('/api/users/modify', {
+        method: 'POST',
+        body: JSON.stringify(bodyContent)
+      });
 
-      if (error) throw error;
+      return await user_result.json();
+
     } catch (error) {
       // TODO: improve error handling
       alert(error.message);

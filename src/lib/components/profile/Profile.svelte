@@ -49,16 +49,12 @@
         'avatar_url' : foundUser['avatar_url']
       };
 
-      console.log(JSON.stringify(bodyContent));
-
       const user_result = await fetch('/api/users/modify', {
         method: 'POST',
         body: JSON.stringify(bodyContent)
         });
 
-      console.log(user_result)
-
-      //return await user_result.json();
+      return await user_result.json();
 
     } catch (error) {
       // TODO: improve error handling
@@ -84,7 +80,7 @@
     <h3>{foundUser.email}</h3>
   </div>
 
-  <AvatarCard bind:path={foundUser['avatar_url']} />
+  <AvatarCard bind:path={foundUser['avatar_url']} bind:foundUser={foundUser}/>
 
   <!-- Could definitely think about refactoring all of these into components as it's just repeated 3 times -->
   <form
