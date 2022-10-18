@@ -91,7 +91,7 @@ export async function userModifyPOST(
 ): Promise<user | undefined> {
   const adjusted_user = await prisma.user.update({
     where: {
-      id: modified_user.id
+      id: BigInt(modified_user.id)
     },
     data: {
       fname: modified_user.fname,
