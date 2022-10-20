@@ -36,9 +36,27 @@
   import type { user } from '@prisma/client';
   export let foundUser: user;
 
-</script>
+  // if (foundUser == null && $page.url.pathname != '/login'){
+  //   // REDIRECT OT LOGIN HERE
+  //   console.log("redirecting");
+  //   console.log(`${$page.url.origin}/login`);
+  //   // $page.url.pathname = "/login";
+  //   // Response.redirect(`${$page.url.origin}`, 302);
+  //   location.href = "/login";
+    
+  // }
 
-<script context="module" lang="ts">
+  // export async function load({ fetch, session }) {
+  //     if (foundUser == null && $page.url.pathname != '/login'){
+  //       console.log("redirecting");
+  //       // $page.url.pathname = "/login";
+  //       return {
+  //       status: 302,
+  //       redirect: "login"
+  //       };
+  //     }
+  // }
+
   export async function load({ fetch, session }) {
     try {
       let email = session.user.email;
@@ -53,13 +71,21 @@
       };
     }
     catch (e) {
-      return {
-        props: {
-          foundUser: null
+      if ($page.url.pathname != '/login'){
+        return {
+          props: {
+            foundUser: null
+          },
+          status: 302,
+          redirect: "/login"
         }
       }
     }
   }
+</script>
+
+<script context="module" lang="ts">
+
 </script>
 
 {#if $page.url.pathname === '/login'}
