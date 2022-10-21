@@ -7,7 +7,9 @@
 
 <script context="module" lang="ts">
 
-    export async function load({ fetch, session }) {
+export async function load({ fetch, session }) {
+    try{ 
+        console.log("here");
         let email = session.user.email;
 
         const url = `/api/users/email=${email}`;
@@ -20,6 +22,13 @@
             }
         };
     }
+    catch (e) {
+        return {
+            status: 302,
+            redirect: "/login"
+        }
+    }
+}
 </script>
 
 <Profile foundUser={foundUser}/>
