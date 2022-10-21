@@ -1,5 +1,12 @@
 <script context="module" lang="ts">
-  export async function load({ fetch }) {
+  export async function load({ fetch, session }) {
+    const user = session.user;
+        if (!user) {
+            return {
+                status: 302,
+                redirect: "/login"
+            };
+        }
     //TODO: User ID is hardcoded here for now but we will eventually need to implement
     //functionality to retrieve it from login and pass it here. - Linton
     let userId = 1;

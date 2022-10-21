@@ -1,6 +1,15 @@
 <script context="module">
   
-  export async function load({ fetch, params }) {
+  export async function load({ fetch, params, session}) {
+
+    const user = session.user;
+        if (!user) {
+            return {
+                status: 302,
+                redirect: "/login"
+            };
+        }
+    
     const moduleUrl = `/api/modules/chatbot/${params.moduleId}`;
     const moduleResponse = await fetch(moduleUrl);
 

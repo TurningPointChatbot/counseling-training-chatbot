@@ -1,5 +1,12 @@
 <script context="module" lang="ts">
-  export async function load({ fetch }) {
+  export async function load({ fetch, session }) {
+    const user = session.user;
+        if (!user) {
+            return {
+                status: 302,
+                redirect: "/login"
+            };
+        }
     const url = '/api/users/counsellors';
     const response = await fetch(url);
 
