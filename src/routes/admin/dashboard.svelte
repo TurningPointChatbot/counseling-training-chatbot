@@ -1,6 +1,13 @@
 <script context="module" lang="ts">
   //Need to check if these are the correct API calls to make
-  export async function load({ fetch }) {
+  export async function load({ fetch, session }) {
+    const user = session.user;
+        if (!user) {
+            return {
+                status: 302,
+                redirect: "/login"
+            };
+        }
     const modulesUrl = '/api/modules/chatbot';
     const modulesResponse = await fetch(modulesUrl);
 

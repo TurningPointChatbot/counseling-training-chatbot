@@ -57,6 +57,24 @@
       return date.toISOString().split('T')[0];
     }
   </script>
+
+<script context="module" lang="ts">
+  export async function load({ fetch, session }) {
+        const user = session.user;
+        if (!user) {
+            return {
+                status: 302,
+                redirect: "/login"
+            };
+        }
+        else{
+          return {
+                status: 302,
+                redirect: "/profile/account" 
+            };
+        }
+  }
+</script>
   
   <div class="p-2">
     <h2 class="mb-4 font-bold">Assign Module</h2>

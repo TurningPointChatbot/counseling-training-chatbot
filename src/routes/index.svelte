@@ -4,10 +4,8 @@
 
 <script context="module" lang="ts">
   export async function load({ fetch, session }) {
-    // We need to use cookies cvause this don't work
         const user = session.user;
         if (!user) {
-          // console.log("No user logged in: redirecting to Login Page");
             return {
                 status: 302,
                 redirect: "/login"
